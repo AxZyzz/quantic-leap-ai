@@ -11,26 +11,26 @@ const About = () => {
   const team = [
     {
       name: "Rahul V K",
-      role: "CEO & AI Strategist",
-      bio: "15+ years in AI and machine learning with Fortune 500 consulting experience.",
+      role: "CEO & co-founder",
+      bio: "experienced in automation and ai integration for business growth.",
       image: rahulPhoto
     },
     {
       name: "Aman Xavier",
-      role: "Lead AI Engineer",
-      bio: "Previously at Google Brain, specialized in custom AI agent development.",
+      role: "CTO & co-founder",
+      bio: "experienced in automation and ai also cyber security specialist.",
       image: amanphoto
     },
     {
       name: "Dany Stephen",
-      role: "Data Systems Architect",
-      bio: "Expert in building scalable data pipelines and intelligent analytics systems.",
+      role: "COO & co-founder",
+      bio: "experienced in automation and ai integration for business growth.",
       image: danyPhoto
     },
     {
       name: "Akhil M S",
-      role: "AI Implementation Lead",
-      bio: "MBA + Computer Science background, bridging business strategy with technical execution.",
+      role: "CPO & co-founder",
+      bio: "Computer Science background,experienced in automation and ai.",
       image: akhilPhoto
     },
   ];
