@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
+  const location = useLocation();
+
+  // Don't render footer on case studies pages to avoid overlapping the fixed sidebar
+  if (location.pathname.startsWith("/case-studies")) {
+    return null;
+  }
   const footerLinks = {
     Solutions: [
       { name: "Workflow Automation", path: "/services#workflow" },
