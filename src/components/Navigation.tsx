@@ -9,18 +9,6 @@ const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handlePricingClick = () => {
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    } else {
-      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -30,10 +18,17 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Scroll to top when location changes, except for pricing
+  useEffect(() => {
+    if (!location.hash && window.scrollY > 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location.pathname]);
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Solutions", path: "/services" },
-    { name: "Pricing", path: "/#pricing" },
+    { name: "Pricing", path: "/pricing" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -44,6 +39,15 @@ const Navigation = () => {
       return location.pathname === "/" && location.hash === "#pricing";
     }
     return location.pathname === path;
+  };
+
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handlePricingClick = () => {
+    navigate('/pricing');
+    setIsMobileMenuOpen(false);
   };
 
   const renderNavLink = (link: { name: string; path: string }) => {
@@ -64,6 +68,7 @@ const Navigation = () => {
       <Link
         key={link.path}
         to={link.path}
+        onClick={handleNavClick}
         className={`text-sm font-medium transition-colors hover:text-accent ${
           isActive(link.path) ? "text-accent" : "text-foreground"
         }`}

@@ -8,135 +8,31 @@ import { TrendingUp, Clock, DollarSign, Users, ArrowRight } from "lucide-react";
 const CaseStudies = () => {
   const studies = [
     {
-      id: "insurance-automation",
-      industry: "Insurance",
-      client: "Regional Insurance Provider",
-      size: "500-1000 employees",
+      id: "sacred-text-publishing",
+      industry: "Religious & Educational Content",
+      client: "Sacred Text Publishing",
+      size: "1,500-page Religious Text",
       challenge:
-        "Manual claims processing was taking 5-7 days per claim, leading to customer dissatisfaction and high operational costs. The team was overwhelmed with repetitive data entry and document verification tasks.",
+        "Transform the complete 1,500-page Sri Guru Granth Sahib—a sacred Gurmukhi text—into engaging social media videos. Each sentence needed dual videos: verse (original Gurmukhi) and explanation (meaning), requiring thousands of unique animated videos. Manual creation would take months/years, and external video APIs would cost thousands.",
       solution:
-        "We implemented an AI-powered claims processing system that automatically extracts data from documents, validates information against policy rules, and routes claims for approval. The system uses OCR for document reading, NLP for understanding claim details, and ML models trained on historical claims data.",
+        "Delivered a fully automated, zero-cost-per-video solution using n8n workflow orchestration, Gemini AI for intelligent OCR, and custom Python-based video generation with FFmpeg. The system processes PDFs, extracts content with AI precision, and generates professionally animated videos with culturally appropriate styling—all running locally with no recurring API costs.",
       technology: [
-        "Computer Vision (OCR)",
-        "Natural Language Processing",
-        "Machine Learning Classification",
-        "Workflow Automation",
-        "API Integrations",
+        "Gemini AI OCR",
+        "n8n Workflow Automation",
+        "Python Video Generation",
+        "FFmpeg Animation",
+        "Google Sheets Integration",
       ],
       results: [
-        { icon: Clock, metric: "95% faster", label: "Processing time reduced from 5-7 days to 2 hours" },
-        { icon: TrendingUp, metric: "300% ROI", label: "Return on investment in 6 months" },
-        { icon: Users, metric: "95% accuracy", label: "Automated decision accuracy rate" },
-        { icon: DollarSign, metric: "$1.2M saved", label: "Annual operational cost savings" },
+        { icon: Clock, metric: "100x faster", label: "Reduced processing from months to hours" },
+        { icon: TrendingUp, metric: "1.5 min", label: "Per video generation time" },
+        { icon: DollarSign, metric: "Zero Cost", label: "Per video after initial setup" },
+        { icon: Users, metric: "Unlimited", label: "Scalability for any text" },
       ],
       testimonial:
-        "The automation has been transformative. Our team can now focus on complex cases while routine claims are processed automatically. Customer satisfaction scores increased by 40%.",
-      author: "Director of Operations",
-    },
-    {
-      id: "ecommerce-support",
-      industry: "E-commerce",
-      client: "Direct-to-Consumer Brand",
-      size: "100-250 employees",
-      challenge:
-        "Customer support team was overwhelmed with 10,000+ monthly inquiries, 80% of which were repetitive questions about orders, returns, and product information. Response times were 24-48 hours, impacting customer satisfaction.",
-      solution:
-        "We deployed a custom AI agent that handles common customer queries through chat, email, and social media. The agent integrates with their order management system, providing real-time order status, processing returns, and answering product questions with human handoff for complex issues.",
-      technology: [
-        "Large Language Models (LLM)",
-        "Multi-channel Integration",
-        "CRM Integration",
-        "Sentiment Analysis",
-        "Knowledge Base Management",
-      ],
-      results: [
-        { icon: TrendingUp, metric: "85%", label: "Of queries handled automatically" },
-        { icon: Clock, metric: "40% faster", label: "Average response time improvement" },
-        { icon: DollarSign, metric: "$2M/year", label: "Support cost savings" },
-        { icon: Users, metric: "92%", label: "Customer satisfaction score" },
-      ],
-      testimonial:
-        "Our AI agent has become an essential team member. It handles the volume we could never afford to staff for, and customers love the instant responses.",
-      author: "Head of Customer Experience",
-    },
-    {
-      id: "healthcare-data",
-      industry: "Healthcare",
-      client: "Multi-Location Medical Practice",
-      size: "250-500 employees",
-      challenge:
-        "Patient data was scattered across 5 different systems with no unified view. Doctors spent hours manually reviewing records, and administrative staff struggled to coordinate care across locations.",
-      solution:
-        "We built a unified data system that aggregates patient information from all sources, provides AI-powered insights for treatment recommendations, and automates appointment scheduling and care coordination. The system maintains HIPAA compliance while providing real-time analytics.",
-      technology: [
-        "Healthcare Data Integration (HL7/FHIR)",
-        "Predictive Analytics",
-        "Secure Data Pipeline",
-        "Real-time Dashboard",
-        "Compliance Management",
-      ],
-      results: [
-        { icon: TrendingUp, metric: "50%", label: "Improvement in patient outcomes" },
-        { icon: Clock, metric: "3 hours/day", label: "Time saved per physician" },
-        { icon: Users, metric: "99.9%", label: "Data accuracy and consistency" },
-        { icon: DollarSign, metric: "$800K", label: "Annual efficiency savings" },
-      ],
-      testimonial:
-        "Having all patient data in one place with intelligent insights has revolutionized our practice. We're providing better care in less time.",
-      author: "Chief Medical Officer",
-    },
-    {
-      id: "manufacturing-optimization",
-      industry: "Manufacturing",
-      client: "Industrial Equipment Manufacturer",
-      size: "1000+ employees",
-      challenge:
-        "Production line inefficiencies were causing 15% downtime, quality control was inconsistent, and maintenance was reactive rather than preventive, leading to unexpected failures and costly repairs.",
-      solution:
-        "We implemented an AI-powered process optimization system with predictive maintenance capabilities. IoT sensors monitor equipment health in real-time, ML models predict failures before they occur, and process mining identifies bottlenecks and optimization opportunities.",
-      technology: [
-        "IoT Integration",
-        "Predictive Maintenance ML",
-        "Process Mining",
-        "Real-time Monitoring",
-        "Anomaly Detection",
-      ],
-      results: [
-        { icon: TrendingUp, metric: "35%", label: "Reduction in downtime" },
-        { icon: DollarSign, metric: "$3.5M", label: "Annual savings from prevented failures" },
-        { icon: Clock, metric: "60%", label: "Faster issue resolution" },
-        { icon: Users, metric: "25%", label: "Increase in production throughput" },
-      ],
-      testimonial:
-        "The predictive maintenance alone has paid for the entire system. We're catching issues before they become problems and our production efficiency has never been better.",
-      author: "VP of Operations",
-    },
-    {
-      id: "finance-compliance",
-      industry: "Financial Services",
-      client: "Regional Bank",
-      size: "500-1000 employees",
-      challenge:
-        "Manual compliance checks were time-consuming and error-prone, with regulatory reporting taking weeks. The risk of non-compliance fines was high, and the compliance team was overwhelmed.",
-      solution:
-        "We developed an automated compliance monitoring system that continuously scans transactions for regulatory violations, generates required reports automatically, and provides real-time risk assessments. The system stays updated with changing regulations.",
-      technology: [
-        "Automated Rule Engines",
-        "Real-time Transaction Monitoring",
-        "Report Generation",
-        "Risk Scoring Models",
-        "Regulatory Database Integration",
-      ],
-      results: [
-        { icon: Clock, metric: "90%", label: "Faster regulatory reporting" },
-        { icon: TrendingUp, metric: "99.5%", label: "Compliance accuracy rate" },
-        { icon: DollarSign, metric: "$1.8M", label: "Annual compliance cost reduction" },
-        { icon: Users, metric: "Zero", label: "Compliance violations since deployment" },
-      ],
-      testimonial:
-        "We sleep better at night knowing our compliance is automated and accurate. What used to take weeks now happens in real-time.",
-      author: "Chief Compliance Officer",
-    },
+        "What once seemed like an insurmountable challenge—bringing sacred 1,500-page texts to social media—is now as simple as uploading a PDF and pressing a button. The automation enables us to focus on our core mission: sharing spiritual wisdom with future generations.",
+      author: "Organization Director",
+    }
   ];
 
   return (
