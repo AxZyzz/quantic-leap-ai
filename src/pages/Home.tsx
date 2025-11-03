@@ -321,7 +321,7 @@ const Home = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-muted/30">
+      <section id="pricing" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">

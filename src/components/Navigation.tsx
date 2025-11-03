@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -7,6 +7,19 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handlePricingClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,12 +33,45 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Solutions", path: "/services" },
+    { name: "Pricing", path: "/#pricing" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === "/#pricing") {
+      return location.pathname === "/" && location.hash === "#pricing";
+    }
+    return location.pathname === path;
+  };
+
+  const renderNavLink = (link: { name: string; path: string }) => {
+    if (link.name === "Pricing") {
+      return (
+        <button
+          key={link.path}
+          onClick={handlePricingClick}
+          className={`text-sm font-medium transition-colors hover:text-accent ${
+            isActive(link.path) ? "text-accent" : "text-foreground"
+          }`}
+        >
+          {link.name}
+        </button>
+      );
+    }
+    return (
+      <Link
+        key={link.path}
+        to={link.path}
+        className={`text-sm font-medium transition-colors hover:text-accent ${
+          isActive(link.path) ? "text-accent" : "text-foreground"
+        }`}
+      >
+        {link.name}
+      </Link>
+    );
+  };
 
   return (
     <nav
@@ -43,17 +89,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
-                  isActive(link.path) ? "text-accent" : "text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map(renderNavLink)}
             <Button variant="hero" size="default" asChild>
               <Link to="/contact">Book Discovery Call</Link>
             </Button>
@@ -73,18 +109,7 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${
-                    isActive(link.path) ? "text-accent" : "text-foreground"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map(renderNavLink)}
               <Button variant="hero" size="default" className="w-full" asChild>
                 <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Book Discovery Call

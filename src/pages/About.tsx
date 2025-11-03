@@ -2,27 +2,36 @@ import { Card, CardContent } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Target, Lightbulb, TrendingUp, Users, CheckCircle2 } from "lucide-react";
 
+import rahulPhoto from '@/assets/team/rahul.jpg';
+import amanphoto from '@/assets/team/aman.jpg';
+import danyPhoto from '@/assets/team/dany.jpg';
+import akhilPhoto from '@/assets/team/akhil.jpg';
+
 const About = () => {
   const team = [
     {
-      name: "Alex Thompson",
+      name: "Rahul V K",
       role: "CEO & AI Strategist",
       bio: "15+ years in AI and machine learning with Fortune 500 consulting experience.",
+      image: rahulPhoto
     },
     {
-      name: "Sarah Martinez",
+      name: "Aman Xavier",
       role: "Lead AI Engineer",
       bio: "Previously at Google Brain, specialized in custom AI agent development.",
+      image: amanphoto
     },
     {
-      name: "David Kim",
+      name: "Dany Stephen",
       role: "Data Systems Architect",
       bio: "Expert in building scalable data pipelines and intelligent analytics systems.",
+      image: danyPhoto
     },
     {
-      name: "Emily Chen",
+      name: "Akhil M S",
       role: "AI Implementation Lead",
       bio: "MBA + Computer Science background, bridging business strategy with technical execution.",
+      image: akhilPhoto
     },
   ];
 
@@ -187,13 +196,12 @@ const About = () => {
               <ScrollReveal key={member.name} delay={index * 100}>
                 <Card className="text-center hover:shadow-lg transition-all duration-300">
                   <CardContent className="pt-6">
-                    <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center">
-                      <span className="text-3xl font-bold text-primary-foreground">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
+                    <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
                     <p className="text-sm text-accent mb-3">{member.role}</p>
