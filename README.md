@@ -1,4 +1,41 @@
-# Welcome to your Lovable project
+# A2B - AI Agency Website
+
+A professional, high-converting AI agency website built with React, TypeScript, and Tailwind CSS. Featuring smooth scroll animations, responsive design, and a comprehensive service showcase.
+
+## 🚀 Features
+
+- **Professional Design**: Clean white theme with deep navy accents and vibrant blue CTAs
+- **Smooth Animations**: High-end scroll animations using Intersection Observer
+- **Fully Responsive**: Mobile-first design that looks great on all devices
+- **SEO Optimized**: Comprehensive meta tags and semantic HTML
+- **Multiple Pages**: Home, About, Services, Case Studies, and Contact pages
+- **Conversion Focused**: Strategic CTAs and social proof throughout
+
+## 📄 Pages
+
+1. **Homepage**: Hero, Solutions, Case Studies, Benefits, Testimonials, Pricing, Final CTA
+2. **About**: Company story, team section, values, and work process
+3. **Services**: Detailed service offerings with use cases and outcomes
+4. **Case Studies**: Real-world success stories with metrics and testimonials
+5. **Contact**: Professional form with business information
+
+## 🎨 Design System
+
+- **Primary Color**: Deep navy (#1a202c) for authority and trust
+- **Accent Color**: Vibrant blue (#3b82f6) for CTAs
+- **Background**: Clean white with subtle grays
+- **Typography**: Inter font family
+- **Components**: Custom shadcn/ui components with semantic tokens
+
+## 🛠️ Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui components
+- React Router
+- Lucide React icons
 
 ## Project info
 
