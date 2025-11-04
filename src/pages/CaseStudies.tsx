@@ -10,7 +10,7 @@ import jarvisImg2 from "../assets/casestudy/JARVIS/jarvis-screenshot-2.png";
 const jarvisJsonUrl = new URL("../assets/casestudy/JARVIS/JARVIS.json", import.meta.url).href;
 import lexiconImg from "../assets/casestudy/Lexicon/image.webp";
 const lexiconJsonUrl = new URL("../assets/casestudy/Lexicon/Deep_Research.json", import.meta.url).href;
-import aetherImg from "../assets/casestudy/Aether/image (1).webp";
+import aetherImg from "../assets/casestudy/Aether/Newsletters.webp";
 const aetherJsonUrl = new URL("../assets/casestudy/Aether/Newsletter_Automation.json", import.meta.url).href;
 import curioImg from "../assets/casestudy/Curio/image.webp";
 const curioJsonUrl = new URL("../assets/casestudy/Curio/RAG_Pipeline.json", import.meta.url).href;

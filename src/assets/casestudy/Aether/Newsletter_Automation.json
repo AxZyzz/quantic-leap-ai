@@ -42,7 +42,7 @@
         -960,
         400
       ],
-      "id": "e04b5201-74b1-4b85-b7c9-60ac1574b781",
+      "id": "30bb906b-da1c-47f2-8dd8-edbabe425163",
       "name": "On form submission",
       "webhookId": "4f9e114e-fb68-404a-9fd5-2b3310e061fd"
     },
@@ -56,14 +56,8 @@
         -800,
         640
       ],
-      "id": "b790eb14-fa07-42b1-ae4d-348cf7968d42",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "BP9v81AwJlpYGStD",
-          "name": "OpenAi account"
-        }
-      }
+      "id": "298c6971-1639-4e19-b882-778435ccb8a9",
+      "name": "OpenAI Chat Model"
     },
     {
       "parameters": {
@@ -80,7 +74,7 @@
         -800,
         400
       ],
-      "id": "d8407c9d-8eea-492d-8ce1-fec2a5b42e4e",
+      "id": "86c05838-78fa-4b32-b7ed-021c40990ac2",
       "name": "Newsletter Expert"
     },
     {
@@ -105,17 +99,11 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -460,
+        -464,
         400
       ],
-      "id": "48c7514f-9659-4916-8d7a-48860461f88f",
-      "name": "Project Planner",
-      "credentials": {
-        "openAiApi": {
-          "id": "BP9v81AwJlpYGStD",
-          "name": "OpenAi account"
-        }
-      }
+      "id": "cd2640ed-e0c3-4dec-951d-532b098bece8",
+      "name": "Project Planner"
     },
     {
       "parameters": {
@@ -125,10 +113,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -140,
+        -144,
         400
       ],
-      "id": "ddc3e145-8a9e-4c79-8535-45c2b547ff1e",
+      "id": "52e35ef7-df45-4a65-bb7c-5757385b9d18",
       "name": "Split Out"
     },
     {
@@ -142,10 +130,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        100,
-        300
+        112,
+        304
       ],
-      "id": "a9508469-b395-4af8-b393-9a01ffb40728",
+      "id": "97333ff7-8b16-4f2e-b295-eb35ee3bd2e9",
       "name": "Research Team"
     },
     {
@@ -158,14 +146,8 @@
         320,
         640
       ],
-      "id": "c5ea6a5b-e8c9-4255-8572-79048f03c172",
-      "name": "Anthropic Chat Model",
-      "credentials": {
-        "anthropicApi": {
-          "id": "iEsH2oywXIJiWHnM",
-          "name": "Anthropic account"
-        }
-      }
+      "id": "d1931402-147d-4a4d-b7bf-d17c8af27946",
+      "name": "Anthropic Chat Model"
     },
     {
       "parameters": {
@@ -176,10 +158,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        460,
-        380
+        464,
+        384
       ],
-      "id": "753157ff-8e7a-4e19-9ff1-547b3e1f8359",
+      "id": "316e73e1-4cc4-4770-ba85-d1bbfb008a11",
       "name": "Merge"
     },
     {
@@ -202,9 +184,9 @@
       "typeVersion": 1,
       "position": [
         640,
-        380
+        384
       ],
-      "id": "a57e3baf-c1ad-4fb2-a734-cbc72e64ad4e",
+      "id": "8818f64f-0737-4427-b9f3-8ad504d5a553",
       "name": "Aggregate"
     },
     {
@@ -219,9 +201,9 @@
       "typeVersion": 1.7,
       "position": [
         800,
-        380
+        384
       ],
-      "id": "49183c0f-fc47-4d48-b400-b849d394a503",
+      "id": "760837fe-ccf3-4069-9c6f-d471d877b038",
       "name": "Editor"
     },
     {
@@ -236,18 +218,12 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1460,
-        380
+        1472,
+        384
       ],
-      "id": "f2070ed0-9cb1-47df-9e97-59a547482d1b",
+      "id": "7da8fe55-f7bd-4a1c-ae11-1f6fc0510c69",
       "name": "Send Newsletter",
-      "webhookId": "1c988659-2d0a-4471-a1c9-331dccdde458",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "MHutgNQIvAz7qMgP",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "1c988659-2d0a-4471-a1c9-331dccdde458"
     },
     {
       "parameters": {
@@ -270,17 +246,11 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        1140,
-        380
+        1152,
+        384
       ],
-      "id": "e3dff533-8468-464e-962a-ddc31cbc5719",
-      "name": "Create TItle",
-      "credentials": {
-        "openAiApi": {
-          "id": "BP9v81AwJlpYGStD",
-          "name": "OpenAi account"
-        }
-      }
+      "id": "55e9c00c-556c-4ff4-bcad-3ae4cdc802e8",
+      "name": "Create TItle"
     },
     {
       "parameters": {
@@ -307,7 +277,7 @@
         80,
         640
       ],
-      "id": "b7839037-ca88-49f9-91cd-6a52a2b7a2a7",
+      "id": "cfb9dff7-e9c8-4bd5-b3e7-33d6bfa4b4e4",
       "name": "tavily"
     },
     {
@@ -317,10 +287,10 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -20,
-        1060
+        -16,
+        1072
       ],
-      "id": "cf2327fa-974b-4022-b2bb-e045cb41ce44",
+      "id": "dfbcb41a-5742-4860-8948-d1e70cc15455",
       "name": "Workflow Input Trigger"
     },
     {
@@ -332,13 +302,13 @@
         "jsonBody": "={\n    \"api_key\": \"YOUR API KEY\",\n    \"query\": \"{{ $json.query.replace(/\"/g, '\\\\\"') }}\",\n    \"search_depth\": \"basic\",\n    \"include_answer\": true,\n    \"topic\": \"news\",\n    \"include_raw_content\": true,\n    \"max_results\": 3\n} ",
         "options": {}
       },
-      "id": "37ddda9b-46da-4673-b0f7-d7862d6c19eb",
+      "id": "ad794ca6-e662-4055-90aa-1e7831a57587",
       "name": "Tavily",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        200,
-        1060
+        208,
+        1072
       ]
     },
     {
@@ -358,10 +328,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        440,
-        1060
+        448,
+        1072
       ],
-      "id": "c641fb32-3add-4b98-9775-aa19d0c9338b",
+      "id": "627650d7-d28b-4061-a967-5e42c84fdd21",
       "name": "response"
     },
     {
@@ -373,11 +343,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1060,
+        -1056,
         160
       ],
       "typeVersion": 1,
-      "id": "a5b63173-8f37-4e74-b289-added7935f56",
+      "id": "bf4e778f-f9a0-46eb-9919-0d1c6a5b8951",
       "name": "Sticky Note"
     },
     {
@@ -390,10 +360,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -80,
-        980
+        992
       ],
       "typeVersion": 1,
-      "id": "4a086ef1-08f8-4988-a683-4a89deac7b2e",
+      "id": "0b2e57a8-702e-42f4-9e11-4aad0edbbea2",
       "name": "Sticky Note1"
     },
     {
@@ -405,26 +375,26 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        20,
-        600
+        32,
+        608
       ],
       "typeVersion": 1,
-      "id": "44a7e50f-66f2-42f2-adde-ca1aabdd2bcb",
+      "id": "94a43814-6e3e-4b38-93b2-770cf383dd95",
       "name": "Sticky Note2"
     },
     {
       "parameters": {
-        "content": "# Nate Herk | AI Automation",
-        "height": 80,
-        "width": 500
+        "content": "# **Author:** [Rahul V K](https://www.linkedin.com/in/rahul-v-k/)\n\nThanks for looking out a2b!\nOnce links, workflows, and credentials are connected, you're ready to go with minimal setup!\n",
+        "height": 176,
+        "width": 416
       },
       "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        0,
-        0
-      ],
       "typeVersion": 1,
-      "id": "1d854a4f-f31a-473a-832a-b495d03636b2",
+      "position": [
+        96,
+        -64
+      ],
+      "id": "7882c770-5aaf-489e-82b4-cd1bdf21da01",
       "name": "Sticky Note3"
     }
   ],
@@ -604,11 +574,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "0c747f56-22b1-4562-9470-8db6c174442e",
+  "versionId": "b6e45dc9-5aa9-4906-90a5-cae45095a2a1",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "95e5a8c2e51c83e33b232ea792bbe3f063c094c33d9806a5565cb31759e1ad39"
+    "instanceId": "a3f8c3df248cb01ef485931461272f8a13d109845f28807de87056042d1aa5db"
   },
-  "id": "qfkCmyDC6wtME7sL",
+  "id": "5rlZjiQP6S5B4EjL",
   "tags": []
 }
