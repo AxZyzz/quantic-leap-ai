@@ -469,9 +469,159 @@ const CaseStudies = () => {
         return (
           <section className="mb-16">
             <ScrollReveal>
-              <h2 className="text-3xl font-bold mb-6">Resources</h2>
-              <Card className="p-6">
-                <p className="text-muted-foreground">Resources content will be added here...</p>
+              <h2 className="text-3xl font-bold mb-6">Additional Resources</h2>
+              <Card className="p-8">
+                <div className="space-y-8">
+                  {/* Technical Support & Implementation Guide */}
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Technical Support & Implementation Guide</h3>
+                    <p className="text-lg text-muted-foreground">
+                      This resource is designed to assist technical teams, implementation partners, and decision-makers who are working directly with A2B systems. Below you'll find answers to frequently asked questions covering architecture, deployment, and operational considerations.
+                    </p>
+                  </div>
+
+                  {/* AI Development & Implementation */}
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">AI Development & Implementation</h3>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">How do you maintain long-term stability in custom AI solutions?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          Our systems are built using component-based architecture with version-controlled APIs and comprehensive documentation standards. Each module operates independently, allowing for isolated updates and minimizing technical complexity over time.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">What safeguards exist against AI-generated inaccuracies?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          We deploy validation frameworks like RAGAS alongside manual quality reviews to identify incorrect outputs. Continuous monitoring tracks model behavior, and we maintain verification pipelines against known-accurate data. Response quality is improved through iterative prompt refinement and, when necessary, model fine-tuning based on evaluation metrics.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Is on-premises or private cloud deployment supported?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          Yes, we accommodate deployments within your existing infrastructure through Virtual Private Cloud configurations or dedicated private environments. This requires Identity and Access Management setup and security credential provisioning. Note that self-hosted deployments include additional implementation costs compared to our fully-managed hosting option.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Do your solutions support international languages?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          Certainly. We implement multilingual model configurations and localization frameworks tailored to your requirements, particularly valuable for global customer engagement and international documentation systems.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">What capabilities do you provide for context-enhanced AI responses?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          We excel at building production-scale systems that combine language models with your proprietary data through vector-based retrieval, contextual filtering, and source-verified response generation. Our validation methodology measures accuracy, completeness, and factual alignment.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Platform Operations & Deployment */}
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Platform Operations & Deployment</h3>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">What is your approach to system updates and releases?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          We establish automated deployment pipelines through GitHub Actions or n8n workflow automation. Development and production environments remain strictly separated, with comprehensive testing protocols applied to all significant updates prior to live deployment.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">What does your infrastructure architecture look like?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          We leverage containerization via Docker, infrastructure-as-code through Terraform, cloud platforms like Railway, and orchestration with Kubernetes for environment management. Security measures include end-to-end encryption, credential vaulting systems, and role-based access controls following minimum-privilege principles.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Diagnostic Support & Problem Resolution */}
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Diagnostic Support & Problem Resolution</h3>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">What should I do if AI outputs vary unexpectedly?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          When encountering output inconsistency, forward relevant logs and sample inputs to our technical support team. Our systems include automatic retry logic, backup model failover, and circuit-breaker safeguards to handle intermittent issues.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">How are performance bottlenecks addressed?</h4>
+                        <p className="text-lg text-muted-foreground">
+                          When experiencing delayed responses, we conduct performance analysis using distributed tracing and asynchronous processing logs. Optimization strategies include response caching, input compression, and strategic model reselection.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Technical Terminology Reference */}
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Technical Terminology Reference</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Large Language Model (LLM)</h4>
+                        <p className="text-lg text-muted-foreground">
+                          Advanced neural networks trained on extensive text datasets, capable of understanding and generating human-like language.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Retrieval-Augmented Generation (RAG)</h4>
+                        <p className="text-lg text-muted-foreground">
+                          An architectural pattern that enhances language model outputs by dynamically retrieving relevant information from external knowledge sources or vector stores to improve factual reliability.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Vector Database</h4>
+                        <p className="text-lg text-muted-foreground">
+                          Specialized storage systems designed for embedding vectors — mathematical representations of semantic meaning — enabling similarity-based search and contextual retrieval.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Embedding</h4>
+                        <p className="text-lg text-muted-foreground">
+                          A numerical vector representation that encodes the semantic properties of text or other data types.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Prompt Engineering</h4>
+                        <p className="text-lg text-muted-foreground">
+                          The systematic design of input instructions to guide language models toward desired output characteristics and behaviors.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Groundedness</h4>
+                        <p className="text-lg text-muted-foreground">
+                          A quality metric assessing how closely AI-generated content adheres to authoritative source materials or provided context.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Token Limit</h4>
+                        <p className="text-lg text-muted-foreground">
+                          The computational boundary defining the maximum amount of text (measured in tokens) that a model can process in a single request-response sequence.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Agent</h4>
+                        <p className="text-lg text-muted-foreground">
+                          An autonomous or semi-autonomous AI system designed to execute defined tasks such as information gathering, data classification, or conversational interaction.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">Human-in-the-Loop (HITL)</h4>
+                        <p className="text-lg text-muted-foreground">
+                          A system design pattern where human operators validate, refine, or override AI-generated decisions and outputs.
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-medium mb-2">CI/CD</h4>
+                        <p className="text-lg text-muted-foreground">
+                          Automated software delivery pipelines that systematically test, validate, and deploy code changes to staging and production environments.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Card>
             </ScrollReveal>
           </section>
