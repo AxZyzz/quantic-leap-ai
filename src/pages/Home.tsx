@@ -95,8 +95,8 @@ const Home = () => {
     {
       industry: "Religious & Educational Content",
       challenge: "I need 1,500-page PDFs converted to animated videos, and the standard approach costs a fortune.",
-      result: "The result: A fully automated system built in 2 days that cut costs from $5,000+ to $700, eliminated $650/month fees, and processed each PDF in just 2 hours instead of 3 weeks.",
-      roi: "Over 700% savings in setup costs and zero recurring expenses delivering long-term automation at virtually no ongoing cost.",
+      result: " A fully automated system built in 2 days that cut costs from $5,000+ to $700, eliminated $650/month fees, and processed each PDF in just 2 hours instead of 3 weeks.",
+      roi: "700% cost savings and zero recurring expenses long-term automation at no ongoing cost.",
     },
     {
       industry: "Healthcare",
