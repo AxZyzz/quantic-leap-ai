@@ -100,9 +100,9 @@ const Home = () => {
     },
     {
       industry: "Healthcare",
-      challenge: "Patient data scattered across multiple systems",
-      result: "Unified data system with real-time analytics",
-      roi: "50% improvement in patient outcomes",
+      challenge: "The startup needed an automated WhatsApp system to collect patient details and reports.",
+      result: "Built a seamless WhatsApp workflow that handled data, reports, and visit requests automatically.",
+      roi: "Cut manual work by 70% and boosted efficiency with zero recurring cost.",
     },
   ];
 
