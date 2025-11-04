@@ -394,8 +394,72 @@ const CaseStudies = () => {
           <section className="mb-16">
             <ScrollReveal>
               <h2 className="text-3xl font-bold mb-6">Technology Stack</h2>
-              <Card className="p-6">
-                <p className="text-muted-foreground">Technology stack content will be added here...</p>
+              <Card className="p-8">
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Introduction</h3>
+                    <p className="text-lg text-muted-foreground">
+                      A2B operates on a carefully curated technology foundation that prioritizes agility, enterprise-grade reliability, and seamless scalability. Our architecture combines cutting-edge cloud services, proven development frameworks, and advanced AI capabilities to deliver solutions that are both innovative and production-ready. Every tool in our arsenal is chosen for its performance characteristics, ecosystem maturity, and ability to solve real-world business challenges. Whether you're deeply technical or new to the AI landscape, our infrastructure is engineered to deliver consistent results while remaining adaptable to your specific requirements.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Cloud & Infrastructure</h3>
+                    <p className="text-lg text-muted-foreground">
+                      Our infrastructure backbone is built predominantly on <strong>Amazon Web Services (AWS)</strong>, providing enterprise-level security, global availability, and comprehensive service integration. AWS serves as our primary deployment environment for production workloads requiring maximum reliability and performance.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      Beyond AWS, our infrastructure team brings deep expertise across <strong>Azure</strong>, <strong>Google Cloud Platform (GCP)</strong>, and <strong>DigitalOcean</strong>. This multi-cloud proficiency allows us to architect solutions that align with your existing infrastructure, compliance frameworks, or specific regional requirements.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Supabase</strong>: An open-source backend ecosystem that powers our authentication layers and enables real-time data synchronization. This platform accelerates feature delivery while maintaining enterprise security standards.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>PostgreSQL</strong>: Our primary relational database system for structured data management. Its proven stability and advanced query capabilities make it ideal for complex business logic and transactional workflows.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Vector Storage Solutions</strong>: We deploy specialized vector databases including <strong>Pinecone</strong>, <strong>Weaviate</strong>, and <strong>Qdrant</strong> to enable sophisticated semantic search and contextual retrieval in AI applications. These systems are fundamental for solutions requiring nuanced understanding and similarity-based matching.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Development & Integration Architecture</h3>
+                    <p className="text-lg text-muted-foreground">
+                      Our engineering workflow is built around tools that enable rapid experimentation, intelligent process automation, and frictionless third-party connectivity.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Core Languages</strong>: <strong>Python</strong> drives our AI systems and backend services, while <strong>JavaScript/TypeScript</strong> powers interactive frontends and lightweight middleware. This combination delivers both computational flexibility and user experience excellence.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Collaborative Development Platforms</strong>: We harness <strong>Replit</strong>, <strong>Cursor</strong>, <strong>Lovable</strong>, and <strong>Bolt</strong> for synchronized development, AI-assisted code generation, and accelerated prototyping cycles.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Connectivity Ecosystem</strong>: Through our strategic partnership with <strong>n8n</strong>, we provide instant access to <strong>850+ pre-built integrations</strong> spanning major SaaS platforms, databases, webhooks, and APIs.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Conversational Voice Technology</strong>: <strong>ElevenLabs</strong> serves as our primary voice synthesis engine, with selective use of <strong>Retail AI</strong> solutions based on specific use case requirements.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4">Artificial Intelligence Platform</h3>
+                    <p className="text-lg text-muted-foreground">
+                      A2B maintains a <strong>model-agnostic AI philosophy</strong>. Our systems are architected to interface with all leading large language model providers, allowing us to conduct comprehensive benchmarking and select optimal models based on your specific performance criteria, budget parameters, and business objectives.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Retrieval-Augmented Generation (RAG)</strong>: We implement sophisticated RAG pipelines that inject current, domain-specific context into LLM responses from your proprietary data sources. This architecture minimizes factual errors, eliminates hallucinations, and ensures AI outputs remain anchored to your actual knowledge repositories.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Embedding Strategy & Optimization</strong>: We conduct controlled experiments to identify optimal embedding approaches for your data. These mathematical representations enable AI systems to comprehend semantic relationships and execute meaningful comparisons across information sets.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Intelligent Agent Architecture</strong>: Our AI agents extend beyond conversational interfaces to perform active tasks—executing searches, generating summaries, orchestrating workflows, and triggering actions based on dynamic inputs. We build these using composable, reusable components for continuous enhancement.
+                    </p>
+                    <p className="text-lg text-muted-foreground mt-4">
+                      <strong>Quality Assurance & Intelligent Routing</strong>: We maintain ongoing response quality monitoring through proprietary evaluation frameworks (including LLM-as-judge methodologies) and implement dynamic routing logic that directs each request to the most suitable model for optimal results.
+                    </p>
+                  </div>
+                </div>
               </Card>
             </ScrollReveal>
           </section>
