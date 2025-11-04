@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: ["class"],
@@ -15,6 +16,11 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+      },
+      textShadow: {
+        sm: "0 1px 2px rgba(0, 0, 0, 0.25)",
+        DEFAULT: "0 2px 4px rgba(0, 0, 0, 0.25)",
+        lg: "0 8px 16px rgba(0, 0, 0, 0.25)",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -90,5 +96,16 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 } satisfies Config;
