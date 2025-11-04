@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
+import { WebGLShader } from "@/components/ui/web-gl-shader";
 import {
   Workflow,
   Brain,
@@ -127,44 +128,39 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative min-h-screen h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-background/80">
+          <WebGLShader />
+        </div>
+        <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mix-blend-difference">
                 Scale Without Increasing
-                <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mix-blend-normal">
                   {" "}
                   Headcount
                 </span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto mix-blend-difference">
                 Automate operations, maximize ROI, and grow your business with custom AI solutions
                 built by expert engineers.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="lg" asChild>
+                <Button variant="hero" size="lg" asChild className="mix-blend-difference">
                   <Link to="/contact">Book Discovery Call</Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" asChild className="mix-blend-difference">
                   <Link to="/case-studies">View Case Studies</Link>
                 </Button>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={300}>
-              <p className="text-sm text-muted-foreground mt-8">
+              <p className="text-sm text-muted-foreground mt-8 mix-blend-difference">
                 Trusted by category leaders across industries
               </p>
             </ScrollReveal>
