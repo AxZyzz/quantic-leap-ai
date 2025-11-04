@@ -87,16 +87,16 @@ const Home = () => {
 
   const caseStudies = [
     {
-      industry: "Insurance",
-      challenge: "Manual claims processing taking 5-7 days per claim",
-      result: "Reduced to 2 hours with 95% accuracy",
-      roi: "300% ROI in 6 months",
+      industry: "financial services",
+      challenge: "This firm was lossing 17-20% of their potential clients while onboarding",
+      result: "Onboarding time dropped by 60%, cutting the process from an hour to 20 minutes. The firm now saves 1–2% per client in admin costs, improves client retention by 10–15%.",
+      roi: "achieves roughly 200% ROI over 3–4 years from efficiency gains alone.",
     },
     {
-      industry: "E-commerce",
-      challenge: "Customer support overwhelmed with repetitive queries",
-      result: "85% of queries handled by AI, 40% faster response time",
-      roi: "$2M annual savings",
+      industry: "Religious & Educational Content",
+      challenge: "I need 1,500-page PDFs converted to animated videos, and the standard approach costs a fortune.",
+      result: "The result: A fully automated system built in 2 days that cut costs from $5,000+ to $700, eliminated $650/month fees, and processed each PDF in just 2 hours instead of 3 weeks.",
+      roi: "Over 700% savings in setup costs and zero recurring expenses delivering long-term automation at virtually no ongoing cost.",
     },
     {
       industry: "Healthcare",
