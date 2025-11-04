@@ -24,10 +24,10 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.2,
       "position": [
-        -1240,
-        100
+        -1760,
+        1280
       ],
-      "id": "1532e3fe-2869-47ff-ae37-3f2419979581",
+      "id": "b19f9e90-351d-48f9-a626-50e2ee150309",
       "name": "On form submission",
       "webhookId": "ba86447b-5cda-48ab-a4d6-1e1a07bad686"
     },
@@ -43,10 +43,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        -1020,
-        100
+        -1536,
+        1280
       ],
-      "id": "1a1a254e-7f58-495a-9439-c25af75edc43",
+      "id": "04ebc175-5cfd-412f-a41a-746df94ed69a",
       "name": "Plan Topics"
     },
     {
@@ -57,17 +57,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1020,
-        340
+        -1536,
+        1520
       ],
-      "id": "64066cdd-45af-468f-a6c2-dfa1db04f077",
-      "name": "OpenRouter Chat Model",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "92e184ba-8503-4e0f-9e27-28c0d1fc96a2",
+      "name": "OpenRouter Chat Model"
     },
     {
       "parameters": {
@@ -76,10 +70,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        -840,
-        340
+        -1360,
+        1520
       ],
-      "id": "a790a6f4-c4ad-4ae1-9525-42d18c1280bf",
+      "id": "fe35b729-7ebd-471d-a7ce-92eaaf1e53c6",
       "name": "5 Topics"
     },
     {
@@ -94,10 +88,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        -480,
-        100
+        -1008,
+        1280
       ],
-      "id": "d66dbd80-9511-48b3-b9bd-31578ae1e72e",
+      "id": "8b57df01-754e-45ea-a8fd-01ee5c38f4e3",
       "name": "Intro"
     },
     {
@@ -108,17 +102,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -500,
-        340
+        -1024,
+        1520
       ],
-      "id": "1b9c69c2-9184-4af0-8649-ebe3c8e9a2dd",
-      "name": "OpenRouter Chat Model1",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "95faaa67-904c-400e-8c32-3af234503499",
+      "name": "OpenRouter Chat Model1"
     },
     {
       "parameters": {
@@ -128,10 +116,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -480,
-        -60
+        -1008,
+        1120
       ],
-      "id": "a3f27216-bc16-4aa8-a31b-7ea123c47306",
+      "id": "150d7557-3cd3-4a45-87ca-b9959299d32c",
       "name": "Split Out"
     },
     {
@@ -143,10 +131,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        160,
-        80
+        -368,
+        1264
       ],
-      "id": "2e51b286-7f72-4fc4-b325-0be564e54bc7",
+      "id": "3222137f-d53b-4e6c-9ad5-a63f0aa94b77",
       "name": "Merge"
     },
     {
@@ -166,10 +154,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -480,
-        -240
+        -1008,
+        944
       ],
-      "id": "a9512f64-20a0-4e3c-b319-407add175499",
+      "id": "72658379-d2a7-4d1b-b349-9e222dc0cda6",
       "name": "Set Topics"
     },
     {
@@ -181,10 +169,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        -20,
-        -80
+        -544,
+        1104
       ],
-      "id": "bf120879-00d1-43f5-9f29-8b9a2e943bcd",
+      "id": "2f1acda1-62d2-4871-af1c-08eb7873f6dd",
       "name": "Merge1"
     },
     {
@@ -195,10 +183,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -260,
-        -240
+        -784,
+        944
       ],
-      "id": "b88b23e8-ab43-4f82-9268-3a37367f10d2",
+      "id": "88987013-9d68-4322-b855-a4386afe5e52",
       "name": "Split Out1"
     },
     {
@@ -326,10 +314,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        320,
-        40
+        -208,
+        1232
       ],
-      "id": "a3564adf-ea0a-4d6c-823a-6b9e40e3605d",
+      "id": "aa99e494-2a56-4931-afa3-afaeefd41168",
       "name": "Switch"
     },
     {
@@ -340,17 +328,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1200,
-        -20
+        688,
+        1168
       ],
-      "id": "933a58ac-7b99-414c-b184-1d504098ebfa",
-      "name": "OpenRouter Chat Model2",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "416ad2ef-3760-49e2-b445-47e0343b6ea6",
+      "name": "OpenRouter Chat Model2"
     },
     {
       "parameters": {
@@ -549,18 +531,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2360,
-        -260
+        1840,
+        928
       ],
-      "id": "d5131630-b426-4585-ae98-a322433b10b2",
+      "id": "5b6aa1df-f603-40bb-8f6d-34439fcdbb41",
       "name": "Google Sheets1",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -576,17 +552,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        780,
-        -280
+        272,
+        912
       ],
-      "id": "d505e2f6-3a1d-4ae7-966d-fb90a1321e78",
-      "name": "Tavily",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "1Gs5ooRQh4ZYMIK6",
-          "name": "Tavily Credential"
-        }
-      }
+      "id": "1a084aa9-41c9-40ac-9fb6-ec672bc1d926",
+      "name": "Tavily"
     },
     {
       "parameters": {
@@ -596,10 +566,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        980,
-        -280
+        464,
+        912
       ],
-      "id": "396dd4cd-9372-49b0-9549-8f8585841e71",
+      "id": "a19f4eca-bd1d-4de1-93da-b41c501c81ce",
       "name": "Split Out2"
     },
     {
@@ -609,10 +579,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1160,
-        -280
+        640,
+        912
       ],
-      "id": "d674c3c5-c2c0-4dd9-bd60-a0d88d55b539",
+      "id": "72ea422d-bc4e-4b5c-8ef3-f527cebc1b45",
       "name": "Code"
     },
     {
@@ -629,10 +599,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        -140
+        1184,
+        1040
       ],
-      "id": "fc5a18d0-c8a0-47ef-babd-d0952b4f1127",
+      "id": "ec38ed02-abe5-460e-92a2-94fe3a0ccfc6",
       "name": "Aggregate"
     },
     {
@@ -646,10 +616,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1380,
-        -140
+        864,
+        1040
       ],
-      "id": "2c83a56f-a473-49b6-8533-6d2212124792",
+      "id": "a316742e-aa84-4820-bfdf-d721dd03619e",
       "name": "Writer"
     },
     {
@@ -666,10 +636,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        -280
+        1184,
+        912
       ],
-      "id": "199708ab-2ad1-4fae-8c0d-c4f9861bbaf3",
+      "id": "d34093fe-0228-4fe9-9c44-bc97e0ced25f",
       "name": "Aggregate1"
     },
     {
@@ -681,10 +651,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1880,
-        -260
+        1360,
+        928
       ],
-      "id": "0063e236-ac46-484f-80c2-40620b796672",
+      "id": "43c41c52-da31-46a2-99c8-34fd08202f37",
       "name": "Merge3"
     },
     {
@@ -695,17 +665,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1200,
-        480
+        688,
+        1664
       ],
-      "id": "7ce9c4b3-d9e7-412f-97be-363a4a1fb357",
-      "name": "OpenRouter Chat Model3",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "fc7f39a0-bebc-4fc3-987a-9da53ebb199a",
+      "name": "OpenRouter Chat Model3"
     },
     {
       "parameters": {
@@ -916,18 +880,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2360,
-        240
+        1840,
+        1424
       ],
-      "id": "385a4cc7-cfcf-4ca1-87a3-41fc13e48e20",
+      "id": "1fb6df2d-a58a-44b6-96e0-e2398b7d277a",
       "name": "Google Sheets2",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -943,17 +901,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        780,
-        220
+        272,
+        1408
       ],
-      "id": "acfabb3b-76ee-4455-abfa-6e5c579d3c35",
-      "name": "Tavily1",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "1Gs5ooRQh4ZYMIK6",
-          "name": "Tavily Credential"
-        }
-      }
+      "id": "bf74a652-5979-4bf9-849c-bdab1bc66b28",
+      "name": "Tavily1"
     },
     {
       "parameters": {
@@ -963,10 +915,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        980,
-        220
+        464,
+        1408
       ],
-      "id": "7bfbf3e8-01e3-4f2a-9087-01551e9eeffb",
+      "id": "4c644630-0f85-46f3-adae-e99bb01808d0",
       "name": "Split Out3"
     },
     {
@@ -976,10 +928,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1180,
-        220
+        672,
+        1408
       ],
-      "id": "6296dfc5-7900-40d4-a9f2-ebf28fa5f5fe",
+      "id": "ffd670b1-1564-49f7-92fd-2fb4bc7d4dd0",
       "name": "Code1"
     },
     {
@@ -996,10 +948,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        360
+        1184,
+        1552
       ],
-      "id": "d4ea5abf-8e06-40ff-bf82-dba593dcab0c",
+      "id": "c21d7617-c083-4bc7-859b-3f388ae92ab0",
       "name": "Aggregate2"
     },
     {
@@ -1013,10 +965,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1380,
-        360
+        864,
+        1552
       ],
-      "id": "c4bac161-6a82-48c1-b21f-d22facd26b11",
+      "id": "c152765a-a3e8-4e36-9766-a200edcfb782",
       "name": "Writer1"
     },
     {
@@ -1033,10 +985,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        220
+        1184,
+        1408
       ],
-      "id": "b0e42c75-9aa0-4cfc-8781-810a0e75ec66",
+      "id": "eee14929-2da7-4597-b165-9e187f068182",
       "name": "Aggregate3"
     },
     {
@@ -1048,10 +1000,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1880,
-        240
+        1360,
+        1424
       ],
-      "id": "62883f66-c18c-41ba-9f4f-7d3f52352f9b",
+      "id": "b3c47e8b-46d1-48ea-8321-6e1d0f1d56fa",
       "name": "Merge4"
     },
     {
@@ -1062,17 +1014,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1200,
-        1000
+        688,
+        2192
       ],
-      "id": "599a89a9-5a2e-4620-9c8b-ae3aa00ec70c",
-      "name": "OpenRouter Chat Model4",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "21c783c8-990a-484c-b7b6-be7278360d4f",
+      "name": "OpenRouter Chat Model4"
     },
     {
       "parameters": {
@@ -1293,18 +1239,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2360,
-        760
+        1840,
+        1952
       ],
-      "id": "3b1eeb5b-21ee-4d64-93b4-2f488fe93222",
+      "id": "f3c0aec3-fade-4f80-a91d-1041344578f6",
       "name": "Google Sheets3",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -1320,17 +1260,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        780,
-        740
+        272,
+        1920
       ],
-      "id": "ebbd1e64-0735-4941-859a-9ef7b07ceaf9",
-      "name": "Tavily2",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "1Gs5ooRQh4ZYMIK6",
-          "name": "Tavily Credential"
-        }
-      }
+      "id": "0a49abc5-a049-4486-834a-122c563c0b26",
+      "name": "Tavily2"
     },
     {
       "parameters": {
@@ -1340,10 +1274,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        980,
-        740
+        464,
+        1920
       ],
-      "id": "3133d400-5689-42fb-8fb7-6836be349104",
+      "id": "6714f313-73b5-4898-aa05-d0cbd8b9b7c6",
       "name": "Split Out4"
     },
     {
@@ -1353,10 +1287,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1180,
-        740
+        672,
+        1920
       ],
-      "id": "76dca151-2400-4101-982c-a832ac6bc900",
+      "id": "b785b4de-2a29-479f-a58e-824528b62e3f",
       "name": "Code2"
     },
     {
@@ -1373,10 +1307,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        880
+        1184,
+        2064
       ],
-      "id": "e3523487-caaa-454c-b847-6d620b1ebb03",
+      "id": "5d0ff29c-fd7a-4f19-9a3a-2cbafa848b3f",
       "name": "Aggregate4"
     },
     {
@@ -1390,10 +1324,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1360,
-        880
+        848,
+        2064
       ],
-      "id": "2a2bdd12-2bc3-4b98-a35b-a68a1c0121ba",
+      "id": "fe74765c-3bb6-483a-9541-e1b4124ff046",
       "name": "Writer2"
     },
     {
@@ -1410,10 +1344,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        740
+        1184,
+        1920
       ],
-      "id": "62bd5a5d-9fda-4057-aaa6-830c8b5bbe47",
+      "id": "829c9998-0fab-4b00-9c3b-e7783e7cf7c4",
       "name": "Aggregate5"
     },
     {
@@ -1425,10 +1359,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1880,
-        760
+        1360,
+        1952
       ],
-      "id": "1eedfa97-61eb-4bce-9f50-5e16c49b75c7",
+      "id": "3fa84c2b-7472-4c28-a931-917a0aae53e4",
       "name": "Merge5"
     },
     {
@@ -1439,17 +1373,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1220,
-        1500
+        704,
+        2688
       ],
-      "id": "89c897e7-3da9-4730-b291-fb436c68bbca",
-      "name": "OpenRouter Chat Model5",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "11e66cb2-8f6f-4a91-b116-86a987fca6cb",
+      "name": "OpenRouter Chat Model5"
     },
     {
       "parameters": {
@@ -1690,18 +1618,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2360,
-        1260
+        1840,
+        2448
       ],
-      "id": "55743378-f784-4123-8b1a-619d13dd55ff",
+      "id": "17f9ddfd-b69a-46c5-a86e-e0a55892b617",
       "name": "Google Sheets4",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -1717,17 +1639,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        780,
-        1240
+        272,
+        2432
       ],
-      "id": "c58d668c-8911-4b58-9d84-2679ff2c0c47",
-      "name": "Tavily3",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "1Gs5ooRQh4ZYMIK6",
-          "name": "Tavily Credential"
-        }
-      }
+      "id": "a5680ec5-18ca-4058-9f6b-5b44c624a1db",
+      "name": "Tavily3"
     },
     {
       "parameters": {
@@ -1737,10 +1653,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        980,
-        1240
+        464,
+        2432
       ],
-      "id": "1be792c4-706c-4fc2-ae83-05ed21397f17",
+      "id": "142be861-4412-405e-bd4e-770739222b17",
       "name": "Split Out5"
     },
     {
@@ -1750,10 +1666,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1180,
-        1240
+        672,
+        2432
       ],
-      "id": "95c0a5c2-8c8a-42be-827e-ea0b5b4d61d6",
+      "id": "2e44f2c0-c8a2-4e4a-bd7c-720ca2957410",
       "name": "Code3"
     },
     {
@@ -1770,10 +1686,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        1380
+        1184,
+        2560
       ],
-      "id": "9754162d-3521-4c68-862a-d9e4fb0af1fa",
+      "id": "e7c946e7-c3f7-4b84-b67d-005b3e187410",
       "name": "Aggregate6"
     },
     {
@@ -1787,10 +1703,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1380,
-        1380
+        864,
+        2560
       ],
-      "id": "461c6f72-4703-44c9-afbc-28c17397cded",
+      "id": "46aeb128-6c4d-4bd1-8b09-a2dc2769e207",
       "name": "Writer3"
     },
     {
@@ -1807,10 +1723,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        1240
+        1184,
+        2432
       ],
-      "id": "f6f38641-ebb1-4526-a70b-dc609f537324",
+      "id": "c1a0d9e1-5ae9-4374-85d2-97eb696a37ce",
       "name": "Aggregate7"
     },
     {
@@ -1822,10 +1738,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1880,
-        1260
+        1360,
+        2448
       ],
-      "id": "3546ca7b-eaa2-49c0-ab9a-434c2b47d272",
+      "id": "50929af6-2a6b-4c25-8afe-fc7813e7593a",
       "name": "Merge6"
     },
     {
@@ -1836,17 +1752,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1220,
-        2000
+        704,
+        3184
       ],
-      "id": "2b1f77ec-2e24-4e2f-a61e-6aa265fd40aa",
-      "name": "OpenRouter Chat Model6",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "e7a0b36a-1059-48ba-a8cf-b92b7369d1e1",
+      "name": "OpenRouter Chat Model6"
     },
     {
       "parameters": {
@@ -2087,18 +1997,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2360,
-        1760
+        1840,
+        2944
       ],
-      "id": "2206f11e-7e3e-4e36-b73a-4ae3e6d829ff",
+      "id": "86bf36d2-aad5-4af4-9435-aff149c0f2e5",
       "name": "Google Sheets5",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2114,17 +2018,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        780,
-        1740
+        272,
+        2928
       ],
-      "id": "993bfb29-2794-479d-b5ae-d31b562f15bc",
-      "name": "Tavily4",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "1Gs5ooRQh4ZYMIK6",
-          "name": "Tavily Credential"
-        }
-      }
+      "id": "917290ea-f8f2-475e-803f-c52aed778b7c",
+      "name": "Tavily4"
     },
     {
       "parameters": {
@@ -2134,10 +2032,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        980,
-        1740
+        464,
+        2928
       ],
-      "id": "b4c59d8d-2335-441c-aad2-2bb16ab6ea68",
+      "id": "2717577b-e1ab-4e7f-866b-8631c2c56dbe",
       "name": "Split Out6"
     },
     {
@@ -2147,10 +2045,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1180,
-        1740
+        672,
+        2928
       ],
-      "id": "9b693bb2-6117-4efe-9e06-8f4eb204941f",
+      "id": "a87714d9-701e-4967-bebc-ad5b3626b9a9",
       "name": "Code4"
     },
     {
@@ -2167,10 +2065,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        1880
+        1184,
+        3072
       ],
-      "id": "0220d951-b5fe-4a42-abe9-40311419dd6b",
+      "id": "d132ad69-0c68-4760-b5f6-279cb5e3137d",
       "name": "Aggregate8"
     },
     {
@@ -2184,10 +2082,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1360,
-        1880
+        848,
+        3072
       ],
-      "id": "c20db330-76b4-448e-91e0-d5bd090f73b3",
+      "id": "2943ff3c-b768-4f4a-907f-1f0948e77bd9",
       "name": "Writer4"
     },
     {
@@ -2204,10 +2102,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1700,
-        1740
+        1184,
+        2928
       ],
-      "id": "dd4bc463-ce5f-4c18-980d-246c64c96f0f",
+      "id": "e8072115-f1e9-4fd5-aaa6-6d82625013e5",
       "name": "Aggregate9"
     },
     {
@@ -2219,10 +2117,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1880,
-        1760
+        1360,
+        2944
       ],
-      "id": "9bbc6f85-a6fa-4fce-b15d-36afaefde57e",
+      "id": "1a748540-ee26-4452-b3bc-ce4df5de3eed",
       "name": "Merge7"
     },
     {
@@ -2254,28 +2152,22 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3300,
-        -300
+        2784,
+        880
       ],
-      "id": "7f820019-fda1-4f52-8996-6174c7b74e6d",
+      "id": "5935666f-e80d-4b5b-9373-db14a0a4febe",
       "name": "Get Sources",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        3100,
-        -300
+        2592,
+        880
       ],
-      "id": "f8464974-a490-4464-8999-cac43c15dfdc",
+      "id": "90865f3e-18db-4777-a34f-28c85c9ce9ec",
       "name": "Limit"
     },
     {
@@ -2286,17 +2178,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        4080,
-        -20
+        3568,
+        1168
       ],
-      "id": "b9faf69c-85a2-487a-b190-42b192759e52",
-      "name": "OpenRouter Chat Model7",
-      "credentials": {
-        "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "ea29fdf8-ecae-4454-9b6e-42a47727d98f",
+      "name": "OpenRouter Chat Model7"
     },
     {
       "parameters": {
@@ -2309,10 +2195,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        3500,
-        -300
+        2992,
+        880
       ],
-      "id": "d2b96660-0e63-4d53-b507-787d02364a0d",
+      "id": "d7085448-e0dd-48cb-87cf-90bcdd945e3f",
       "name": "Sources"
     },
     {
@@ -2501,18 +2387,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3820,
-        -300
+        3312,
+        880
       ],
-      "id": "d73091c9-0052-4c4b-b06d-3c9cf1d7554e",
+      "id": "08ec76fd-6246-432f-a9f2-5952be38871b",
       "name": "Send Sources",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2543,17 +2423,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4020,
-        -300
+        3504,
+        880
       ],
-      "id": "5f88231f-76d2-46d3-80a7-2bd4251d860d",
-      "name": "Get All Content",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "id": "22abd5fa-c22d-4a3d-92fe-ddf0648d0a34",
+      "name": "Get All Content"
     },
     {
       "parameters": {
@@ -2562,10 +2436,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3820,
-        -40
+        3312,
+        1152
       ],
-      "id": "04babb98-5032-4126-82a2-577562a58cfe",
+      "id": "66b2d453-8441-438f-9449-35d31fa3dea6",
       "name": "Combine Content"
     },
     {
@@ -2576,10 +2450,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3260,
-        200
+        2752,
+        1392
       ],
-      "id": "d67b56f3-1b68-401e-91f0-8c70b2bfe355",
+      "id": "0430a69c-c97f-4d2f-8c40-219d1e0b3cd5",
       "name": "Download PDF"
     },
     {
@@ -2589,10 +2463,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2840,
-        -240
+        2320,
+        944
       ],
-      "id": "8c9ce6c7-24d0-4367-a392-7b2bd4304363",
+      "id": "259d5db0-8ba2-4124-984b-db592e8426c4",
       "name": "Merge2"
     },
     {
@@ -2613,18 +2487,12 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        3460,
-        200
+        2944,
+        1392
       ],
-      "id": "682b5f31-3059-465b-9714-77099e66938d",
+      "id": "e7efddce-6c4b-48e9-897f-d1498e7a0493",
       "name": "Send Report",
-      "webhookId": "e066c2ef-6c8c-413e-a70e-05c88f29b9f6",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "MHutgNQIvAz7qMgP",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "e066c2ef-6c8c-413e-a70e-05c88f29b9f6"
     },
     {
       "parameters": {
@@ -2643,10 +2511,10 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2040,
-        -260
+        1520,
+        928
       ],
-      "id": "454578b5-83f4-4e78-9c8d-01f660bb7304",
+      "id": "8a221c80-d452-43fc-b91d-ce6ef3e2752f",
       "name": "HTML"
     },
     {
@@ -2656,10 +2524,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2200,
-        -260
+        1680,
+        928
       ],
-      "id": "9e876ce4-6477-4eed-a876-63a27f4fa06b",
+      "id": "0731d552-f8ab-44cd-93b6-4f10f4cf5888",
       "name": "Combine"
     },
     {
@@ -2679,10 +2547,10 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2040,
-        240
+        1520,
+        1424
       ],
-      "id": "00cf7c33-63d3-4d56-a14a-d0e849b07bc2",
+      "id": "17c77ecd-fe76-4b9a-b61d-40e347fa7659",
       "name": "HTML1"
     },
     {
@@ -2692,10 +2560,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2200,
-        240
+        1680,
+        1424
       ],
-      "id": "1ecf6391-032c-4470-94ac-892c605d9492",
+      "id": "7b5029f1-6f6f-497e-a50b-9457fe8fc4b7",
       "name": "Combine1"
     },
     {
@@ -2715,10 +2583,10 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2040,
-        760
+        1520,
+        1952
       ],
-      "id": "f903a94e-7237-496f-8253-cba14a48f9e3",
+      "id": "7d50eb74-257f-4f8c-9a14-006bba1b34a1",
       "name": "HTML2"
     },
     {
@@ -2728,10 +2596,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2200,
-        760
+        1680,
+        1952
       ],
-      "id": "a4efdbcb-66c3-4e3b-a108-003790424d52",
+      "id": "5b9f495f-487a-4a31-815a-095f7923c2ee",
       "name": "Combine2"
     },
     {
@@ -2751,10 +2619,10 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2040,
-        1260
+        1520,
+        2448
       ],
-      "id": "280922ed-d0f2-4ebd-8452-b608eb381f28",
+      "id": "65fd5a09-7769-4ae3-abf4-283b128d9106",
       "name": "HTML3"
     },
     {
@@ -2764,10 +2632,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2200,
-        1260
+        1680,
+        2448
       ],
-      "id": "201a73e6-a878-498c-8a94-b415317a0fe8",
+      "id": "c037b0d6-63eb-4ea8-8158-a89bee2944be",
       "name": "Combine3"
     },
     {
@@ -2787,10 +2655,10 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        2040,
-        1760
+        1520,
+        2944
       ],
-      "id": "a9c8f337-185b-4358-81da-4fa67e89a075",
+      "id": "9d38e516-5036-4c1e-be73-225d3db57f5a",
       "name": "HTML4"
     },
     {
@@ -2800,10 +2668,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2200,
-        1760
+        1680,
+        2944
       ],
-      "id": "834e8699-f06d-45ae-ac74-46e05260a9ad",
+      "id": "eff5c2b8-2ed8-47eb-abdb-c9d857e80a3f",
       "name": "Combine4"
     },
     {
@@ -2817,10 +2685,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        3060,
-        -40
+        2544,
+        1152
       ],
-      "id": "07028cbc-270c-4332-82e9-82aa30cdc243",
+      "id": "a5d47db0-7525-4942-9ae7-a99acf796a0f",
       "name": "Table of Contents"
     },
     {
@@ -3069,17 +2937,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3420,
-        -40
+        2912,
+        1152
       ],
-      "id": "6d82746a-a9c1-4ff7-a608-776adae797a5",
-      "name": "Send ToC",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "id": "6f5b5c0e-cb30-4012-8f4d-c275417ac210",
+      "name": "Send ToC"
     },
     {
       "parameters": {
@@ -3368,17 +3230,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -140,
-        100
+        -656,
+        1280
       ],
-      "id": "8f606188-33ff-4fae-8b6a-2786d14ff1bb",
-      "name": "Send Intro",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "id": "97791b6d-f234-472b-8225-02bbf3ea6a82",
+      "name": "Send Intro"
     },
     {
       "parameters": {
@@ -3387,10 +3243,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        -280,
-        340
+        -800,
+        1520
       ],
-      "id": "70ce3ca0-29da-4088-92c0-0791f39c8ecc",
+      "id": "500a0630-4a61-4d8b-aa83-fc245e36a826",
       "name": "Title, Intro, Chapters"
     },
     {
@@ -3422,17 +3278,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3600,
-        -40
+        3088,
+        1152
       ],
-      "id": "9cf2da27-0fcc-494c-8dc0-94f2c3473ad8",
-      "name": "Get All Content1",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "wwE70mh6N2QEfZRL",
-          "name": "Google Sheets account 3"
-        }
-      }
+      "id": "ff6a12e5-9080-4052-9633-3fbf71f12c8f",
+      "name": "Get All Content1"
     },
     {
       "parameters": {
@@ -3444,10 +3294,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1320,
-        -380
+        -1840,
+        800
       ],
-      "id": "6f1ae530-71f8-47a3-9894-f73bd39fdfbd",
+      "id": "ae9a6a40-1f14-4d6a-a7f4-b07c1f0074ca",
       "name": "Sticky Note"
     },
     {
@@ -3460,10 +3310,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        520,
-        -380
+        0,
+        800
       ],
-      "id": "5fad56a0-7e43-425e-ba47-d6ca3f97257a",
+      "id": "73ffb240-b8cf-48b1-8039-7b9049565f76",
       "name": "Sticky Note1"
     },
     {
@@ -3475,10 +3325,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        520,
-        140
+        0,
+        1328
       ],
-      "id": "6e83ecbc-7260-4372-9375-ecc534518712",
+      "id": "99425bbf-ee21-4877-a4fb-34e8e8ba672f",
       "name": "Sticky Note2"
     },
     {
@@ -3491,10 +3341,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        520,
-        640
+        0,
+        1824
       ],
-      "id": "9cae20f5-890a-498a-8aec-71046049c51e",
+      "id": "5c8c2055-3327-4170-b86d-680a26887db1",
       "name": "Sticky Note3"
     },
     {
@@ -3506,10 +3356,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        520,
-        1160
+        0,
+        2352
       ],
-      "id": "daefae0b-a6aa-400c-91f1-1b07967a1d92",
+      "id": "8c450aa2-28b4-499e-9bb1-21f5c96e6fbf",
       "name": "Sticky Note4"
     },
     {
@@ -3522,10 +3372,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        520,
-        1660
+        0,
+        2848
       ],
-      "id": "621c4aec-553c-4a93-8310-f25ede832eaa",
+      "id": "34bb3fe2-b15e-49ae-8267-dd25e3eade40",
       "name": "Sticky Note5"
     },
     {
@@ -3538,10 +3388,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2680,
-        -380
+        2160,
+        800
       ],
-      "id": "f43a6f8c-8edb-4021-8f79-dc4e8337fc81",
+      "id": "24c8f9a5-9bf6-4cb7-acb4-b76c406389ed",
       "name": "Sticky Note6"
     },
     {
@@ -3554,10 +3404,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2680,
-        140
+        2160,
+        1328
       ],
-      "id": "5f41e8c5-06a5-45b6-9ecd-1f46372ec84a",
+      "id": "1d094b7b-a7c8-4712-a765-505a64676bb5",
       "name": "Sticky Note7"
     },
     {
@@ -3569,10 +3419,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        520,
-        -1080
+        0,
+        112
       ],
-      "id": "d83f0002-ae6f-412b-96ed-0833ef8188c7",
+      "id": "2290e152-606d-453c-9181-dd6c2e2b2ff4",
       "name": "Sticky Note8"
     },
     {
@@ -3598,33 +3448,27 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3080,
-        200
+        2560,
+        1392
       ],
-      "id": "3a6df4c5-bd15-4863-93b9-a3658279114d",
-      "name": "Generate PDF",
-      "credentials": {
-        "apiTemplateIoApi": {
-          "id": "TugMNKwW2PGxDAgH",
-          "name": "APITemplate.io account"
-        }
-      }
+      "id": "6d005443-830f-472b-aabc-6b78597b0dfb",
+      "name": "Generate PDF"
     },
     {
       "parameters": {
-        "content": "# Nate Herk | AI Automation",
-        "height": 80,
-        "width": 500,
-        "color": 6
+        "content": "# **Author:** [Rahul V K](https://www.linkedin.com/in/rahul-v-k/)\n\nThanks for looking out a2b!\nOnce links, workflows, and credentials are connected, you're ready to go with minimal setup!\n",
+        "height": 176,
+        "width": 624,
+        "color": 2
       },
       "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        520,
-        -1180
-      ],
       "typeVersion": 1,
-      "id": "bf8a1c2e-42a9-48ed-bb6c-02dc747e18e1",
-      "name": "Sticky Note10"
+      "position": [
+        0,
+        -80
+      ],
+      "id": "e07072e0-fb30-439f-a156-a2fd27edd1b1",
+      "name": "Sticky Note9"
     }
   ],
   "pinData": {},
@@ -4423,11 +4267,6 @@
         ]
       ]
     },
-    "Send Report": {
-      "main": [
-        []
-      ]
-    },
     "HTML": {
       "main": [
         [
@@ -4609,11 +4448,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "50a6a2ac-5a58-409f-a41a-b39f758f7440",
+  "versionId": "0f9c046c-cdef-48c4-899b-221929271468",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "95e5a8c2e51c83e33b232ea792bbe3f063c094c33d9806a5565cb31759e1ad39"
+    "instanceId": "a3f8c3df248cb01ef485931461272f8a13d109845f28807de87056042d1aa5db"
   },
-  "id": "QOY4QCa0X6jGoaaT",
+  "id": "SVTs9oOYt0Yjuptz",
   "tags": []
 }

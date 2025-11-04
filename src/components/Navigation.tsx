@@ -3,12 +3,32 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import logoWhite from "../assets/logo/a2blogowhite.png";
+import logoBlack from "../assets/logo/a2blogoblack.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [isDark, setIsDark] = useState<boolean>(
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark")
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const update = () => setIsDark(root.classList.contains("dark"));
+
+    // Observe class changes on the root element so the logo updates when theme toggles
+    const observer = new MutationObserver(() => update());
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+
+    // set initial
+    update();
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,6 +108,11 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2">
+            <img
+              src={isDark ? logoWhite : logoBlack}
+              alt="A2B logo"
+              className="h-8 w-auto rounded-sm"
+            />
             <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               A2B
             </div>

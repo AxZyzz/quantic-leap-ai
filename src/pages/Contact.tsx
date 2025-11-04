@@ -39,7 +39,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://n8n.srv1054688.hstgr.cloud/webhook-test/autopilot', {
+      const response = await fetch('https://discordtrolls.app.n8n.cloud/webhook-test/onboarding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
