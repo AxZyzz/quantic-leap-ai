@@ -12,25 +12,25 @@ const About = () => {
     {
       name: "Rahul V K",
       role: "CEO & co-founder",
-      bio: "experienced in automation and ai integration for business growth.",
+      bio: "AI Automation Expert",
       image: rahulPhoto
     },
     {
       name: "Aman Xavier",
       role: "CTO & co-founder",
-      bio: "experienced in automation and ai also cyber security specialist.",
+      bio: "AI Automation Expert",
       image: amanphoto
     },
     {
       name: "Dany Stephen",
       role: "COO & co-founder",
-      bio: "experienced in automation and ai integration for business growth.",
+      bio: "Marketing Expert",
       image: danyPhoto
     },
     {
       name: "Akhil M S",
       role: "CPO & co-founder",
-      bio: "Computer Science background,experienced in automation and ai.",
+      bio: "Marketing Expert",
       image: akhilPhoto
     },
   ];
@@ -194,18 +194,20 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {team.map((member, index) => (
               <ScrollReveal key={member.name} delay={index * 100}>
-                <Card className="text-center hover:shadow-lg transition-all duration-300">
-                  <CardContent className="pt-6">
-                    <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                <Card className="text-center hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                  <CardContent className="pt-6 flex-1 flex flex-col">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                       <img 
                         src={member.image} 
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
-                    <p className="text-sm text-accent mb-3">{member.role}</p>
-                    <p className="text-sm text-muted-foreground">{member.bio}</p>
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
+                      <p className="text-sm text-accent mb-3">{member.role}</p>
+                      <p className="text-sm text-muted-foreground">{member.bio}</p>
+                    </div>
                   </CardContent>
                 </Card>
               </ScrollReveal>
