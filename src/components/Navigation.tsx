@@ -123,7 +123,7 @@ const Navigation = () => {
             {navLinks.map(renderNavLink)}
             <ThemeToggle />
             <Button variant="hero" size="default" asChild>
-              <Link to="/contact">Book Discovery Call</Link>
+              <Link to="/contact">Let's Automate</Link>
             </Button>
           </div>
 
@@ -144,7 +144,7 @@ const Navigation = () => {
               {navLinks.map(renderNavLink)}
               <Button variant="hero" size="default" className="w-full" asChild>
                 <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Book Discovery Call
+                  Let's Automate
                 </Link>
               </Button>
             </div>

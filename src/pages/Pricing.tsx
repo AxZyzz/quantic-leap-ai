@@ -52,7 +52,7 @@ const Pricing = () => {
                     ))}
                   </ul>
                   <Button variant="hero" size="lg" className="w-full" asChild>
-                    <Link to="/contact">Book Discovery Call</Link>
+                    <Link to="/contact">Let's Automate</Link>
                   </Button>
                 </CardContent>
               </Card>

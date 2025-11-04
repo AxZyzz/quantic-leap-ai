@@ -152,7 +152,7 @@ const Home = () => {
             <ScrollReveal delay={200}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="lg" asChild className="mix-blend-difference">
-                  <Link to="/contact">Book Discovery Call</Link>
+                  <Link to="/contact">Let's Automate</Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild className="mix-blend-difference">
                   <Link to="/case-studies">View Case Studies</Link>
