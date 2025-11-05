@@ -164,22 +164,24 @@ The modular architecture means the client now owns a complete video production s
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-semibold mb-3">Intro Video</h2>
-                  <p className="text-lg text-muted-foreground mb-4">
-                    A short video showcasing A2B's story - how we turn repetitive business processes into intelligent, 
-                    automated systems using AI tools, APIs, and workflow design. It explains our mission, approach, 
-                    and how A2B helps teams scale faster and smarter through automation.
-                  </p>
-                  <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
-                    <iframe
-                      src="https://www.youtube.com/embed/LZYPhrJFX2U"
-                      className="w-full h-[500px] rounded-lg shadow-lg"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </div>
+                {/*
+                        <div>
+                          <h2 className="text-2xl font-semibold mb-3">Intro Video</h2>
+                          <p className="text-lg text-muted-foreground mb-4">
+                          A short video showcasing A2B's story - how we turn repetitive business processes into intelligent, 
+                          automated systems using AI tools, APIs, and workflow design. It explains our mission, approach, 
+                          and how A2B helps teams scale faster and smarter through automation.
+                          </p> 
+                          <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
+                          <iframe
+                            // src="https://www.youtube.com/embed/LZYPhrJFX2U"
+                            // className="w-full h-[500px] rounded-lg shadow-lg"
+                            // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                          </div>
+                        </div>
+                */}
 
                 <div>
                   <h2 className="text-2xl font-semibold mb-3">Getting Started</h2>
@@ -310,21 +312,19 @@ The modular architecture means the client now owns a complete video production s
                               ))}
                             </div>
 
-                            {/* Images */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-8">
-                              {currentStudy.images?.map((image, index) => (
-                                <div key={index} className="space-y-2">
-                                  <div className="relative aspect-video">
-                                    <img
-                                      src={image.src}
-                                      alt={image.alt}
-                                      className="w-full h-full object-cover rounded-lg shadow-lg"
-                                    />
-                                  </div>
-                                  <p className="text-xs md:text-sm text-center text-muted-foreground">{image.caption}</p>
+                            {/* Primary image (keep first image here) */}
+                            {currentStudy.images && currentStudy.images[0] && (
+                              <div className="mb-8">
+                                <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+                                  <img
+                                    src={currentStudy.images[0].src}
+                                    alt={currentStudy.images[0].alt}
+                                    className="w-full h-full object-cover"
+                                  />
                                 </div>
-                              ))}
-                            </div>
+                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{currentStudy.images[0].caption}</p>
+                              </div>
+                            )}
 
                             {/* Implementation Details */}
                             {Object.values(currentStudy.details).map((phase: any, index) => (
@@ -353,6 +353,20 @@ The modular architecture means the client now owns a complete video production s
                                 </div>
                               </div>
                             ))}
+
+                            {/* Secondary image: place the second image below Phase 3 content */}
+                            {currentStudy.images && currentStudy.images[1] && (
+                              <div className="mb-8">
+                                <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+                                  <img
+                                    src={currentStudy.images[1].src}
+                                    alt={currentStudy.images[1].alt}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{currentStudy.images[1].caption}</p>
+                              </div>
+                            )}
                           </div>
 
                           {/* Results */}
