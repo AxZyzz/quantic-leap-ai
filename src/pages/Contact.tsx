@@ -39,11 +39,23 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://discordtrolls.app.n8n.cloud/webhook-test/onboarding', {
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL ?? 'https://discordtrolls.app.n8n.cloud/webhook-test/onboarding';
+      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER ?? 'a2b.business.official@gmail.comWebsiteAutomation';
+      const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
+
+      // Build headers and include optional Authorization header if provided
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        Website: websiteHeaderValue,
+      };
+      if (authValue) {
+        // If the caller provided an auth secret via env, send it as Authorization header
+        headers['Authorization'] = authValue;
+      }
+
+      const response = await fetch(webhookUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers,
         // include a small metadata flag so the webhook knows this came from the contact page
         body: JSON.stringify({ ...formData, source: 'contact-page' }),
       });

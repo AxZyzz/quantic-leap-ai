@@ -30,9 +30,19 @@ export default function Testimonial() {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://discordtrolls.app.n8n.cloud/webhook-test/onboarding', {
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL ?? 'https://discordtrolls.app.n8n.cloud/webhook-test/onboarding';
+      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER ?? 'a2b.business.official@gmail.comWebsiteAutomation';
+      const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
+
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        Website: websiteHeaderValue,
+      };
+      if (authValue) headers['Authorization'] = authValue;
+
+      const res = await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ ...formData, source: 'testimonial' }),
       });
 
