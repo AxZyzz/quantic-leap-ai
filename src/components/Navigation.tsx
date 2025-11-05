@@ -138,18 +138,29 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
-            <div className="flex flex-col space-y-4">
-              {navLinks.map(renderNavLink)}
-              <Button variant="acrylic" size="default" className="w-full" asChild>
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Let's Automate
-                </Link>
-              </Button>
+        <div 
+          className={`md:hidden fixed inset-x-0 top-[80px] bg-background/95 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+          }`}
+        >
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col">
+              {navLinks.map((link) => (
+                <div key={link.path} className="border-b border-muted py-3">
+                  {renderNavLink(link)}
+                </div>
+              ))}
+              <div className="flex items-center justify-between py-4 mt-2">
+                <ThemeToggle />
+                <Button variant="acrylic" size="default" asChild>
+                  <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Let's Automate
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
