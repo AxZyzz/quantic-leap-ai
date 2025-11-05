@@ -295,31 +295,33 @@ The modular architecture means the client now owns a complete video production s
                             <h3 className="text-xl font-semibold mb-3 text-destructive">
                               The Challenge
                             </h3>
-                            <p className="text-muted-foreground whitespace-pre-wrap">{currentStudy.challenge}</p>
+                            <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{currentStudy.challenge}</p>
                           </div>
 
                           {/* Solution */}
                           <div className="mb-8">
                             <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                            <p className="text-muted-foreground mb-4">{currentStudy.solution}</p>
+                            <p className="text-muted-foreground mb-4 text-sm md:text-base">{currentStudy.solution}</p>
                             <div className="flex flex-wrap gap-2 mb-6">
                               {currentStudy.technology.map((tech) => (
-                                <Badge key={tech} variant="outline" className="text-xs">
+                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
                                   {tech}
                                 </Badge>
                               ))}
                             </div>
 
                             {/* Images */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-8">
                               {currentStudy.images?.map((image, index) => (
                                 <div key={index} className="space-y-2">
-                                  <img
-                                    src={image.src}
-                                    alt={image.alt}
-                                    className="w-full rounded-lg shadow-lg"
-                                  />
-                                  <p className="text-sm text-center text-muted-foreground">{image.caption}</p>
+                                  <div className="relative aspect-video">
+                                    <img
+                                      src={image.src}
+                                      alt={image.alt}
+                                      className="w-full h-full object-cover rounded-lg shadow-lg"
+                                    />
+                                  </div>
+                                  <p className="text-xs md:text-sm text-center text-muted-foreground">{image.caption}</p>
                                 </div>
                               ))}
                             </div>
@@ -327,23 +329,23 @@ The modular architecture means the client now owns a complete video production s
                             {/* Implementation Details */}
                             {Object.values(currentStudy.details).map((phase: any, index) => (
                               <div key={index} className="mb-8">
-                                <h3 className="text-xl font-semibold mb-4">{phase.title}</h3>
-                                <p className="text-muted-foreground mb-4">Trigger: {phase.trigger}</p>
-                                <div className="space-y-6">
+                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
+                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
+                                <div className="space-y-4 md:space-y-6">
                                   {phase.capabilities.map((capability: any, capIndex: number) => (
-                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-4">
-                                      <h4 className="text-lg font-medium mb-2">{capability.title}</h4>
-                                      <div className="text-muted-foreground prose prose-sm max-w-none">
+                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
+                                      <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
+                                      <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
                                         {capability.description.includes('-') ? (
-                                          <div dangerouslySetInnerHTML={{ 
+                                          <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
                                             __html: capability.description.split('\n').map((line: string) => 
                                               line.trim().startsWith('-') ? 
-                                                `<li>${line.substring(1).trim()}</li>` : 
+                                                `<li class="ml-4">${line.substring(1).trim()}</li>` : 
                                                 `<p>${line}</p>`
                                             ).join('')
                                           }} />
                                         ) : (
-                                          <p>{capability.description}</p>
+                                          <p className="text-sm md:text-base">{capability.description}</p>
                                         )}
                                       </div>
                                     </div>
@@ -356,15 +358,15 @@ The modular architecture means the client now owns a complete video production s
                           {/* Results */}
                           <div className="mb-8">
                             <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                               {currentStudy.results.map((result) => (
                                 <div
                                   key={result.label}
-                                  className="text-center p-4 bg-muted/50 rounded-lg"
+                                  className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
                                 >
-                                  <result.icon className="h-8 w-8 text-accent mx-auto mb-3" />
-                                  <div className="text-2xl font-bold mb-1">{result.metric}</div>
-                                  <div className="text-xs text-muted-foreground">{result.label}</div>
+                                  <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
+                                  <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
+                                  <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
                                 </div>
                               ))}
                             </div>
@@ -373,11 +375,11 @@ The modular architecture means the client now owns a complete video production s
                           {/* ROI Section */}
                           <div className="mb-8">
                             <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                            <div className="prose prose-sm max-w-none text-muted-foreground">
-                              <div dangerouslySetInnerHTML={{ 
+                            <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
+                              <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
                                 __html: currentStudy.roi.split('\n').map(line => 
                                   line.trim().startsWith('-') ? 
-                                    `<li>${line.substring(1).trim()}</li>` : 
+                                    `<li class="ml-4">${line.substring(1).trim()}</li>` : 
                                     `<p>${line}</p>`
                                 ).join('')
                               }} />
@@ -385,13 +387,13 @@ The modular architecture means the client now owns a complete video production s
                           </div>
 
                           {/* Testimonial */}
-                          <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-accent mb-8">
-                            <p className="text-lg italic mb-3">{currentStudy.testimonial}</p>
-                            <p className="text-sm text-muted-foreground">— {currentStudy.author}</p>
+                          <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
+                            <p className="text-base md:text-lg italic mb-3">{currentStudy.testimonial}</p>
+                            <p className="text-xs md:text-sm text-muted-foreground">— {currentStudy.author}</p>
                           </div>
 
                           {/* Conclusion */}
-                          <div className="text-lg font-medium text-accent">
+                          <div className="text-base md:text-lg font-medium text-accent">
                             {currentStudy.conclusion}
                           </div>
 

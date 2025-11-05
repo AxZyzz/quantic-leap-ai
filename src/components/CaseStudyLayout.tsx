@@ -8,6 +8,7 @@ import {
   Library,
   Lightbulb,
   Workflow,
+  Menu,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -145,26 +146,53 @@ export interface CaseStudyLayoutProps {
 
 const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
   const [currentSection, setCurrentSection] = useState("introduction");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="flex min-h-screen pt-16">
+      {/* Mobile Sidebar Toggle */}
+      <button
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        className="md:hidden fixed bottom-4 right-4 z-50 bg-accent text-accent-foreground p-3 rounded-full shadow-lg"
+      >
+        <Menu className="h-6 w-6" />
+      </button>
+
+      {/* Sidebar Backdrop */}
+      {isSidebarOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-background/80 backdrop-blur-sm z-40"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="fixed inset-y-0 left-0 mt-16 w-64 border-r bg-background px-4 py-6">
+      <aside
+        className={cn(
+          "fixed inset-y-0 left-0 mt-16 w-64 border-r bg-background px-4 py-6 z-50",
+          "transform transition-transform duration-300 ease-in-out",
+          "md:translate-x-0",
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        )}
+      >
         <nav className="space-y-2">
           {navigation.map((item) => (
             <NavItem
               key={item.title}
               item={item}
               currentSection={currentSection}
-              setCurrentSection={setCurrentSection}
+              setCurrentSection={(section) => {
+                setCurrentSection(section);
+                setIsSidebarOpen(false); // Close sidebar on mobile when section changes
+              }}
             />
           ))}
         </nav>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 pl-64">
-        <div className="container mx-auto px-8 py-8">{children(currentSection)}</div>
+      <main className="flex-1 md:pl-64">
+        <div className="container mx-auto px-4 md:px-8 py-6 md:py-8">{children(currentSection)}</div>
       </main>
     </div>
   );
