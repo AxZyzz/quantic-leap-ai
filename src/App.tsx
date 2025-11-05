@@ -15,6 +15,7 @@ import Testimonial from "./pages/Testimonial";
 import Contact from "./pages/Contact";
 import Newsletters from "./pages/Newsletters";
 import NotFound from "./pages/NotFound";
+import FAQ from "./pages/FAQ";
 import { homePageSchema } from "./lib/schemas";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           {/* Hidden/unlinked testimonial page (not in navigation) */}
           <Route path="/testimonial" element={<Testimonial />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
