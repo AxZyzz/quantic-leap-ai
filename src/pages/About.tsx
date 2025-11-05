@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Target, Lightbulb, TrendingUp, Users, CheckCircle2 } from "lucide-react";
+import { Target, Lightbulb, TrendingUp, Users, CheckCircle2, Linkedin } from "lucide-react";
 
 import rahulPhoto from '@/assets/team/rahul.jpg';
 import amanphoto from '@/assets/team/aman.jpg';
@@ -13,25 +13,29 @@ const About = () => {
       name: "Rahul V K",
       role: "CEO & Founder",
       bio: "AI Automation Expert",
-      image: rahulPhoto
+      image: rahulPhoto,
+      linkedin: "https://www.linkedin.com/in/rahul-v-k/"
     },
     {
       name: "Aman Xavier",
       role: "CTO & co-founder",
       bio: "AI Automation Expert",
-      image: amanphoto
+      image: amanphoto,
+      linkedin: "https://www.linkedin.com/in/aman-xavier/"
     },
     {
       name: "Dany Stephen",
       role: "COO & co-founder",
       bio: "Marketing Expert",
-      image: danyPhoto
+      image: danyPhoto,
+      linkedin: "https://www.linkedin.com/in/dany-stephen/"
     },
     {
       name: "Akhil M S",
       role: "CPO & co-founder",
       bio: "Marketing Expert",
-      image: akhilPhoto
+      image: akhilPhoto,
+      linkedin: "https://www.linkedin.com/in/akhil-ams/"
     },
   ];
 
@@ -207,6 +211,20 @@ const About = () => {
                       <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
                       <p className="text-sm text-accent mb-3">{member.role}</p>
                       <p className="text-sm text-muted-foreground">{member.bio}</p>
+                      {member.linkedin && (
+                        <div className="mt-3">
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open ${member.name} LinkedIn`}
+                            className="text-sm text-blue-600 hover:underline inline-flex items-center justify-center"
+                          >
+                            <Linkedin className="h-4 w-4 mr-2" />
+                            <span>LinkedIn</span>
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
