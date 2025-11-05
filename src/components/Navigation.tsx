@@ -122,7 +122,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map(renderNavLink)}
             <ThemeToggle />
-            <Button variant="hero" size="default" asChild>
+            <Button variant="acrylic" size="default" asChild>
               <Link to="/contact">Let's Automate</Link>
             </Button>
           </div>
@@ -142,7 +142,7 @@ const Navigation = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navLinks.map(renderNavLink)}
-              <Button variant="hero" size="default" className="w-full" asChild>
+              <Button variant="acrylic" size="default" className="w-full" asChild>
                 <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Let's Automate
                 </Link>
