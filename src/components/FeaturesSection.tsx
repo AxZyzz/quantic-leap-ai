@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
 import feature1 from '@/assets/features/1.png';
 import feature2 from '@/assets/features/2.png';
 import feature3 from '@/assets/features/3.png';
@@ -63,47 +65,73 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-          {/* Features List */}
-          <div className="space-y-8">
-            {features.map((feature) => (
-              <div
-                key={feature.id}
-                className={`cursor-pointer group transition-all duration-300 ${
-                  activeFeature === feature.id ? 'scale-105' : ''
-                }`}
-                onClick={() => handleFeatureClick(feature.id)}
-              >
-                <h3 className={`text-xl font-semibold mb-2 flex items-center ${
-                  activeFeature === feature.id ? 'text-accent' : 'text-foreground'
-                }`}>
-                  {feature.title}
-                  <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${
-                    activeFeature === feature.id ? 'translate-x-1' : ''
-                  }`} />
-                </h3>
-                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                  {feature.description}
-                </p>
+        <div className="max-w-6xl mx-auto">
+          {useIsMobile() ? (
+            // Mobile view with cards
+            <div className="grid grid-cols-1 gap-6">
+              {features.map((feature) => (
+                <Card key={feature.id} className="overflow-hidden">
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {feature.title}
+                      <ArrowRight className="h-5 w-5" />
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-full h-48 object-contain"
+                      />
+                    </div>
+                    <CardDescription>{feature.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            // Desktop view with interactive list
+            <div className="grid grid-cols-2 gap-12 items-start">
+              <div className="space-y-8">
+                {features.map((feature) => (
+                  <div
+                    key={feature.id}
+                    className={`cursor-pointer group transition-all duration-300 ${
+                      activeFeature === feature.id ? 'scale-105' : ''
+                    }`}
+                    onClick={() => handleFeatureClick(feature.id)}
+                  >
+                    <h3 className={`text-xl font-semibold mb-2 flex items-center ${
+                      activeFeature === feature.id ? 'text-accent' : 'text-foreground'
+                    }`}>
+                      {feature.title}
+                      <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${
+                        activeFeature === feature.id ? 'translate-x-1' : ''
+                      }`} />
+                    </h3>
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* Feature Image */}
-          <div className="relative h-[500px]">
-            {features.map((feature) => (
-              <img
-                key={feature.id}
-                src={feature.image}
-                alt={feature.title}
-                className={`absolute inset-0 w-full h-full object-contain transition-all duration-300 ${
-                  activeFeature === feature.id
-                    ? 'opacity-100 scale-100'
-                    : 'opacity-0 scale-95'
-                } ${isTransitioning ? 'transition-all duration-300' : ''}`}
-              />
-            ))}
-          </div>
+              <div className="relative h-[500px]">
+                {features.map((feature) => (
+                  <img
+                    key={feature.id}
+                    src={feature.image}
+                    alt={feature.title}
+                    className={`absolute inset-0 w-full h-full object-contain transition-all duration-300 ${
+                      activeFeature === feature.id
+                        ? 'opacity-100 scale-100'
+                        : 'opacity-0 scale-95'
+                    } ${isTransitioning ? 'transition-all duration-300' : ''}`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
