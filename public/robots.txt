@@ -1,13 +1,21 @@
-User-agent: Googlebot
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
 Allow: /
 
-User-agent: Bingbot
-Allow: /
+# Disallow admin and private routes
+Disallow: /admin/
+Disallow: /private/
+Disallow: /testimonial
 
-User-agent: Twitterbot
-Allow: /
+# Sitemap location
+Sitemap: https://a2b.services/sitemap.xml
 
-User-agent: facebookexternalhit
+# Crawl-delay for specific bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
 Allow: /
 
 User-agent: *
