@@ -75,7 +75,7 @@ const FAQ = () => {
                     <AccordionItem value="cost">
                       <AccordionTrigger>How much does it cost to build an AI solution with A2B?</AccordionTrigger>
                       <AccordionContent>
-                        Project costs vary based on complexity, scope, and requirements. Simple automation workflows might start around $1,000-$15,000, while comprehensive AI systems with custom training and enterprise integrations typically range from $30,000-$100,000+. We provide detailed quotes after understanding your specific needs during a discovery consultation.
+                        Project costs vary based on complexity, scope, and requirements. Simple automation workflows might start around $500-$10,000, while comprehensive AI systems with custom training and enterprise integrations typically range from $10,000-$100,000+. We provide detailed quotes after understanding your specific needs during a discovery consultation.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="timeline">
