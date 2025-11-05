@@ -26,10 +26,31 @@ export default function Testimonial() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Form submission logic will be added later
-    console.log("Form submitted:", formData);
+
+    try {
+      const res = await fetch('https://discordtrolls.app.n8n.cloud/webhook-test/onboarding', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source: 'testimonial' }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to submit testimonial');
+      }
+
+      // reset form locally
+      setFormData({ fullName: '', email: '', role: '', company: '', rating: 0, title: '', testimonial: '' });
+      // minimal user feedback
+      alert('Thank you — your testimonial was submitted.');
+    } catch (err) {
+      // minimal error feedback
+      // keep original form data so user can retry
+      // eslint-disable-next-line no-console
+      console.error(err);
+      alert('There was an error submitting your testimonial. Please try again later.');
+    }
   };
 
   return (
