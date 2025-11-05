@@ -16,17 +16,31 @@ interface NavItem {
   icon?: React.ComponentType<{ className?: string }>;
   href?: string;
   children?: NavItem[];
+  filter?: string;
 }
 
 const navigation: NavItem[] = [
   { title: "Introduction", icon: Info, href: "#introduction" },
-  { title: "Our Works", icon: FileText, href: "#sacred-text-publishing" },
+  {
+    title: "Case Studies",
+    icon: FileText,
+    children: [
+      {
+        title: "Our Works",
+        children: [
+          { title: "Sacred Text Publishing", href: "#sacred-text-publishing" },
+          { title: "Financial Services", href: "#financial-services" },
+          { title: "Healthcare WhatsApp", href: "#healthcare" },
+        ],
+      },
+    ],
+  },
   {
     title: "Automation Templates",
     icon: Workflow,
     children: [
       { title: "JARVIS (Ultimate Assistant)", href: "#jarvis" },
-      { title: "Lexicon ( PDF Report)", href: "#lexicon" },
+      { title: "Lexicon (PDF Report)", href: "#lexicon" },
       { title: "Aether (Newsletter Creation)", href: "#aether" },
       { title: "Curio (RAG Pipeline)", href: "#curio" },
     ],
@@ -79,20 +93,47 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
       {hasChildren && isExpanded && (
         <div className="ml-4 mt-1 space-y-1 border-l pl-2">
           {item.children.map((child) => (
-            <Button
-              key={child.href}
-              variant="ghost"
-              className={cn(
-                "w-full justify-start px-2 text-sm",
-                currentSection === child.href?.replace("#", "") &&
-                  "bg-accent/10 text-accent"
+            <div key={child.title || child.href}>
+              {child.children ? (
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2 py-1 px-2 text-sm font-medium">
+                    {child.title}
+                  </div>
+                  <div className="ml-2 space-y-1">
+                    {child.children.map((subChild) => (
+                      <Button
+                        key={subChild.href}
+                        variant="ghost"
+                        className={cn(
+                          "w-full justify-start px-2 text-sm",
+                          currentSection === subChild.href?.replace("#", "") &&
+                            "bg-accent/10 text-accent"
+                        )}
+                        onClick={() =>
+                          subChild.href && setCurrentSection(subChild.href.replace("#", ""))
+                        }
+                      >
+                        {subChild.title}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Button
+                  variant="ghost"
+                  className={cn(
+                    "w-full justify-start px-2 text-sm",
+                    currentSection === child.href?.replace("#", "") &&
+                      "bg-accent/10 text-accent"
+                  )}
+                  onClick={() =>
+                    child.href && setCurrentSection(child.href.replace("#", ""))
+                  }
+                >
+                  {child.title}
+                </Button>
               )}
-              onClick={() =>
-                child.href && setCurrentSection(child.href.replace("#", ""))
-              }
-            >
-              {child.title}
-            </Button>
+            </div>
           ))}
         </div>
       )}
