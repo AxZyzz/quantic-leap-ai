@@ -109,18 +109,18 @@ const Home = () => {
   const testimonials = [
     {
       quote:
-        "A2B transformed our operations completely. What used to take our team days now happens automatically in hours.",
-      author: "Sarah Johnson",
-      role: "COO",
-      company: "TechCorp",
+        "Using A2B for my automations in n8n was the best decision I have ever taken. They delivered my project timely and also I got priority feedbacks whenever needed.",
+      author: "Siddhant Gupta",
+      role: "Backend Engineer",
+      company: "EdwanceAI",
       rating: 5,
     },
     {
       quote:
-        "The ROI was incredible. We recovered our investment in 4 months and continue to see compound benefits.",
-      author: "Michael Chen",
-      role: "CEO",
-      company: "DataFlow Inc",
+        "A2B transformed our operations completely. What used to take our team days now happens automatically in hours.",
+      author: "Sarah Johnson",
+      role: "COO",
+      company: "TechCorp",
       rating: 5,
     },
   ];
