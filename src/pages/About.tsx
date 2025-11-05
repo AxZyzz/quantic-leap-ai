@@ -32,7 +32,7 @@ const About = () => {
     },
     {
       name: "Akhil M S",
-      role: "CPO & co-founder",
+      role: "CMO & co-founder",
       bio: "Marketing Expert",
       image: akhilPhoto,
       linkedin: "https://www.linkedin.com/in/akhil-ams/"
