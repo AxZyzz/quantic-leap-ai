@@ -2,6 +2,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
+import { faqSchema } from "@/lib/faq-schema";
 
 const FAQ = () => {
   return (
@@ -10,6 +11,7 @@ const FAQ = () => {
         title="FAQ - A2B AI Solutions & Enterprise Automation"
         description="Frequently asked questions about A2B's AI solutions, pricing, technical capabilities, implementation process, and support services for enterprise automation."
         canonical="https://a2b.services/faq"
+        schema={faqSchema}
       />
       
       <div className="min-h-screen pt-20">
@@ -73,7 +75,7 @@ const FAQ = () => {
                     <AccordionItem value="cost">
                       <AccordionTrigger>How much does it cost to build an AI solution with A2B?</AccordionTrigger>
                       <AccordionContent>
-                        Project costs vary based on complexity, scope, and requirements. Simple automation workflows might start around $5,000-$15,000, while comprehensive AI systems with custom training and enterprise integrations typically range from $30,000-$100,000+. We provide detailed quotes after understanding your specific needs during a discovery consultation.
+                        Project costs vary based on complexity, scope, and requirements. Simple automation workflows might start around $1,000-$15,000, while comprehensive AI systems with custom training and enterprise integrations typically range from $30,000-$100,000+. We provide detailed quotes after understanding your specific needs during a discovery consultation.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="timeline">
