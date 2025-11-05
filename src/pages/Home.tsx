@@ -184,22 +184,26 @@ const Home = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {solutions.map((solution, index) => (
               <ScrollReveal key={solution.title} delay={index * 100}>
                 <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 p-3 bg-accent/10 rounded-lg w-fit">
-                      <solution.icon className="h-8 w-8 text-accent" />
+                  <CardContent className="pt-4 pb-6">
+                    <div className="flex items-start sm:items-center gap-4">
+                      <div className="p-3 bg-accent/10 rounded-lg flex-shrink-0">
+                        <solution.icon className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg sm:text-xl font-semibold mb-1">{solution.title}</h3>
+                        <p className="text-sm sm:text-base text-muted-foreground mb-3">{solution.description}</p>
+                        <Link
+                          to="/services"
+                          className="inline-flex items-center text-accent hover:underline mt-1 text-sm font-medium"
+                        >
+                          Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{solution.title}</h3>
-                    <p className="text-muted-foreground">{solution.description}</p>
-                    <Link
-                      to="/services"
-                      className="inline-flex items-center text-accent hover:underline mt-4 text-sm font-medium"
-                    >
-                      Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
                   </CardContent>
                 </Card>
               </ScrollReveal>
