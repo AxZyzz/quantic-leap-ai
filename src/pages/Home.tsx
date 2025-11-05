@@ -17,7 +17,7 @@ import {
   Star,
 } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import PartnersScroll from "@/components/PartnersScroll";
+// import PartnersScroll from "@/components/PartnersScroll"; // Temporarily commented out
 import FeaturesSection from "@/components/FeaturesSection";
 import ToolsSection from "@/components/ToolsSection";
 
@@ -159,11 +159,13 @@ const Home = () => {
                 </Button>
               </div>
             </ScrollReveal>
+            {/* Commented out temporarily - Trusted by Brands section
             <ScrollReveal delay={300}>
               <p className="text-sm text-muted-foreground mt-8 mix-blend-difference">
                 Trusted by category leaders across industries
               </p>
             </ScrollReveal>
+            */}
           </div>
         </div>
       </section>
@@ -206,8 +208,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Partners Section */}
+      {/* Partners Section - Temporarily commented out
       <PartnersScroll />
+      */}
 
       {/* Features Section */}
       <FeaturesSection />
