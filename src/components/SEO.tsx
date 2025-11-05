@@ -44,7 +44,7 @@ export default function SEO({
   title = "A2B - Enterprise AI Automation & Integration Solutions",
   description = "Transform your enterprise with secure, scalable AI automation. Custom workflow orchestration, cloud integration, and ROI-driven implementation for industry leaders.",
   canonical = "https://a2b.services",
-  ogImage = "/og/default-banner.jpg",
+  ogImage = "/assets/logo/a2blogoblack.png",
   schema = defaultSchema,
   noindex = false
 }: SEOProps) {
