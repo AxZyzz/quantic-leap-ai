@@ -44,7 +44,8 @@ const Contact = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        // include a small metadata flag so the webhook knows this came from the contact page
+        body: JSON.stringify({ ...formData, source: 'contact-page' }),
       });
 
       if (!response.ok) {

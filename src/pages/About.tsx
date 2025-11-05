@@ -11,7 +11,7 @@ const About = () => {
   const team = [
     {
       name: "Rahul V K",
-      role: "CEO & co-founder",
+      role: "CEO & Founder",
       bio: "AI Automation Expert",
       image: rahulPhoto
     },
