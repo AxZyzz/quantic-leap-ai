@@ -2,12 +2,19 @@
   command = "npm run build"
   publish = "dist"
 
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 [[redirects]]
-  from = "/lander"
-  to = "/"
+  from = "/lander/*"
+  to = "/:splat"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
