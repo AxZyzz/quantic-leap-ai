@@ -12,6 +12,7 @@ import Pricing from "./pages/Pricing";
 import CaseStudies from "./pages/CaseStudies";
 import Testimonial from "./pages/Testimonial";
 import Contact from "./pages/Contact";
+import Newsletters from "./pages/Newsletters";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/newsletters" element={<Newsletters />} />
           {/* Hidden/unlinked testimonial page (not in navigation) */}
           <Route path="/testimonial" element={<Testimonial />} />
           <Route path="/contact" element={<Contact />} />
