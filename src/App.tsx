@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import Newsletters from "./pages/Newsletters";
 import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ";
+import Resources from "./pages/Resources";
 import { homePageSchema } from "./lib/schemas";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,8 @@ const App = () => (
           <Route path="/testimonial" element={<Testimonial />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/:section" element={<Resources />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

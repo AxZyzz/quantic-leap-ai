@@ -29,8 +29,6 @@ const navigation: NavItem[] = [
         title: "Our Works",
         children: [
           { title: "Sacred Text Publishing", href: "#sacred-text-publishing" },
-          { title: "Financial Services", href: "#financial-services" },
-          { title: "Healthcare WhatsApp", href: "#healthcare" },
         ],
       },
     ],

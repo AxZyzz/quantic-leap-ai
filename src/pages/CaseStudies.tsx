@@ -5,6 +5,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { TrendingUp, Clock, DollarSign, Users, ArrowRight } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import sacredTextImg1 from "../assets/casestudy/SacredTextPublishing/image1.webp";
+import sacredTextImg2 from "../assets/casestudy/SacredTextPublishing/img2.webp";
 import jarvisImg1 from "../assets/casestudy/JARVIS/jarvis-screenshot-1.png";
 import jarvisImg2 from "../assets/casestudy/JARVIS/jarvis-screenshot-2.png";
 const jarvisJsonUrl = new URL("../assets/casestudy/JARVIS/JARVIS.json", import.meta.url).href;
@@ -20,12 +22,97 @@ const CaseStudies = () => {
     {
       id: "sacred-text-publishing",
       industry: "Religious & Educational Content",
-      client: "Sacred Text Publishing",
+      client: "Sacred Text Publishing | AI-Powered Religious Content Video Generator",
       size: "1,500-page Religious Text",
-      challenge:
-        "Transform the complete 1,500-page Sri Guru Granth Sahib—a sacred Gurmukhi text—into engaging social media videos. Each sentence needed dual videos: verse (original Gurmukhi) and explanation (meaning), requiring thousands of unique animated videos. Manual creation would take months/years, and external video APIs would cost thousands.",
-      solution:
-        "Delivered a fully automated, zero-cost-per-video solution using n8n workflow orchestration, Gemini AI for intelligent OCR, and custom Python-based video generation with FFmpeg. The system processes PDFs, extracts content with AI precision, and generates professionally animated videos with culturally appropriate styling—all running locally with no recurring API costs.",
+      challenge: `A religious content organization approached a2b.ai with an ambitious mission: transform the complete 1,500-page Sri Guru Granth Sahib—a sacred Gurmukhi text—into engaging social media videos for educational outreach to younger generations. Each sentence needed to be presented as both a verse video (original Gurmukhi text) and an explanation video (with meaning), creating thousands of unique animated videos.
+
+The challenge was formidable. Manual video creation would require months or years of work. External video generation APIs like Veo or similar services would cost thousands of dollars for this volume. The client needed a solution that was fast, cost-effective, and maintained the sacred text's integrity while creating visually compelling content suitable for Instagram, YouTube, and other social platforms.`,
+      solution: `a2b.ai delivered a fully automated, zero-cost-per-video solution using n8n workflow orchestration, Gemini AI for intelligent OCR, and custom Python-based video generation with FFmpeg. The system processes the entire PDF, extracts and structures content with AI precision, and generates professionally animated videos with culturally appropriate visual styling—all running locally with no recurring API costs. The modular architecture enables the client to process unlimited religious texts across any language or script.`,
+      details: {
+        phase1: {
+          title: "Phase 1: Intelligent PDF Processing & Content Extraction",
+          trigger: "Manual activation via n8n button trigger, allowing on-demand processing of any PDF document.",
+          capabilities: [
+            {
+              title: "Google Sheets Naming System",
+              description: "The workflow begins by checking a centralized Google Sheet that tracks video generation progress. This naming registry prevents file conflicts when processing multiple PDFs through the same workflow. Each time the system runs, it reads the current counter value, uses it for sequential file naming (e.g., \"verse_001\", \"explanation_001\"), and increments the counter for the next execution. This ensures every video across all processing sessions has a unique, organized identifier."
+            },
+            {
+              title: "Gemini AI OCR with Gurmukhi Intelligence",
+              description: "The system leverages Google's Gemini AI specifically for its superior understanding of Gurmukhi script and context. Unlike generic OCR tools, Gemini doesn't just extract text—it semantically understands the religious verses and their explanations, returning structured JSON that separates the original verse from its meaning. This intelligent extraction is critical for a 1,500-page religious text where accuracy and cultural sensitivity are paramount."
+            },
+            {
+              title: "JavaScript Data Cleansing",
+              description: "A Code node (JavaScript) receives Gemini's JSON output and performs specialized data cleaning. It strips formatting artifacts, normalizes Gurmukhi characters, validates structure, and prepares two distinct data payloads: one for verse videos and one for explanation videos. This preprocessing ensures downstream video generation receives perfectly formatted input."
+            }
+          ]
+        },
+        phase2: {
+          title: "Phase 2: Dual-Path Video Generation System",
+          trigger: "IF node routing that determines whether to generate a verse video or explanation video based on content type.",
+          capabilities: [
+            {
+              title: "Verse Video Generator: Golden Divine Aesthetic",
+              description: `When processing original Gurmukhi verses, the system creates videos with a distinctive golden glowing effect that reflects the sacred nature of the text. The Python script utilizes FFmpeg to:
+
+- Render Gurmukhi text using locally installed fonts (ensuring proper script rendering)
+- Apply a golden color scheme with animated glow effects
+- Create smooth text animations optimized for social media viewing
+- Generate MP4 files with platform-appropriate dimensions and quality
+
+The golden aesthetic was specifically chosen to evoke reverence and align with cultural expectations for religious content presentation.`
+            },
+            {
+              title: "Explanation Video Generator: Modern Clarity Design",
+              description: `For explanation content (meanings and interpretations), the system generates a parallel video with a contrasting visual style:
+
+- Black highlight treatment for enhanced readability
+- Clean, modern typography suitable for educational content
+- Same technical animation quality with different color psychology
+- Maintains consistency in pacing and duration with verse videos`
+            },
+            {
+              title: "Local Processing with Zero Recurring Costs",
+              description: "Both video generators run entirely on local infrastructure using Python and FFmpeg—no external APIs, no per-video costs. The client can generate unlimited videos at effectively zero marginal cost after initial setup. Each video takes approximately 1-1.5 minutes to generate locally versus the months it would take manually or the prohibitive costs of using commercial video APIs."
+            },
+            {
+              title: "Automated File Management",
+              description: 'Generated videos are stored locally with systematic naming pulled from the Google Sheets counter. Files are organized as "verse_XXX.mp4" and "explanation_XXX.mp4" where XXX corresponds to the incremented sheet value, creating a perfectly organized library of thousands of videos.'
+            }
+          ]
+        },
+        phase3: {
+          title: "Phase 3: Progress Tracking & Loop Management",
+          trigger: "Completion of each video generation cycle.",
+          capabilities: [
+            {
+              title: "Intelligent Counter Updates",
+              description: "After both verse and explanation videos are generated, the workflow updates the Google Sheets counter automatically. This creates a persistent state that survives workflow restarts, enables batch processing of large PDFs in manageable chunks, and provides real-time progress tracking. The client can monitor exactly how many verses have been processed across all sessions."
+            },
+            {
+              title: "Scalable Looping Architecture",
+              description: `The system is designed to process the entire 1,500-page PDF systematically. The counter mechanism enables the workflow to:
+
+- Resume processing from the exact point of any interruption
+- Process PDFs in scheduled batches to manage system resources
+- Scale to unlimited page counts without workflow modifications
+- Handle multiple different religious texts through the same infrastructure`
+            }
+          ]
+        }
+      },
+      images: [
+        {
+          src: sacredTextImg1,
+          alt: "Architecture Diagram",
+          caption: "System Architecture Overview"
+        },
+        {
+          src: sacredTextImg2,
+          alt: "Workflow Diagram",
+          caption: "n8n Workflow Implementation"
+        }
+      ],
       technology: [
         "Gemini AI OCR",
         "n8n Workflow Automation",
@@ -39,61 +126,20 @@ const CaseStudies = () => {
         { icon: DollarSign, metric: "Zero Cost", label: "Per video after initial setup" },
         { icon: Users, metric: "Unlimited", label: "Scalability for any text" },
       ],
-      testimonial:
-        "What once seemed like an insurmountable challenge—bringing sacred 1,500-page texts to social media—is now as simple as uploading a PDF and pressing a button. The automation enables us to focus on our core mission: sharing spiritual wisdom with future generations.",
+      roi: `This automation system functions as a tireless content production engine that transformed an impossible manual task into a push-button operation. The client can now convert any sacred text—regardless of length, language, or script—into thousands of professionally animated social media videos without hiring video editors, purchasing expensive software subscriptions, or spending months on manual production.
+
+**Quantifiable Impact:**
+
+- **Time Savings:** Reduced 1,500-page processing from months/years to hours
+- **Cost Elimination:** Zero per-video costs vs. thousands of dollars for API-based solutions
+- **100x Efficiency Multiplier:** What took days per video now takes 1-1.5 minutes
+- **Cultural Preservation:** Makes sacred texts accessible to younger, social-media-native audiences
+- **Unlimited Scalability:** Can process infinite texts with the same infrastructure
+
+The modular architecture means the client now owns a complete video production system that works for any religious text, any language (including complex scripts like Gurmukhi, Arabic, Sanskrit, or Hebrew), and any visual style. By providing the custom workflow template, a2b.ai empowered the client with a sustainable, expandable content generation capability that grows with their mission.`,
+      testimonial: "The organization's feedback was unequivocal: they were 'amazed' by the system's capability and the astronomical time savings. What once seemed like an insurmountable challenge—bringing sacred 1,500-page texts to social media—is now as simple as uploading a PDF and pressing a button. The automation enables them to focus on their core mission: sharing spiritual wisdom with future generations, while the AI handles the creative production at scale.",
+      conclusion: "This system represents the future of religious and educational content creation: intelligent, automated, culturally sensitive, and infinitely scalable.",
       author: "Organization Director",
-    },
-    {
-      id: "financial-services",
-      industry: "Financial Services",
-      client: "Leading Financial Services Firm",
-      size: "Enterprise Client Onboarding",
-      challenge:
-        "The firm was losing 17-20% of their potential clients during onboarding due to lengthy processes and complex documentation requirements.",
-      solution:
-        "Implemented an intelligent automation system that streamlines client onboarding through automated document processing, verification workflows, and smart data validation.",
-      technology: [
-        "Document AI",
-        "Automated Workflows",
-        "Smart Verification",
-        "Client Portal Integration",
-        "Data Validation",
-      ],
-      results: [
-        { icon: Clock, metric: "60% faster", label: "Reduced onboarding from 1 hour to 20 minutes" },
-        { icon: TrendingUp, metric: "15% growth", label: "Improved client retention" },
-        { icon: DollarSign, metric: "2% savings", label: "Reduced admin costs per client" },
-        { icon: Users, metric: "200% ROI", label: "Over 3-4 years from efficiency gains" },
-      ],
-      testimonial:
-        "The automation transformed our onboarding process completely. We've seen dramatic improvements in client satisfaction and significant cost savings.",
-      author: "Operations Director",
-    },
-    {
-      id: "healthcare",
-      industry: "Healthcare",
-      client: "Healthcare Startup",
-      size: "Patient Communication System",
-      challenge:
-        "The startup needed an automated WhatsApp system to collect patient details and reports, which was being handled manually and causing significant delays.",
-      solution:
-        "Developed an automated WhatsApp workflow system that handles patient data collection, report management, and visit scheduling without manual intervention.",
-      technology: [
-        "WhatsApp Business API",
-        "Automated Workflow",
-        "Document Management",
-        "Appointment Scheduling",
-        "Data Security",
-      ],
-      results: [
-        { icon: Clock, metric: "70% reduction", label: "In manual workload" },
-        { icon: TrendingUp, metric: "24/7", label: "Automated patient support" },
-        { icon: DollarSign, metric: "Zero", label: "Recurring costs" },
-        { icon: Users, metric: "100%", label: "Digital transformation" },
-      ],
-      testimonial:
-        "The WhatsApp automation has completely transformed how we handle patient communication. The system is reliable, efficient, and has significantly improved our patient experience.",
-      author: "Healthcare Director",
     }
   ];
 
@@ -224,8 +270,6 @@ const CaseStudies = () => {
         );
 
       case "sacred-text-publishing":
-      case "financial-services":
-      case "healthcare":
         const currentStudy = studies.find(study => study.id === currentSection);
         return (
           <section className="mb-16">
@@ -251,25 +295,67 @@ const CaseStudies = () => {
                             <h3 className="text-xl font-semibold mb-3 text-destructive">
                               The Challenge
                             </h3>
-                            <p className="text-muted-foreground">{currentStudy.challenge}</p>
+                            <p className="text-muted-foreground whitespace-pre-wrap">{currentStudy.challenge}</p>
                           </div>
 
                           {/* Solution */}
                           <div className="mb-8">
                             <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
                             <p className="text-muted-foreground mb-4">{currentStudy.solution}</p>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-2 mb-6">
                               {currentStudy.technology.map((tech) => (
                                 <Badge key={tech} variant="outline" className="text-xs">
                                   {tech}
                                 </Badge>
                               ))}
                             </div>
+
+                            {/* Images */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                              {currentStudy.images?.map((image, index) => (
+                                <div key={index} className="space-y-2">
+                                  <img
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="w-full rounded-lg shadow-lg"
+                                  />
+                                  <p className="text-sm text-center text-muted-foreground">{image.caption}</p>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Implementation Details */}
+                            {Object.values(currentStudy.details).map((phase: any, index) => (
+                              <div key={index} className="mb-8">
+                                <h3 className="text-xl font-semibold mb-4">{phase.title}</h3>
+                                <p className="text-muted-foreground mb-4">Trigger: {phase.trigger}</p>
+                                <div className="space-y-6">
+                                  {phase.capabilities.map((capability: any, capIndex: number) => (
+                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-4">
+                                      <h4 className="text-lg font-medium mb-2">{capability.title}</h4>
+                                      <div className="text-muted-foreground prose prose-sm max-w-none">
+                                        {capability.description.includes('-') ? (
+                                          <div dangerouslySetInnerHTML={{ 
+                                            __html: capability.description.split('\n').map((line: string) => 
+                                              line.trim().startsWith('-') ? 
+                                                `<li>${line.substring(1).trim()}</li>` : 
+                                                `<p>${line}</p>`
+                                            ).join('')
+                                          }} />
+                                        ) : (
+                                          <p>{capability.description}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
                           </div>
 
                           {/* Results */}
                           <div className="mb-8">
-                            <h3 className="text-xl font-semibold mb-6">The Results</h3>
+                            <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                               {currentStudy.results.map((result) => (
                                 <div
@@ -284,10 +370,29 @@ const CaseStudies = () => {
                             </div>
                           </div>
 
+                          {/* ROI Section */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
+                            <div className="prose prose-sm max-w-none text-muted-foreground">
+                              <div dangerouslySetInnerHTML={{ 
+                                __html: currentStudy.roi.split('\n').map(line => 
+                                  line.trim().startsWith('-') ? 
+                                    `<li>${line.substring(1).trim()}</li>` : 
+                                    `<p>${line}</p>`
+                                ).join('')
+                              }} />
+                            </div>
+                          </div>
+
                           {/* Testimonial */}
-                          <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-accent">
-                            <p className="text-lg italic mb-3">"{currentStudy.testimonial}"</p>
+                          <div className="bg-muted/50 p-6 rounded-lg border-l-4 border-accent mb-8">
+                            <p className="text-lg italic mb-3">{currentStudy.testimonial}</p>
                             <p className="text-sm text-muted-foreground">— {currentStudy.author}</p>
+                          </div>
+
+                          {/* Conclusion */}
+                          <div className="text-lg font-medium text-accent">
+                            {currentStudy.conclusion}
                           </div>
 
                           {/* LinkedIn Link for specific cases */}

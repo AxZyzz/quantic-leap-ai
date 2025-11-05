@@ -23,7 +23,6 @@ const Footer = () => {
     Resources: [
       { name: "Newsletters", path: "/newsletters" },
       { name: "Guides", path: "/resources" },
-      { name: "FAQ", path: "/faq" },
     ],
   };
 
@@ -117,13 +116,13 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
-              to="/privacy"
+              to="/contact"
               className="text-primary-foreground/60 hover:text-accent text-sm transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
-              to="/terms"
+              to="/contact"
               className="text-primary-foreground/60 hover:text-accent text-sm transition-colors"
             >
               Terms of Service

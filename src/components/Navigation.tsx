@@ -52,7 +52,6 @@ const Navigation = () => {
     { name: "Pricing", path: "/pricing" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "About", path: "/about" },
-    { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
   ];
 
