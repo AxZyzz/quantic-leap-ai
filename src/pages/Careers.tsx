@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 import {
   Select,
   SelectContent,
@@ -14,6 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 const Careers = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -34,15 +36,77 @@ const Careers = () => {
     // Additional fields
     automationExperience: "",
     realWorldProblems: "",
+    realWorldProblemDetails: "", // New field for problem details
     howDidYouHear: "",
     socialMediaPlatform: "",
     otherSource: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    try {
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER;
+      const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
+
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        Website: websiteHeaderValue ?? "",
+      };
+      if (authValue) headers["Authorization"] = authValue;
+
+      // Send the form data to the configured webhook and include source metadata
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ ...formData, source: "internship" }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      // Show success message
+      toast({
+        title: "Application Submitted!",
+        description: "Thank you for your interest. We'll review your application and get back to you soon.",
+        variant: "default",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        country: "",
+        city: "",
+        linkedin: "",
+        github: "",
+        whyJoin: "",
+        employmentStatus: "",
+        university: "",
+        course: "",
+        company: "",
+        position: "",
+        freelanceWork: "",
+        automationExperience: "",
+        realWorldProblems: "",
+        realWorldProblemDetails: "",
+        howDidYouHear: "",
+        socialMediaPlatform: "",
+        otherSource: "",
+      });
+    } catch (err) {
+      console.error("Failed to submit careers form to webhook", err);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      console.log(formData);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -307,6 +371,21 @@ const Careers = () => {
                         </div>
                       </div>
                     </div>
+
+                    {formData.realWorldProblems === "yes" && (
+                      <div className="space-y-2">
+                        <Label htmlFor="realWorldProblemDetails">Which problems have you worked on? *</Label>
+                        <Textarea
+                          id="realWorldProblemDetails"
+                          name="realWorldProblemDetails"
+                          value={formData.realWorldProblemDetails}
+                          onChange={handleChange}
+                          required
+                          placeholder="Please describe the real-world problems you've worked on..."
+                          className="min-h-[100px]"
+                        />
+                      </div>
+                    )}
 
                     <div className="space-y-2">
                       <Label htmlFor="automationExperience">What is your experience in automation? *</Label>
