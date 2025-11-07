@@ -39,8 +39,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL ?? 'https://discordtrolls.app.n8n.cloud/webhook-test/onboarding';
-      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER ?? 'a2b.business.official@gmail.comWebsiteAutomation';
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER;
       const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
 
       // Build headers and include optional Authorization header if provided
