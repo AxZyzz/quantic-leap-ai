@@ -23,6 +23,7 @@ const Footer = () => {
     Resources: [
       { name: "Newsletters", path: "/newsletters" },
       { name: "Guides", path: "/resources" },
+      { name: "FAQ", path: "/faq" },
     ],
   };
 

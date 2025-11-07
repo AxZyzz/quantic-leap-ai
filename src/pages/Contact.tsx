@@ -448,7 +448,7 @@ const Contact = () => {
                     </p>
                     <Button variant="outline" className="w-full" asChild>
                       <a
-                        href="https://calendly.com"
+                        href="https://calendly.com/a2b-business-official/30min"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
