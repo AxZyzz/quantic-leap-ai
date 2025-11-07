@@ -19,8 +19,41 @@ const Pricing = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <ScrollReveal delay={100}>
+              <Card className="hover:shadow-xl transition-all duration-300">
+                <CardContent className="pt-6">
+                  <h3 className="text-2xl font-bold mb-2">Starter Pack</h3>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold">$1,999</span>
+                    <span className="text-muted-foreground">/once</span>
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Perfect for businesses starting their AI automation journey
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Single AI automation solution",
+                      "2 weeks development time",
+                      "Documentation and user guides",
+                      "14-day support period",
+                      "3 revision round",
+                      "Performance metrics dashboard",
+                    ].map((feature) => (
+                      <li key={feature} className="flex items-start">
+                        <CheckCircle2 className="h-5 w-5 text-accent mr-2 flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button variant="secondary" size="lg" className="w-full" asChild>
+                    <Link to="/contact">Get Started</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+
+            <ScrollReveal delay={200}>
               <Card className="relative hover:shadow-xl transition-all duration-300">
                 <div className="absolute top-4 right-4">
                   <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-bold rounded-full">
@@ -30,7 +63,7 @@ const Pricing = () => {
                 <CardContent className="pt-6">
                   <h3 className="text-2xl font-bold mb-2">Business Partner</h3>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold">$10,000</span>
+                    <span className="text-4xl font-bold">$9,999</span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
                   <p className="text-muted-foreground mb-6">
@@ -58,7 +91,7 @@ const Pricing = () => {
               </Card>
             </ScrollReveal>
 
-            <ScrollReveal delay={200}>
+            <ScrollReveal delay={300}>
               <Card className="hover:shadow-xl transition-all duration-300">
                 <CardContent className="pt-6">
                   <h3 className="text-2xl font-bold mb-2">Enterprise Partner</h3>
