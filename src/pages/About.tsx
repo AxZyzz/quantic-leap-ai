@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Target, Lightbulb, TrendingUp, Users, CheckCircle2, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import rahulPhoto from '@/assets/team/rahul.jpg';
 import amanphoto from '@/assets/team/aman.jpg';
@@ -233,6 +235,24 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* We're Hiring Section - Uncomment when vacancies are available
+      <section className="py-20 bg-accent/10">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">We're Hiring!</h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Join our team of innovators and help shape the future of AI automation. We're looking for passionate individuals who want to make a difference.
+              </p>
+              <Button size="lg" variant="default" className="bg-accent hover:bg-accent/90" asChild>
+                <Link to="/careers">Join Our Team</Link>
+              </Button>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+      */}
 
       {/* Process Section */}
       <section className="py-20">
