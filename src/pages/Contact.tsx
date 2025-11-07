@@ -452,7 +452,7 @@ const Contact = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        View Calendar
+                        View Calendly
                       </a>
                     </Button>
                   </CardContent>
