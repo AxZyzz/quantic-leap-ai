@@ -315,11 +315,11 @@ The modular architecture means the client now owns a complete video production s
                             {/* Primary image (keep first image here) */}
                             {currentStudy.images && currentStudy.images[0] && (
                               <div className="mb-8">
-                                <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+                                <div className="mb-2">
                                   <img
                                     src={currentStudy.images[0].src}
                                     alt={currentStudy.images[0].alt}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-auto rounded-lg shadow-lg mx-auto"
                                   />
                                 </div>
                                 <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{currentStudy.images[0].caption}</p>
@@ -357,11 +357,11 @@ The modular architecture means the client now owns a complete video production s
                             {/* Secondary image: place the second image below Phase 3 content */}
                             {currentStudy.images && currentStudy.images[1] && (
                               <div className="mb-8">
-                                <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+                                <div className="mb-2">
                                   <img
                                     src={currentStudy.images[1].src}
                                     alt={currentStudy.images[1].alt}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-auto rounded-lg shadow-lg mx-auto"
                                   />
                                 </div>
                                 <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{currentStudy.images[1].caption}</p>
