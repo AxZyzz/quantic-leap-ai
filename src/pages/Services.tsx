@@ -325,17 +325,7 @@ const Services = () => {
                 },
               ],
             },
-            {
-              id: "construction",
-              title: "Construction & Architecture",
-              goal: "Keep projects on track and communication clear.",
-              automations: [
-                { title: "Timeline updates", description: "Project progress automation.", impact: "Fewer delays." },
-                { title: "Vendor coordination", description: "Approval workflows.", impact: "Faster procurement." },
-                { title: "Expense tracking", description: "Automated expense management.", impact: "Better costing." },
-                { title: "Safety checklists", description: "Compliance automation.", impact: "Safer sites." },
-              ],
-            },
+
             {
               id: "support",
               title: "Customer Support & Operations",
