@@ -274,23 +274,55 @@ const Services = () => {
             {
               id: "media",
               title: "Media, Marketing & Content",
-              goal: "Create, publish, and analyze content at scale.",
+              goal: "Create, distribute, and analyze content effortlessly to scale brand visibility and engagement.",
               automations: [
-                { title: "Content scheduling", description: "Cross-posting and scheduling.", impact: "Faster output." },
-                { title: "AI content pipelines", description: "Generate and repurpose content.", impact: "Higher volume." },
-                { title: "Campaign analytics", description: "Auto reporting and dashboards.", impact: "Deeper insights." },
-                { title: "Client reporting", description: "Automated reports for agencies.", impact: "Smoother client management." },
+                {
+                  title: "Cross-Platform Posting Systems",
+                  description: "Automate creation and scheduling across LinkedIn, Instagram, X (Twitter), YouTube, and Facebook from a single dashboard. The system auto-adapts formats, captions, and schedules per platform for consistent brand presence.",
+                  impact: "Faster, more consistent publishing and reduced manual overhead.",
+                },
+                {
+                  title: "AI-Driven Content Pipelines",
+                  description: "Use AI to generate captions, hashtags, blog intros, and ad copy aligned to brand tone and keywords. Automate repurposing — turning a long-form blog into short videos, carousels, and newsletters.",
+                  impact: "AI-assisted creativity, reduced content fatigue, and higher output with maintained quality.",
+                },
+                {
+                  title: "Unified Analytics Dashboards",
+                  description: "Consolidate engagement metrics, impressions, conversions, and ad ROI from all channels into a single real-time dashboard. Automatically surface top-performing content and send weekly performance summaries to stakeholders.",
+                  impact: "Centralized insights that enable smarter marketing decisions and faster optimization.",
+                },
+                {
+                  title: "Automated Client Reporting",
+                  description: "Auto-generate campaign performance reports in templates (PDF, Notion, Slides) and deliver them to clients or internal teams without manual data pulling.",
+                  impact: "Streamlined reporting cycles and better client communication with less manual effort.",
+                },
               ],
             },
             {
               id: "saas",
               title: "SaaS & Tech Startups",
-              goal: "Scale systems faster than headcount.",
+              goal: "Build scalable systems and growth loops that evolve faster than your team size.",
               automations: [
-                { title: "Onboarding & demo scheduling", description: "Automated user onboarding.", impact: "Faster activation." },
-                { title: "Feedback collection", description: "In-app surveys and analytics.", impact: "Better product decisions." },
-                { title: "CRM + support sync", description: "HubSpot/Intercom integrations.", impact: "Unified customer view." },
-                { title: "Custom internal tools", description: "AI-powered utilities.", impact: "Higher developer productivity." },
+                {
+                  title: "User Onboarding Workflows",
+                  description: "Automate the onboarding experience — welcome emails, demo scheduling, personalized product tours, and setup guides. Trigger targeted flows based on user behavior or subscription tier.",
+                  impact: "Faster onboarding and higher user activation through tailored experiences.",
+                },
+                {
+                  title: "Continuous Feedback Loops",
+                  description: "Automatically collect and analyze product feedback, NPS scores, and feature requests. Push insights into Notion, Slack, or Productboard to help teams prioritize product improvements with real-time signals.",
+                  impact: "Faster product iteration and prioritization driven by user data.",
+                },
+                {
+                  title: "CRM + Support Desk Integration",
+                  description: "Connect HubSpot, Intercom, Notion and support desks to create a unified customer system. Sync tickets, lifecycle stages, and customer data so sales, support, and product share a single source of truth.",
+                  impact: "Improved retention and faster resolution with cross-team visibility.",
+                },
+                {
+                  title: "Custom Internal Tools & AI Dashboards",
+                  description: "Develop AI-powered dashboards and internal tools that monitor churn, usage, MRR and trigger alerts for anomalies or opportunities. Integrate with Slack or email for proactive notifications.",
+                  impact: "Proactive growth signals and scalable monitoring without manual reporting.",
+                },
               ],
             },
             {
@@ -307,12 +339,28 @@ const Services = () => {
             {
               id: "support",
               title: "Customer Support & Operations",
-              goal: "Resolve issues faster without expanding the team.",
+              goal: "Deliver faster, smarter support experiences without expanding your team size.",
               automations: [
-                { title: "AI chat systems", description: "Bots trained on your data.", impact: "Faster first response." },
-                { title: "Ticket triage", description: "Automated routing and escalation.", impact: "Faster resolution." },
-                { title: "Knowledge base automation", description: "Auto-update KBs.", impact: "Better self-service." },
-                { title: "Surveys & feedback", description: "Automated NPS and follow-ups.", impact: "Continuous improvement." },
+                {
+                  title: "AI-Powered Chat Systems",
+                  description: "Deploy AI chatbots trained on product docs, FAQs, and internal KBs to handle common queries instantly. Integrate with Intercom, Zendesk, or WhatsApp for 24/7 assistance and seamless escalation to human agents when needed.",
+                  impact: "Dramatically faster first response and reduced load on support agents.",
+                },
+                {
+                  title: "Intelligent Ticket Routing",
+                  description: "Automatically categorize and assign tickets to the right teams or agents based on keywords, priority, or customer profile. Critical issues are escalated instantly while routine requests get auto-resolved.",
+                  impact: "Faster resolution times and fewer misrouted tickets.",
+                },
+                {
+                  title: "Dynamic Knowledge Base Management",
+                  description: "Sync and auto-update help articles, FAQs, and troubleshooting guides based on recurring issues and product changes. Use AI to detect outdated content and suggest improvements or new articles.",
+                  impact: "Better self-service, fewer support queries, and continuously improving documentation.",
+                },
+                {
+                  title: "Customer Feedback & Satisfaction Loops",
+                  description: "Trigger post-resolution surveys or NPS forms automatically to capture sentiment. Feed results into dashboards for trend analysis and automate actions for low-satisfaction cases.",
+                  impact: "Higher customer satisfaction and a clear path to service improvements.",
+                },
               ],
             },
           ];
