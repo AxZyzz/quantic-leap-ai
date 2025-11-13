@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 
 const Services = () => {
   const industries = [
@@ -359,122 +359,397 @@ const Services = () => {
             {
               id: "whatsapp",
               title: "WhatsApp & Communication Automations",
-              bullets: [
-                "Auto-reply and lead-qualification chatbots for WhatsApp Business.",
-                "Message broadcasting with personalized templates.",
-                "Automated follow-ups for inquiries, payments, or bookings.",
-                "Integrations with Google Sheets, CRM, or payment systems.",
+              goal: "Enable instant, personalized communication at scale without manual effort.",
+              automations: [
+                {
+                  title: "Auto-reply and Lead-Qualification Chatbots",
+                  description: "Deploy intelligent chatbots on WhatsApp Business that auto-reply to common queries, qualify leads based on responses, and forward high-intent prospects to your team with full context.",
+                  impact: "Faster response times, higher-quality leads, and reduced manual triage work.",
+                },
+                {
+                  title: "Message Broadcasting with Personalized Templates",
+                  description: "Send bulk messages to customer segments with personalized variables (name, order ID, date). Schedule broadcasts for optimal engagement times and track open/click rates.",
+                  impact: "Consistent outreach, better engagement rates, and professional communication.",
+                },
+                {
+                  title: "Automated Follow-up Sequences",
+                  description: "Trigger multi-step WhatsApp follow-ups for inquiries, payment reminders, or booking confirmations. Sequences automatically stop upon conversion or response.",
+                  impact: "Never lose a lead due to follow-up delays; improved conversion rates.",
+                },
+                {
+                  title: "CRM & Payment System Integration",
+                  description: "Sync WhatsApp conversations with CRMs like HubSpot or Zoho. Auto-log messages, send payment links, and trigger workflows based on customer responses.",
+                  impact: "Unified customer data, streamlined payments, and better insights.",
+                },
               ],
-              impact: "Faster responses, zero missed leads, and consistent communication.",
             },
             {
               id: "gmail",
               title: "Gmail & Email Automations",
-              bullets: [
-                "Smart auto-replies and acknowledgment emails.",
-                "Labeling, sorting, and auto-forwarding of mails.",
-                "Scheduled outreach and drip campaigns.",
-                "Invoice and receipt email automation from CRMs or spreadsheets.",
+              goal: "Streamline email workflows and ensure no important messages or follow-ups are missed.",
+              automations: [
+                {
+                  title: "Smart Auto-Replies and Acknowledgments",
+                  description: "Set context-aware auto-replies that respond differently based on sender, keywords, or time. Send acknowledgment emails that confirm receipt and set expectations for response time.",
+                  impact: "Professional communication, reduced manual replies, and better customer experience.",
+                },
+                {
+                  title: "Intelligent Email Labeling and Sorting",
+                  description: "Automatically label, archive, or forward emails based on sender, subject, or content. Create rules that move important emails to a priority folder and mark spam automatically.",
+                  impact: "Cleaner inbox, faster email processing, and fewer missed messages.",
+                },
+                {
+                  title: "Scheduled Outreach and Drip Campaigns",
+                  description: "Schedule follow-up emails to be sent at optimal times. Create multi-step email sequences that nurture leads or re-engage inactive contacts automatically.",
+                  impact: "Consistent outreach, higher engagement, and time saved on manual scheduling.",
+                },
+                {
+                  title: "Invoice and Receipt Automation",
+                  description: "Auto-generate and send invoices, receipts, and payment reminders from CRMs or spreadsheets. Include personalized payment links and due date alerts.",
+                  impact: "Faster payments, reduced manual invoicing, and better payment tracking.",
+                },
               ],
-              impact: "Cleaner inbox, quicker client communication, and 24/7 professionalism.",
             },
             {
               id: "social",
               title: "Instagram & Facebook Automations",
-              bullets: [
-                "Auto-posting and scheduling across pages and profiles.",
-                "Comment-to-DM automations for lead capture.",
-                "Auto-reply to messages and FAQs.",
-                "Analytics dashboards for engagement and follower growth.",
+              goal: "Maintain consistent social media presence without daily manual work.",
+              automations: [
+                {
+                  title: "Auto-Posting and Content Scheduling",
+                  description: "Schedule posts across Instagram, Facebook, and multiple profiles. Optimize posting times based on audience activity and use templates for consistent branding.",
+                  impact: "Consistent content delivery, better reach, and more time for strategy.",
+                },
+                {
+                  title: "Comment-to-DM Lead Capture",
+                  description: "Automatically send DM responses when customers comment on posts. Qualify leads in DMs and forward to sales team or CRM with conversation history.",
+                  impact: "Capture more leads, faster responses, and automated lead qualification.",
+                },
+                {
+                  title: "Auto-Reply to Messages and FAQs",
+                  description: "Set up AI-powered chatbots that auto-reply to common DM questions. Route complex inquiries to your team while handling repetitive questions automatically.",
+                  impact: "Faster customer service, reduced manual DM handling, and 24/7 support.",
+                },
+                {
+                  title: "Analytics and Engagement Dashboards",
+                  description: "Track follower growth, engagement rates, reach, and post performance. Generate weekly/monthly reports and get alerts when engagement drops.",
+                  impact: "Data-driven social strategy, better insights, and measurable growth.",
+                },
               ],
-              impact: "Consistent social presence without daily manual work.",
             },
             {
               id: "linkedin",
               title: "LinkedIn Automations",
-              bullets: [
-                "Auto-post scheduling for company updates.",
-                "Smart connection requests and follow-ups.",
-                "Message automation for lead nurturing and recruitment.",
-                "Profile engagement reports and analytics.",
+              goal: "Build professional networks and drive B2B leads with automated outreach.",
+              automations: [
+                {
+                  title: "Auto-Post Scheduling for Company Updates",
+                  description: "Schedule company updates, thought leadership posts, and industry insights. Auto-share posts to multiple LinkedIn pages and track engagement metrics.",
+                  impact: "Consistent professional presence and increased thought leadership visibility.",
+                },
+                {
+                  title: "Smart Connection Requests and Follow-ups",
+                  description: "Automate connection requests with personalized messages. Send follow-up messages to new connections after a set period to warm leads.",
+                  impact: "Faster network growth, better conversion from connections to conversations.",
+                },
+                {
+                  title: "Message Automation for Lead Nurturing",
+                  description: "Create automated sequences for new connections. Send value-driven messages, offers, or resources based on connection profile or activity.",
+                  impact: "More qualified leads, better engagement, and streamlined outreach.",
+                },
+                {
+                  title: "Profile Engagement and Analytics",
+                  description: "Track profile views, engagement trends, and message response rates. Get alerts for high-intent visitors and analyze which content drives the most engagement.",
+                  impact: "Smarter networking decisions and measurable professional growth.",
+                },
               ],
-              impact: "More visibility, more leads, and stronger professional networks.",
             },
             {
               id: "youtube",
               title: "YouTube & Video Automations",
-              bullets: [
-                "Automated video upload scheduling and thumbnail generation.",
-                "Comment moderation and highlight extraction using AI.",
-                "Auto-share new videos to social platforms and email lists.",
-                "Analytics dashboards showing watch time and engagement.",
+              goal: "Manage video distribution and engagement at scale without manual daily work.",
+              automations: [
+                {
+                  title: "Automated Video Upload and Scheduling",
+                  description: "Schedule video uploads for optimal times. Auto-generate thumbnails using AI, add descriptions from templates, and auto-tag videos with keywords.",
+                  impact: "Consistent upload schedule, better CTR from thumbnails, and improved discoverability.",
+                },
+                {
+                  title: "AI Comment Moderation and Highlight Extraction",
+                  description: "Automatically filter and remove spam comments. Extract high-value comments and feedback using AI to identify key insights and customer testimonials.",
+                  impact: "Cleaner comment section, valuable feedback capture, and reduced moderation time.",
+                },
+                {
+                  title: "Auto-Share New Videos Across Platforms",
+                  description: "When a video is uploaded, automatically share it to Instagram, Twitter, LinkedIn, and email lists. Customize text for each platform.",
+                  impact: "Multi-platform reach, better audience growth, and consistent content distribution.",
+                },
+                {
+                  title: "Analytics Dashboards and Performance Tracking",
+                  description: "Track watch time, click-through rates, subscriber growth, and audience retention. Get weekly reports and alerts for videos performing above/below average.",
+                  impact: "Data-driven content strategy and measurable channel growth.",
+                },
               ],
-              impact: "Save editing time and increase channel consistency.",
             },
             {
               id: "workspace",
               title: "Google Workspace & Office Tools",
-              bullets: [
-                "Form submissions → auto-fill Google Sheets → trigger updates.",
-                "Document generation from templates.",
-                "Auto-backup files to Drive or Dropbox.",
-                "Meeting scheduling, summary generation, and follow-ups.",
+              goal: "Eliminate manual data entry and keep all business systems synchronized.",
+              automations: [
+                {
+                  title: "Form Submissions to Google Sheets Automation",
+                  description: "Automatically populate Google Sheets when forms are submitted. Trigger notifications, send confirmations, or update CRMs based on form data.",
+                  impact: "Zero manual data entry, real-time data updates, and better data accuracy.",
+                },
+                {
+                  title: "Document Generation from Templates",
+                  description: "Auto-generate contracts, proposals, or agreements from templates with data from CRMs or spreadsheets. Send for e-signature automatically.",
+                  impact: "Faster document turnaround, consistent branding, and streamlined approvals.",
+                },
+                {
+                  title: "Auto-Backup and File Management",
+                  description: "Automatically backup files to Drive or Dropbox. Archive old files, organize by date/project, and maintain version control.",
+                  impact: "Never lose important files and organized document management.",
+                },
+                {
+                  title: "Meeting Scheduling and Summary Generation",
+                  description: "Auto-create meeting notes in Docs, generate meeting summaries using AI, and send action items to attendees via email or Slack.",
+                  impact: "Better meeting follow-up, improved accountability, and time saved on admin.",
+                },
               ],
-              impact: "Seamless collaboration and zero manual file handling.",
             },
             {
               id: "ai-productivity",
               title: "AI-Powered Productivity Systems",
-              bullets: [
-                "Chatbots trained on your business FAQs or documents.",
-                "Assistants that summarize emails, create content, or draft reports.",
-                "Task prioritization and reminders via Notion, Slack, or ClickUp.",
-                "Custom dashboards combining marketing, sales, and ops data.",
+              goal: "Leverage AI to make smarter decisions, automate content creation, and reduce mental load.",
+              automations: [
+                {
+                  title: "Custom Chatbots Trained on Your Documents",
+                  description: "Train AI chatbots on your FAQs, knowledge base, or internal documentation. Deploy on website, Slack, or WhatsApp to answer customer or employee questions.",
+                  impact: "24/7 support without hiring new staff, faster issue resolution, and better UX.",
+                },
+                {
+                  title: "AI Email and Content Summarization",
+                  description: "Auto-summarize long emails, documents, or Slack threads. Use AI to extract key action items, decisions, and deadlines.",
+                  impact: "Faster information processing and better focus on priority items.",
+                },
+                {
+                  title: "Task Prioritization and Smart Reminders",
+                  description: "Auto-prioritize tasks based on deadlines, importance, and dependencies. Send smart reminders via Slack, email, or ClickUp based on context.",
+                  impact: "Better focus, fewer missed deadlines, and improved productivity.",
+                },
+                {
+                  title: "Custom Business Intelligence Dashboards",
+                  description: "Combine data from marketing, sales, and operations into a single dashboard. Auto-update with real-time data and highlight anomalies or opportunities.",
+                  impact: "Unified business view, faster decision-making, and better insights.",
+                },
               ],
-              impact: "Smarter decisions, less mental load, more focus on growth.",
             },
             {
               id: "funnels",
               title: "Sales & Marketing Funnels",
-              bullets: [
-                "Lead capture from forms, ads, and social DMs.",
-                "Auto-nurture via WhatsApp, email, or SMS with personalized offers.",
-                "CRM sync + pipeline tracking for every stage.",
-                "Automatic reporting on campaign performance.",
+              goal: "Convert more leads into customers with automated nurturing and tracking.",
+              automations: [
+                {
+                  title: "Lead Capture from Multiple Sources",
+                  description: "Capture leads from website forms, Facebook/Instagram ads, email signups, and social DMs. Automatically deduplicate and enrich leads with data.",
+                  impact: "Unified lead source, better lead quality, and no duplicate data.",
+                },
+                {
+                  title: "Auto-Nurture with Personalized Offers",
+                  description: "Send personalized WhatsApp, email, or SMS sequences based on lead stage, interests, and behavior. Adjust messaging based on responses.",
+                  impact: "Higher conversion rates, better personalization, and improved customer experience.",
+                },
+                {
+                  title: "CRM Sync and Pipeline Tracking",
+                  description: "Auto-sync all interactions with CRM. Track leads through every stage, set automatic reminders for follow-ups, and get daily pipeline reports.",
+                  impact: "Full visibility into sales pipeline, better forecasting, and no lost leads.",
+                },
+                {
+                  title: "Automatic Campaign Performance Reporting",
+                  description: "Generate weekly/monthly reports showing conversion rates, cost per lead, ROI, and funnel drop-off points. Get alerts for underperforming campaigns.",
+                  impact: "Data-driven optimization and measurable campaign success.",
+                },
               ],
-              impact: "More conversions with less manual follow-up.",
             },
             {
               id: "payments",
               title: "Payment & Billing Automations",
-              bullets: [
-                "Auto-invoice generation from forms or CRMs.",
-                "Payment reminders through WhatsApp or email.",
-                "Integration with Razorpay, Stripe, or PayPal.",
-                "Automated profit/loss and cash flow dashboards.",
+              goal: "Get paid faster with automated invoicing, reminders, and financial tracking.",
+              automations: [
+                {
+                  title: "Auto-Invoice Generation",
+                  description: "Auto-generate and send invoices from CRMs, forms, or spreadsheets. Include payment links (Razorpay, Stripe, PayPal) and personalized messages.",
+                  impact: "Faster invoicing, fewer payment delays, and professional communication.",
+                },
+                {
+                  title: "Smart Payment Reminders",
+                  description: "Send automatic payment reminders via WhatsApp and email on due dates. Escalate unpaid invoices after set periods with friendly follow-ups.",
+                  impact: "Faster collections, improved cash flow, and reduced DSO.",
+                },
+                {
+                  title: "Payment Gateway Integration",
+                  description: "Integrate with Razorpay, Stripe, and PayPal. Auto-reconcile payments, update CRM with payment status, and trigger workflows on successful payments.",
+                  impact: "Seamless payments, better financial accuracy, and automated reconciliation.",
+                },
+                {
+                  title: "Automated Financial Dashboards",
+                  description: "Auto-generate profit/loss statements, cash flow dashboards, and revenue reports. Get alerts when revenue drops or expenses spike.",
+                  impact: "Better financial visibility, faster decision-making, and improved forecasting.",
+                },
               ],
-              impact: "Faster payments, fewer delays, better financial clarity.",
             },
             {
               id: "analytics",
               title: "Analytics & Reporting",
-              bullets: [
-                "Real-time dashboards pulling data from social, ads, and sales.",
-                "Auto-generated weekly or monthly performance reports.",
-                "Notification triggers for key metrics.",
-                "Centralized reporting across teams or clients.",
+              goal: "Get instant, actionable insights into your business performance across all channels.",
+              automations: [
+                {
+                  title: "Real-Time Business Intelligence Dashboards",
+                  description: "Pull data from social media, ads, CRM, email, and sales systems into one dashboard. Update in real-time and visualize key metrics.",
+                  impact: "Unified business view, faster insights, and better decision-making.",
+                },
+                {
+                  title: "Auto-Generated Weekly and Monthly Reports",
+                  description: "Automatically generate comprehensive reports on sales, marketing, customer satisfaction, and operations. Send to stakeholders with key insights and recommendations.",
+                  impact: "Consistent reporting, better stakeholder alignment, and time saved on manual reporting.",
+                },
+                {
+                  title: "Smart Alerts and Anomaly Detection",
+                  description: "Set up alerts for key metrics (revenue drop, high churn, spike in complaints). Get notified immediately when anomalies are detected so you can act fast.",
+                  impact: "Faster issue detection, reduced downtime, and proactive problem-solving.",
+                },
+                {
+                  title: "Centralized Reporting Across Teams and Clients",
+                  description: "Aggregate reports from multiple departments or client accounts into one centralized system. Provide clients with white-labeled dashboards.",
+                  impact: "Better team alignment, improved client satisfaction, and easier account management.",
+                },
               ],
-              impact: "Instant insights, smarter strategies, and complete transparency.",
             },
           ];
 
           const [selected, setSelected] = useState(industries[0].id);
           const [carouselIndex, setCarouselIndex] = useState(0);
+          const [searchQuery, setSearchQuery] = useState("");
+          const searchInputRef = useRef<HTMLInputElement>(null);
 
-          const current = industries.find((i) => i.id === selected) || industries[0];
+          // Combine industries and automations for unified display
+          const allItemsList = [
+            ...industries,
+            ...commonAutomations,
+          ];
+          
+          const current = allItemsList.find((i) => i.id === selected) || industries[0];
+
+          // Calculate similarity score between search query and industry title using Levenshtein distance
+          const calculateSimilarity = (query: string, title: string): number => {
+            const q = query.toLowerCase().trim();
+            const t = title.toLowerCase();
+            
+            if (!q) return 0;
+            if (t === q) return 1;
+            
+            // Check for exact word matches in title
+            const titleWords = t.split(/\s+/);
+            const queryWords = q.split(/\s+/);
+            
+            // If any query word exactly matches any title word
+            for (const qWord of queryWords) {
+              if (titleWords.some(tWord => tWord.includes(qWord) || qWord.includes(tWord))) {
+                return 0.95;
+              }
+            }
+            
+            // Check if query is substring of title
+            if (t.includes(q)) return 0.9;
+            
+            // Check if title starts with query
+            if (t.startsWith(q)) return 0.85;
+            
+            // Levenshtein distance for fuzzy matching
+            const levenshtein = (str1: string, str2: string): number => {
+              const track = Array(str2.length + 1).fill(null).map(() =>
+                Array(str1.length + 1).fill(null));
+              
+              for (let i = 0; i <= str1.length; i += 1) track[0][i] = i;
+              for (let j = 0; j <= str2.length; j += 1) track[j][0] = j;
+              
+              for (let j = 1; j <= str2.length; j += 1) {
+                for (let i = 1; i <= str1.length; i += 1) {
+                  const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+                  track[j][i] = Math.min(
+                    track[j][i - 1] + 1,
+                    track[j - 1][i] + 1,
+                    track[j - 1][i - 1] + indicator
+                  );
+                }
+              }
+              
+              return track[str2.length][str1.length];
+            };
+            
+            const maxLen = Math.max(q.length, t.length);
+            const distance = levenshtein(q, t);
+            const similarity = 1 - (distance / maxLen);
+            
+            return Math.max(0, similarity);
+          };
+
+          // Find the most similar industry or automation
+          const handleSearch = () => {
+            if (!searchQuery.trim()) return;
+            
+            // Search in industries
+            const industryMatches = industries
+              .map((ind) => ({
+                id: ind.id,
+                title: ind.title,
+                type: "industry",
+                similarity: calculateSimilarity(searchQuery, ind.title),
+              }))
+              .filter(m => m.similarity > 0);
+            
+            // Search in universal automations
+            const automationMatches = commonAutomations
+              .map((auto) => ({
+                id: auto.id,
+                title: auto.title,
+                type: "automation",
+                similarity: calculateSimilarity(searchQuery, auto.title),
+              }))
+              .filter(m => m.similarity > 0);
+            
+            // Combine and sort by similarity
+            const allMatches = [...industryMatches, ...automationMatches]
+              .sort((a, b) => b.similarity - a.similarity);
+            
+            if (allMatches.length > 0) {
+              setSelected(allMatches[0].id);
+              
+              // Create combined items list for carousel
+              const allItemsForSearch = [
+                ...industries,
+                ...commonAutomations
+              ];
+              
+              // Scroll carousel to show the selected item
+              const itemsPerView = 3;
+              const maxIndexVal = Math.max(0, allItemsForSearch.length - itemsPerView);
+              const bestMatch = allItemsForSearch.findIndex((i) => i.id === allMatches[0].id);
+              const newIndex = Math.max(0, Math.min(bestMatch - 1, maxIndexVal));
+              setCarouselIndex(newIndex);
+            }
+            
+            setSearchQuery("");
+          };
+
+          const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          };
           
           const itemsPerView = 3;
-          const maxIndex = Math.max(0, industries.length - itemsPerView);
           
           const handlePrev = () => {
             setCarouselIndex(Math.max(0, carouselIndex - 1));
@@ -484,7 +759,14 @@ const Services = () => {
             setCarouselIndex(Math.min(maxIndex, carouselIndex + 1));
           };
           
-          const visibleIndustries = industries.slice(carouselIndex, carouselIndex + itemsPerView);
+          // Combine industries and universal automations for carousel display
+          const allItems = [
+            ...industries.map(ind => ({ ...ind, type: 'industry' })),
+            ...commonAutomations.map(auto => ({ ...auto, type: 'automation' }))
+          ];
+          
+          const maxIndex = Math.max(0, allItems.length - itemsPerView);
+          const visibleIndustries = allItems.slice(carouselIndex, carouselIndex + itemsPerView);
 
           return (
             <div className="min-h-screen pt-20">
@@ -504,6 +786,29 @@ const Services = () => {
               <section className="py-16">
                 <div className="container mx-auto px-4 max-w-6xl">
                   <ScrollReveal>
+                    {/* Search Bar Section */}
+                    <div className="mb-12 -mt-12">
+                      <div className="flex gap-0 max-w-2xl mx-auto mb-8 rounded-full bg-white/5 border border-accent/40 neon-glow-border overflow-hidden">
+                        <input
+                          ref={searchInputRef}
+                          type="text"
+                          placeholder="Search industry/automation..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          onKeyPress={handleKeyPress}
+                          className="flex-1 px-6 py-4 text-lg bg-transparent border-none text-foreground placeholder-foreground/40 focus:outline-none transition-all duration-300"
+                        />
+                        <button
+                          onClick={handleSearch}
+                          className="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold transition-all duration-300 flex items-center gap-2 border-none"
+                        >
+                          <Search className="w-6 h-6" />
+                        </button>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                  <ScrollReveal>
                     <div className="mb-16">
                       {/* Carousel Slider */}
                       <div className="flex items-center gap-6">
@@ -518,18 +823,21 @@ const Services = () => {
 
                         {/* Carousel Items */}
                         <div className="flex-1 overflow-hidden">
-                          <div className="grid grid-cols-3 gap-4">
-                            {visibleIndustries.map((ind) => (
+                          <div className="flex flex-wrap gap-3 justify-center">
+                            {visibleIndustries.map((ind, idx) => (
                               <button
                                 key={ind.id}
                                 onClick={() => setSelected(ind.id)}
-                                className={`p-6 rounded-xl border-2 text-center transition-all duration-300 transform ${
+                                className={`pill-tag px-6 py-2 rounded-full border-2 text-center transition-all duration-300 transform whitespace-nowrap ${
                                   selected === ind.id
-                                    ? "bg-accent text-white border-accent shadow-2xl scale-105"
-                                    : "bg-white/5 border-white/20 hover:bg-white/10 hover:border-accent/50 hover:scale-102"
+                                    ? "bg-accent text-white border-accent shadow-lg pill-selected neon-glow-border"
+                                    : "bg-white/5 border-white/30 hover:bg-white/10 hover:border-accent/50 hover:shadow-md text-foreground"
                                 }`}
+                                style={{
+                                  animationDelay: `${idx * 0.05}s`
+                                }}
                               >
-                                <span className="text-sm font-semibold leading-tight block">{ind.title}</span>
+                                <span className="text-xs font-semibold">{ind.title}</span>
                               </button>
                             ))}
                           </div>
@@ -591,54 +899,6 @@ const Services = () => {
                                 <div className="text-center">
                                   <div className="text-6xl font-bold text-accent/30 mb-2">✓</div>
                                   <p className="text-foreground/50 font-medium">{a.title}</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </ScrollReveal>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Common Automations Section */}
-                  <div className="mt-20">
-                    <ScrollReveal>
-                      <div className="text-center mb-16">
-                        <h3 className="text-5xl font-bold mb-4">Universal Automation Solutions</h3>
-                        <p className="text-xl text-foreground/60 max-w-2xl mx-auto font-medium">
-                          Powerful automation frameworks that drive impact across all industries
-                        </p>
-                      </div>
-                    </ScrollReveal>
-
-                    <div className="space-y-16">
-                      {commonAutomations.map((c, index) => (
-                        <ScrollReveal key={c.id} delay={index * 50}>
-                          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                            {/* Left: Title & Details (or Right on alternating) */}
-                            <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                              <div className="p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                                <h3 className="text-2xl font-bold mb-6">{c.title}</h3>
-                                <ul className="text-sm text-foreground/70 space-y-3 mb-8">
-                                  {c.bullets.map((b, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                      <span className="text-accent font-bold mt-1">→</span>
-                                      <span>{b}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                                <div className="pt-6 border-t border-white/10">
-                                  <p className="text-sm text-foreground/60"><span className="text-accent font-semibold">Impact:</span> {c.impact}</p>
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Right: Visual Accent (or Left on alternating) */}
-                            <div className={`flex items-center justify-center p-12 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                              <div className="w-full h-56 bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/20 rounded-xl flex items-center justify-center hover:border-accent/40 transition-all duration-300">
-                                <div className="text-center">
-                                  <div className="text-5xl font-bold text-accent/20 mb-3">◆</div>
-                                  <p className="text-foreground/40 font-medium text-sm">{c.title}</p>
                                 </div>
                               </div>
                             </div>
