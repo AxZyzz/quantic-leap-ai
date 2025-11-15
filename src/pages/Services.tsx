@@ -1,9 +1,27 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+
+// Solution media assets
+import ecommerceImg from "../assets/solution/Ecommerce.jpg";
+import ecommerceTabImg from "../assets/solution/Ecommerce_tab.jpg";
+import realestateLeadgenImg from "../assets/solution/realestate_leadgen.jpg";
+import realestateAiImg from "../assets/solution/realestate_ai.jpg";
+import realestateSmsImg from "../assets/solution/realestate_sms.jpg";
+import realestateItImg from "../assets/solution/realestate_it.jpg";
+import googlemapLeadImg from "../assets/solution/googlemap_lead.jpg";
+import contentFarmImg from "../assets/solution/contentfarm_blog.jpg";
+import followupEmailImg from "../assets/solution/followup_email.jpg";
+import gmailImg from "../assets/solution/gmail.jpg";
+import saleGmailImg from "../assets/solution/sale_gmail.jpg";
+import contentLinkedinImg from "../assets/solution/content_linkedin.jpg";
+
+// YouTube demo IDs
+const YT_PRODUCT_DEMO = "bZU1UPbTBDM";
+const YT_SORA_VIDEO = "6mUyrfmZXx4";
 
 const Services = () => {
   const industries = [
@@ -13,15 +31,20 @@ const Services = () => {
               goal: "Scale your online store revenue while cutting down repetitive manual operations — enabling true 24/7 business automation.",
               automations: [
                 {
-                  title: "Order Processing & Fulfillment Workflows",
+                  title: "Enhance Product Photos with Google Gemini AI",
                   description:
-                    "Automated order management triggers workflows when customers purchase. The system updates inventory across all platforms, sends instant confirmations via email and WhatsApp, auto-generates invoices and shipping labels, and integrates with logistics partners for real-time tracking updates.",
-                  impact: "90% reduction in manual fulfillment tasks, faster order dispatch, real-time visibility, and lower error rates in stock or delivery updates.",
+                    "Use Google Gemini AI to automatically clean, enhance, and optimize product images—removing backgrounds, improving lighting, standardizing angles, and generating studio-quality catalog photos instantly for your e-commerce store.",
+                  impact: "Studio-quality product images, faster catalog updates, and higher conversion rates through better visual presentation.",
                 },
                 {
-                  title: "Abandoned Cart Recovery",
-                  description: "Detect abandoned carts and trigger personalized recovery sequences with product images, names, and discount codes. Automated follow-up messages (up to 3 reminders) re-engage customers across WhatsApp and email channels, with sequences stopping automatically upon checkout completion.",
-                  impact: "Recover 25–30% of lost carts, improve user engagement, and deliver consistent customer experience without manual tracking.",
+                  title: "AI-Generated Product Demo (Video)",
+                  description: "Short AI-generated product demo video that showcases product features, usage, and benefits — perfect for product pages and ads.",
+                  impact: "Higher demo completion rates, faster buyer education, and richer product storytelling across channels.",
+                },
+                {
+                  title: "Automate Order Logging in Google Sheets with Monthly Tabs",
+                  description: "Automatically record every new order into its respective monthly tab in Google Sheets, update order status in real time, and maintain a clean, organized dashboard for fulfillment and performance tracking.",
+                  impact: "Consolidated order logs, real-time status tracking, and simplified monthly reporting for fulfillment teams.",
                 },
                 {
                   title: "AI-Driven Product Recommendations",
@@ -46,9 +69,9 @@ const Services = () => {
               goal: "Convert leads faster, reduce administrative workload, and manage property listings effortlessly.",
               automations: [
                 {
-                  title: "Lead Capture & CRM Integration",
-                  description: "Automatically collect leads from Facebook Ads, Google Ads, and website forms directly into CRMs like HubSpot, Zoho, or Airtable. Each lead is enriched with contact details, property interests, and campaign metadata to enable instant, contextual follow-up.",
-                  impact: "Faster lead response and higher conversion rates; zero data loss between platforms.",
+                  title: "Automate Real Estate Leads with BatchData + CRM Sync",
+                  description: "Automatically pull property owner details using BatchData skip tracing and sync verified leads directly into your CRM, enabling instant follow-ups, smarter targeting, and higher conversion rates.",
+                  impact: "Verified lead enrichment, faster agent follow-ups, and improved conversion rates through better targeting.",
                 },
                 {
                   title: "Follow-Up Sequences",
@@ -66,9 +89,14 @@ const Services = () => {
                   impact: "Higher quality leads passed to agents and lower time spent on unqualified inquiries.",
                 },
                 {
-                  title: "Digital Document Workflows",
-                  description: "Generate, store, and share KYC forms, NDAs, agreements, and receipts. Automate e-signature collection, approvals, and document tracking to accelerate closings and reduce paperwork.",
-                  impact: "Streamlined documentation and approvals so agents spend more time closing deals and less on admin.",
+                  title: "Qualify Real Estate Leads via SMS",
+                  description: "Automatically send personalized SMS questions to new leads, capture their responses, score their intent, and route only qualified prospects to your sales team for immediate follow-up.",
+                  impact: "Faster qualification, higher contact rates, and fewer low-intent leads reaching sales.",
+                },
+                {
+                  title: "AI Real Estate Agent: End-to-End Ops Automation",
+                  description: "Automate the entire real estate workflow from lead capture, qualification, and follow-ups to document generation, property matching, and scheduling powered by an AI agent that works 24/7 like a full-time assistant.",
+                  impact: "End-to-end automation that reduces manual admin, speeds up deal cycles, and provides 24/7 lead handling and operations support.",
                 },
               ],
             },
@@ -77,6 +105,11 @@ const Services = () => {
               title: "Professional Services",
               goal: "Eliminate repetitive admin work so you can focus on delivering value to clients and scaling your business.",
               automations: [
+                {
+                  title: "Google Maps Lead Generation Automation",
+                  description: "Automatically extract business details from Google Maps—name, phone number, website, category, and location—and push them into your CRM or Google Sheets for instant outreach and lead nurturing.",
+                  impact: "Rapid lead capture from local listings, structured contact data, and faster outreach for business development.",
+                },
                 {
                   title: "Proposal → Contract → Invoice Pipelines",
                   description: "Automatically generate and send proposals, contracts, and invoices using pre-approved templates when a deal advances. Integrations with PandaDoc, Google Docs, Notion, or your document system keep branding and legal language consistent and instantly shareable.",
@@ -277,6 +310,11 @@ const Services = () => {
               goal: "Create, distribute, and analyze content effortlessly to scale brand visibility and engagement.",
               automations: [
                 {
+                  title: "Sora Product Video — Premium Creatives (Video)",
+                  description: "Premium product video examples and ad-ready creatives created with Sora for high-conversion campaigns. Watch the showcase to see creative options.",
+                  impact: "Inspiration for premium ad creatives and faster production of high-quality video assets.",
+                },
+                {
                   title: "Cross-Platform Posting Systems",
                   description: "Automate creation and scheduling across LinkedIn, Instagram, X (Twitter), YouTube, and Facebook from a single dashboard. The system auto-adapts formats, captions, and schedules per platform for consistent brand presence.",
                   impact: "Faster, more consistent publishing and reduced manual overhead.",
@@ -350,6 +388,11 @@ const Services = () => {
                   title: "Customer Feedback & Satisfaction Loops",
                   description: "Trigger post-resolution surveys or NPS forms automatically to capture sentiment. Feed results into dashboards for trend analysis and automate actions for low-satisfaction cases.",
                   impact: "Higher customer satisfaction and a clear path to service improvements.",
+                },
+                {
+                  title: "Automated Follow-Up Email Engine",
+                  description: "A fully automated follow-up email sequence that detects non-responsive leads and triggers timed reminder emails. Personalization, timing, and lead-based conditions ensure higher response rates and a smoother nurturing process. Perfect for agencies, sales teams, and service providers.",
+                  impact: "Higher response rates, reduced manual follow-ups, and improved lead nurturing consistency.",
                 },
               ],
             },
@@ -768,6 +811,65 @@ const Services = () => {
           const maxIndex = Math.max(0, allItems.length - itemsPerView);
           const visibleIndustries = allItems.slice(carouselIndex, carouselIndex + itemsPerView);
 
+          // Helper to map automation titles to media (image or YouTube)
+          const getMediaForTitle = (title: string) => {
+            const t = title.toLowerCase();
+            if (t.includes("product photos") || t.includes("gemini") || t.includes("e-commerce")) {
+              return { type: "img", src: ecommerceImg, alt: title };
+            }
+            if (t.includes("product demo") || t === "ai-generated product demo" || t.includes("product demo" ) || t.includes("product demo")) {
+              return { type: "youtube", src: YT_PRODUCT_DEMO, alt: title };
+            }
+            if (t.includes("google sheets") || t.includes("order logging") || t.includes("monthly tab")) {
+              return { type: "img", src: ecommerceTabImg, alt: title };
+            }
+            if (t.includes("batchdata") || t.includes("skip tracing") || t.includes("batchdata")) {
+              return { type: "img", src: realestateLeadgenImg, alt: title };
+            }
+            if (t.includes("ai real estate") || t.includes("end-to-end ops")) {
+              return { type: "img", src: realestateAiImg, alt: title };
+            }
+            if (t.includes("sora")) {
+              return { type: "youtube", src: YT_SORA_VIDEO, alt: title };
+            }
+            if (t.includes("sms") || t.includes("qualify")) {
+              return { type: "img", src: realestateSmsImg, alt: title };
+            }
+            if (t.includes("intelligence") || t.includes("business intelligence")) {
+              return { type: "img", src: realestateItImg, alt: title };
+            }
+            if (t.includes("google map") || t.includes("google maps") || t.includes("map")) {
+              return { type: "img", src: googlemapLeadImg, alt: title };
+            }
+            if (t.includes("content farming") || t.includes("wordpress") || t.includes("blog")) {
+              return { type: "img", src: contentFarmImg, alt: title };
+            }
+            if (
+              t.includes("follow-up email") ||
+              t.includes("followup") ||
+              t.includes("follow-up") ||
+              t.includes("remind") ||
+              t.includes("reminder") ||
+              t.includes("reminders") ||
+              t.includes("scheduling") ||
+              t.includes("smart scheduling")
+            ) {
+              return { type: "img", src: followupEmailImg, alt: title };
+            }
+            if (t.includes("gmail") && t.includes("sales")) {
+              return { type: "img", src: saleGmailImg, alt: title };
+            }
+            if (t.includes("gmail") || t.includes("email automation") || t.includes("auto-reply")) {
+              return { type: "img", src: gmailImg, alt: title };
+            }
+            if (t.includes("linkedin") || t.includes("hashtag") || t.includes("content generation")) {
+              return { type: "img", src: contentLinkedinImg, alt: title };
+            }
+
+            // Fallback: no media
+            return null;
+          };
+
           return (
             <div className="min-h-screen pt-20">
               <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
@@ -895,11 +997,42 @@ const Services = () => {
 
                             {/* Right: Accent Visual (or Left on alternating) */}
                             <div className={`flex items-center justify-center p-12 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                              <div className="w-full h-48 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl border border-accent/20 flex items-center justify-center">
-                                <div className="text-center">
-                                  <div className="text-6xl font-bold text-accent/30 mb-2">✓</div>
-                                  <p className="text-foreground/50 font-medium">{a.title}</p>
-                                </div>
+                              <div className="w-full h-48 rounded-xl border border-accent/20 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center">
+                                {(() => {
+                                  const media = getMediaForTitle(a.title);
+                                  if (!media) {
+                                    return (
+                                      <div className="text-center">
+                                        <div className="text-6xl font-bold text-accent/30 mb-2">✓</div>
+                                        <p className="text-foreground/50 font-medium">{a.title}</p>
+                                      </div>
+                                    );
+                                  }
+
+                                  if (media.type === "img") {
+                                    return (
+                                      <img
+                                        src={media.src}
+                                        alt={media.alt}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    );
+                                  }
+
+                                  if (media.type === "youtube") {
+                                    return (
+                                      <iframe
+                                        title={a.title}
+                                        src={`https://www.youtube-nocookie.com/embed/${media.src}`}
+                                        className="w-full h-full"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                      />
+                                    );
+                                  }
+
+                                  return null;
+                                })()}
                               </div>
                             </div>
                           </div>
