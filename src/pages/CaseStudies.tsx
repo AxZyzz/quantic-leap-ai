@@ -140,6 +140,118 @@ The modular architecture means the client now owns a complete video production s
       testimonial: "The organization's feedback was unequivocal: they were 'amazed' by the system's capability and the astronomical time savings. What once seemed like an insurmountable challenge—bringing sacred 1,500-page texts to social media—is now as simple as uploading a PDF and pressing a button. The automation enables them to focus on their core mission: sharing spiritual wisdom with future generations, while the AI handles the creative production at scale.",
       conclusion: "This system represents the future of religious and educational content creation: intelligent, automated, culturally sensitive, and infinitely scalable.",
       author: "Organization Director",
+    },
+    {
+      id: "lifosys",
+      industry: "Healthcare & Medical Services",
+      client: " AI-Powered WhatsApp Medical Consultation Automation System",
+      size: "Multi-Hospital Network",
+      challenge: `A leading healthcare provider operating multiple hospitals across a major Indian region faced a critical challenge: patients needed a frictionless system to access medical consultation services. Their existing process required users to install apps or navigate complex websites—barriers that significantly reduced engagement, especially among the general population who prefer simple WhatsApp-based communication.
+
+Managing 100–200+ daily inquiries manually was time-consuming and unsustainable. Scaling to 500–2000 daily inquiries would require a large team. Medical documents, voice notes, and text messages arrived scattered across channels, leading to manual data entry and inconsistent records.`,
+      solution: `A2B built a multilingual, multimodal WhatsApp automation system powered by n8n, Gemini AI, and WhatsApp Business API, enabling patients to start consultations instantly through text, voice, or document uploads. The solution handles 100–200+ daily inquiries automatically, manages medical documents, collects structured patient information, and logs everything into a centralized database—without any manual staff involvement.`,
+      details: {
+        phase1: {
+          title: "Phase 1: Multi-Modal Input Processing",
+          trigger: "Incoming message via WhatsApp webhook triggers the system to classify user input intelligently.",
+          capabilities: [
+            {
+              title: "Text Message Processing",
+              description: "Text messages are sent directly to the AI agent for natural conversation flow and data collection."
+            },
+            {
+              title: "Voice Message Transcription",
+              description: "Voice messages are downloaded from WhatsApp, transcribed to text using Gemini's audio API, and fed to the AI agent. Supports multilingual speech (English + Malayalam) enabling elderly users and patients with limited literacy to interact naturally."
+            },
+            {
+              title: "Document Upload & Management",
+              description: "Prescriptions, lab reports, PDFs, images, and scans trigger a dedicated document pipeline for storage, tracking, and patient record updates."
+            }
+          ]
+        },
+        phase2: {
+          title: "Phase 2: Conversational AI Agent with Bilingual Support",
+          trigger: "AI agent powered by Gemini manages the consultation intake and patient data collection.",
+          capabilities: [
+            {
+              title: "Multilingual Support (English & Malayalam)",
+              description: "Patients choose their language at the start—AI maintains it throughout the conversation, ensuring accessibility for all demographics in Kerala."
+            },
+            {
+              title: "Structured Data Collection",
+              description: `The AI captures:
+- Name, age, gender, location
+- Symptoms & medical concerns
+- Hospital preference (across Aster network)
+- Type of service (free opinion, consultation, health checkups, support)
+- Appointment preferences
+- Document status`
+            },
+            {
+              title: "Contextual Memory & Safety",
+              description: "The system retains the last 20 messages to maintain natural, contextual conversations. The AI never gives medical advice—it only guides, collects data, clarifies queries, and prepares patient information for doctors."
+            },
+            {
+              title: "Real-Time Database Updates",
+              description: "Every key step updates Google Sheets, automatically building a complete CRM with patient demographics, document links, service selection, hospital choice, consultation status, and timestamps."
+            }
+          ]
+        },
+        phase3: {
+          title: "Phase 3: Automated Document Management & Response Delivery",
+          trigger: "When patients share medical documents or complete consultation intake.",
+          capabilities: [
+            {
+              title: "Document Organization Pipeline",
+              description: `When patients share medical documents:
+- Files are downloaded from WhatsApp
+- Uploaded to Google Drive in organized folders
+- Drive links are generated for doctors
+- Patient database (Google Sheets) is updated with file metadata
+- Patient receives an acknowledgment message`
+            },
+            {
+              title: "Intelligent Response System",
+              description: "Based on conversation progress, professional WhatsApp messages are automatically sent in the patient's chosen language, confirming collected details, providing next steps, acknowledging documents, and offering hospital guidance."
+            },
+            {
+              title: "Zero Manual Admin Work",
+              description: "The automation eliminates manual data collection, document organization, transcription, database entry, and follow-up messages. 100–200+ inquiries are handled daily with zero operators."
+            }
+          ]
+        }
+      },
+      images: [],
+      technology: [
+        "n8n Automation",
+        "Gemini AI",
+        "WhatsApp Business API",
+        "Google Drive",
+        "Google Sheets",
+        "Audio Transcription",
+        "Bilingual AI",
+      ],
+      results: [
+        { icon: Clock, metric: "24/7", label: "Automated consultation intake" },
+        { icon: TrendingUp, metric: "Zero Staff", label: "Required for 100-200+ daily inquiries" },
+        { icon: DollarSign, metric: "Massive Scalability", label: "From 200 → 2000+ patients/day" },
+        { icon: Users, metric: "100% Accessibility", label: "Multilingual, multimodal support" },
+      ],
+      roi: `This system eliminated the single biggest barrier to patient engagement: friction. WhatsApp is the highest adoption channel among Kerala patients. Patients can now start consultations instantly without downloading apps or navigating websites.
+
+**Quantifiable Impact:**
+
+- **Zero Manual Admin Work:** 100–200+ daily inquiries handled completely automatically
+- **Massive Scalability:** System scales from 200 → 2000+ patients/day without hiring additional staff
+- **Increased Patient Engagement:** WhatsApp-native experience removes all entry barriers
+- **Multi-Modal Accessibility:** Elderly users send voice messages, patients with limited literacy can speak instead of type, all file formats supported
+- **Clean Medical Data for Doctors:** Doctors receive complete, organized patient data instead of scattered WhatsApp chats
+- **Future-Ready Infrastructure:** Built for easy upgrades to PostgreSQL, automated doctor notifications, appointment scheduling, payment workflows, and patient dashboards
+
+The system transforms patient intake from a bottleneck into an infinite-capacity 24/7 operation, delivering better healthcare access while eliminating operational overhead.`,
+      testimonial: "Our client now operates an intelligent, fully automated medical consultation system that scales effortlessly. Patients get instant access to healthcare through their preferred channel (WhatsApp), doctors receive perfectly organized patient data, and the hospital network can handle 10x more inquiries without hiring additional staff.",
+      conclusion: "This represents the future of healthcare access in emerging markets: frictionless, multilingual, and infinitely scalable through intelligent automation.",
+      author: "Healthcare Operations Team",
     }
   ];
 
@@ -434,6 +546,133 @@ The modular architecture means the client now owns a complete video production s
                               </a>
                             </div>
                           )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          </section>
+        );
+
+      case "lifosys":
+        const lifosysStudy = studies.find(study => study.id === "lifosys");
+        return (
+          <section className="mb-16">
+            <ScrollReveal>
+              <div className="space-y-12">
+                {lifosysStudy && (
+                  <div key={lifosysStudy.id}>
+                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                      <CardContent className="p-0">
+                        {/* Header */}
+                        <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            <Badge variant="secondary">{lifosysStudy.industry}</Badge>
+                            <Badge variant="outline">{lifosysStudy.size}</Badge>
+                          </div>
+                          <h2 className="text-3xl font-bold mb-2">{lifosysStudy.client}</h2>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-8">
+                          {/* Challenge */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-3 text-destructive">
+                              The Challenge
+                            </h3>
+                            <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{lifosysStudy.challenge}</p>
+                          </div>
+
+                          {/* Solution */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
+                            <p className="text-muted-foreground mb-4 text-sm md:text-base">{lifosysStudy.solution}</p>
+                            <div className="flex flex-wrap gap-2 mb-6">
+                              {lifosysStudy.technology.map((tech) => (
+                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+
+                            {/* Implementation Details */}
+                            {Object.values(lifosysStudy.details).map((phase: any, index) => (
+                              <div key={index} className="mb-8">
+                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
+                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
+                                <div className="space-y-4 md:space-y-6">
+                                  {phase.capabilities.map((capability: any, capIndex: number) => (
+                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
+                                      <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
+                                      <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
+                                        {capability.description.includes('-') ? (
+                                          <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                            __html: capability.description.split('\n').map((line: string) => {
+                                              const text = line.trim();
+                                              const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                              if (text.startsWith('-')) {
+                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
+                                              }
+                                              return `<p>${convertBold(text)}</p>`;
+                                            }).join('')
+                                          }} />
+                                        ) : (
+                                          <p className="text-sm md:text-base">{capability.description}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Results */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                              {lifosysStudy.results.map((result) => (
+                                <div
+                                  key={result.label}
+                                  className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
+                                >
+                                  <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
+                                  <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
+                                  <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* ROI Section */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
+                            <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
+                              <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                __html: lifosysStudy.roi.split('\n').map(line => {
+                                  const text = line.trim();
+                                  const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                  if (text.startsWith('-')) {
+                                    return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
+                                  }
+                                  return `<p>${convertBold(text)}</p>`;
+                                }).join('')
+                              }} />
+                            </div>
+                          </div>
+
+                          {/* Testimonial */}
+                          <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
+                            <p className="text-base md:text-lg italic mb-3">{lifosysStudy.testimonial}</p>
+                            <p className="text-xs md:text-sm text-muted-foreground">— {lifosysStudy.author}</p>
+                          </div>
+
+                          {/* Conclusion */}
+                          <div className="text-base md:text-lg font-medium text-accent">
+                            {lifosysStudy.conclusion}
+                          </div>
                         </div>
                       </CardContent>
                     </Card>

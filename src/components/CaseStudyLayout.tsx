@@ -30,6 +30,7 @@ const navigation: NavItem[] = [
         title: "Our Works",
         children: [
           { title: "Sacred Text Publishing", href: "#sacred-text-publishing" },
+          { title: "Medical Consultation", href: "#lifosys" },
         ],
       },
     ],
