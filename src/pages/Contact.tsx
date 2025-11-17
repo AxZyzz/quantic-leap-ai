@@ -366,7 +366,7 @@ const Contact = () => {
                         <div>
                           <p className="font-medium">LinkedIn</p>
                           <a
-                            href="https://www.linkedin.com/in/automation-to-business-95745937a/"
+                            href="https://www.linkedin.com/company/a2bagency"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-muted-foreground hover:text-accent"

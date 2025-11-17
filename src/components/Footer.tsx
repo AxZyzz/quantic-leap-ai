@@ -42,7 +42,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.linkedin.com/in/automation-to-business-95745937a/"
+                href="https://www.linkedin.com/company/a2bagency"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent transition-colors"

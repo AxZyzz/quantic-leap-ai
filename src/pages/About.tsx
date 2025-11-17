@@ -297,7 +297,7 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-accent text-primary-foreground">
+      <section className="py-20 bg-gradient-to-br from-primary to-accent text-primary-foreground hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
