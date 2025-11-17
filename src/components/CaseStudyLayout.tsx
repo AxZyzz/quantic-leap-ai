@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   ChevronDown,
@@ -147,6 +147,25 @@ export interface CaseStudyLayoutProps {
 const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
   const [currentSection, setCurrentSection] = useState("introduction");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Open the sidebar by default on mobile view when the page mounts
+  useEffect(() => {
+    // Use a MediaQuery to detect mobile width (< md breakpoint)
+    const mq = window.matchMedia("(max-width: 767px)");
+    if (mq.matches) {
+      setIsSidebarOpen(true);
+    }
+
+    // Optional: auto-toggle if the user resizes the window
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        setIsSidebarOpen(true);
+      }
+    };
+    mq.addEventListener?.("change", handler);
+
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
 
   return (
     <div className="flex min-h-screen pt-16">
