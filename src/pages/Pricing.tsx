@@ -25,7 +25,7 @@ const Pricing = () => {
                 <CardContent className="pt-6">
                   <h3 className="text-2xl font-bold mb-2">Starter Pack</h3>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold">$1,999</span>
+                    <span className="text-4xl font-bold">$999</span>
                     <span className="text-muted-foreground">/once</span>
                   </div>
                   <p className="text-muted-foreground mb-6">

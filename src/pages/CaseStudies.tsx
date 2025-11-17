@@ -338,11 +338,14 @@ The modular architecture means the client now owns a complete video production s
                                       <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
                                         {capability.description.includes('-') ? (
                                           <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
-                                            __html: capability.description.split('\n').map((line: string) => 
-                                              line.trim().startsWith('-') ? 
-                                                `<li class="ml-4">${line.substring(1).trim()}</li>` : 
-                                                `<p>${line}</p>`
-                                            ).join('')
+                                            __html: capability.description.split('\n').map((line: string) => {
+                                              const text = line.trim();
+                                              const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                              if (text.startsWith('-')) {
+                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
+                                              }
+                                              return `<p>${convertBold(text)}</p>`;
+                                            }).join('')
                                           }} />
                                         ) : (
                                           <p className="text-sm md:text-base">{capability.description}</p>
@@ -390,14 +393,18 @@ The modular architecture means the client now owns a complete video production s
                           <div className="mb-8">
                             <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
                             <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                              <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
-                                __html: currentStudy.roi.split('\n').map(line => 
-                                  line.trim().startsWith('-') ? 
-                                    `<li class="ml-4">${line.substring(1).trim()}</li>` : 
-                                    `<p>${line}</p>`
-                                ).join('')
-                              }} />
-                            </div>
+                                                  <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                                    __html: currentStudy.roi.split('\n').map(line => {
+                                                      const text = line.trim();
+                                                      // convert **bold** markdown to <strong>
+                                                      const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                      if (text.startsWith('-')) {
+                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
+                                                      }
+                                                      return `<p>${convertBold(text)}</p>`;
+                                                    }).join('')
+                                                  }} />
+                                                </div>
                           </div>
 
                           {/* Testimonial */}
