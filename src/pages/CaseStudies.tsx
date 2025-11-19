@@ -5,6 +5,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { TrendingUp, Clock, DollarSign, Users, ArrowRight } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import { useEffect, useRef, useState } from "react";
+import lifosysImg from "../assets/solution/Lifosys_er.png";
 import sacredTextImg1 from "../assets/casestudy/SacredTextPublishing/image1.webp";
 import sacredTextImg2 from "../assets/casestudy/SacredTextPublishing/img2.webp";
 import jarvisImg1 from "../assets/casestudy/JARVIS/jarvis-screenshot-1.png";
@@ -255,6 +257,97 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
     }
   ];
 
+  // Interactive viewer state for the Lifosys architecture image
+  const viewerRef = useRef<HTMLDivElement | null>(null);
+  const [viewerScale, setViewerScale] = useState<number>(1);
+  const MIN_SCALE = 0.2;
+  const MAX_SCALE = 4;
+  const prevBodyOverflow = useRef<string | null>(null);
+  const panRef = useRef({ x: 0, y: 0 });
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const isPanningRef = useRef(false);
+  const pointerStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const lockBodyScroll = () => {
+    try {
+      prevBodyOverflow.current = document.body.style.overflow || "";
+      document.body.style.overflow = "hidden";
+    } catch (e) {
+      // ignore (SSR or unavailable)
+    }
+  };
+
+  const unlockBodyScroll = () => {
+    try {
+      if (prevBodyOverflow.current !== null) {
+        document.body.style.overflow = prevBodyOverflow.current;
+        prevBodyOverflow.current = null;
+      } else {
+        document.body.style.overflow = "";
+      }
+    } catch (e) {
+      // ignore
+    }
+  };
+
+  const handleViewerWheel = (e: React.WheelEvent) => {
+    // Always prevent and stop propagation for wheel events captured on the viewer
+    e.preventDefault();
+    e.stopPropagation();
+    const delta = -e.deltaY; // invert so wheel up -> zoom in
+    // Reduced sensitivity: smaller increments per wheel tick
+    const speed = e.shiftKey ? 0.008 : 0.002;
+    setViewerScale((s) => {
+      const next = s + delta * speed;
+      return Math.min(MAX_SCALE, Math.max(MIN_SCALE, next));
+    });
+  };
+
+  const handleViewerKey = (e: React.KeyboardEvent) => {
+    if (e.key === "+" || e.key === "=") {
+      // smaller keyboard increments
+      setViewerScale((s) => Math.min(MAX_SCALE, s + 0.05));
+    } else if (e.key === "-" || e.key === "_") {
+      setViewerScale((s) => Math.max(MIN_SCALE, s - 0.05));
+    } else if (e.key === "0") {
+      setViewerScale(1);
+    }
+  };
+
+  // Pointer drag handlers for pan
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (!viewerRef.current) return;
+    // left button only
+    if (e.button !== 0) return;
+    isPanningRef.current = true;
+    pointerStartRef.current = { x: e.clientX, y: e.clientY };
+    panRef.current = { x: pan.x, y: pan.y };
+    viewerRef.current.setPointerCapture?.(e.pointerId);
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isPanningRef.current || !pointerStartRef.current) return;
+    const dx = e.clientX - pointerStartRef.current.x;
+    const dy = e.clientY - pointerStartRef.current.y;
+    const next = { x: panRef.current.x + dx, y: panRef.current.y + dy };
+    setPan(next);
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const endPan = (e?: React.PointerEvent) => {
+    if (!isPanningRef.current) return;
+    isPanningRef.current = false;
+    pointerStartRef.current = null;
+    try {
+      viewerRef.current?.releasePointerCapture?.((e && e.pointerId) || 0);
+    } catch (err) {
+      // ignore
+    }
+  };
+
   const renderSection = (currentSection: string) => {
     switch (currentSection) {
       case "introduction":
@@ -394,7 +487,7 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                     <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                       <CardContent className="p-0">
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
+                        <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-6">
                           <div className="flex flex-wrap gap-2 mb-4">
                             <Badge variant="secondary">{currentStudy.industry}</Badge>
                             <Badge variant="outline">{currentStudy.size}</Badge>
@@ -403,7 +496,7 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                         </div>
 
                         {/* Content */}
-                        <div className="p-8">
+                        <div className="p-6">
                           {/* Challenge */}
                           <div className="mb-8">
                             <h3 className="text-xl font-semibold mb-3 text-destructive">
@@ -628,6 +721,43 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                               </div>
                             ))}
                           </div>
+
+                            {/* Architecture Image Viewer */}
+                            <div className="mb-8">
+                              <h3 className="text-xl font-semibold mb-4">Architecture Diagram</h3>
+                              <div
+                                ref={viewerRef}
+                                tabIndex={0}
+                                onWheelCapture={handleViewerWheel}
+                                onKeyDown={handleViewerKey}
+                                onPointerEnter={() => { viewerRef.current?.focus?.({ preventScroll: true } as any); lockBodyScroll(); }}
+                                onPointerLeave={() => { viewerRef.current?.blur(); unlockBodyScroll(); }}
+                                onFocus={() => lockBodyScroll()}
+                                onBlur={() => unlockBodyScroll()}
+                                onPointerDown={handlePointerDown}
+                                onPointerMove={handlePointerMove}
+                                onPointerUp={endPan}
+                                onPointerCancel={endPan}
+                                className="relative aspect-square w-full max-w-2xl mx-auto bg-black/5 rounded-lg overflow-hidden border overscroll-contain"
+                                style={{ touchAction: "none", overscrollBehavior: 'contain' }}
+                              >
+                                {lifosysImg ? (
+                                  <img
+                                    src={lifosysImg}
+                                    alt="Architecture Diagram"
+                                    className="absolute inset-0 m-auto w-full h-full object-contain cursor-grab"
+                                    style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${viewerScale})`, transition: isPanningRef.current ? 'none' : "transform 0.06s ease-out", transformOrigin: "center center" }}
+                                    draggable={false}
+                                  />
+                                ) : (
+                                  <div className="flex items-center justify-center h-full text-muted-foreground">No image available</div>
+                                )}
+
+                                <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-background/60 px-2 py-1 rounded">
+                                  Wheel to zoom · + / - keys · 0 to reset
+                                </div>
+                              </div>
+                            </div>
 
                           {/* Results */}
                           <div className="mb-8">
