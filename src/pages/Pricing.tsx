@@ -24,9 +24,9 @@ const Pricing = () => {
               <Card className="h-full transform transition-transform duration-300 hover:scale-[1.02]">
                 <CardContent className="h-full flex flex-col p-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">Free Pack</h3>
+                    <h3 className="text-2xl font-bold mb-2">Basic pack</h3>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold">$0</span>
+                      <span className="text-4xl font-bold text-green-500">Free</span>
                     </div>
                     <p className="text-muted-foreground mb-6">Best for: Anyone exploring AI automation but unsure where to start.</p>
 

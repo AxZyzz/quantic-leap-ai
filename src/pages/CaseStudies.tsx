@@ -517,6 +517,44 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                               ))}
                             </div>
 
+                            {/* Architecture Image Viewer */}
+                            {currentStudy.id === "lifosys" && (
+                              <div className="mb-8">
+                                <div
+                                  ref={viewerRef}
+                                  tabIndex={0}
+                                  onWheelCapture={handleViewerWheel}
+                                  onKeyDown={handleViewerKey}
+                                  onPointerEnter={() => { viewerRef.current?.focus?.({ preventScroll: true } as any); lockBodyScroll(); }}
+                                  onPointerLeave={() => { viewerRef.current?.blur(); unlockBodyScroll(); }}
+                                  onFocus={() => lockBodyScroll()}
+                                  onBlur={() => unlockBodyScroll()}
+                                  onPointerDown={handlePointerDown}
+                                  onPointerMove={handlePointerMove}
+                                  onPointerUp={endPan}
+                                  onPointerCancel={endPan}
+                                  className="relative aspect-square w-full max-w-2xl mx-auto bg-black/5 rounded-lg overflow-hidden border overscroll-contain"
+                                  style={{ touchAction: "none", overscrollBehavior: 'contain' }}
+                                >
+                                  {lifosysImg ? (
+                                    <img
+                                      src={lifosysImg}
+                                      alt="Architecture Diagram"
+                                      className="absolute inset-0 m-auto w-full h-full object-contain cursor-grab"
+                                      style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${viewerScale})`, transition: isPanningRef.current ? 'none' : "transform 0.06s ease-out", transformOrigin: "center center" }}
+                                      draggable={false}
+                                    />
+                                  ) : (
+                                    <div className="flex items-center justify-center h-full text-muted-foreground">No image available</div>
+                                  )}
+
+                                  <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-background/60 px-2 py-1 rounded">
+                                    Wheel to zoom · + / - keys · 0 to reset
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+
                             {/* Primary image (keep first image here) */}
                             {currentStudy.images && currentStudy.images[0] && (
                               <div className="mb-8">
@@ -690,41 +728,8 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                               ))}
                             </div>
 
-                            {/* Implementation Details */}
-                            {Object.values(lifosysStudy.details).map((phase: any, index) => (
-                              <div key={index} className="mb-8">
-                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                <div className="space-y-4 md:space-y-6">
-                                  {phase.capabilities.map((capability: any, capIndex: number) => (
-                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                      <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                      <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                        {capability.description.includes('-') ? (
-                                          <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
-                                            __html: capability.description.split('\n').map((line: string) => {
-                                              const text = line.trim();
-                                              const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                              if (text.startsWith('-')) {
-                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                              }
-                                              return `<p>${convertBold(text)}</p>`;
-                                            }).join('')
-                                          }} />
-                                        ) : (
-                                          <p className="text-sm md:text-base">{capability.description}</p>
-                                        )}
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
                             {/* Architecture Image Viewer */}
                             <div className="mb-8">
-                              <h3 className="text-xl font-semibold mb-4">Architecture Diagram</h3>
                               <div
                                 ref={viewerRef}
                                 tabIndex={0}
@@ -758,6 +763,38 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                                 </div>
                               </div>
                             </div>
+
+                            {/* Implementation Details */}
+                            {Object.values(lifosysStudy.details).map((phase: any, index) => (
+                              <div key={index} className="mb-8">
+                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
+                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
+                                <div className="space-y-4 md:space-y-6">
+                                  {phase.capabilities.map((capability: any, capIndex: number) => (
+                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
+                                      <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
+                                      <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
+                                        {capability.description.includes('-') ? (
+                                          <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                            __html: capability.description.split('\n').map((line: string) => {
+                                              const text = line.trim();
+                                              const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                              if (text.startsWith('-')) {
+                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
+                                              }
+                                              return `<p>${convertBold(text)}</p>`;
+                                            }).join('')
+                                          }} />
+                                        ) : (
+                                          <p className="text-sm md:text-base">{capability.description}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
 
                           {/* Results */}
                           <div className="mb-8">
