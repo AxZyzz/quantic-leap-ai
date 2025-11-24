@@ -31,6 +31,7 @@ const navigation: NavItem[] = [
         children: [
           { title: "Sacred Text Publishing", href: "#sacred-text-publishing" },
           { title: "Medical Consultation", href: "#lifosys" },
+          { title: "Image Generation", href: "#imagegeneration" },
         ],
       },
     ],

@@ -18,6 +18,8 @@ import aetherImg from "../assets/casestudy/Aether/Newsletters.webp";
 const aetherJsonUrl = new URL("../assets/casestudy/Aether/Newsletter_Automation.json", import.meta.url).href;
 import curioImg from "../assets/casestudy/Curio/image.webp";
 const curioJsonUrl = new URL("../assets/casestudy/Curio/RAG_Pipeline.json", import.meta.url).href;
+import imageGenErImg from "../assets/casestudy/imagegeneration/image_er.jpg";
+import imageGenN8nImg from "../assets/casestudy/imagegeneration/image_n8n.jpg";
 
 const CaseStudies = () => {
   const studies = [
@@ -254,6 +256,132 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
       testimonial: "Our client now operates an intelligent, fully automated medical consultation system that scales effortlessly. Patients get instant access to healthcare through their preferred channel (WhatsApp), doctors receive perfectly organized patient data, and the hospital network can handle 10x more inquiries without hiring additional staff.",
       conclusion: "This represents the future of healthcare access in emerging markets: frictionless, multilingual, and infinitely scalable through intelligent automation.",
       author: "Healthcare Operations Team",
+    },
+    {
+      id: "imagegeneration",
+      industry: "Creative & Brand Design",
+      client: "AI-Powered Brand-Style Image Generation System",
+      size: "Premium Creative Agency",
+      challenge: `A fast-growing creative brand needed a way to generate unlimited on-brand images without manually crafting style prompts for every request. Their design team had built a signature visual identity across 15+ reference images but replicating that same cinematography, lighting language, and texture identity was inconsistent and time-consuming.
+
+They wanted a solution that could learn the brand's style, store it, and automatically apply it to any new user-generated prompt—all while maintaining aesthetic consistency, camera logic, and the brand's "old-money, luxury, retro" vibe.`,
+      solution: `Our team built a fully automated style-extraction and image-generation engine powered by n8n, Gemini AI, Supabase, and multi-model image generation APIs, delivering 100% consistent brand-style images on demand.`,
+      details: {
+        phase1: {
+          title: "Phase 1: Perfect Style Extraction",
+          trigger: "System ingests 15+ reference images and performs deep cinematic style extraction using Gemini's multimodal capabilities.",
+          capabilities: [
+            {
+              title: "High-precision camera logic breakdown",
+              description: "Lens compression, framing rhythm, angle behavior, bloom, contrast physics"
+            },
+            {
+              title: "Lighting identity analysis",
+              description: "Warm sunset hues, side-lit highlights, retro glow falloff"
+            },
+            {
+              title: "Texture & material fingerprinting",
+              description: "Wood varnish details, fabric tension, micro-scratches, oil-sheen physics"
+            },
+            {
+              title: "Imperfection pattern capture",
+              description: "Analog dust, chromatic fringe, bloom leaks, atmospheric haze"
+            },
+            {
+              title: "Brand Visual DNA Library",
+              description: "Each extracted style is stored in Supabase as structured text linked to the image filename, creating a permanent repository of the brand's aesthetic DNA."
+            }
+          ]
+        },
+        phase2: {
+          title: "Phase 2: Object Recognition for Context Matching",
+          trigger: "When a user submits a prompt, the system automatically scans the entire stored dataset.",
+          capabilities: [
+            {
+              title: "Semantic Content Analysis",
+              description: "Finds the closest matching reference image and extracts its semantic content"
+            },
+            {
+              title: "Best-Aligned Style Selection",
+              description: "Returns the best-aligned style description ensuring every new output matches the correct style segment, not a random generic one."
+            },
+            {
+              title: "Intelligent Matching Technology",
+              description: `The model uses:
+- Gemini semantic vision analysis
+- Supabase database lookup
+- A reasoning layer that selects the single best reference match (not multiple)`
+            }
+          ]
+        },
+        phase3: {
+          title: "Phase 3: Final Image Generation Engine",
+          trigger: "Once the system has compiled user prompt, matching style, aesthetic motifs, imperfection profile, camera DNA, and lighting rules.",
+          capabilities: [
+            {
+              title: "Alpha-Prompt Engineering",
+              description: "The system merges all elements into a single Alpha-Prompt, built by an advanced prompt-engineering agent inside n8n."
+            },
+            {
+              title: "Multi-Model Generation",
+              description: `The Alpha-Prompt is sent simultaneously to multiple models:
+- Google Gemini 2.5 Flash Image
+- Imagen 4
+- Nano Banana Pro
+- Ideogram V3
+- Grok Imagine`
+            },
+            {
+              title: "Consistent Brand Identity",
+              description: "Each model returns a variation with the same brand identity preserved"
+            },
+            {
+              title: "Automated Asset Delivery",
+              description: "The best output(s) are uploaded to Google Drive, ready for delivery"
+            }
+          ]
+        }
+      },
+      images: [
+        {
+          src: imageGenErImg,
+          alt: "Architecture Flow Diagram",
+          caption: "System Architecture & Data Flow"
+        },
+        {
+          src: imageGenN8nImg,
+          alt: "n8n Workflow Diagram",
+          caption: "n8n Workflow Implementation"
+        }
+      ],
+      technology: [
+        "n8n Workflow Orchestration",
+        "Google Gemini (Vision + Text)",
+        "Supabase Database",
+        "Imagen / Ideogram / Grok / Nano Banana",
+        "Google Drive Integration",
+        "Multi-Model APIs"
+      ],
+      results: [
+        { icon: Clock, metric: "Zero manual prompts", label: "Fully automated style embedding" },
+        { icon: TrendingUp, metric: "100% consistent", label: "Brand identity across all images" },
+        { icon: DollarSign, metric: "Unlimited scale", label: "1000+ images/day possible" },
+        { icon: Users, metric: "Unified language", label: "Entire catalog looks handcrafted" },
+      ],
+      roi: `This system transforms a brand's scattered visual identity into a centralized, automated engine capable of generating endless on-brand images with perfect cinematic consistency.
+
+**Quantifiable Impact:**
+
+- **Zero Manual Effort:** Style extraction and camera logic are handled completely automatically
+- **Perfect Consistency:** Every output carries the same "old-money, generational wealth, retro luxury" aesthetic
+- **Unlimited Scalability:** Teams can generate 1000+ images/day with zero additional cost or design effort
+- **Unified Brand Language:** Style extraction and motif consistency ensure the brand's entire catalog looks handcrafted by one creative director
+- **Multi-Model Robustness:** If one model fails or delays, parallel pipelines guarantee delivery
+
+The system eliminates guesswork, reduces design load to zero, and guarantees the brand's aesthetic DNA is preserved across every asset—no matter who uses the tool.`,
+      testimonial: "This system transforms brand image generation from a bottleneck into an infinite-capacity automation engine, preserving creative vision while enabling unlimited production at zero additional cost.",
+      conclusion: "This system eliminates guesswork, reduces design load to zero, and guarantees the brand's aesthetic DNA is preserved across every asset—no matter who uses the tool.",
+      author: "Creative Direction Team",
     }
   ];
 
@@ -839,6 +967,161 @@ The system transforms patient intake from a bottleneck into an infinite-capacity
                           {/* Conclusion */}
                           <div className="text-base md:text-lg font-medium text-accent">
                             {lifosysStudy.conclusion}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          </section>
+        );
+
+      case "imagegeneration":
+        const imageGenStudy = studies.find(study => study.id === "imagegeneration");
+        return (
+          <section className="mb-16">
+            <ScrollReveal>
+              <div className="space-y-12">
+                {imageGenStudy && (
+                  <div key={imageGenStudy.id}>
+                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                      <CardContent className="p-0">
+                        {/* Header */}
+                        <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            <Badge variant="secondary">{imageGenStudy.industry}</Badge>
+                            <Badge variant="outline">{imageGenStudy.size}</Badge>
+                          </div>
+                          <h2 className="text-3xl font-bold mb-2">{imageGenStudy.client}</h2>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-8">
+                          {/* Challenge */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-3 text-destructive">
+                              The Challenge
+                            </h3>
+                            <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{imageGenStudy.challenge}</p>
+                          </div>
+
+                          {/* Solution */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
+                            <p className="text-muted-foreground mb-4 text-sm md:text-base">{imageGenStudy.solution}</p>
+                            <div className="flex flex-wrap gap-2 mb-6">
+                              {imageGenStudy.technology.map((tech) => (
+                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+
+                            {/* First Image: Architecture Diagram (placed after Solution) */}
+                            {imageGenStudy.images && imageGenStudy.images[0] && (
+                              <div className="mb-8">
+                                <div className="mb-2">
+                                  <img
+                                    src={imageGenStudy.images[0].src}
+                                    alt={imageGenStudy.images[0].alt}
+                                    className="w-full h-auto rounded-lg shadow-lg mx-auto"
+                                  />
+                                </div>
+                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{imageGenStudy.images[0].caption}</p>
+                              </div>
+                            )}
+
+                            {/* Implementation Details */}
+                            {Object.values(imageGenStudy.details).map((phase: any, index) => (
+                              <div key={index} className="mb-8">
+                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
+                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
+                                <div className="space-y-4 md:space-y-6">
+                                  {phase.capabilities.map((capability: any, capIndex: number) => (
+                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
+                                      <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
+                                      <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
+                                        {capability.description.includes('-') ? (
+                                          <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                            __html: capability.description.split('\n').map((line: string) => {
+                                              const text = line.trim();
+                                              const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                              if (text.startsWith('-')) {
+                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
+                                              }
+                                              return `<p>${convertBold(text)}</p>`;
+                                            }).join('')
+                                          }} />
+                                        ) : (
+                                          <p className="text-sm md:text-base">{capability.description}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+
+                            {/* Second Image: Workflow Diagram (after phase 3) */}
+                            {imageGenStudy.images && imageGenStudy.images[1] && (
+                              <div className="mb-8">
+                                <div className="mb-2">
+                                  <img
+                                    src={imageGenStudy.images[1].src}
+                                    alt={imageGenStudy.images[1].alt}
+                                    className="w-full h-auto rounded-lg shadow-lg mx-auto"
+                                  />
+                                </div>
+                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{imageGenStudy.images[1].caption}</p>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Results */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                              {imageGenStudy.results.map((result) => (
+                                <div
+                                  key={result.label}
+                                  className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
+                                >
+                                  <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
+                                  <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
+                                  <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* ROI Section */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
+                            <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
+                              <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                __html: imageGenStudy.roi.split('\n').map(line => {
+                                  const text = line.trim();
+                                  const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                  if (text.startsWith('-')) {
+                                    return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
+                                  }
+                                  return `<p>${convertBold(text)}</p>`;
+                                }).join('')
+                              }} />
+                            </div>
+                          </div>
+
+                          {/* Testimonial */}
+                          <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
+                            <p className="text-base md:text-lg italic mb-3">{imageGenStudy.testimonial}</p>
+                            <p className="text-xs md:text-sm text-muted-foreground">— {imageGenStudy.author}</p>
+                          </div>
+
+                          {/* Conclusion */}
+                          <div className="text-base md:text-lg font-medium text-accent">
+                            {imageGenStudy.conclusion}
                           </div>
                         </div>
                       </CardContent>
