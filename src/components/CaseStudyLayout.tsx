@@ -32,6 +32,7 @@ const navigation: NavItem[] = [
           { title: "Sacred Text Publishing", href: "#sacred-text-publishing" },
           { title: "Medical Consultation", href: "#lifosys" },
           { title: "Image Generation", href: "#imagegeneration" },
+          { title: "Reddit→YouTube", href: "#reddit-to-youtube" },
         ],
       },
     ],

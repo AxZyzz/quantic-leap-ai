@@ -20,6 +20,8 @@ import curioImg from "../assets/casestudy/Curio/image.webp";
 const curioJsonUrl = new URL("../assets/casestudy/Curio/RAG_Pipeline.json", import.meta.url).href;
 import imageGenErImg from "../assets/casestudy/imagegeneration/image_er.jpg";
 import imageGenN8nImg from "../assets/casestudy/imagegeneration/image_n8n.jpg";
+import redYtImg from "../assets/casestudy/reddit_youtube/red_yt.jpg";
+import redYtN8nImg from "../assets/casestudy/reddit_youtube/red_yt_N8N.jpg";
 
 const CaseStudies = () => {
   const studies = [
@@ -382,6 +384,71 @@ The system eliminates guesswork, reduces design load to zero, and guarantees the
       testimonial: "This system transforms brand image generation from a bottleneck into an infinite-capacity automation engine, preserving creative vision while enabling unlimited production at zero additional cost.",
       conclusion: "This system eliminates guesswork, reduces design load to zero, and guarantees the brand's aesthetic DNA is preserved across every asset—no matter who uses the tool.",
       author: "Creative Direction Team",
+    }
+    ,
+    {
+      id: "reddit-to-youtube",
+      industry: "Media & Content Automation",
+      client: "Reddit-to-YouTube Automation Case Study",
+      size: "Social Media Media Brand",
+      challenge: `A content-focused media brand approached A2B with a simple goal and a messy process: They wanted to turn high-performing Reddit posts into faceless YouTube videos with talking avatars—on repeat, every day—without hiring scriptwriters, editors, or video staff.
+
+Manually, this meant copying Reddit content, writing a script, recording audio, creating a video, and uploading it. One video could take 1–2 hours — scaling was impossible.`,
+      solution: `A2B built a fully automated n8n-based workflow that converts a single Telegram message containing a Reddit link into a ready-to-publish YouTube video. It generates a script, voice-over, avatar video, uploads it to YouTube, and sends the final link back to Telegram.`,
+      details: {
+        phase1: {
+          title: "Phase 1: Telegram Trigger & Text Extraction",
+          trigger: "Telegram message with Reddit link triggers the workflow.",
+          capabilities: [
+            { title: "Link Parsing & JSON", description: "Extracts link, subreddit, postId, and optional user opinion via Edit Fields and Gemini parsing." }
+          ]
+        },
+        phase2: {
+          title: "Phase 2: Reddit Data Extraction",
+          trigger: "Reddit API nodes fetch post and comment threads.",
+          capabilities: [
+            { title: "Recursive Comment Flattening", description: "Custom JS flattens threads and returns cleaned comments_data payload." }
+          ]
+        },
+        phase3: {
+          title: "Phase 3: Script Generation (Gemini)",
+          trigger: "AI agent produces a concise script and title.",
+          capabilities: [
+            { title: "Structured Output Parser", description: "Produces clean JSON with script and title ready for TTS." }
+          ]
+        },
+        phase4: {
+          title: "Phase 4: Avatar Video Creation (ElevenLabs + HeyGen)",
+          trigger: "TTS -> upload audio -> HeyGen render -> fetch video.",
+          capabilities: [
+            { title: "Automated TTS", description: "ElevenLabs generates natural voice-over." },
+            { title: "Avatar Render", description: "HeyGen creates 720p talking-head video; workflow waits then downloads result." }
+          ]
+        },
+        phase5: {
+          title: "Phase 5: YouTube Upload & Notification",
+          trigger: "Upload video to YouTube and notify via Telegram.",
+          capabilities: [
+            { title: "Auto Upload", description: "YouTube node uploads video with AI-generated title." },
+            { title: "Notification", description: "Telegram notifies user with published link." }
+          ]
+        }
+      },
+      images: [
+        { src: redYtImg, alt: "Architecture Diagram", caption: "System Architecture & Data Flow" },
+        { src: redYtN8nImg, alt: "n8n Workflow Diagram", caption: "n8n Workflow Implementation" }
+      ],
+      technology: ["n8n", "Telegram Bot API", "Google Gemini", "Reddit API", "ElevenLabs", "HeyGen", "YouTube API"],
+      results: [
+        { icon: Clock, metric: "Zero manual steps", label: "End-to-end automation" },
+        { icon: TrendingUp, metric: "Dozens/day", label: "High-volume output" },
+        { icon: DollarSign, metric: "Zero marginal cost", label: "No editors or VO artists" },
+        { icon: Users, metric: "One-interface", label: "Telegram control" }
+      ],
+      roi: `Zero marginal costs per video, dozens of videos possible daily, consistent brand voice, single-interface control via Telegram, easily extendable to other languages and channels.`,
+      testimonial: "A complete autopilot content engine replacing manual script, TTS, render and upload steps.",
+      conclusion: "Converts Reddit threads into fully-produced YouTube avatar videos with a single Telegram message.",
+      author: "Automation Team"
     }
   ];
 
@@ -1134,6 +1201,161 @@ The system eliminates guesswork, reduces design load to zero, and guarantees the
         );
 
       case "jarvis":
+        
+      case "reddit-to-youtube":
+        const redditStudy = studies.find(study => study.id === "reddit-to-youtube");
+        return (
+          <section className="mb-16">
+            <ScrollReveal>
+              <div className="space-y-12">
+                {redditStudy && (
+                  <div key={redditStudy.id}>
+                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                      <CardContent className="p-0">
+                        {/* Header */}
+                        <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            <Badge variant="secondary">{redditStudy.industry}</Badge>
+                            <Badge variant="outline">{redditStudy.size}</Badge>
+                          </div>
+                          <h2 className="text-3xl font-bold mb-2">{redditStudy.client}</h2>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-8">
+                          {/* Challenge */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-3 text-destructive">
+                              The Challenge
+                            </h3>
+                            <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{redditStudy.challenge}</p>
+                          </div>
+
+                          {/* Solution */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
+                            <p className="text-muted-foreground mb-4 text-sm md:text-base">{redditStudy.solution}</p>
+                            <div className="flex flex-wrap gap-2 mb-6">
+                              {redditStudy.technology.map((tech) => (
+                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+
+                            {/* First Image: Architecture Diagram (after Solution) */}
+                            {redditStudy.images && redditStudy.images[0] && (
+                              <div className="mb-8">
+                                <div className="mb-2">
+                                  <img
+                                    src={redditStudy.images[0].src}
+                                    alt={redditStudy.images[0].alt}
+                                    className="w-full h-auto rounded-lg shadow-lg mx-auto"
+                                  />
+                                </div>
+                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{redditStudy.images[0].caption}</p>
+                              </div>
+                            )}
+
+                            {/* Implementation Details */}
+                            {Object.values(redditStudy.details).map((phase: any, index) => (
+                              <div key={index} className="mb-8">
+                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
+                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
+                                <div className="space-y-4 md:space-y-6">
+                                  {phase.capabilities.map((capability: any, capIndex: number) => (
+                                    <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
+                                      <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
+                                      <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
+                                        {capability.description.includes('-') ? (
+                                          <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                            __html: capability.description.split('\n').map((line: string) => {
+                                              const text = line.trim();
+                                              const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                              if (text.startsWith('-')) {
+                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
+                                              }
+                                              return `<p>${convertBold(text)}</p>`;
+                                            }).join('')
+                                          }} />
+                                        ) : (
+                                          <p className="text-sm md:text-base">{capability.description}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+
+                            {/* Second Image: Workflow Diagram (after Phase 5) */}
+                            {redditStudy.images && redditStudy.images[1] && (
+                              <div className="mb-8">
+                                <div className="mb-2">
+                                  <img
+                                    src={redditStudy.images[1].src}
+                                    alt={redditStudy.images[1].alt}
+                                    className="w-full h-auto rounded-lg shadow-lg mx-auto"
+                                  />
+                                </div>
+                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{redditStudy.images[1].caption}</p>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Results */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                              {redditStudy.results.map((result) => (
+                                <div
+                                  key={result.label}
+                                  className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
+                                >
+                                  <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
+                                  <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
+                                  <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* ROI Section */}
+                          <div className="mb-8">
+                            <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
+                            <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
+                              <div className="text-sm md:text-base" dangerouslySetInnerHTML={{ 
+                                __html: redditStudy.roi.split('\n').map(line => {
+                                  const text = line.trim();
+                                  const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                  if (text.startsWith('-')) {
+                                    return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
+                                  }
+                                  return `<p>${convertBold(text)}</p>`;
+                                }).join('')
+                              }} />
+                            </div>
+                          </div>
+
+                          {/* Testimonial */}
+                          <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
+                            <p className="text-base md:text-lg italic mb-3">{redditStudy.testimonial}</p>
+                            <p className="text-xs md:text-sm text-muted-foreground">— {redditStudy.author}</p>
+                          </div>
+
+                          {/* Conclusion */}
+                          <div className="text-base md:text-lg font-medium text-accent">
+                            {redditStudy.conclusion}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          </section>
+        );
         return (
           <section className="mb-16">
             <ScrollReveal>
