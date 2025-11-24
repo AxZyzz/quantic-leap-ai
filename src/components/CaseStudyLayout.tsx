@@ -33,6 +33,7 @@ const navigation: NavItem[] = [
           { title: "Medical Consultation", href: "#lifosys" },
           { title: "Image Generation", href: "#imagegeneration" },
           { title: "Reddit→YouTube", href: "#reddit-to-youtube" },
+          { title: "Multimodal AI Intake", href: "#multimodal-ai" },
         ],
       },
     ],
