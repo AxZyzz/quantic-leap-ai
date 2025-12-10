@@ -50,6 +50,7 @@ const Navigation = () => {
     { name: "Home", path: "/" },
     { name: "Pricing", path: "/pricing" },
     { name: "Case Studies", path: "/case-studies" },
+    { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -76,9 +77,8 @@ const Navigation = () => {
         <button
           key={link.path}
           onClick={handlePricingClick}
-          className={`text-sm font-medium transition-colors hover:text-accent ${
-            isActive(link.path) ? "text-accent" : "text-foreground"
-          }`}
+          className={`text-sm font-medium transition-colors hover:text-accent ${isActive(link.path) ? "text-accent" : "text-foreground"
+            }`}
         >
           {link.name}
         </button>
@@ -89,9 +89,8 @@ const Navigation = () => {
         key={link.path}
         to={link.path}
         onClick={handleNavClick}
-        className={`text-sm font-medium transition-colors hover:text-accent ${
-          isActive(link.path) ? "text-accent" : "text-foreground"
-        }`}
+        className={`text-sm font-medium transition-colors hover:text-accent ${isActive(link.path) ? "text-accent" : "text-foreground"
+          }`}
       >
         {link.name}
       </Link>
@@ -100,9 +99,8 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -137,10 +135,9 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div 
-          className={`md:hidden fixed inset-x-0 top-[80px] bg-background/95 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
-          }`}
+        <div
+          className={`md:hidden fixed inset-x-0 top-[80px] bg-background/95 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+            }`}
         >
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col">

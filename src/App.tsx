@@ -18,6 +18,9 @@ import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ";
 import Resources from "./pages/Resources";
 import Careers from "./pages/Careers";
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
+import Update from "./pages/Update";
 import { homePageSchema } from "./lib/schemas";
 
 const queryClient = new QueryClient();
@@ -42,6 +45,9 @@ const App = () => (
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/:section" element={<Resources />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
+          <Route path="/update" element={<Update />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
