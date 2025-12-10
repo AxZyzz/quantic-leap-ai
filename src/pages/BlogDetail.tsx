@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -218,11 +217,7 @@ const BlogDetail = () => {
                         </article>
                     ) : null}
                 </div>
-            </main>
-
-            <Footer />
+                </main>
         </div>
     );
-};
-
-export default BlogDetail;
+};export default BlogDetail;

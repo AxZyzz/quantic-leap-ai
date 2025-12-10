@@ -6,7 +6,6 @@ import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import { useNavigate } from 'react-router-dom';
 import Navbar from "@/components/Navigation";
-import Footer from "@/components/Footer";
 
 // Hardcoded credentials as requested
 const CREDENTIALS = [
@@ -235,8 +234,6 @@ const Update = () => {
                     </div>
                 )}
             </main>
-
-            <Footer />
         </div>
     );
 };

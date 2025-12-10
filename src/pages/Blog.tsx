@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -159,8 +158,6 @@ const Blog = () => {
                     </div>
                 )}
             </main>
-
-            <Footer />
         </div>
     );
 };
