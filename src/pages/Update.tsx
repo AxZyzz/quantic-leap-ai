@@ -7,18 +7,14 @@ import { toast } from "sonner";
 import { useNavigate } from 'react-router-dom';
 import Navbar from "@/components/Navigation";
 
-// Hardcoded credentials as requested
-const CREDENTIALS = [
-    { name: 'dany stephen', password: 'dany9' },
-    { name: 'rahul v k', password: 'rahul99' },
-    { name: 'aman xavier', password: 'aman999' },
-    { name: 'akhil m s', password: 'akhil9999' }
-];
+// Credentials moved to Supabase 'admin_credentials' table
 
 const checkSupabaseConfig = () => {
     const url = import.meta.env.VITE_SUPABASE_URL;
-    if (!url || url.includes('YOUR_SUPABASE_URL')) {
-        toast.error("Supabase Configuration Missing! Please set VITE_SUPABASE_URL in .env");
+    const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+    if (!url || !key || url.includes('YOUR_SUPABASE_URL') || key.includes('YOUR_SUPABASE_ANON_KEY')) {
+        toast.error("Supabase Configuration Missing! Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env");
         return false;
     }
     return true;
@@ -31,6 +27,7 @@ const Update = () => {
     // Login States
     const [loginName, setLoginName] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+    const [isLoggingIn, setIsLoggingIn] = useState(false);
 
     // Blog Form States
     const [title, setTitle] = useState('');
@@ -40,18 +37,53 @@ const Update = () => {
     const [file, setFile] = useState<File | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        const user = CREDENTIALS.find(
-            c => c.name.toLowerCase() === loginName.toLowerCase() && c.password === loginPassword
-        );
 
-        if (user) {
+        if (!checkSupabaseConfig()) return;
+
+        setIsLoggingIn(true);
+        try {
+            // trim() inputs to avoid accidental spaces
+            const cleanName = loginName.trim();
+            const cleanPassword = loginPassword.trim();
+
+            // First find the user (case-insensitive)
+            const { data, error } = await supabase
+                .from('admin_credentials')
+                .select('*')
+                .ilike('username', cleanName)
+                .maybeSingle();
+
+            if (error) {
+                console.error("Supabase error:", error);
+                toast.error("An error occurred. Please check your connection.");
+                setIsLoggingIn(false);
+                return;
+            }
+
+            if (!data) {
+                toast.error("Invalid credentials");
+                setIsLoggingIn(false);
+                return;
+            }
+
+            // Verify password
+            if (data.password !== cleanPassword) {
+                toast.error("Incorrect password");
+                setIsLoggingIn(false);
+                return;
+            }
+
+            // Success
             setIsAuthenticated(true);
-            setCurrentUser(user.name);
-            toast.success(`Welcome back, ${user.name}`);
-        } else {
-            toast.error("Invalid credentials");
+            setCurrentUser(data.username);
+            toast.success(`Welcome back, ${data.username}`);
+        } catch (err) {
+            console.error("Login error:", err);
+            toast.error("An error occurred during login");
+        } finally {
+            setIsLoggingIn(false);
         }
     };
 
@@ -167,7 +199,9 @@ const Update = () => {
                                     placeholder="Enter password"
                                 />
                             </div>
-                            <Button type="submit" className="w-full">Login</Button>
+                            <Button type="submit" className="w-full" disabled={isLoggingIn}>
+                                {isLoggingIn ? 'Verifying...' : 'Login'}
+                            </Button>
                         </form>
                     </div>
                 ) : (
