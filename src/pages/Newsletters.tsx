@@ -11,7 +11,7 @@ const Newsletters = () => {
                 NewsLetters
               </h1>
               <p className="text-3xl md:text-4xl font-semibold text-gray-700 dark:text-gray-200 mb-8">
-                Launching December 1st
+                Launching January 2026
               </p>
               <p className="text-lg max-w-2xl mx-auto text-gray-700 dark:text-gray-200">
                 We're excited to bring you carefully curated newsletters with product updates,
