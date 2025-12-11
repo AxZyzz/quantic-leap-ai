@@ -135,7 +135,7 @@ const Home = () => {
         <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mix-blend-difference">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mix-blend-difference cursor-hover relative">
                 Scale Without Increasing
                 <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mix-blend-normal">
                   {" "}
@@ -246,7 +246,7 @@ const Home = () => {
                         {study.industry}
                       </div>
                       {(study.industry === "financial services" || study.industry === "Religious & Educational Content") && (
-                        <a 
+                        <a
                           href="https://www.linkedin.com/posts/rahul-v-k_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%A2%F0%9D%90%AC-%F0%9D%90%9C%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD-%F0%9D%90%A3%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%AD-%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%A2%F0%9D%90%9D-%F0%9D%90%A6%F0%9D%90%9E-activity-7375086404386807808-gVcy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE0RNokBO_aQUDwWXD6sGmbeS1CMusGKIEI"
                           target="_blank"
                           rel="noopener noreferrer"

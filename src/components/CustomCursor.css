@@ -1,0 +1,67 @@
+/* Hide default cursor */
+* {
+    cursor: none !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+/* Custom cursor container */
+.custom-cursor {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    width: 50px;
+    margin-left: -25px;
+    /* Center alignment */
+    margin-top: -25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: white;
+
+    /* Critical: We transition specific properties, NOT 'translate' or 'all' */
+    transition-property: transform, scale, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+
+    scale: 0.3;
+    z-index: 9999;
+}
+
+.custom-cursor--link {
+    scale: 1;
+}
+
+.custom-cursor--init {
+    opacity: 1;
+}
+
+.custom-cursor--click {
+    scale: 1.5;
+    /* "Become big" on click */
+}
+
+/* Helper for blocks/links from user snippet (optional, but good to have reference) */
+.block__link {
+    cursor: none;
+}
+
+/* Ensure links in general don't show cursor */
+a,
+button,
+[type="button"],
+[type="submit"],
+[role="button"] {
+    cursor: none !important;
+}
