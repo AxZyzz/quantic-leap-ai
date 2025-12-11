@@ -5,8 +5,9 @@ import Navbar from "@/components/Navigation";
 import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, FileText, Download } from "lucide-react";
+import { ArrowLeft, FileText, Download, Quote, ArrowRight, Mail } from "lucide-react";
 import { Helmet } from "react-helmet";
+import Footer from "@/components/Footer";
 
 interface BlogPost {
     id: string;
@@ -108,7 +109,7 @@ const BlogDetail = () => {
                             </span>
                             Use arrows inside viewer to navigate pages
                         </span>
-                        <Button asChild variant="ghost" size="sm" className="h-7">
+                        <Button asChild variant="secondary" size="sm" className="h-7 text-foreground border border-border/50 shadow-sm">
                             <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                                 <Download className="h-3 w-3" /> Download
                             </a>
@@ -172,7 +173,7 @@ const BlogDetail = () => {
             <Navbar />
 
             <main className="flex-grow pt-24 pb-12 container mx-auto px-4">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                     {/* Back Button */}
                     <Button variant="ghost" asChild className="mb-8 pl-0 hover:bg-transparent hover:text-primary">
                         <Link to="/blog" className="flex items-center gap-2">
@@ -182,7 +183,7 @@ const BlogDetail = () => {
 
                     {/* Loading State */}
                     {isLoading ? (
-                        <div className="space-y-8">
+                        <div className="space-y-8 max-w-4xl">
                             <Skeleton className="h-10 w-3/4" />
                             <Skeleton className="h-[400px] w-full rounded-lg" />
                             <div className="space-y-4">
@@ -192,32 +193,70 @@ const BlogDetail = () => {
                             </div>
                         </div>
                     ) : blog ? (
-                        <article className="animate-in fade-in duration-500">
-                            {/* Title */}
-                            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{blog.title}</h1>
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                            {/* Main Content - Left Side */}
+                            <div className="lg:col-span-8">
+                                <article className="animate-in fade-in duration-500">
+                                    {/* Title */}
+                                    <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{blog.title}</h1>
 
-                            {/* Author and Date */}
-                            <div className="flex items-center gap-4 mb-8 text-sm text-muted-foreground border-b pb-8">
-                                <span className="font-semibold text-foreground capitalize">{blog.created_by}</span>
-                                <span>•</span>
-                                <time dateTime={blog.created_at}>{format(new Date(blog.created_at), 'MMMM d, yyyy')}</time>
+                                    {/* Author and Date */}
+                                    <div className="flex items-center gap-4 mb-8 text-sm text-muted-foreground border-b pb-8">
+                                        <span className="font-semibold text-foreground capitalize">{blog.created_by}</span>
+                                        <span>•</span>
+                                        <time dateTime={blog.created_at}>{format(new Date(blog.created_at), 'MMMM d, yyyy')}</time>
+                                    </div>
+
+                                    {/* Media - Image, PDF, PPT, or other file */}
+                                    {blog.image_url && renderMedia(blog.image_url, blog.title)}
+
+                                    {/* Content */}
+                                    <div className="prose prose-lg dark:prose-invert max-w-none">
+                                        {blog.content.split('\n').map((paragraph, index) => (
+                                            <p key={index} className="mb-6 leading-relaxed text-muted-foreground">
+                                                {paragraph}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </article>
                             </div>
 
-                            {/* Media - Image, PDF, PPT, or other file */}
-                            {blog.image_url && renderMedia(blog.image_url, blog.title)}
+                            {/* Sidebar - Right Side */}
+                            <aside className="lg:col-span-4 space-y-8 sticky top-32 self-start">
+                                {/* Quote Card */}
+                                <div className="bg-card border rounded-xl p-8 shadow-sm relative overflow-hidden">
+                                    <Quote className="absolute top-4 right-4 h-12 w-12 text-primary/10" />
+                                    <blockquote className="relative z-10">
+                                        <p className="text-lg font-medium italic mb-4 text-foreground/90">
+                                            "Automate. Accelerate. Achieve."
+                                        </p>
+                                        <footer className="text-sm font-semibold text-primary">
+                                            - A2B Agency
+                                        </footer>
+                                    </blockquote>
+                                </div>
 
-                            {/* Content */}
-                            <div className="prose prose-lg dark:prose-invert max-w-none">
-                                {blog.content.split('\n').map((paragraph, index) => (
-                                    <p key={index} className="mb-6 leading-relaxed text-muted-foreground">
-                                        {paragraph}
+                                {/* Contact CTA Card */}
+                                <div className="bg-primary/5 border border-primary/20 rounded-xl p-8">
+                                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                                        <Mail className="h-6 w-6 text-primary" />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-2">Have a similar project?</h3>
+                                    <p className="text-muted-foreground mb-6">
+                                        Let's collaborate and bring your ideas to life. Our team is ready to help you succeed.
                                     </p>
-                                ))}
-                            </div>
-                        </article>
+                                    <Button asChild className="w-full group">
+                                        <Link to="/contact">
+                                            Get in Touch
+                                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </aside>
+                        </div>
                     ) : null}
                 </div>
-                </main>
+            </main>
         </div>
     );
-};export default BlogDetail;
+}; export default BlogDetail;
