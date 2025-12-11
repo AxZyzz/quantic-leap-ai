@@ -109,10 +109,15 @@ const BlogDetail = () => {
                             </span>
                             Use arrows inside viewer to navigate pages
                         </span>
-                        <Button asChild variant="secondary" size="sm" className="h-7 text-foreground border border-border/50 shadow-sm">
-                            <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
+                        <Button 
+                            variant="secondary" 
+                            size="sm" 
+                            className="h-7 text-foreground border border-border/50 shadow-sm cursor-pointer"
+                            onClick={() => window.open(url, '_blank')}
+                        >
+                            <span className="flex items-center gap-1">
                                 <Download className="h-3 w-3" /> Download
-                            </a>
+                            </span>
                         </Button>
                     </div>
                 </div>
@@ -131,10 +136,14 @@ const BlogDetail = () => {
                         This post contains a file attachment ({url.split('.').pop()?.toUpperCase()}).
                     </p>
                 </div>
-                <Button asChild variant="outline" className="mt-2">
-                    <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <Button 
+                    variant="outline" 
+                    className="mt-2 cursor-pointer"
+                    onClick={() => window.open(url, '_blank')}
+                >
+                    <span className="flex items-center gap-2">
                         <Download className="h-4 w-4" /> Download / View File
-                    </a>
+                    </span>
                 </Button>
             </div>
         );
