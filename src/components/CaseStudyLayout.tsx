@@ -110,7 +110,7 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
                         className={cn(
                           "w-full justify-start px-2 text-sm",
                           currentSection === subChild.href?.replace("#", "") &&
-                            "bg-accent/10 text-accent"
+                          "bg-accent/10 text-accent"
                         )}
                         onClick={() =>
                           subChild.href && setCurrentSection(subChild.href.replace("#", ""))
@@ -127,7 +127,7 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
                   className={cn(
                     "w-full justify-start px-2 text-sm",
                     currentSection === child.href?.replace("#", "") &&
-                      "bg-accent/10 text-accent"
+                    "bg-accent/10 text-accent"
                   )}
                   onClick={() =>
                     child.href && setCurrentSection(child.href.replace("#", ""))

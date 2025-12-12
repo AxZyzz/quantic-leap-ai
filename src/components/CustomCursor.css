@@ -1,11 +1,4 @@
-/* Hide default cursor */
-* {
-    cursor: none !important;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Base state: Standard usage (Mobile/Tablet) */
 html {
     height: 100%;
 }
@@ -14,54 +7,67 @@ body {
     min-height: 100%;
 }
 
-/* Custom cursor container */
+/* Hide custom cursor on mobile by default */
 .custom-cursor {
-    position: fixed;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    mix-blend-mode: difference;
-    width: 50px;
-    margin-left: -25px;
-    /* Center alignment */
-    margin-top: -25px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: white;
-
-    /* Critical: We transition specific properties, NOT 'translate' or 'all' */
-    transition-property: transform, scale, opacity;
-    transition-duration: 250ms;
-    transition-timing-function: ease-in-out;
-
-    scale: 0.3;
-    z-index: 9999;
+    display: none;
 }
 
-.custom-cursor--link {
-    scale: 1;
-}
+/* DESKTOP ONLY: Enable custom cursor */
+@media (min-width: 1024px) {
 
-.custom-cursor--init {
-    opacity: 1;
-}
+    /* Hide default cursor */
+    * {
+        cursor: none !important;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.custom-cursor--click {
-    scale: 1.5;
-    /* "Become big" on click */
-}
+    /* Custom cursor container */
+    .custom-cursor {
+        display: block;
+        /* Show it */
+        position: fixed;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        width: 50px;
+        margin-left: -25px;
+        /* Center alignment */
+        margin-top: -25px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: white;
 
-/* Helper for blocks/links from user snippet (optional, but good to have reference) */
-.block__link {
-    cursor: none;
-}
+        /* Critical: We transition specific properties, NOT 'translate' or 'all' */
+        transition-property: transform, scale, opacity;
+        transition-duration: 250ms;
+        transition-timing-function: ease-in-out;
 
-/* Ensure links in general don't show cursor */
-a,
-button,
-[type="button"],
-[type="submit"],
-[role="button"] {
-    cursor: none !important;
+        scale: 0.3;
+        z-index: 9999;
+    }
+
+    .custom-cursor--link {
+        scale: 1;
+    }
+
+    .custom-cursor--init {
+        opacity: 1;
+    }
+
+    .custom-cursor--click {
+        scale: 1.5;
+    }
+
+    /* Ensure links in general don't show cursor */
+    a,
+    button,
+    [type="button"],
+    [type="submit"],
+    [role="button"] {
+        cursor: none !important;
+    }
 }
