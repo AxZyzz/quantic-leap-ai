@@ -22,6 +22,7 @@ import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Update from "./pages/Update";
+import Privacy from "./pages/Privacy";
 import { homePageSchema } from "./lib/schemas";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/update" element={<Update />} />
+          <Route path="/privacy" element={<Privacy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -88,7 +88,7 @@ const ToolsSection = () => {
             <p className="text-xl text-muted-foreground mb-4">
               A2B offers integration with 850+ industry standard tools.
             </p>
-            <Link to="/tech-stack" className="text-accent hover:underline">
+            <Link to="/case-studies#tech-stack" className="text-accent hover:underline">
               View our tech stack here
             </Link>
           </div>

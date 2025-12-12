@@ -197,7 +197,7 @@ const Home = () => {
                         <h3 className="text-lg sm:text-xl font-semibold mb-1">{solution.title}</h3>
                         <p className="text-sm sm:text-base text-muted-foreground mb-3">{solution.description}</p>
                         <Link
-                          to="/services"
+                          to="/case-studies"
                           className="inline-flex items-center text-accent hover:underline mt-1 text-sm font-medium"
                         >
                           Learn more <ArrowRight className="ml-2 h-4 w-4" />

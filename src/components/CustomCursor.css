@@ -59,7 +59,7 @@ body {
     }
 
     .custom-cursor--click {
-        scale: 1.5;
+        scale: 0.8;
     }
 
     /* Ensure links in general don't show cursor */

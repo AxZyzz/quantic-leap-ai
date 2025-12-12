@@ -1352,18 +1352,7 @@ Manually, this meant copying Reddit content, writing a script, recording audio, 
                                                         ))}
 
                                                         {/* Second Image: Data Flow (after Phase 3) */}
-                                                        {multimodalStudy.images && multimodalStudy.images[1] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={multimodalStudy.images[1].src}
-                                                                        alt={multimodalStudy.images[1].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{multimodalStudy.images[1].caption}</p>
-                                                            </div>
-                                                        )}
+
                                                     </div>
 
                                                     {/* Results */}
