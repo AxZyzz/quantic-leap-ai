@@ -24,6 +24,12 @@ import redYtImg from "../assets/casestudy/reddit_youtube/red_yt.jpg";
 import redYtN8nImg from "../assets/casestudy/reddit_youtube/red_yt_N8N.jpg";
 import ragImg from "../assets/casestudy/rag/RAG.jpg";
 import ragArcImg from "../assets/casestudy/rag/RAG_ARC.jpg";
+import visualBrandImg1 from "../assets/casestudy/Visual Brand/image 1.jpeg";
+import visualBrandImg2 from "../assets/casestudy/Visual Brand/image 2.jpeg";
+import visualBrandImg3 from "../assets/casestudy/Visual Brand/image 3.jpeg";
+import visualBrandImg4 from "../assets/casestudy/Visual Brand/image 4.jpeg";
+import visualBrandImg5 from "../assets/casestudy/Visual Brand/image 5.jpeg";
+import visualBrandImg6 from "../assets/casestudy/Visual Brand/image 6.jpeg";
 
 const CaseStudies = () => {
     const studies = [
@@ -150,7 +156,7 @@ The modular architecture means the client now owns a complete video production s
             author: "Organization Director",
         },
         {
-            id: "lifosys",
+            id: "medical-consultation",
             industry: "Healthcare & Medical Services",
             client: " AI-Powered WhatsApp Medical Consultation Automation System",
             size: "Multi-Hospital Network",
@@ -514,6 +520,97 @@ Manually, this meant copying Reddit content, writing a script, recording audio, 
             testimonial: "A production-ready multimodal intake engine that transforms unstructured WhatsApp submissions into searchable, context-aware knowledge on demand.",
             conclusion: "Converts WhatsApp messages (text, audio, images, documents) into indexed, queryable knowledge with context-aware AI-powered answers.",
             author: "Enterprise Integration Team"
+        },
+        {
+            id: "visual-brand-intelligence",
+            industry: "Visual Brand Intelligence",
+            client: "Visual Brand Intelligence: The AI-Powered Image Generation & Compliance Suite",
+            size: "Enterprise Visual OS",
+            challenge: `For high-end brands (think "Old Money," luxury, and generational wealth), "close enough" isn't an option. Manually crafting prompts that maintain consistent lighting, lens physics, and material textures across hundreds of assets is a full-time job. 
+
+Furthermore, once an image is generated, verifying it against strict brand guidelines—HEX codes, font styles, and logo placement—usually requires a human designer's eyes. Scaling this process manually is a recipe for burnout and brand dilution.`,
+            solution: `A2B engineered a massive, modular n8n ecosystem that acts as a Virtual Creative Director. The workflow takes a raw concept and runs it through a gauntlet of specialized AI agents to ensure the final output isn't just a "pretty picture," but a brand-compliant asset.`,
+            details: {
+                phase1: {
+                    title: "Phase 1: The \"Mega Prompt\" Engine",
+                    trigger: "A webhook or chat message initiates the request.",
+                    capabilities: [
+                        {
+                            title: "Style Fetching",
+                            description: "An AI agent queries the Supabase \"Style Vault\" to find the closest aesthetic match (e.g., \"Editorial Flash\" or \"35mm Retro\")."
+                        },
+                        {
+                            title: "Physics Injection",
+                            description: "The \"Alpha Prompt\" node wraps the user's idea in technical language—lens compression, lighting falloff, and \"imperfection systems\" (dust, grain, noise) to force photorealism."
+                        }
+                    ]
+                },
+                phase2: {
+                    title: "Phase 2: High-Fidelity Generation",
+                    trigger: "Engineered prompt ready for rendering.",
+                    capabilities: [
+                        {
+                            title: "The Render",
+                            description: "The workflow sends the engineered prompt to the Nano Banana Pro model."
+                        },
+                        {
+                            title: "Consistency Check",
+                            description: "The system ensures the output adheres to the \"Old Money\" global theme—American retro wealth, quiet intimacy, and Architectural Digest-level quality."
+                        }
+                    ]
+                },
+                phase3: {
+                    title: "Phase 3: The Automated Quality Checker",
+                    trigger: "Generated image passed for audit.",
+                    capabilities: [
+                        {
+                            title: "Visual Audit",
+                            description: "The generated image is passed to a \"Brand Compliance Officer\" powered by Gemini."
+                        },
+                        {
+                            title: "Rule Comparison",
+                            description: "It compares the image's dominant colors and styles against the official Brand Guidelines stored in Supabase."
+                        },
+                        {
+                            title: "Pass/Fail",
+                            description: "The system returns a compliance score. If it's a \"Fail,\" it generates a specific instruction to fix the asset—no vague notes, no back-and-forth."
+                        }
+                    ]
+                },
+                phase4: {
+                    title: "Phase 4: Advanced Segmentation (SAM & Qwen)",
+                    trigger: "Brand-compliant image ready for final editing.",
+                    capabilities: [
+                        {
+                            title: "Object Cutting",
+                            description: "Using the SAM (Segment Anything) node, the workflow isolates specific subjects from their backgrounds with precision."
+                        },
+                        {
+                            title: "Precision Masking",
+                            description: "The Qwen node handles complex spatial reasoning to ensure that when subjects are placed in new environments, lighting and shadows integrate seamlessly."
+                        }
+                    ]
+                }
+            },
+            images: [
+                { src: visualBrandImg1, alt: "Visual Brand Image 1", caption: "AI-Powered Generation Asset 1" },
+                { src: visualBrandImg2, alt: "Visual Brand Image 2", caption: "AI-Powered Generation Asset 2" },
+                { src: visualBrandImg3, alt: "Visual Brand Image 3", caption: "AI-Powered Generation Asset 3" },
+                { src: visualBrandImg4, alt: "Visual Brand Image 4", caption: "Brand Compliance Audit" },
+                { src: visualBrandImg5, alt: "Visual Brand Image 5", caption: "Advanced Segmentation Result" },
+                { src: visualBrandImg6, alt: "Visual Brand Image 6", caption: "Final Brand-Ready Export" }
+            ],
+            technology: ["n8n", "Google Gemini 2.0 Pro", "Nano Banana Pro", "Supabase", "SAM (Segment Anything)", "Qwen"],
+            results: [
+                { icon: Clock, metric: "100% Accuracy", label: "Technical camera/lighting physics" },
+                { icon: TrendingUp, metric: "Auto-Audit", label: "Instant brand-safety checks" },
+                { icon: DollarSign, metric: "Surgical Edit", label: "Automated subject isolation" },
+                { icon: Users, metric: "Infinite Scale", label: "100+ assets in minutes" }
+            ],
+            roi: `A complete visual autopilot. By moving from "guessing" to "engineering" images, brands save hundreds of hours in creative direction and revision cycles. It ensures that every single pixel published—whether for a social post or an enterprise report—feels intentionally crafted and perfectly on-brand.`,
+            testimonial: "It transforms brand image generation from a bottleneck into an infinite-capacity automation engine, preserving creative vision while enabling unlimited production at zero additional cost.",
+            conclusion: "Visual Brand Intelligence represents the pinnacle of brand-consistent AI image generation, combining artistic soul with technical precision.",
+            author: "A2B AI Team"
         }
     ];
 
@@ -778,7 +875,7 @@ Manually, this meant copying Reddit content, writing a script, recording audio, 
                                                         </div>
 
                                                         {/* Architecture Image Viewer */}
-                                                        {currentStudy.id === "lifosys" && (
+                                                        {currentStudy.id === "medical-consultation" && (
                                                             <div className="mb-8">
                                                                 <div
                                                                     ref={viewerRef}
@@ -947,8 +1044,8 @@ Manually, this meant copying Reddit content, writing a script, recording audio, 
                     </section>
                 );
 
-            case "lifosys":
-                const lifosysStudy = studies.find(study => study.id === "lifosys");
+            case "medical-consultation":
+                const lifosysStudy = studies.find(study => study.id === "medical-consultation");
                 return (
                     <section className="mb-16">
                         <ScrollReveal>
@@ -1409,7 +1506,214 @@ Manually, this meant copying Reddit content, writing a script, recording audio, 
                     </section>
                 );
 
+            case "visual-brand-intelligence":
+                const visualBrandStudy = studies.find(study => study.id === "visual-brand-intelligence");
+                return (
+                    <section className="mb-16">
+                        <ScrollReveal>
+                            <div className="space-y-12">
+                                {visualBrandStudy && (
+                                    <div key={visualBrandStudy.id}>
+                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+                                            <CardContent className="p-0">
+                                                {/* Header */}
+                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
+                                                    <div className="flex flex-wrap gap-2 mb-4">
+                                                        <Badge variant="secondary">{visualBrandStudy.industry}</Badge>
+                                                        <Badge variant="outline">{visualBrandStudy.size}</Badge>
+                                                    </div>
+                                                    <h2 className="text-3xl font-bold mb-2">{visualBrandStudy.client}</h2>
+                                                </div>
+
+                                                {/* Content */}
+                                                <div className="p-8">
+                                                    {/* Challenge */}
+                                                    <div className="mb-8">
+                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
+                                                            The Challenge
+                                                        </h3>
+                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{visualBrandStudy.challenge}</p>
+                                                    </div>
+
+                                                    {/* Solution */}
+                                                    <div className="mb-8">
+                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
+                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{visualBrandStudy.solution}</p>
+                                                        <div className="flex flex-wrap gap-2 mb-6">
+                                                            {visualBrandStudy.technology.map((tech) => (
+                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
+                                                                    {tech}
+                                                                </Badge>
+                                                            ))}
+                                                        </div>
+
+                                                        {/* Images Grid after Solution */}
+                                                        {visualBrandStudy.images && (
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                                                                {visualBrandStudy.images.slice(0, 4).map((img, idx) => (
+                                                                    <div key={idx} className="space-y-2">
+                                                                        <img
+                                                                            src={img.src}
+                                                                            alt={img.alt}
+                                                                            className="w-full h-auto rounded-lg shadow-md"
+                                                                        />
+                                                                        <p className="text-xs text-center text-muted-foreground">{img.caption}</p>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+
+                                                        {/* Implementation Details */}
+                                                        {Object.values(visualBrandStudy.details).map((phase: any, index) => (
+                                                            <div key={index} className="mb-8">
+                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
+                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
+                                                                <div className="space-y-4 md:space-y-6">
+                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
+                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
+                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
+                                                                                {capability.description.includes("-") ? (
+                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
+                                                                                        __html: capability.description.split("\n").map((line: string) => {
+                                                                                            const text = line.trim();
+                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                                                                                            if (text.startsWith("-")) {
+                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
+                                                                                            }
+                                                                                            return `<p>${convertBold(text)}</p>`;
+                                                                                        }).join("")
+                                                                                    }} />
+                                                                                ) : (
+                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
+                                                                                )}
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        ))}
+
+                                                        {/* Remaining Images */}
+                                                        {visualBrandStudy.images && visualBrandStudy.images.length > 4 && (
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                                                                {visualBrandStudy.images.slice(4).map((img, idx) => (
+                                                                    <div key={idx} className="space-y-2">
+                                                                        <img
+                                                                            src={img.src}
+                                                                            alt={img.alt}
+                                                                            className="w-full h-auto rounded-lg shadow-md"
+                                                                        />
+                                                                        <p className="text-xs text-center text-muted-foreground">{img.caption}</p>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Results */}
+                                                    <div className="mb-8">
+                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
+                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                                                            {visualBrandStudy.results.map((result) => (
+                                                                <div
+                                                                    key={result.label}
+                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
+                                                                >
+                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
+                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
+                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+
+                                                    {/* ROI Section */}
+                                                    <div className="mb-8">
+                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
+                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
+                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
+                                                                __html: visualBrandStudy.roi.split("\n").map(line => {
+                                                                    const text = line.trim();
+                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                                                                    if (text.startsWith("-")) {
+                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
+                                                                    }
+                                                                    return `<p>${convertBold(text)}</p>`;
+                                                                }).join("")
+                                                            }} />
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Testimonial */}
+                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
+                                                        <p className="text-base md:text-lg italic mb-3">{visualBrandStudy.testimonial}</p>
+                                                        <p className="text-xs md:text-sm text-muted-foreground">— {visualBrandStudy.author}</p>
+                                                    </div>
+
+                                                    {/* Conclusion */}
+                                                    <div className="text-base md:text-lg font-medium text-accent">
+                                                        {visualBrandStudy.conclusion}
+                                                    </div>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                )}
+                            </div>
+                        </ScrollReveal>
+                    </section>
+                );
+
             case "jarvis":
+                return (
+                    <section className="mb-16">
+                        <ScrollReveal>
+                            <h2 className="text-3xl font-bold mb-6">JARVIS (Ultimate Assistant)</h2>
+
+                            <Card className="p-6 mb-6">
+                                <h3 className="text-2xl font-semibold mb-3">Overview</h3>
+                                <p className="text-muted-foreground mb-4">
+                                    The Ultimate Assistant is a comprehensive AI agent designed to handle multiple
+                                    tasks and workflows efficiently. It combines advanced natural language processing
+                                    with powerful automation capabilities to serve as your personal AI assistant.
+                                </p>
+
+                                <div className="mt-4">
+                                    <a
+                                        href={jarvisJsonUrl}
+                                        download
+                                        className="text-accent underline"
+                                    >
+                                        Download JARVIS.json
+                                    </a>
+                                </div>
+                            </Card>
+
+                            <Card className="p-6">
+                                <h3 className="text-xl font-semibold mb-3">Details & Images</h3>
+                                <p className="text-muted-foreground mb-4">
+                                    Images and additional assets for JARVIS are shown below. (If you have more
+                                    content or files to attach, I can add them here.)
+                                </p>
+
+                                {/* Placeholder for images/screenshots provided by the user */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <img
+                                        src={jarvisImg1}
+                                        alt="JARVIS screenshot 1"
+                                        className="w-full rounded border"
+                                    />
+                                    <img
+                                        src={jarvisImg2}
+                                        alt="JARVIS screenshot 2"
+                                        className="w-full rounded border"
+                                    />
+                                </div>
+                            </Card>
+                        </ScrollReveal>
+                    </section>
+                );
 
             case "reddit-to-youtube":
                 const redditStudy = studies.find(study => study.id === "reddit-to-youtube");
@@ -1562,54 +1866,6 @@ Manually, this meant copying Reddit content, writing a script, recording audio, 
                                     </div>
                                 )}
                             </div>
-                        </ScrollReveal>
-                    </section>
-                );
-                return (
-                    <section className="mb-16">
-                        <ScrollReveal>
-                            <h2 className="text-3xl font-bold mb-6">JARVIS (Ultimate Assistant)</h2>
-
-                            <Card className="p-6 mb-6">
-                                <h3 className="text-2xl font-semibold mb-3">Overview</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    The Ultimate Assistant is a comprehensive AI agent designed to handle multiple
-                                    tasks and workflows efficiently. It combines advanced natural language processing
-                                    with powerful automation capabilities to serve as your personal AI assistant.
-                                </p>
-
-                                <div className="mt-4">
-                                    <a
-                                        href={jarvisJsonUrl}
-                                        download
-                                        className="text-accent underline"
-                                    >
-                                        Download JARVIS.json
-                                    </a>
-                                </div>
-                            </Card>
-
-                            <Card className="p-6">
-                                <h3 className="text-xl font-semibold mb-3">Details & Images</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    Images and additional assets for JARVIS are shown below. (If you have more
-                                    content or files to attach, I can add them here.)
-                                </p>
-
-                                {/* Placeholder for images/screenshots provided by the user */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <img
-                                        src={jarvisImg1}
-                                        alt="JARVIS screenshot 1"
-                                        className="w-full rounded border"
-                                    />
-                                    <img
-                                        src={jarvisImg2}
-                                        alt="JARVIS screenshot 2"
-                                        className="w-full rounded border"
-                                    />
-                                </div>
-                            </Card>
                         </ScrollReveal>
                     </section>
                 );

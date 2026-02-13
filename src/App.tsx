@@ -40,6 +40,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:section" element={<CaseStudies />} />
           <Route path="/newsletters" element={<Newsletters />} />
           {/* Hidden/unlinked testimonial page (not in navigation) */}
           <Route path="/testimonial" element={<Testimonial />} />

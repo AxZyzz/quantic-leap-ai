@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
   ChevronDown,
@@ -15,13 +16,14 @@ import { Button } from "./ui/button";
 interface NavItem {
   title: string;
   icon?: React.ComponentType<{ className?: string }>;
-  href?: string;
+  /** slug used as the URL segment, e.g. "jarvis" → /case-studies/jarvis */
+  slug?: string;
   children?: NavItem[];
   filter?: string;
 }
 
 const navigation: NavItem[] = [
-  { title: "Introduction", icon: Info, href: "#introduction" },
+  { title: "Introduction", icon: Info, slug: "introduction" },
   {
     title: "Case Studies",
     icon: FileText,
@@ -29,11 +31,12 @@ const navigation: NavItem[] = [
       {
         title: "Our Works",
         children: [
-          { title: "Sacred Text Publishing", href: "#sacred-text-publishing" },
-          { title: "Medical Consultation", href: "#lifosys" },
-          { title: "Image Generation", href: "#imagegeneration" },
-          { title: "Reddit→YouTube", href: "#reddit-to-youtube" },
-          { title: "Multimodal AI Intake", href: "#multimodal-ai" },
+          { title: "Sacred Text Publishing", slug: "sacred-text-publishing" },
+          { title: "Medical Consultation", slug: "medical-consultation" },
+          { title: "Image Generation", slug: "imagegeneration" },
+          { title: "Visual Brand Intelligence", slug: "visual-brand-intelligence" },
+          { title: "Reddit→YouTube", slug: "reddit-to-youtube" },
+          { title: "Multimodal AI Intake", slug: "multimodal-ai" },
         ],
       },
     ],
@@ -42,15 +45,27 @@ const navigation: NavItem[] = [
     title: "Automation Templates",
     icon: Workflow,
     children: [
-      { title: "JARVIS (Ultimate Assistant)", href: "#jarvis" },
-      { title: "Lexicon (PDF Report)", href: "#lexicon" },
-      { title: "Aether (Newsletter Creation)", href: "#aether" },
-      { title: "Curio (RAG Pipeline)", href: "#curio" },
+      { title: "JARVIS (Ultimate Assistant)", slug: "jarvis" },
+      { title: "Lexicon (PDF Report)", slug: "lexicon" },
+      { title: "Aether (Newsletter Creation)", slug: "aether" },
+      { title: "Curio (RAG Pipeline)", slug: "curio" },
     ],
   },
-  { title: "Technology Stack", icon: Laptop, href: "#tech-stack" },
-  { title: "Resources", icon: Library, href: "#resources" },
+  { title: "Technology Stack", icon: Laptop, slug: "tech-stack" },
+  { title: "Resources", icon: Library, slug: "resources" },
 ];
+
+/** Collect every leaf slug so we can validate URL params */
+function collectSlugs(items: NavItem[]): string[] {
+  const slugs: string[] = [];
+  for (const item of items) {
+    if (item.slug) slugs.push(item.slug);
+    if (item.children) slugs.push(...collectSlugs(item.children));
+  }
+  return slugs;
+}
+
+const ALL_SLUGS = collectSlugs(navigation);
 
 interface NavItemProps {
   item: NavItem;
@@ -60,7 +75,7 @@ interface NavItemProps {
 
 const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const isActive = currentSection === item.href?.replace("#", "");
+  const isActive = currentSection === item.slug;
   const hasChildren = item.children && item.children.length > 0;
 
   return (
@@ -75,8 +90,8 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
         onClick={() => {
           if (hasChildren) {
             setIsExpanded(!isExpanded);
-          } else if (item.href) {
-            setCurrentSection(item.href.replace("#", ""));
+          } else if (item.slug) {
+            setCurrentSection(item.slug);
           }
         }}
       >
@@ -96,7 +111,7 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
       {hasChildren && isExpanded && (
         <div className="ml-4 mt-1 space-y-1 border-l pl-2">
           {item.children.map((child) => (
-            <div key={child.title || child.href}>
+            <div key={child.title || child.slug}>
               {child.children ? (
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 py-1 px-2 text-sm font-medium">
@@ -105,15 +120,15 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
                   <div className="ml-2 space-y-1">
                     {child.children.map((subChild) => (
                       <Button
-                        key={subChild.href}
+                        key={subChild.slug}
                         variant="ghost"
                         className={cn(
                           "w-full justify-start px-2 text-sm",
-                          currentSection === subChild.href?.replace("#", "") &&
+                          currentSection === subChild.slug &&
                           "bg-accent/10 text-accent"
                         )}
                         onClick={() =>
-                          subChild.href && setCurrentSection(subChild.href.replace("#", ""))
+                          subChild.slug && setCurrentSection(subChild.slug)
                         }
                       >
                         {subChild.title}
@@ -126,11 +141,11 @@ const NavItem = ({ item, currentSection, setCurrentSection }: NavItemProps) => {
                   variant="ghost"
                   className={cn(
                     "w-full justify-start px-2 text-sm",
-                    currentSection === child.href?.replace("#", "") &&
+                    currentSection === child.slug &&
                     "bg-accent/10 text-accent"
                   )}
                   onClick={() =>
-                    child.href && setCurrentSection(child.href.replace("#", ""))
+                    child.slug && setCurrentSection(child.slug)
                   }
                 >
                   {child.title}
@@ -149,18 +164,32 @@ export interface CaseStudyLayoutProps {
 }
 
 const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
-  const [currentSection, setCurrentSection] = useState("introduction");
+  const { section } = useParams<{ section?: string }>();
+  const navigate = useNavigate();
+
+  // Determine the current section from the URL param, defaulting to "introduction"
+  const currentSection =
+    section && ALL_SLUGS.includes(section) ? section : "introduction";
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // When a sidebar item is clicked, navigate to the new URL
+  const handleSetSection = (slug: string) => {
+    if (slug === "introduction") {
+      navigate("/case-studies", { replace: false });
+    } else {
+      navigate(`/case-studies/${slug}`, { replace: false });
+    }
+    setIsSidebarOpen(false); // Close sidebar on mobile
+  };
 
   // Open the sidebar by default on mobile view when the page mounts
   useEffect(() => {
-    // Use a MediaQuery to detect mobile width (< md breakpoint)
     const mq = window.matchMedia("(max-width: 767px)");
     if (mq.matches) {
       setIsSidebarOpen(true);
     }
 
-    // Optional: auto-toggle if the user resizes the window
     const handler = (e: MediaQueryListEvent) => {
       if (e.matches) {
         setIsSidebarOpen(true);
@@ -170,6 +199,11 @@ const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
 
     return () => mq.removeEventListener?.("change", handler);
   }, []);
+
+  // Scroll to top when section changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentSection]);
 
   return (
     <div className="flex min-h-screen pt-16">
@@ -204,10 +238,7 @@ const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
               key={item.title}
               item={item}
               currentSection={currentSection}
-              setCurrentSection={(section) => {
-                setCurrentSection(section);
-                setIsSidebarOpen(false); // Close sidebar on mobile when section changes
-              }}
+              setCurrentSection={handleSetSection}
             />
           ))}
         </nav>
