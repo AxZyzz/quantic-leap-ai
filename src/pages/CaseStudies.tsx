@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { TrendingUp, Clock, DollarSign, Users, ArrowRight } from "lucide-react";
+import { TrendingUp, Clock, DollarSign, Users, ArrowRight, FileText, Workflow, Laptop, Library } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { useEffect, useRef, useState } from "react";
 import lifosysImg from "../assets/solution/Lifosys_er.png";
@@ -709,337 +709,377 @@ Furthermore, once an image is generated, verifying it against strict brand guide
         switch (currentSection) {
             case "introduction":
                 return (
-                    <section className="mb-16 space-y-8">
-                        <ScrollReveal>
-                            <h1 className="text-4xl font-bold mb-6">Introduction</h1>
-                            <div className="space-y-6">
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">Purpose & Vision</h2>
-                                    <p className="text-lg text-muted-foreground">
-                                        A2B Automation Agency was founded with the vision of empowering startups and businesses to move seamlessly.
-                                        Our mission is to simplify complexity through automation, AI-driven systems, and intelligent workflows that
-                                        enhance productivity, cut manual effort, and accelerate growth.
-                                    </p>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        At A2B, we believe that automation isn't just about efficiency - it's about creating space for innovation,
-                                        creativity, and scaling what truly matters.
-                                    </p>
-                                </div>
-
-                                {/*
-                        <div>
-                          <h2 className="text-2xl font-semibold mb-3">Intro Video</h2>
-                          <p className="text-lg text-muted-foreground mb-4">
-                          A short video showcasing A2B's story - how we turn repetitive business processes into intelligent, 
-                          automated systems using AI tools, APIs, and workflow design. It explains our mission, approach, 
-                          and how A2B helps teams scale faster and smarter through automation.
-                          </p> 
-                          <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
-                          <iframe
-                            // src="https://www.youtube.com/embed/LZYPhrJFX2U"
-                            // className="w-full h-[500px] rounded-lg shadow-lg"
-                            // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          ></iframe>
-                          </div>
+                    <section className="space-y-10 animate-fade-in">
+                        {/* Hero Banner */}
+                        <div className="cs-hero-gradient rounded-2xl p-8 md:p-12 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(217_91%_60%/0.08),transparent_60%)]" />
+                            <div className="relative z-10">
+                                <Badge variant="outline" className="cs-badge-tech mb-4">
+                                    Documentation Portal
+                                </Badge>
+                                <h1 className="text-4xl md:text-5xl font-bold mb-4 cs-gradient-text">
+                                    Welcome to A2B
+                                </h1>
+                                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
+                                    A2B Automation Agency was founded with the vision of empowering startups and businesses
+                                    to move seamlessly. Our mission is to simplify complexity through automation, AI-driven
+                                    systems, and intelligent workflows.
+                                </p>
+                                <p className="text-base text-muted-foreground/80 mt-4 max-w-2xl">
+                                    At A2B, we believe that automation isn't just about efficiency — it's about creating
+                                    space for innovation, creativity, and scaling what truly matters.
+                                </p>
+                            </div>
                         </div>
-                */}
 
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">Getting Started</h2>
-                                    <p className="text-lg text-muted-foreground">
-                                        Welcome to A2B's Documentation Portal! This guide is your entry point to understanding
-                                        our ecosystem - from our automation frameworks and AI integrations to the tools and
-                                        workflows we use to deliver measurable results.
-                                    </p>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        Our goal is to make your journey with A2B smooth, transparent, and empowering whether
-                                        you're here to explore services, integrate automation into your workflow, or collaborate
-                                        on custom projects.
+                        {/* Quick Start Cards */}
+                        <div>
+                            <h2 className="text-2xl font-bold mb-6">Getting Started</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="cs-glass-card rounded-xl p-6">
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                                        <FileText className="h-5 w-5 text-accent" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold mb-2">Explore Case Studies</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        Dive into real-world implementations — from sacred text video generation to
+                                        AI-powered medical consultation systems.
                                     </p>
                                 </div>
-
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">Navigating the Documentation</h2>
-                                    <p className="text-lg text-muted-foreground">
-                                        Our documentation is structured for clarity and action. Each major category expands into
-                                        detailed subtopics like "Workflow Automation," "AI Integrations," "Dashboards & Analytics,"
-                                        and "Implementation Guides."
-                                    </p>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        Use the sidebar or top navigation to explore each section. If you're looking for something
-                                        specific, use the search bar or activate our A2B Assistant (Command + K) - an AI-powered help
-                                        tool that can answer questions, suggest solutions, or direct you to the right documentation instantly.
+                                <div className="cs-glass-card rounded-xl p-6">
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                                        <Workflow className="h-5 w-5 text-accent" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold mb-2">Automation Templates</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        Download ready-to-use n8n workflow templates for AI assistants,
+                                        research pipelines, and newsletter creation.
                                     </p>
                                 </div>
-
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">Who This Is For</h2>
-                                    <ul className="list-disc list-inside text-lg text-muted-foreground space-y-2 ml-4">
-                                        <li>Founders and business owners who want to automate operations and scale faster</li>
-                                        <li>Developers building automation pipelines or integrating APIs</li>
-                                        <li>Operations teams aiming to reduce manual workload and errors</li>
-                                        <li>Agencies or startups exploring AI-powered workflows or automation consulting</li>
-                                    </ul>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        Whether you're new to automation or looking to expand existing systems, this guide will help
-                                        you understand what's possible and how A2B can help you get there.
+                                <div className="cs-glass-card rounded-xl p-6">
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                                        <Laptop className="h-5 w-5 text-accent" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold mb-2">Technology Stack</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        Explore our curated technology foundation — from cloud infrastructure
+                                        to AI platforms and integration architecture.
                                     </p>
                                 </div>
-
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">How to Work With Us</h2>
-                                    <p className="text-lg text-muted-foreground">
-                                        To collaborate with A2B, visit our Contact Page and share your project goals, workflow challenges,
-                                        and requirements. The more details you provide, the better we can design an automation solution
-                                        tailored to your business.
-                                    </p>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        A2B currently works through custom automation partnerships, designed to fit projects of varying
-                                        scales - from one-time setup systems to full enterprise integrations. If you're exploring smaller
-                                        setups or prototype-level automation, check out our Pricing Page for modular engagement options.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">Documentation Tips</h2>
-                                    <p className="text-lg text-muted-foreground mb-4">
-                                        Each page in our documentation is concise, visual, and actionable. You'll find:
-                                    </p>
-                                    <ul className="list-disc list-inside text-lg text-muted-foreground space-y-2 ml-4">
-                                        <li>Step-by-step guides with real examples</li>
-                                        <li>Visual diagrams of workflows and systems</li>
-                                        <li>AI prompt templates for automation building</li>
-                                        <li>Short demo videos where relevant</li>
-                                    </ul>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        Use these as learning tools or direct implementation references to create your own intelligent automations.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h2 className="text-2xl font-semibold mb-3">Feedback Welcome</h2>
-                                    <p className="text-lg text-muted-foreground">
-                                        We're always improving - both our systems and our documentation. If you find anything unclear or
-                                        have ideas for improvement, please reach out via the feedback section or email.
-                                    </p>
-                                    <p className="text-lg text-muted-foreground mt-4">
-                                        A2B is constantly evolving to reflect the latest in automation technology, AI agents, and workflow
-                                        innovation - and your feedback helps us stay ahead.
+                                <div className="cs-glass-card rounded-xl p-6">
+                                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                                        <Library className="h-5 w-5 text-accent" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold mb-2">Resources & FAQ</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        Technical support guides, implementation tips, and a glossary
+                                        of AI terminology to help you navigate our ecosystem.
                                     </p>
                                 </div>
                             </div>
-                        </ScrollReveal>
+                        </div>
+
+                        <div className="cs-section-divider" />
+
+                        {/* Navigation Guide */}
+                        <div className="space-y-6">
+                            <h2 className="text-2xl font-bold">Navigating the Documentation</h2>
+                            <p className="text-muted-foreground leading-relaxed">
+                                Our documentation is structured for clarity and action. Each major category expands into
+                                detailed subtopics like "Workflow Automation," "AI Integrations," "Dashboards & Analytics,"
+                                and "Implementation Guides." Use the sidebar to explore each section.
+                            </p>
+                        </div>
+
+                        {/* Who This Is For */}
+                        <div className="space-y-4">
+                            <h2 className="text-2xl font-bold">Who This Is For</h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {[
+                                    "Founders and business owners who want to automate operations and scale faster",
+                                    "Developers building automation pipelines or integrating APIs",
+                                    "Operations teams aiming to reduce manual workload and errors",
+                                    "Agencies or startups exploring AI-powered workflows"
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 border border-border/30">
+                                        <span className="mt-0.5 w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                        </span>
+                                        <span className="text-sm text-muted-foreground">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="cs-section-divider" />
+
+                        {/* How to Work With Us */}
+                        <div className="space-y-4">
+                            <h2 className="text-2xl font-bold">How to Work With Us</h2>
+                            <p className="text-muted-foreground leading-relaxed">
+                                To collaborate with A2B, visit our Contact Page and share your project goals, workflow challenges,
+                                and requirements. The more details you provide, the better we can design an automation solution
+                                tailored to your business.
+                            </p>
+                            <p className="text-muted-foreground leading-relaxed">
+                                A2B currently works through custom automation partnerships, designed to fit projects of varying
+                                scales — from one-time setup systems to full enterprise integrations.
+                            </p>
+                        </div>
+
+                        {/* Documentation Tips */}
+                        <div className="cs-glass-card rounded-xl p-6">
+                            <h2 className="text-xl font-bold mb-4">📚 Documentation Tips</h2>
+                            <p className="text-sm text-muted-foreground mb-4">
+                                Each page in our documentation is concise, visual, and actionable. You'll find:
+                            </p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {[
+                                    "Step-by-step guides with real examples",
+                                    "Visual diagrams of workflows and systems",
+                                    "AI prompt templates for automation building",
+                                    "Short demo videos where relevant"
+                                ].map((tip, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                        <ArrowRight className="h-3.5 w-3.5 text-accent flex-shrink-0" />
+                                        <span>{tip}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Feedback */}
+                        <div className="text-center py-6">
+                            <p className="text-muted-foreground">
+                                We're always improving — both our systems and our documentation.{" "}
+                                <Link to="/contact" className="text-accent hover:underline font-medium">
+                                    Share your feedback →
+                                </Link>
+                            </p>
+                        </div>
                     </section>
                 );
 
             case "sacred-text-publishing":
                 const currentStudy = studies.find(study => study.id === currentSection);
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <div className="space-y-12">
-                                {currentStudy && (
-                                    <div key={currentStudy.id}>
-                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                                            <CardContent className="p-0">
-                                                {/* Header */}
-                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-6">
-                                                    <div className="flex flex-wrap gap-2 mb-4">
-                                                        <Badge variant="secondary">{currentStudy.industry}</Badge>
-                                                        <Badge variant="outline">{currentStudy.size}</Badge>
-                                                    </div>
-                                                    <h2 className="text-3xl font-bold mb-2">{currentStudy.client}</h2>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-6">
-                                                    {/* Challenge */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
-                                                            The Challenge
-                                                        </h3>
-                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{currentStudy.challenge}</p>
-                                                    </div>
-
-                                                    {/* Solution */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{currentStudy.solution}</p>
-                                                        <div className="flex flex-wrap gap-2 mb-6">
-                                                            {currentStudy.technology.map((tech) => (
-                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {/* Architecture Image Viewer */}
-                                                        {currentStudy.id === "medical-consultation" && (
-                                                            <div className="mb-8">
-                                                                <div
-                                                                    ref={viewerRef}
-                                                                    tabIndex={0}
-                                                                    onWheelCapture={handleViewerWheel}
-                                                                    onKeyDown={handleViewerKey}
-                                                                    onPointerEnter={() => { viewerRef.current?.focus?.({ preventScroll: true } as any); lockBodyScroll(); }}
-                                                                    onPointerLeave={() => { viewerRef.current?.blur(); unlockBodyScroll(); }}
-                                                                    onFocus={() => lockBodyScroll()}
-                                                                    onBlur={() => unlockBodyScroll()}
-                                                                    onPointerDown={handlePointerDown}
-                                                                    onPointerMove={handlePointerMove}
-                                                                    onPointerUp={endPan}
-                                                                    onPointerCancel={endPan}
-                                                                    className="relative aspect-square w-full max-w-2xl mx-auto bg-black/5 rounded-lg overflow-hidden border overscroll-contain"
-                                                                    style={{ touchAction: "none", overscrollBehavior: 'contain' }}
-                                                                >
-                                                                    {lifosysImg ? (
-                                                                        <img
-                                                                            src={lifosysImg}
-                                                                            alt="Architecture Diagram"
-                                                                            className="absolute inset-0 m-auto w-full h-full object-contain cursor-grab"
-                                                                            style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${viewerScale})`, transition: isPanningRef.current ? 'none' : "transform 0.06s ease-out", transformOrigin: "center center" }}
-                                                                            draggable={false}
-                                                                        />
-                                                                    ) : (
-                                                                        <div className="flex items-center justify-center h-full text-muted-foreground">No image available</div>
-                                                                    )}
-
-                                                                    <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-background/60 px-2 py-1 rounded">
-                                                                        Wheel to zoom · + / - keys · 0 to reset
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        )}
-
-                                                        {/* Primary image (keep first image here) */}
-                                                        {currentStudy.images && currentStudy.images[0] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={currentStudy.images[0].src}
-                                                                        alt={currentStudy.images[0].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{currentStudy.images[0].caption}</p>
-                                                            </div>
-                                                        )}
-
-                                                        {/* Implementation Details */}
-                                                        {Object.values(currentStudy.details).map((phase: any, index) => (
-                                                            <div key={index} className="mb-8">
-                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                                                <div className="space-y-4 md:space-y-6">
-                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
-                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                                                                {capability.description.includes('-') ? (
-                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                                        __html: capability.description.split('\n').map((line: string) => {
-                                                                                            const text = line.trim();
-                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                                            if (text.startsWith('-')) {
-                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                                                                            }
-                                                                                            return `<p>${convertBold(text)}</p>`;
-                                                                                        }).join('')
-                                                                                    }} />
-                                                                                ) : (
-                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
-                                                                                )}
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        ))}
-
-                                                        {/* Secondary image: place the second image below Phase 3 content */}
-                                                        {currentStudy.images && currentStudy.images[1] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={currentStudy.images[1].src}
-                                                                        alt={currentStudy.images[1].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{currentStudy.images[1].caption}</p>
-                                                            </div>
-                                                        )}
-                                                    </div>
-
-                                                    {/* Results */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                                                            {currentStudy.results.map((result) => (
-                                                                <div
-                                                                    key={result.label}
-                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
-                                                                >
-                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
-                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
-                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    {/* ROI Section */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                __html: currentStudy.roi.split('\n').map(line => {
-                                                                    const text = line.trim();
-                                                                    // convert **bold** markdown to <strong>
-                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                    if (text.startsWith('-')) {
-                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
-                                                                    }
-                                                                    return `<p>${convertBold(text)}</p>`;
-                                                                }).join('')
-                                                            }} />
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Testimonial */}
-                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
-                                                        <p className="text-base md:text-lg italic mb-3">{currentStudy.testimonial}</p>
-                                                        <p className="text-xs md:text-sm text-muted-foreground">— {currentStudy.author}</p>
-                                                    </div>
-
-                                                    {/* Conclusion */}
-                                                    <div className="text-base md:text-lg font-medium text-accent">
-                                                        {currentStudy.conclusion}
-                                                    </div>
-
-                                                    {/* LinkedIn Link for specific cases */}
-                                                    {(currentStudy.id === "financial-services" || currentStudy.id === "sacred-text-publishing") && (
-                                                        <div className="mt-8 text-center">
-                                                            <a
-                                                                href="https://www.linkedin.com/posts/rahul-v-k_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%A2%F0%9D%90%AC-%F0%9D%90%9C%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD-%F0%9D%90%A3%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%AD-%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%A2%F0%9D%90%9D-%F0%9D%90%A6%F0%9D%90%9E-activity-7375086404386807808-gVcy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE0RNokBO_aQUDwWXD6sGmbeS1CMusGKIEI"
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="inline-flex items-center text-accent hover:text-accent/80"
-                                                            >
-                                                                <span className="mr-2">View on LinkedIn</span>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                                                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </CardContent>
-                                        </Card>
+                            {currentStudy && (
+                                <div className="space-y-8">
+                                    {/* Hero Header */}
+                                    <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(260_80%_55%/0.06),transparent_50%)]" />
+                                        <div className="relative z-10">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                <span className="cs-badge-tech">{currentStudy.industry}</span>
+                                                <span className="cs-badge-tech">{currentStudy.size}</span>
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl font-bold mb-2">{currentStudy.client}</h2>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
+
+                                    {/* Challenge Section */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-destructive" />
+                                            The Challenge
+                                        </h3>
+                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base leading-relaxed pl-5">
+                                            {currentStudy.challenge}
+                                        </p>
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Solution Section */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-accent" />
+                                            The Solution
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-5">
+                                            {currentStudy.solution}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 pl-5">
+                                            {currentStudy.technology.map((tech) => (
+                                                <span key={tech} className="cs-badge-tech text-xs">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Architecture Image Viewer (for medical-consultation only) */}
+                                    {currentStudy.id === "medical-consultation" && (
+                                        <div className="cs-image-container">
+                                            <div
+                                                ref={viewerRef}
+                                                tabIndex={0}
+                                                onWheelCapture={handleViewerWheel}
+                                                onKeyDown={handleViewerKey}
+                                                onPointerEnter={() => { viewerRef.current?.focus?.({ preventScroll: true } as any); lockBodyScroll(); }}
+                                                onPointerLeave={() => { viewerRef.current?.blur(); unlockBodyScroll(); }}
+                                                onFocus={() => lockBodyScroll()}
+                                                onBlur={() => unlockBodyScroll()}
+                                                onPointerDown={handlePointerDown}
+                                                onPointerMove={handlePointerMove}
+                                                onPointerUp={endPan}
+                                                onPointerCancel={endPan}
+                                                className="relative aspect-square w-full max-w-2xl mx-auto bg-black/5 overflow-hidden"
+                                                style={{ touchAction: "none", overscrollBehavior: 'contain' }}
+                                            >
+                                                {lifosysImg ? (
+                                                    <img
+                                                        src={lifosysImg}
+                                                        alt="Architecture Diagram"
+                                                        className="absolute inset-0 m-auto w-full h-full object-contain cursor-grab"
+                                                        style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${viewerScale})`, transition: isPanningRef.current ? 'none' : "transform 0.06s ease-out", transformOrigin: "center center" }}
+                                                        draggable={false}
+                                                    />
+                                                ) : (
+                                                    <div className="flex items-center justify-center h-full text-muted-foreground">No image available</div>
+                                                )}
+                                                <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-background/60 px-2 py-1 rounded">
+                                                    Wheel to zoom · + / - keys · 0 to reset
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Primary Image */}
+                                    {currentStudy.images && currentStudy.images[0] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={currentStudy.images[0].src}
+                                                alt={currentStudy.images[0].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {currentStudy.images[0].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Implementation Details (Phases) */}
+                                    <div className="space-y-8">
+                                        <h3 className="text-xl font-bold">Implementation Details</h3>
+                                        {Object.values(currentStudy.details).map((phase: any, index) => (
+                                            <div key={index} className="cs-phase-block pb-6">
+                                                <div className="cs-phase-number">{index + 1}</div>
+                                                <h4 className="text-lg font-semibold mb-2">{phase.title}</h4>
+                                                <p className="text-sm text-muted-foreground mb-4">
+                                                    <span className="font-medium text-foreground/80">Trigger:</span> {phase.trigger}
+                                                </p>
+                                                <div className="space-y-3">
+                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                        <div key={capIndex} className="cs-capability-card">
+                                                            <h5 className="text-sm md:text-base font-semibold mb-2">{capability.title}</h5>
+                                                            <div className="text-muted-foreground text-sm leading-relaxed">
+                                                                {capability.description.includes('-') ? (
+                                                                    <div dangerouslySetInnerHTML={{
+                                                                        __html: capability.description.split('\n').map((line: string) => {
+                                                                            const text = line.trim();
+                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                                            if (text.startsWith('-')) {
+                                                                                return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                                            }
+                                                                            return `<p class="mb-2">${convertBold(text)}</p>`;
+                                                                        }).join('')
+                                                                    }} />
+                                                                ) : (
+                                                                    <p>{capability.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Secondary Image */}
+                                    {currentStudy.images && currentStudy.images[1] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={currentStudy.images[1].src}
+                                                alt={currentStudy.images[1].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {currentStudy.images[1].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Key Metrics */}
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                            {currentStudy.results.map((result, i) => (
+                                                <div
+                                                    key={result.label}
+                                                    className="cs-metric-card text-center p-4 md:p-5 rounded-xl"
+                                                    style={{ animationDelay: `${i * 100}ms` }}
+                                                >
+                                                    <result.icon className="h-6 w-6 md:h-7 md:w-7 text-accent mx-auto mb-3" />
+                                                    <div className="text-xl md:text-2xl font-bold mb-1 cs-gradient-text">
+                                                        {result.metric}
+                                                    </div>
+                                                    <div className="text-xs text-muted-foreground">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* ROI Section */}
+                                    <div className="cs-glass-card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4">Return on Investment</h3>
+                                        <div className="text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{
+                                            __html: currentStudy.roi.split('\n').map(line => {
+                                                const text = line.trim();
+                                                const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                if (text.startsWith('-')) {
+                                                    return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                }
+                                                return `<p class="mb-2">${convertBold(text)}</p>`;
+                                            }).join('')
+                                        }} />
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="cs-testimonial">
+                                        <p className="text-base md:text-lg italic mb-3 pl-6">{currentStudy.testimonial}</p>
+                                        <p className="text-xs md:text-sm text-muted-foreground pl-6">— {currentStudy.author}</p>
+                                    </div>
+
+                                    {/* Conclusion */}
+                                    <div className="text-center py-4">
+                                        <p className="text-base md:text-lg font-medium cs-gradient-text inline-block">
+                                            {currentStudy.conclusion}
+                                        </p>
+                                    </div>
+
+                                    {/* LinkedIn Link */}
+                                    {(currentStudy.id === "financial-services" || currentStudy.id === "sacred-text-publishing") && (
+                                        <div className="text-center">
+                                            <a
+                                                href="https://www.linkedin.com/posts/rahul-v-k_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%A2%F0%9D%90%AC-%F0%9D%90%9C%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD-%F0%9D%90%A3%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%AD-%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%A2%F0%9D%90%9D-%F0%9D%90%A6%F0%9D%90%9E-activity-7375086404386807808-gVcy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE0RNokBO_aQUDwWXD6sGmbeS1CMusGKIEI"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 cs-badge-tech px-4 py-2 hover:bg-accent/20 transition-colors"
+                                            >
+                                                <span>View on LinkedIn</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         </ScrollReveal>
                     </section>
                 );
@@ -1047,162 +1087,167 @@ Furthermore, once an image is generated, verifying it against strict brand guide
             case "medical-consultation":
                 const lifosysStudy = studies.find(study => study.id === "medical-consultation");
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <div className="space-y-12">
-                                {lifosysStudy && (
-                                    <div key={lifosysStudy.id}>
-                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                                            <CardContent className="p-0">
-                                                {/* Header */}
-                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
-                                                    <div className="flex flex-wrap gap-2 mb-4">
-                                                        <Badge variant="secondary">{lifosysStudy.industry}</Badge>
-                                                        <Badge variant="outline">{lifosysStudy.size}</Badge>
-                                                    </div>
-                                                    <h2 className="text-3xl font-bold mb-2">{lifosysStudy.client}</h2>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-8">
-                                                    {/* Challenge */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
-                                                            The Challenge
-                                                        </h3>
-                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{lifosysStudy.challenge}</p>
-                                                    </div>
-
-                                                    {/* Solution */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{lifosysStudy.solution}</p>
-                                                        <div className="flex flex-wrap gap-2 mb-6">
-                                                            {lifosysStudy.technology.map((tech) => (
-                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {/* Architecture Image Viewer */}
-                                                        <div className="mb-8">
-                                                            <div
-                                                                ref={viewerRef}
-                                                                tabIndex={0}
-                                                                onWheelCapture={handleViewerWheel}
-                                                                onKeyDown={handleViewerKey}
-                                                                onPointerEnter={() => { viewerRef.current?.focus?.({ preventScroll: true } as any); lockBodyScroll(); }}
-                                                                onPointerLeave={() => { viewerRef.current?.blur(); unlockBodyScroll(); }}
-                                                                onFocus={() => lockBodyScroll()}
-                                                                onBlur={() => unlockBodyScroll()}
-                                                                onPointerDown={handlePointerDown}
-                                                                onPointerMove={handlePointerMove}
-                                                                onPointerUp={endPan}
-                                                                onPointerCancel={endPan}
-                                                                className="relative aspect-square w-full max-w-2xl mx-auto bg-black/5 rounded-lg overflow-hidden border overscroll-contain"
-                                                                style={{ touchAction: "none", overscrollBehavior: 'contain' }}
-                                                            >
-                                                                {lifosysImg ? (
-                                                                    <img
-                                                                        src={lifosysImg}
-                                                                        alt="Architecture Diagram"
-                                                                        className="absolute inset-0 m-auto w-full h-full object-contain cursor-grab"
-                                                                        style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${viewerScale})`, transition: isPanningRef.current ? 'none' : "transform 0.06s ease-out", transformOrigin: "center center" }}
-                                                                        draggable={false}
-                                                                    />
-                                                                ) : (
-                                                                    <div className="flex items-center justify-center h-full text-muted-foreground">No image available</div>
-                                                                )}
-
-                                                                <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-background/60 px-2 py-1 rounded">
-                                                                    Wheel to zoom · + / - keys · 0 to reset
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* Implementation Details */}
-                                                        {Object.values(lifosysStudy.details).map((phase: any, index) => (
-                                                            <div key={index} className="mb-8">
-                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                                                <div className="space-y-4 md:space-y-6">
-                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
-                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                                                                {capability.description.includes('-') ? (
-                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                                        __html: capability.description.split('\n').map((line: string) => {
-                                                                                            const text = line.trim();
-                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                                            if (text.startsWith('-')) {
-                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                                                                            }
-                                                                                            return `<p>${convertBold(text)}</p>`;
-                                                                                        }).join('')
-                                                                                    }} />
-                                                                                ) : (
-                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
-                                                                                )}
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-
-                                                    {/* Results */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                                                            {lifosysStudy.results.map((result) => (
-                                                                <div
-                                                                    key={result.label}
-                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
-                                                                >
-                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
-                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
-                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    {/* ROI Section */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                __html: lifosysStudy.roi.split('\n').map(line => {
-                                                                    const text = line.trim();
-                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                    if (text.startsWith('-')) {
-                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
-                                                                    }
-                                                                    return `<p>${convertBold(text)}</p>`;
-                                                                }).join('')
-                                                            }} />
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Testimonial */}
-                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
-                                                        <p className="text-base md:text-lg italic mb-3">{lifosysStudy.testimonial}</p>
-                                                        <p className="text-xs md:text-sm text-muted-foreground">— {lifosysStudy.author}</p>
-                                                    </div>
-
-                                                    {/* Conclusion */}
-                                                    <div className="text-base md:text-lg font-medium text-accent">
-                                                        {lifosysStudy.conclusion}
-                                                    </div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
+                            {lifosysStudy && (
+                                <div className="space-y-8">
+                                    {/* Hero Header */}
+                                    <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(260_80%_55%/0.06),transparent_50%)]" />
+                                        <div className="relative z-10">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                <span className="cs-badge-tech">{lifosysStudy.industry}</span>
+                                                <span className="cs-badge-tech">{lifosysStudy.size}</span>
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl font-bold mb-2">{lifosysStudy.client}</h2>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
+
+
+                                    {/* Challenge */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-destructive" />
+                                            The Challenge
+                                        </h3>
+                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base leading-relaxed pl-5">
+                                            {lifosysStudy.challenge}
+                                        </p>
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Solution */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-accent" />
+                                            The Solution
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-5">{lifosysStudy.solution}</p>
+                                        <div className="flex flex-wrap gap-2 pl-5">
+                                            {lifosysStudy.technology.map((tech) => (
+                                                <span key={tech} className="cs-badge-tech text-xs">{tech}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Architecture Image Viewer */}
+                                    <div className="cs-image-container">
+                                        <div
+                                            ref={viewerRef}
+                                            tabIndex={0}
+                                            onWheelCapture={handleViewerWheel}
+                                            onKeyDown={handleViewerKey}
+                                            onPointerEnter={() => { viewerRef.current?.focus?.({ preventScroll: true } as any); lockBodyScroll(); }}
+                                            onPointerLeave={() => { viewerRef.current?.blur(); unlockBodyScroll(); }}
+                                            onFocus={() => lockBodyScroll()}
+                                            onBlur={() => unlockBodyScroll()}
+                                            onPointerDown={handlePointerDown}
+                                            onPointerMove={handlePointerMove}
+                                            onPointerUp={endPan}
+                                            onPointerCancel={endPan}
+                                            className="relative aspect-square w-full max-w-2xl mx-auto bg-black/5 overflow-hidden"
+                                            style={{ touchAction: "none", overscrollBehavior: 'contain' }}
+                                        >
+                                            {lifosysImg ? (
+                                                <img
+                                                    src={lifosysImg}
+                                                    alt="Architecture Diagram"
+                                                    className="absolute inset-0 m-auto w-full h-full object-contain cursor-grab"
+                                                    style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${viewerScale})`, transition: isPanningRef.current ? 'none' : "transform 0.06s ease-out", transformOrigin: "center center" }}
+                                                    draggable={false}
+                                                />
+                                            ) : (
+                                                <div className="flex items-center justify-center h-full text-muted-foreground">No image available</div>
+                                            )}
+                                            <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-background/60 px-2 py-1 rounded">
+                                                Wheel to zoom · + / - keys · 0 to reset
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Implementation Details (Phases) */}
+                                    <div className="space-y-8">
+                                        <h3 className="text-xl font-bold">Implementation Details</h3>
+                                        {Object.values(lifosysStudy.details).map((phase: any, index) => (
+                                            <div key={index} className="cs-phase-block pb-6">
+                                                <div className="cs-phase-number">{index + 1}</div>
+                                                <h4 className="text-lg font-semibold mb-2">{phase.title}</h4>
+                                                <p className="text-sm text-muted-foreground mb-4">
+                                                    <span className="font-medium text-foreground/80">Trigger:</span> {phase.trigger}
+                                                </p>
+                                                <div className="space-y-3">
+                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                        <div key={capIndex} className="cs-capability-card">
+                                                            <h5 className="text-sm md:text-base font-semibold mb-2">{capability.title}</h5>
+                                                            <div className="text-muted-foreground text-sm leading-relaxed">
+                                                                {capability.description.includes('-') ? (
+                                                                    <div dangerouslySetInnerHTML={{
+                                                                        __html: capability.description.split('\n').map((line: string) => {
+                                                                            const text = line.trim();
+                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                                            if (text.startsWith('-')) {
+                                                                                return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                                            }
+                                                                            return `<p class="mb-2">${convertBold(text)}</p>`;
+                                                                        }).join('')
+                                                                    }} />
+                                                                ) : (
+                                                                    <p>{capability.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Key Metrics */}
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                            {lifosysStudy.results.map((result, i) => (
+                                                <div key={result.label} className="cs-metric-card text-center p-4 md:p-5 rounded-xl">
+                                                    <result.icon className="h-6 w-6 md:h-7 md:w-7 text-accent mx-auto mb-3" />
+                                                    <div className="text-xl md:text-2xl font-bold mb-1 cs-gradient-text">{result.metric}</div>
+                                                    <div className="text-xs text-muted-foreground">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* ROI */}
+                                    <div className="cs-glass-card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4">Return on Investment</h3>
+                                        <div className="text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{
+                                            __html: lifosysStudy.roi.split('\n').map(line => {
+                                                const text = line.trim();
+                                                const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                if (text.startsWith('-')) {
+                                                    return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                }
+                                                return `<p class="mb-2">${convertBold(text)}</p>`;
+                                            }).join('')
+                                        }} />
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="cs-testimonial">
+                                        <p className="text-base md:text-lg italic mb-3 pl-6">{lifosysStudy.testimonial}</p>
+                                        <p className="text-xs md:text-sm text-muted-foreground pl-6">— {lifosysStudy.author}</p>
+                                    </div>
+
+                                    {/* Conclusion */}
+                                    <div className="text-center py-4">
+                                        <p className="text-base md:text-lg font-medium cs-gradient-text inline-block">
+                                            {lifosysStudy.conclusion}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
                         </ScrollReveal>
                     </section>
                 );
@@ -1210,154 +1255,169 @@ Furthermore, once an image is generated, verifying it against strict brand guide
             case "imagegeneration":
                 const imageGenStudy = studies.find(study => study.id === "imagegeneration");
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <div className="space-y-12">
-                                {imageGenStudy && (
-                                    <div key={imageGenStudy.id}>
-                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                                            <CardContent className="p-0">
-                                                {/* Header */}
-                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
-                                                    <div className="flex flex-wrap gap-2 mb-4">
-                                                        <Badge variant="secondary">{imageGenStudy.industry}</Badge>
-                                                        <Badge variant="outline">{imageGenStudy.size}</Badge>
-                                                    </div>
-                                                    <h2 className="text-3xl font-bold mb-2">{imageGenStudy.client}</h2>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-8">
-                                                    {/* Challenge */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
-                                                            The Challenge
-                                                        </h3>
-                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{imageGenStudy.challenge}</p>
-                                                    </div>
-
-                                                    {/* Solution */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{imageGenStudy.solution}</p>
-                                                        <div className="flex flex-wrap gap-2 mb-6">
-                                                            {imageGenStudy.technology.map((tech) => (
-                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {/* First Image: Architecture Diagram (placed after Solution) */}
-                                                        {imageGenStudy.images && imageGenStudy.images[0] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={imageGenStudy.images[0].src}
-                                                                        alt={imageGenStudy.images[0].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{imageGenStudy.images[0].caption}</p>
-                                                            </div>
-                                                        )}
-
-                                                        {/* Implementation Details */}
-                                                        {Object.values(imageGenStudy.details).map((phase: any, index) => (
-                                                            <div key={index} className="mb-8">
-                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                                                <div className="space-y-4 md:space-y-6">
-                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
-                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                                                                {capability.description.includes('-') ? (
-                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                                        __html: capability.description.split('\n').map((line: string) => {
-                                                                                            const text = line.trim();
-                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                                            if (text.startsWith('-')) {
-                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                                                                            }
-                                                                                            return `<p>${convertBold(text)}</p>`;
-                                                                                        }).join('')
-                                                                                    }} />
-                                                                                ) : (
-                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
-                                                                                )}
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        ))}
-
-                                                        {/* Second Image: Workflow Diagram (after phase 3) */}
-                                                        {imageGenStudy.images && imageGenStudy.images[1] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={imageGenStudy.images[1].src}
-                                                                        alt={imageGenStudy.images[1].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{imageGenStudy.images[1].caption}</p>
-                                                            </div>
-                                                        )}
-                                                    </div>
-
-                                                    {/* Results */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                                                            {imageGenStudy.results.map((result) => (
-                                                                <div
-                                                                    key={result.label}
-                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
-                                                                >
-                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
-                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
-                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    {/* ROI Section */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                __html: imageGenStudy.roi.split('\n').map(line => {
-                                                                    const text = line.trim();
-                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                    if (text.startsWith('-')) {
-                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
-                                                                    }
-                                                                    return `<p>${convertBold(text)}</p>`;
-                                                                }).join('')
-                                                            }} />
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Testimonial */}
-                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
-                                                        <p className="text-base md:text-lg italic mb-3">{imageGenStudy.testimonial}</p>
-                                                        <p className="text-xs md:text-sm text-muted-foreground">— {imageGenStudy.author}</p>
-                                                    </div>
-
-                                                    {/* Conclusion */}
-                                                    <div className="text-base md:text-lg font-medium text-accent">
-                                                        {imageGenStudy.conclusion}
-                                                    </div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
+                            {imageGenStudy && (
+                                <div className="space-y-8">
+                                    {/* Hero Header */}
+                                    <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(260_80%_55%/0.06),transparent_50%)]" />
+                                        <div className="relative z-10">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                <span className="cs-badge-tech">{imageGenStudy.industry}</span>
+                                                <span className="cs-badge-tech">{imageGenStudy.size}</span>
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl font-bold mb-2">{imageGenStudy.client}</h2>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
+
+                                    {/* Challenge Section */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-destructive" />
+                                            The Challenge
+                                        </h3>
+                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base leading-relaxed pl-5">
+                                            {imageGenStudy.challenge}
+                                        </p>
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Solution Section */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-accent" />
+                                            The Solution
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-5">
+                                            {imageGenStudy.solution}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 pl-5">
+                                            {imageGenStudy.technology.map((tech) => (
+                                                <span key={tech} className="cs-badge-tech text-xs">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Primary Image */}
+                                    {imageGenStudy.images && imageGenStudy.images[0] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={imageGenStudy.images[0].src}
+                                                alt={imageGenStudy.images[0].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {imageGenStudy.images[0].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Implementation Details (Phases) */}
+                                    <div className="space-y-8">
+                                        <h3 className="text-xl font-bold">Implementation Details</h3>
+                                        {Object.values(imageGenStudy.details).map((phase: any, index) => (
+                                            <div key={index} className="cs-phase-block pb-6">
+                                                <div className="cs-phase-number">{index + 1}</div>
+                                                <h4 className="text-lg font-semibold mb-2">{phase.title}</h4>
+                                                <p className="text-sm text-muted-foreground mb-4">
+                                                    <span className="font-medium text-foreground/80">Trigger:</span> {phase.trigger}
+                                                </p>
+                                                <div className="space-y-3">
+                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                        <div key={capIndex} className="cs-capability-card">
+                                                            <h5 className="text-sm md:text-base font-semibold mb-2">{capability.title}</h5>
+                                                            <div className="text-muted-foreground text-sm leading-relaxed">
+                                                                {capability.description.includes('-') ? (
+                                                                    <div dangerouslySetInnerHTML={{
+                                                                        __html: capability.description.split('\n').map((line: string) => {
+                                                                            const text = line.trim();
+                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                                            if (text.startsWith('-')) {
+                                                                                return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                                            }
+                                                                            return `<p class="mb-2">${convertBold(text)}</p>`;
+                                                                        }).join('')
+                                                                    }} />
+                                                                ) : (
+                                                                    <p>{capability.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Secondary Image */}
+                                    {imageGenStudy.images && imageGenStudy.images[1] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={imageGenStudy.images[1].src}
+                                                alt={imageGenStudy.images[1].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {imageGenStudy.images[1].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Key Metrics */}
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                            {imageGenStudy.results.map((result, i) => (
+                                                <div
+                                                    key={result.label}
+                                                    className="cs-metric-card text-center p-4 md:p-5 rounded-xl"
+                                                    style={{ animationDelay: `${i * 100}ms` }}
+                                                >
+                                                    <result.icon className="h-6 w-6 md:h-7 md:w-7 text-accent mx-auto mb-3" />
+                                                    <div className="text-xl md:text-2xl font-bold mb-1 cs-gradient-text">
+                                                        {result.metric}
+                                                    </div>
+                                                    <div className="text-xs text-muted-foreground">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* ROI Section */}
+                                    <div className="cs-glass-card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4">Return on Investment</h3>
+                                        <div className="text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{
+                                            __html: imageGenStudy.roi.split('\n').map(line => {
+                                                const text = line.trim();
+                                                const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                if (text.startsWith('-')) {
+                                                    return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                }
+                                                return `<p class="mb-2">${convertBold(text)}</p>`;
+                                            }).join('')
+                                        }} />
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="cs-testimonial">
+                                        <p className="text-base md:text-lg italic mb-3 pl-6">{imageGenStudy.testimonial}</p>
+                                        <p className="text-xs md:text-sm text-muted-foreground pl-6">— {imageGenStudy.author}</p>
+                                    </div>
+
+                                    {/* Conclusion */}
+                                    <div className="text-center py-4">
+                                        <p className="text-base md:text-lg font-medium cs-gradient-text inline-block">
+                                            {imageGenStudy.conclusion}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
                         </ScrollReveal>
                     </section>
                 );
@@ -1365,143 +1425,169 @@ Furthermore, once an image is generated, verifying it against strict brand guide
             case "multimodal-ai":
                 const multimodalStudy = studies.find(study => study.id === "multimodal-ai");
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <div className="space-y-12">
-                                {multimodalStudy && (
-                                    <div key={multimodalStudy.id}>
-                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                                            <CardContent className="p-0">
-                                                {/* Header */}
-                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
-                                                    <div className="flex flex-wrap gap-2 mb-4">
-                                                        <Badge variant="secondary">{multimodalStudy.industry}</Badge>
-                                                        <Badge variant="outline">{multimodalStudy.size}</Badge>
-                                                    </div>
-                                                    <h2 className="text-3xl font-bold mb-2">{multimodalStudy.client}</h2>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-8">
-                                                    {/* Challenge */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
-                                                            The Challenge
-                                                        </h3>
-                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{multimodalStudy.challenge}</p>
-                                                    </div>
-
-                                                    {/* Solution */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{multimodalStudy.solution}</p>
-                                                        <div className="flex flex-wrap gap-2 mb-6">
-                                                            {multimodalStudy.technology.map((tech) => (
-                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {/* First Image: Solution Overview (after Solution section) */}
-                                                        {multimodalStudy.images && multimodalStudy.images[0] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={multimodalStudy.images[0].src}
-                                                                        alt={multimodalStudy.images[0].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{multimodalStudy.images[0].caption}</p>
-                                                            </div>
-                                                        )}
-
-                                                        {/* Implementation Details */}
-                                                        {Object.values(multimodalStudy.details).map((phase: any, index) => (
-                                                            <div key={index} className="mb-8">
-                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                                                <div className="space-y-4 md:space-y-6">
-                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
-                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                                                                {capability.description.includes('-') ? (
-                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                                        __html: capability.description.split('\n').map((line: string) => {
-                                                                                            const text = line.trim();
-                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                                            if (text.startsWith('-')) {
-                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                                                                            }
-                                                                                            return `<p>${convertBold(text)}</p>`;
-                                                                                        }).join('')
-                                                                                    }} />
-                                                                                ) : (
-                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
-                                                                                )}
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        ))}
-
-                                                        {/* Second Image: Data Flow (after Phase 3) */}
-
-                                                    </div>
-
-                                                    {/* Results */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                                                            {multimodalStudy.results.map((result) => (
-                                                                <div
-                                                                    key={result.label}
-                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
-                                                                >
-                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
-                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
-                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    {/* ROI Section */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                __html: multimodalStudy.roi.split('\n').map(line => {
-                                                                    const text = line.trim();
-                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                    if (text.startsWith('-')) {
-                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
-                                                                    }
-                                                                    return `<p>${convertBold(text)}</p>`;
-                                                                }).join('')
-                                                            }} />
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Testimonial */}
-                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
-                                                        <p className="text-base md:text-lg italic mb-3">{multimodalStudy.testimonial}</p>
-                                                        <p className="text-xs md:text-sm text-muted-foreground">— {multimodalStudy.author}</p>
-                                                    </div>
-
-                                                    {/* Conclusion */}
-                                                    <div className="text-base md:text-lg font-medium text-accent">
-                                                        {multimodalStudy.conclusion}
-                                                    </div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
+                            {multimodalStudy && (
+                                <div className="space-y-8">
+                                    {/* Hero Header */}
+                                    <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(260_80%_55%/0.06),transparent_50%)]" />
+                                        <div className="relative z-10">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                <span className="cs-badge-tech">{multimodalStudy.industry}</span>
+                                                <span className="cs-badge-tech">{multimodalStudy.size}</span>
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl font-bold mb-2">{multimodalStudy.client}</h2>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
+
+                                    {/* Challenge Section */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-destructive" />
+                                            The Challenge
+                                        </h3>
+                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base leading-relaxed pl-5">
+                                            {multimodalStudy.challenge}
+                                        </p>
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Solution Section */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-accent" />
+                                            The Solution
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-5">
+                                            {multimodalStudy.solution}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 pl-5">
+                                            {multimodalStudy.technology.map((tech) => (
+                                                <span key={tech} className="cs-badge-tech text-xs">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Primary Image */}
+                                    {multimodalStudy.images && multimodalStudy.images[0] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={multimodalStudy.images[0].src}
+                                                alt={multimodalStudy.images[0].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {multimodalStudy.images[0].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Implementation Details (Phases) */}
+                                    <div className="space-y-8">
+                                        <h3 className="text-xl font-bold">Implementation Details</h3>
+                                        {Object.values(multimodalStudy.details).map((phase: any, index) => (
+                                            <div key={index} className="cs-phase-block pb-6">
+                                                <div className="cs-phase-number">{index + 1}</div>
+                                                <h4 className="text-lg font-semibold mb-2">{phase.title}</h4>
+                                                <p className="text-sm text-muted-foreground mb-4">
+                                                    <span className="font-medium text-foreground/80">Trigger:</span> {phase.trigger}
+                                                </p>
+                                                <div className="space-y-3">
+                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                        <div key={capIndex} className="cs-capability-card">
+                                                            <h5 className="text-sm md:text-base font-semibold mb-2">{capability.title}</h5>
+                                                            <div className="text-muted-foreground text-sm leading-relaxed">
+                                                                {capability.description.includes('-') ? (
+                                                                    <div dangerouslySetInnerHTML={{
+                                                                        __html: capability.description.split('\n').map((line: string) => {
+                                                                            const text = line.trim();
+                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                                            if (text.startsWith('-')) {
+                                                                                return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                                            }
+                                                                            return `<p class="mb-2">${convertBold(text)}</p>`;
+                                                                        }).join('')
+                                                                    }} />
+                                                                ) : (
+                                                                    <p>{capability.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Secondary Image */}
+                                    {multimodalStudy.images && multimodalStudy.images[1] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={multimodalStudy.images[1].src}
+                                                alt={multimodalStudy.images[1].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {multimodalStudy.images[1].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Key Metrics */}
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                            {multimodalStudy.results.map((result, i) => (
+                                                <div
+                                                    key={result.label}
+                                                    className="cs-metric-card text-center p-4 md:p-5 rounded-xl"
+                                                    style={{ animationDelay: `${i * 100}ms` }}
+                                                >
+                                                    <result.icon className="h-6 w-6 md:h-7 md:w-7 text-accent mx-auto mb-3" />
+                                                    <div className="text-xl md:text-2xl font-bold mb-1 cs-gradient-text">
+                                                        {result.metric}
+                                                    </div>
+                                                    <div className="text-xs text-muted-foreground">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* ROI Section */}
+                                    <div className="cs-glass-card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4">Return on Investment</h3>
+                                        <div className="text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{
+                                            __html: multimodalStudy.roi.split('\n').map(line => {
+                                                const text = line.trim();
+                                                const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                if (text.startsWith('-')) {
+                                                    return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                }
+                                                return `<p class="mb-2">${convertBold(text)}</p>`;
+                                            }).join('')
+                                        }} />
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="cs-testimonial">
+                                        <p className="text-base md:text-lg italic mb-3 pl-6">{multimodalStudy.testimonial}</p>
+                                        <p className="text-xs md:text-sm text-muted-foreground pl-6">— {multimodalStudy.author}</p>
+                                    </div>
+
+                                    {/* Conclusion */}
+                                    <div className="text-center py-4">
+                                        <p className="text-base md:text-lg font-medium cs-gradient-text inline-block">
+                                            {multimodalStudy.conclusion}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
                         </ScrollReveal>
                     </section>
                 );
@@ -1509,208 +1595,214 @@ Furthermore, once an image is generated, verifying it against strict brand guide
             case "visual-brand-intelligence":
                 const visualBrandStudy = studies.find(study => study.id === "visual-brand-intelligence");
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <div className="space-y-12">
-                                {visualBrandStudy && (
-                                    <div key={visualBrandStudy.id}>
-                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                                            <CardContent className="p-0">
-                                                {/* Header */}
-                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
-                                                    <div className="flex flex-wrap gap-2 mb-4">
-                                                        <Badge variant="secondary">{visualBrandStudy.industry}</Badge>
-                                                        <Badge variant="outline">{visualBrandStudy.size}</Badge>
-                                                    </div>
-                                                    <h2 className="text-3xl font-bold mb-2">{visualBrandStudy.client}</h2>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-8">
-                                                    {/* Challenge */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
-                                                            The Challenge
-                                                        </h3>
-                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{visualBrandStudy.challenge}</p>
-                                                    </div>
-
-                                                    {/* Solution */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{visualBrandStudy.solution}</p>
-                                                        <div className="flex flex-wrap gap-2 mb-6">
-                                                            {visualBrandStudy.technology.map((tech) => (
-                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {/* Images Grid after Solution */}
-                                                        {visualBrandStudy.images && (
-                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                                                                {visualBrandStudy.images.slice(0, 4).map((img, idx) => (
-                                                                    <div key={idx} className="space-y-2">
-                                                                        <img
-                                                                            src={img.src}
-                                                                            alt={img.alt}
-                                                                            className="w-full h-auto rounded-lg shadow-md"
-                                                                        />
-                                                                        <p className="text-xs text-center text-muted-foreground">{img.caption}</p>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        )}
-
-                                                        {/* Implementation Details */}
-                                                        {Object.values(visualBrandStudy.details).map((phase: any, index) => (
-                                                            <div key={index} className="mb-8">
-                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                                                <div className="space-y-4 md:space-y-6">
-                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
-                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                                                                {capability.description.includes("-") ? (
-                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                                        __html: capability.description.split("\n").map((line: string) => {
-                                                                                            const text = line.trim();
-                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-                                                                                            if (text.startsWith("-")) {
-                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                                                                            }
-                                                                                            return `<p>${convertBold(text)}</p>`;
-                                                                                        }).join("")
-                                                                                    }} />
-                                                                                ) : (
-                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
-                                                                                )}
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        ))}
-
-                                                        {/* Remaining Images */}
-                                                        {visualBrandStudy.images && visualBrandStudy.images.length > 4 && (
-                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                                                                {visualBrandStudy.images.slice(4).map((img, idx) => (
-                                                                    <div key={idx} className="space-y-2">
-                                                                        <img
-                                                                            src={img.src}
-                                                                            alt={img.alt}
-                                                                            className="w-full h-auto rounded-lg shadow-md"
-                                                                        />
-                                                                        <p className="text-xs text-center text-muted-foreground">{img.caption}</p>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        )}
-                                                    </div>
-
-                                                    {/* Results */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                                                            {visualBrandStudy.results.map((result) => (
-                                                                <div
-                                                                    key={result.label}
-                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
-                                                                >
-                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
-                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
-                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    {/* ROI Section */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                __html: visualBrandStudy.roi.split("\n").map(line => {
-                                                                    const text = line.trim();
-                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-                                                                    if (text.startsWith("-")) {
-                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
-                                                                    }
-                                                                    return `<p>${convertBold(text)}</p>`;
-                                                                }).join("")
-                                                            }} />
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Testimonial */}
-                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
-                                                        <p className="text-base md:text-lg italic mb-3">{visualBrandStudy.testimonial}</p>
-                                                        <p className="text-xs md:text-sm text-muted-foreground">— {visualBrandStudy.author}</p>
-                                                    </div>
-
-                                                    {/* Conclusion */}
-                                                    <div className="text-base md:text-lg font-medium text-accent">
-                                                        {visualBrandStudy.conclusion}
-                                                    </div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
+                            {visualBrandStudy && (
+                                <div className="space-y-8">
+                                    {/* Hero Header */}
+                                    <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(200_80%_55%/0.06),transparent_50%)]" />
+                                        <div className="relative z-10">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                <span className="cs-badge-tech">{visualBrandStudy.industry}</span>
+                                                <span className="cs-badge-tech">{visualBrandStudy.size}</span>
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl font-bold mb-2">{visualBrandStudy.client}</h2>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
+
+                                    {/* Challenge Section */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-destructive" />
+                                            The Challenge
+                                        </h3>
+                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base leading-relaxed pl-5">
+                                            {visualBrandStudy.challenge}
+                                        </p>
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Solution Section */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-accent" />
+                                            The Solution
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-5">
+                                            {visualBrandStudy.solution}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 pl-5">
+                                            {visualBrandStudy.technology.map((tech) => (
+                                                <span key={tech} className="cs-badge-tech text-xs">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Images Grid after Solution */}
+                                    {visualBrandStudy.images && (
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {visualBrandStudy.images.slice(0, 4).map((img, idx) => (
+                                                <div key={idx} className="cs-image-container group">
+                                                    <img
+                                                        src={img.src}
+                                                        alt={img.alt}
+                                                        className="w-full h-auto"
+                                                    />
+                                                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                        <p className="text-xs text-white text-center font-medium">{img.caption}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* Implementation Details (Phases) */}
+                                    <div className="space-y-8">
+                                        <h3 className="text-xl font-bold">Implementation Details</h3>
+                                        {Object.values(visualBrandStudy.details).map((phase: any, index) => (
+                                            <div key={index} className="cs-phase-block pb-6">
+                                                <div className="cs-phase-number">{index + 1}</div>
+                                                <h4 className="text-lg font-semibold mb-2">{phase.title}</h4>
+                                                <p className="text-sm text-muted-foreground mb-4">
+                                                    <span className="font-medium text-foreground/80">Trigger:</span> {phase.trigger}
+                                                </p>
+                                                <div className="space-y-3">
+                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                        <div key={capIndex} className="cs-capability-card">
+                                                            <h5 className="text-sm md:text-base font-semibold mb-2">{capability.title}</h5>
+                                                            <div className="text-muted-foreground text-sm leading-relaxed">
+                                                                {capability.description.includes("-") ? (
+                                                                    <div dangerouslySetInnerHTML={{
+                                                                        __html: capability.description.split("\n").map((line: string) => {
+                                                                            const text = line.trim();
+                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                                                                            if (text.startsWith("-")) {
+                                                                                return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                                            }
+                                                                            return `<p class="mb-2">${convertBold(text)}</p>`;
+                                                                        }).join("")
+                                                                    }} />
+                                                                ) : (
+                                                                    <p>{capability.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Remaining Images */}
+                                    {visualBrandStudy.images && visualBrandStudy.images.length > 4 && (
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {visualBrandStudy.images.slice(4).map((img, idx) => (
+                                                <div key={idx} className="cs-image-container group">
+                                                    <img
+                                                        src={img.src}
+                                                        alt={img.alt}
+                                                        className="w-full h-auto"
+                                                    />
+                                                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                        <p className="text-xs text-white text-center font-medium">{img.caption}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Key Metrics */}
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                            {visualBrandStudy.results.map((result, i) => (
+                                                <div
+                                                    key={result.label}
+                                                    className="cs-metric-card text-center p-4 md:p-5 rounded-xl"
+                                                    style={{ animationDelay: `${i * 100}ms` }}
+                                                >
+                                                    <result.icon className="h-6 w-6 md:h-7 md:w-7 text-accent mx-auto mb-3" />
+                                                    <div className="text-xl md:text-2xl font-bold mb-1 cs-gradient-text">
+                                                        {result.metric}
+                                                    </div>
+                                                    <div className="text-xs text-muted-foreground">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* ROI Section */}
+                                    <div className="cs-glass-card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4">Return on Investment</h3>
+                                        <div className="text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{
+                                            __html: visualBrandStudy.roi.split("\n").map(line => {
+                                                const text = line.trim();
+                                                const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                                                if (text.startsWith("-")) {
+                                                    return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                }
+                                                return `<p class="mb-2">${convertBold(text)}</p>`;
+                                            }).join("")
+                                        }} />
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="cs-testimonial">
+                                        <p className="text-base md:text-lg italic mb-3 pl-6">{visualBrandStudy.testimonial}</p>
+                                        <p className="text-xs md:text-sm text-muted-foreground pl-6">— {visualBrandStudy.author}</p>
+                                    </div>
+
+                                    {/* Conclusion */}
+                                    <div className="text-center py-4">
+                                        <p className="text-base md:text-lg font-medium cs-gradient-text inline-block">
+                                            {visualBrandStudy.conclusion}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
                         </ScrollReveal>
                     </section>
                 );
 
             case "jarvis":
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <h2 className="text-3xl font-bold mb-6">JARVIS (Ultimate Assistant)</h2>
-
-                            <Card className="p-6 mb-6">
-                                <h3 className="text-2xl font-semibold mb-3">Overview</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    The Ultimate Assistant is a comprehensive AI agent designed to handle multiple
-                                    tasks and workflows efficiently. It combines advanced natural language processing
-                                    with powerful automation capabilities to serve as your personal AI assistant.
-                                </p>
-
-                                <div className="mt-4">
-                                    <a
-                                        href={jarvisJsonUrl}
-                                        download
-                                        className="text-accent underline"
-                                    >
-                                        Download JARVIS.json
-                                    </a>
+                            <div className="space-y-8">
+                                <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-2">JARVIS (Ultimate Assistant)</h2>
+                                    <p className="text-muted-foreground">The most advanced personal AI agent</p>
                                 </div>
-                            </Card>
 
-                            <Card className="p-6">
-                                <h3 className="text-xl font-semibold mb-3">Details & Images</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    Images and additional assets for JARVIS are shown below. (If you have more
-                                    content or files to attach, I can add them here.)
-                                </p>
-
-                                {/* Placeholder for images/screenshots provided by the user */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <img
-                                        src={jarvisImg1}
-                                        alt="JARVIS screenshot 1"
-                                        className="w-full rounded border"
-                                    />
-                                    <img
-                                        src={jarvisImg2}
-                                        alt="JARVIS screenshot 2"
-                                        className="w-full rounded border"
-                                    />
+                                <div className="cs-glass-card rounded-xl p-6 md:p-8">
+                                    <h3 className="text-xl font-bold mb-4">Overview</h3>
+                                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
+                                        The Ultimate Assistant is a comprehensive AI agent designed to handle multiple
+                                        tasks and workflows efficiently. It combines advanced natural language processing
+                                        with powerful automation capabilities to serve as your personal AI assistant.
+                                    </p>
+                                    <Button asChild variant="outline" className="cs-badge-tech border-accent/20 hover:bg-accent/10 transition-colors">
+                                        <a href={jarvisJsonUrl} download>
+                                            Download JARVIS.json
+                                        </a>
+                                    </Button>
                                 </div>
-                            </Card>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="cs-image-container">
+                                        <img src={jarvisImg1} alt="JARVIS screenshot 1" className="w-full h-auto" />
+                                    </div>
+                                    <div className="cs-image-container">
+                                        <img src={jarvisImg2} alt="JARVIS screenshot 2" className="w-full h-auto" />
+                                    </div>
+                                </div>
+                            </div>
                         </ScrollReveal>
                     </section>
                 );
@@ -1718,613 +1810,457 @@ Furthermore, once an image is generated, verifying it against strict brand guide
             case "reddit-to-youtube":
                 const redditStudy = studies.find(study => study.id === "reddit-to-youtube");
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <div className="space-y-12">
-                                {redditStudy && (
-                                    <div key={redditStudy.id}>
-                                        <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                                            <CardContent className="p-0">
-                                                {/* Header */}
-                                                <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-8">
-                                                    <div className="flex flex-wrap gap-2 mb-4">
-                                                        <Badge variant="secondary">{redditStudy.industry}</Badge>
-                                                        <Badge variant="outline">{redditStudy.size}</Badge>
-                                                    </div>
-                                                    <h2 className="text-3xl font-bold mb-2">{redditStudy.client}</h2>
-                                                </div>
-
-                                                {/* Content */}
-                                                <div className="p-8">
-                                                    {/* Challenge */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-destructive">
-                                                            The Challenge
-                                                        </h3>
-                                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base">{redditStudy.challenge}</p>
-                                                    </div>
-
-                                                    {/* Solution */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-3 text-accent">The Solution</h3>
-                                                        <p className="text-muted-foreground mb-4 text-sm md:text-base">{redditStudy.solution}</p>
-                                                        <div className="flex flex-wrap gap-2 mb-6">
-                                                            {redditStudy.technology.map((tech) => (
-                                                                <Badge key={tech} variant="outline" className="text-xs md:text-sm">
-                                                                    {tech}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-
-                                                        {/* First Image: Architecture Diagram (after Solution) */}
-                                                        {redditStudy.images && redditStudy.images[0] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={redditStudy.images[0].src}
-                                                                        alt={redditStudy.images[0].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{redditStudy.images[0].caption}</p>
-                                                            </div>
-                                                        )}
-
-                                                        {/* Implementation Details */}
-                                                        {Object.values(redditStudy.details).map((phase: any, index) => (
-                                                            <div key={index} className="mb-8">
-                                                                <h3 className="text-lg md:text-xl font-semibold mb-4">{phase.title}</h3>
-                                                                <p className="text-muted-foreground mb-4 text-sm md:text-base">Trigger: {phase.trigger}</p>
-                                                                <div className="space-y-4 md:space-y-6">
-                                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
-                                                                        <div key={capIndex} className="bg-muted/30 rounded-lg p-3 md:p-4">
-                                                                            <h4 className="text-base md:text-lg font-medium mb-2">{capability.title}</h4>
-                                                                            <div className="text-muted-foreground prose prose-sm md:prose-base max-w-none">
-                                                                                {capability.description.includes('-') ? (
-                                                                                    <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                                        __html: capability.description.split('\n').map((line: string) => {
-                                                                                            const text = line.trim();
-                                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                                            if (text.startsWith('-')) {
-                                                                                                return `<li class=\"ml-4\">${convertBold(text.substring(1).trim())}</li>`;
-                                                                                            }
-                                                                                            return `<p>${convertBold(text)}</p>`;
-                                                                                        }).join('')
-                                                                                    }} />
-                                                                                ) : (
-                                                                                    <p className="text-sm md:text-base">{capability.description}</p>
-                                                                                )}
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                        ))}
-
-                                                        {/* Second Image: Workflow Diagram (after Phase 5) */}
-                                                        {redditStudy.images && redditStudy.images[1] && (
-                                                            <div className="mb-8">
-                                                                <div className="mb-2">
-                                                                    <img
-                                                                        src={redditStudy.images[1].src}
-                                                                        alt={redditStudy.images[1].alt}
-                                                                        className="w-full h-auto rounded-lg shadow-lg mx-auto"
-                                                                    />
-                                                                </div>
-                                                                <p className="text-xs md:text-sm text-center text-muted-foreground mt-2">{redditStudy.images[1].caption}</p>
-                                                            </div>
-                                                        )}
-                                                    </div>
-
-                                                    {/* Results */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-6">Key Metrics</h3>
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                                                            {redditStudy.results.map((result) => (
-                                                                <div
-                                                                    key={result.label}
-                                                                    className="text-center p-3 md:p-4 bg-muted/50 rounded-lg"
-                                                                >
-                                                                    <result.icon className="h-6 w-6 md:h-8 md:w-8 text-accent mx-auto mb-2 md:mb-3" />
-                                                                    <div className="text-xl md:text-2xl font-bold mb-1">{result.metric}</div>
-                                                                    <div className="text-xs md:text-sm text-muted-foreground">{result.label}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-
-                                                    {/* ROI Section */}
-                                                    <div className="mb-8">
-                                                        <h3 className="text-xl font-semibold mb-4">Return on Investment</h3>
-                                                        <div className="prose prose-sm md:prose-base max-w-none text-muted-foreground">
-                                                            <div className="text-sm md:text-base" dangerouslySetInnerHTML={{
-                                                                __html: redditStudy.roi.split('\n').map(line => {
-                                                                    const text = line.trim();
-                                                                    const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                                                                    if (text.startsWith('-')) {
-                                                                        return `<li class="ml-4">${convertBold(text.substring(1).trim())}</li>`;
-                                                                    }
-                                                                    return `<p>${convertBold(text)}</p>`;
-                                                                }).join('')
-                                                            }} />
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Testimonial */}
-                                                    <div className="bg-muted/50 p-4 md:p-6 rounded-lg border-l-4 border-accent mb-8">
-                                                        <p className="text-base md:text-lg italic mb-3">{redditStudy.testimonial}</p>
-                                                        <p className="text-xs md:text-sm text-muted-foreground">— {redditStudy.author}</p>
-                                                    </div>
-
-                                                    {/* Conclusion */}
-                                                    <div className="text-base md:text-lg font-medium text-accent">
-                                                        {redditStudy.conclusion}
-                                                    </div>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
+                            {redditStudy && (
+                                <div className="space-y-8">
+                                    {/* Hero Header */}
+                                    <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(340_80%_55%/0.06),transparent_50%)]" />
+                                        <div className="relative z-10">
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                <span className="cs-badge-tech">{redditStudy.industry}</span>
+                                                <span className="cs-badge-tech">{redditStudy.size}</span>
+                                            </div>
+                                            <h2 className="text-2xl md:text-3xl font-bold mb-2">{redditStudy.client}</h2>
+                                        </div>
                                     </div>
-                                )}
-                            </div>
+
+                                    {/* Challenge Section */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-destructive" />
+                                            The Challenge
+                                        </h3>
+                                        <p className="text-muted-foreground whitespace-pre-wrap text-sm md:text-base leading-relaxed pl-5">
+                                            {redditStudy.challenge}
+                                        </p>
+                                    </div>
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Solution Section */}
+                                    <div className="space-y-4">
+                                        <h3 className="text-xl font-bold flex items-center gap-2">
+                                            <span className="w-1.5 h-6 rounded-full bg-accent" />
+                                            The Solution
+                                        </h3>
+                                        <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-5">
+                                            {redditStudy.solution}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 pl-5">
+                                            {redditStudy.technology.map((tech) => (
+                                                <span key={tech} className="cs-badge-tech text-xs">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Primary Image */}
+                                    {redditStudy.images && redditStudy.images[0] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={redditStudy.images[0].src}
+                                                alt={redditStudy.images[0].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {redditStudy.images[0].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {/* Implementation Details (Phases) */}
+                                    <div className="space-y-8">
+                                        <h3 className="text-xl font-bold">Implementation Details</h3>
+                                        {Object.values(redditStudy.details).map((phase: any, index) => (
+                                            <div key={index} className="cs-phase-block pb-6">
+                                                <div className="cs-phase-number">{index + 1}</div>
+                                                <h4 className="text-lg font-semibold mb-2">{phase.title}</h4>
+                                                <p className="text-sm text-muted-foreground mb-4">
+                                                    <span className="font-medium text-foreground/80">Trigger:</span> {phase.trigger}
+                                                </p>
+                                                <div className="space-y-3">
+                                                    {phase.capabilities.map((capability: any, capIndex: number) => (
+                                                        <div key={capIndex} className="cs-capability-card">
+                                                            <h5 className="text-sm md:text-base font-semibold mb-2">{capability.title}</h5>
+                                                            <div className="text-muted-foreground text-sm leading-relaxed">
+                                                                {capability.description.includes('-') ? (
+                                                                    <div dangerouslySetInnerHTML={{
+                                                                        __html: capability.description.split('\n').map((line: string) => {
+                                                                            const text = line.trim();
+                                                                            const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                                            if (text.startsWith('-')) {
+                                                                                return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                                            }
+                                                                            return `<p class="mb-2">${convertBold(text)}</p>`;
+                                                                        }).join('')
+                                                                    }} />
+                                                                ) : (
+                                                                    <p>{capability.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Secondary Image */}
+                                    {redditStudy.images && redditStudy.images[1] && (
+                                        <div className="cs-image-container">
+                                            <img
+                                                src={redditStudy.images[1].src}
+                                                alt={redditStudy.images[1].alt}
+                                                className="w-full h-auto"
+                                            />
+                                            <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                                                {redditStudy.images[1].caption}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    <div className="cs-section-divider" />
+
+                                    {/* Key Metrics */}
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                            {redditStudy.results.map((result, i) => (
+                                                <div
+                                                    key={result.label}
+                                                    className="cs-metric-card text-center p-4 md:p-5 rounded-xl"
+                                                    style={{ animationDelay: `${i * 100}ms` }}
+                                                >
+                                                    <result.icon className="h-6 w-6 md:h-7 md:w-7 text-accent mx-auto mb-3" />
+                                                    <div className="text-xl md:text-2xl font-bold mb-1 cs-gradient-text">
+                                                        {result.metric}
+                                                    </div>
+                                                    <div className="text-xs text-muted-foreground">{result.label}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* ROI Section */}
+                                    <div className="cs-glass-card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4">Return on Investment</h3>
+                                        <div className="text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{
+                                            __html: redditStudy.roi.split('\n').map(line => {
+                                                const text = line.trim();
+                                                const convertBold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                                                if (text.startsWith('-')) {
+                                                    return `<li class="ml-4 mb-1">${convertBold(text.substring(1).trim())}</li>`;
+                                                }
+                                                return `<p class="mb-2">${convertBold(text)}</p>`;
+                                            }).join('')
+                                        }} />
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="cs-testimonial">
+                                        <p className="text-base md:text-lg italic mb-3 pl-6">{redditStudy.testimonial}</p>
+                                        <p className="text-xs md:text-sm text-muted-foreground pl-6">— {redditStudy.author}</p>
+                                    </div>
+
+                                    {/* Conclusion */}
+                                    <div className="text-center py-4">
+                                        <p className="text-base md:text-lg font-medium cs-gradient-text inline-block">
+                                            {redditStudy.conclusion}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
                         </ScrollReveal>
                     </section>
                 );
 
             case "lexicon":
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <h2 className="text-3xl font-bold mb-6">Lexicon (Deep Research PDF Report)</h2>
-
-                            <Card className="p-6 mb-6">
-                                <h3 className="text-2xl font-semibold mb-3">Overview</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    Specialized agent for conducting in-depth research and generating comprehensive PDF reports.
-                                </p>
-
-                                <div className="mt-4">
-                                    <a href={lexiconJsonUrl} download className="text-accent underline">
-                                        Download Deep_Research.json
-                                    </a>
+                            <div className="space-y-8">
+                                <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-2">Lexicon (Deep Research PDF)</h2>
+                                    <p className="text-muted-foreground">Comprehensive intelligence at your fingertips</p>
                                 </div>
-                            </Card>
 
-                            <Card className="p-6">
-                                <h3 className="text-xl font-semibold mb-3">Image & JSON</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    Image and JSON for Lexicon are available below.
-                                </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <img src={lexiconImg} alt="Lexicon" className="w-full rounded border" />
+                                <div className="cs-glass-card rounded-xl p-6 md:p-8">
+                                    <h3 className="text-xl font-bold mb-4">Overview</h3>
+                                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
+                                        Specialized agent for conducting in-depth research and generating comprehensive PDF reports.
+                                        Engineered for high-accuracy data retrieval and professional document formatting.
+                                    </p>
+                                    <Button asChild variant="outline" className="cs-badge-tech border-accent/20 hover:bg-accent/10 transition-colors">
+                                        <a href={lexiconJsonUrl} download>
+                                            Download Deep_Research.json
+                                        </a>
+                                    </Button>
                                 </div>
-                            </Card>
+
+                                <div className="cs-image-container max-w-2xl mx-auto">
+                                    <img src={lexiconImg} alt="Lexicon" className="w-full h-auto" />
+                                </div>
+                            </div>
                         </ScrollReveal>
                     </section>
                 );
 
             case "aether":
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <h2 className="text-3xl font-bold mb-6">Aether (Newsletter Creation)</h2>
-
-                            <Card className="p-6 mb-6">
-                                <h3 className="text-2xl font-semibold mb-3">Overview</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    AI-powered newsletter creation and distribution system.
-                                </p>
-
-                                <div className="mt-4">
-                                    <a href={aetherJsonUrl} download className="text-accent underline">
-                                        Download Newsletter_Automation.json
-                                    </a>
+                            <div className="space-y-8">
+                                <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-2">Aether (Newsletter Creation)</h2>
+                                    <p className="text-muted-foreground">Automated curation and distribution</p>
                                 </div>
-                            </Card>
 
-                            <Card className="p-6">
-                                <h3 className="text-xl font-semibold mb-3">Image & JSON</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    Image and JSON for Aether are available below.
-                                </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <img src={aetherImg} alt="Aether" className="w-full rounded border" />
+                                <div className="cs-glass-card rounded-xl p-6 md:p-8">
+                                    <h3 className="text-xl font-bold mb-4">Overview</h3>
+                                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
+                                        AI-powered newsletter creation and distribution system.
+                                        Handles everything from content discovery to audience-specific formatting and scheduling.
+                                    </p>
+                                    <Button asChild variant="outline" className="cs-badge-tech border-accent/20 hover:bg-accent/10 transition-colors">
+                                        <a href={aetherJsonUrl} download>
+                                            Download Newsletter_Automation.json
+                                        </a>
+                                    </Button>
                                 </div>
-                            </Card>
+
+                                <div className="cs-image-container max-w-2xl mx-auto">
+                                    <img src={aetherImg} alt="Aether" className="w-full h-auto" />
+                                </div>
+                            </div>
                         </ScrollReveal>
                     </section>
                 );
 
             case "curio":
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <h2 className="text-3xl font-bold mb-6">Curio (RAG Pipeline)</h2>
-
-                            <Card className="p-6 mb-6">
-                                <h3 className="text-2xl font-semibold mb-3">Overview</h3>
-                                <p className="text-muted-foreground mb-4">
-                                    Retrieval-Augmented Generation pipeline for enhanced AI responses.
-                                </p>
-
-                                <div className="mt-4">
-                                    <a href={curioJsonUrl} download className="text-accent underline">
-                                        Download RAG_Pipeline.json
-                                    </a>
+                            <div className="space-y-8">
+                                <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-2">Curio (RAG Pipeline)</h2>
+                                    <p className="text-muted-foreground">Proprietary knowledge retrieval at scale</p>
                                 </div>
-                            </Card>
 
-                            <Card className="p-6">
-                                <h3 className="text-xl font-semibold mb-3">Image & JSON</h3>
-                                <p className="text-muted-foreground mb-4">Image and JSON for Curio are available below.</p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <img src={curioImg} alt="Curio" className="w-full rounded border" />
+                                <div className="cs-glass-card rounded-xl p-6 md:p-8">
+                                    <h3 className="text-xl font-bold mb-4">Overview</h3>
+                                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
+                                        Retrieval-Augmented Generation pipeline for enhanced AI responses.
+                                        Enables models to access and reason over your organization's entire private dataset securely.
+                                    </p>
+                                    <Button asChild variant="outline" className="cs-badge-tech border-accent/20 hover:bg-accent/10 transition-colors">
+                                        <a href={curioJsonUrl} download>
+                                            Download RAG_Pipeline.json
+                                        </a>
+                                    </Button>
                                 </div>
-                            </Card>
+
+                                <div className="cs-image-container max-w-2xl mx-auto">
+                                    <img src={curioImg} alt="Curio" className="w-full h-auto" />
+                                </div>
+                            </div>
                         </ScrollReveal>
                     </section>
                 );
 
             case "tech-stack":
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <h2 className="text-4xl font-bold mb-8 text-center">Technology Stack</h2>
-                            <Card className="p-10">
-                                <div className="space-y-16">
-                                    {/* Introduction */}
-                                    <div className="max-w-4xl mx-auto">
-                                        <h3 className="text-2xl font-semibold mb-6 text-accent">Introduction</h3>
-                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                            A2B operates on a carefully curated technology foundation that prioritizes agility, enterprise-grade reliability, and seamless scalability. Our architecture combines cutting-edge cloud services, proven development frameworks, and advanced AI capabilities to deliver solutions that are both innovative and production-ready. Every tool in our arsenal is chosen for its performance characteristics, ecosystem maturity, and ability to solve real-world business challenges. Whether you're deeply technical or new to the AI landscape, our infrastructure is engineered to deliver consistent results while remaining adaptable to your specific requirements.
-                                        </p>
-                                    </div>
+                            <div className="space-y-8">
+                                <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                    <h2 className="text-3xl font-bold mb-4">Enterprise Technology Stack</h2>
+                                    <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
+                                        Our robust technology infrastructure is engineered for maximum reliability, scalability, and security, providing the foundation for mission-critical AI solutions.
+                                    </p>
+                                </div>
 
-                                    {/* Cloud & Infrastructure */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent flex items-center gap-2">
-                                                Cloud & Infrastructure
-                                            </h3>
-
-                                            <div className="space-y-8">
-                                                <div>
-                                                    <h4 className="text-xl font-medium mb-4 text-primary">Cloud Platforms</h4>
-                                                    <p className="text-lg text-muted-foreground leading-relaxed">
-                                                        Our infrastructure backbone is built predominantly on <strong>Amazon Web Services (AWS)</strong>, providing enterprise-level security, global availability, and comprehensive service integration. AWS serves as our primary deployment environment for production workloads requiring maximum reliability and performance.
+                                <div className="cs-glass-card rounded-2xl p-8 md:p-12">
+                                    <div className="space-y-16">
+                                        {/* Infrastructure Core */}
+                                        <div className="cs-phase-block">
+                                            <div className="cs-phase-number">01</div>
+                                            <h3 className="text-2xl font-bold mb-8 text-accent">Infrastructure Core</h3>
+                                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                                <div className="space-y-6">
+                                                    <h4 className="text-xl font-semibold text-primary">Cloud Ecosystem</h4>
+                                                    <p className="text-muted-foreground leading-relaxed">
+                                                        Our infrastructure backbone is built predominantly on <strong>Amazon Web Services (AWS)</strong>, providing enterprise-level security, global availability, and comprehensive service integration.
                                                     </p>
-                                                    <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
-                                                        Beyond AWS, our infrastructure team brings deep expertise across <strong>Azure</strong>, <strong>Google Cloud Platform (GCP)</strong>, and <strong>DigitalOcean</strong>. This multi-cloud proficiency allows us to architect solutions that align with your existing infrastructure, compliance frameworks, or specific regional requirements.
-                                                    </p>
-                                                </div>
-
-                                                <div>
-                                                    <h4 className="text-xl font-medium mb-4 text-primary">Backend & Storage</h4>
-                                                    <ul className="space-y-6">
-                                                        <li>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Supabase</strong>: An open-source backend ecosystem that powers our authentication layers and enables real-time data synchronization. This platform accelerates feature delivery while maintaining enterprise security standards.
-                                                            </p>
-                                                        </li>
-                                                        <li>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">PostgreSQL</strong>: Our primary relational database system for structured data management. Its proven stability and advanced query capabilities make it ideal for complex business logic and transactional workflows.
-                                                            </p>
-                                                        </li>
-                                                        <li>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Vector Storage Solutions</strong>: We deploy specialized vector databases including <strong>Pinecone</strong>, <strong>Weaviate</strong>, and <strong>Qdrant</strong> to enable sophisticated semantic search and contextual retrieval in AI applications. These systems are fundamental for solutions requiring nuanced understanding and similarity-based matching.
-                                                            </p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Development & Integration */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent flex items-center gap-2">
-                                                Development & Integration Architecture
-                                            </h3>
-
-                                            <div className="space-y-8">
-                                                <p className="text-lg text-muted-foreground leading-relaxed">
-                                                    Our engineering workflow is built around tools that enable rapid experimentation, intelligent process automation, and frictionless third-party connectivity.
-                                                </p>
-
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                                    <div className="space-y-4">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Core Technologies</h4>
-                                                        <div className="space-y-6">
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Core Languages</strong>: <strong>Python</strong> drives our AI systems and backend services, while <strong>JavaScript/TypeScript</strong> powers interactive frontends and lightweight middleware.
-                                                            </p>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Collaborative Platforms</strong>: We harness <strong>Replit</strong>, <strong>Cursor</strong>, <strong>Lovable</strong>, and <strong>Bolt</strong> for synchronized development and AI-assisted code generation.
-                                                            </p>
-                                                        </div>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        <span className="cs-badge-tech">AWS</span>
+                                                        <span className="cs-badge-tech">Azure</span>
+                                                        <span className="cs-badge-tech">GCP</span>
+                                                        <span className="cs-badge-tech">DigitalOcean</span>
                                                     </div>
-
+                                                </div>
+                                                <div className="space-y-6">
+                                                    <h4 className="text-xl font-semibold text-primary">Backend & Storage</h4>
                                                     <div className="space-y-4">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Integration & Voice</h4>
-                                                        <div className="space-y-6">
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Connectivity Ecosystem</strong>: Through our strategic partnership with <strong>n8n</strong>, we provide instant access to <strong>850+ pre-built integrations</strong>.
-                                                            </p>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Voice Technology</strong>: <strong>ElevenLabs</strong> serves as our primary voice synthesis engine, with selective use of <strong>Retail AI</strong> solutions based on specific use cases.
-                                                            </p>
+                                                        <div className="cs-capability-card">
+                                                            <strong className="text-foreground">Supabase & PostgreSQL</strong>
+                                                            <p className="text-sm text-muted-foreground mt-1">Real-time synchronization and enterprise-grade relational data management.</p>
+                                                        </div>
+                                                        <div className="cs-capability-card">
+                                                            <strong className="text-foreground">Vector Intelligence</strong>
+                                                            <p className="text-sm text-muted-foreground mt-1">Specialized storage including Pinecone, Weaviate, and Qdrant for semantic search.</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    {/* AI Platform */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent flex items-center gap-2">
-                                                Artificial Intelligence Platform
-                                            </h3>
+                                        <div className="cs-section-divider" />
 
-                                            <div className="space-y-12">
-                                                {/* Philosophy & Overview */}
-                                                <div>
-                                                    <p className="text-lg text-muted-foreground leading-relaxed">
-                                                        A2B maintains a <strong className="text-foreground">model-agnostic AI philosophy</strong>. Our systems are architected to interface with all leading large language model providers, allowing us to conduct comprehensive benchmarking and select optimal models based on your specific performance criteria, budget parameters, and business objectives.
+                                        {/* Development Architecture */}
+                                        <div className="cs-phase-block">
+                                            <div className="cs-phase-number">02</div>
+                                            <h3 className="text-2xl font-bold mb-8 text-accent">Development Architecture</h3>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                                <div className="cs-capability-card">
+                                                    <h4 className="text-lg font-semibold mb-3">Core Languages & IDEs</h4>
+                                                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                                                        A balanced stack of Python for AI/Backend and TypeScript for frontend, supported by AI-assisted development platforms.
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        <span className="cs-badge-tech">Python</span>
+                                                        <span className="cs-badge-tech">TypeScript</span>
+                                                        <span className="cs-badge-tech">Replit</span>
+                                                        <span className="cs-badge-tech">Cursor</span>
+                                                    </div>
+                                                </div>
+                                                <div className="cs-capability-card">
+                                                    <h4 className="text-lg font-semibold mb-3">Integration & Voice</h4>
+                                                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                                                        Strategic partnerships enabling 850+ pre-built integrations and industry-leading neural voice synthesis.
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        <span className="cs-badge-tech">n8n</span>
+                                                        <span className="cs-badge-tech">ElevenLabs</span>
+                                                        <span className="cs-badge-tech">Voice AI</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="cs-section-divider" />
+
+                                        {/* AI Methodology */}
+                                        <div className="cs-phase-block">
+                                            <div className="cs-phase-number">03</div>
+                                            <h3 className="text-2xl font-bold mb-8 text-accent">Artificial Intelligence Platform</h3>
+                                            <div className="space-y-8">
+                                                <div className="cs-glass-card border-none bg-accent/5 p-6 rounded-xl">
+                                                    <p className="text-muted-foreground italic text-center">
+                                                        "A2B maintains a <strong>model-agnostic philosophy</strong>, selection optimal LLMs based on performance, budget, and business objectives."
                                                     </p>
                                                 </div>
-
-                                                {/* Core AI Features */}
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                                    <div className="space-y-8">
-                                                        <div>
-                                                            <h4 className="text-xl font-medium mb-4 text-primary">RAG Pipeline</h4>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                <strong className="text-foreground">Retrieval-Augmented Generation</strong>: We implement sophisticated RAG pipelines that inject current, domain-specific context into LLM responses from your proprietary data sources. This architecture minimizes factual errors and ensures AI outputs remain anchored to your knowledge repositories.
-                                                            </p>
-                                                        </div>
-
-                                                        <div>
-                                                            <h4 className="text-xl font-medium mb-4 text-primary">Embedding Strategy</h4>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                We conduct controlled experiments to identify optimal embedding approaches for your data. These mathematical representations enable AI systems to comprehend semantic relationships and execute meaningful comparisons across information sets.
-                                                            </p>
-                                                        </div>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                    <div className="space-y-4">
+                                                        <h4 className="text-lg font-semibold flex items-center gap-2">
+                                                            <span className="w-1.5 h-4 bg-accent rounded-full" />
+                                                            RAG Pipeline
+                                                        </h4>
+                                                        <p className="text-sm text-muted-foreground leading-relaxed">
+                                                            Sophisticated context injection architectures that minimize factual errors by anchoring responses to proprietary data.
+                                                        </p>
                                                     </div>
-
-                                                    <div className="space-y-8">
-                                                        <div>
-                                                            <h4 className="text-xl font-medium mb-4 text-primary">Agent Architecture</h4>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                Our AI agents extend beyond conversational interfaces to perform active tasks—executing searches, generating summaries, orchestrating workflows, and triggering actions based on dynamic inputs. Built with composable, reusable components for continuous enhancement.
-                                                            </p>
-                                                        </div>
-
-                                                        <div>
-                                                            <h4 className="text-xl font-medium mb-4 text-primary">Quality Control</h4>
-                                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                                We maintain ongoing response quality monitoring through proprietary evaluation frameworks (including LLM-as-judge methodologies) and implement dynamic routing logic that directs each request to the most suitable model for optimal results.
-                                                            </p>
-                                                        </div>
+                                                    <div className="space-y-4">
+                                                        <h4 className="text-lg font-semibold flex items-center gap-2">
+                                                            <span className="w-1.5 h-4 bg-accent rounded-full" />
+                                                            Agent Orchestration
+                                                        </h4>
+                                                        <p className="text-sm text-muted-foreground leading-relaxed">
+                                                            Autonomous agents performing active tasks—searching, summarizing, and triggering cross-system workflows.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </Card>
+                            </div>
                         </ScrollReveal>
                     </section>
                 );
 
             case "resources":
                 return (
-                    <section className="mb-16">
+                    <section className="animate-fade-in">
                         <ScrollReveal>
-                            <h2 className="text-4xl font-bold mb-8 text-center">Additional Resources</h2>
-                            <Card className="p-10">
-                                <div className="space-y-16">
-                                    {/* Technical Support & Implementation Guide */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-6 text-accent">Technical Support & Implementation Guide</h3>
-                                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                                This resource is designed to assist technical teams, implementation partners, and decision-makers who are working directly with A2B systems. Below you'll find answers to frequently asked questions covering architecture, deployment, and operational considerations.
-                                            </p>
-                                        </div>
-                                    </div>
+                            <div className="space-y-8">
+                                <div className="cs-hero-gradient rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                                    <h2 className="text-3xl font-bold mb-4">Additional Resources</h2>
+                                    <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
+                                        Technical support, implementation guides, and terminology reference for partners and decision-makers.
+                                    </p>
+                                </div>
 
-                                    {/* AI Development & Implementation */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent">AI Development & Implementation</h3>
-
-                                            <div className="grid grid-cols-1 gap-8">
-                                                <div className="space-y-8">
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">How do you maintain long-term stability in custom AI solutions?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            Our systems are built using component-based architecture with version-controlled APIs and comprehensive documentation standards. Each module operates independently, allowing for isolated updates and minimizing technical complexity over time.
-                                                        </p>
+                                <div className="cs-glass-card rounded-2xl p-8 md:p-12">
+                                    <div className="space-y-16">
+                                        {/* AI Development FAQ */}
+                                        <div className="cs-phase-block">
+                                            <div className="cs-phase-number">01</div>
+                                            <h3 className="text-2xl font-bold mb-8 text-accent">AI Development & Implementation</h3>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                {[
+                                                    {
+                                                        q: "How do you maintain long-term stability?",
+                                                        a: "Our systems use component-based architecture with versioned APIs and comprehensive documentation for isolated updates."
+                                                    },
+                                                    {
+                                                        q: "What safeguards exist against inaccuracies?",
+                                                        a: "Validation frameworks like RAGAS and manual reviews track model behavior, with verification against known-accurate data."
+                                                    },
+                                                    {
+                                                        q: "Is on-premises deployment supported?",
+                                                        a: "Yes, we support VPC configurations and dedicated private environments with standard IAM and security credentials."
+                                                    },
+                                                    {
+                                                        q: "Do you support international languages?",
+                                                        a: "Certainly. We implement multilingual model configurations and localization frameworks tailored to global engagement."
+                                                    }
+                                                ].map((faq, i) => (
+                                                    <div key={i} className="cs-capability-card">
+                                                        <h4 className="text-lg font-semibold mb-3 text-primary">{faq.q}</h4>
+                                                        <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
                                                     </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">What safeguards exist against AI-generated inaccuracies?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            We deploy validation frameworks like RAGAS alongside manual quality reviews to identify incorrect outputs. Continuous monitoring tracks model behavior, and we maintain verification pipelines against known-accurate data. Response quality is improved through iterative prompt refinement and, when necessary, model fine-tuning based on evaluation metrics.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Is on-premises or private cloud deployment supported?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            Yes, we accommodate deployments within your existing infrastructure through Virtual Private Cloud configurations or dedicated private environments. This requires Identity and Access Management setup and security credential provisioning. Note that self-hosted deployments include additional implementation costs compared to our fully-managed hosting option.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Do your solutions support international languages?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            Certainly. We implement multilingual model configurations and localization frameworks tailored to your requirements, particularly valuable for global customer engagement and international documentation systems.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">What capabilities do you provide for context-enhanced AI responses?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            We excel at building production-scale systems that combine language models with your proprietary data through vector-based retrieval, contextual filtering, and source-verified response generation. Our validation methodology measures accuracy, completeness, and factual alignment.
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                ))}
                                             </div>
                                         </div>
-                                    </div>
 
-                                    {/* Platform Operations & Deployment */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent">Platform Operations & Deployment</h3>
+                                        <div className="cs-section-divider" />
 
-                                            <div className="grid grid-cols-1 gap-8">
-                                                <div className="space-y-8">
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">What is your approach to system updates and releases?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            We establish automated deployment pipelines through GitHub Actions or n8n workflow automation. Development and production environments remain strictly separated, with comprehensive testing protocols applied to all significant updates prior to live deployment.
-                                                        </p>
+                                        {/* Terminology Reference */}
+                                        <div className="cs-phase-block">
+                                            <div className="cs-phase-number">02</div>
+                                            <h3 className="text-2xl font-bold mb-8 text-accent">Technical Terminology</h3>
+                                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                                                {[
+                                                    { label: "LLM", desc: "Large Language Models trained on extensive datasets." },
+                                                    { label: "RAG", desc: "Retrieval-Augmented Generation for factual reliability." },
+                                                    { label: "Vector DB", desc: "Similarity-based search for semantic meaning." },
+                                                    { label: "Embeddings", desc: "Numerical representations of intent and context." },
+                                                    { label: "HITL", desc: "Human-in-the-loop for verified decision making." },
+                                                    { label: "CI/CD", desc: "Automated delivery and validation pipelines." }
+                                                ].map((term, i) => (
+                                                    <div key={i} className="cs-metric-card p-4">
+                                                        <div className="text-accent font-bold mb-1">{term.label}</div>
+                                                        <div className="text-xs text-muted-foreground">{term.desc}</div>
                                                     </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">What does your infrastructure architecture look like?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            We leverage containerization via Docker, infrastructure-as-code through Terraform, cloud platforms like Railway, and orchestration with Kubernetes for environment management. Security measures include end-to-end encryption, credential vaulting systems, and role-based access controls following minimum-privilege principles.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Diagnostic Support & Problem Resolution */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent">Diagnostic Support & Problem Resolution</h3>
-
-                                            <div className="grid grid-cols-1 gap-8">
-                                                <div className="space-y-8">
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">What should I do if AI outputs vary unexpectedly?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            When encountering output inconsistency, forward relevant logs and sample inputs to our technical support team. Our systems include automatic retry logic, backup model failover, and circuit-breaker safeguards to handle intermittent issues.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">How are performance bottlenecks addressed?</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            When experiencing delayed responses, we conduct performance analysis using distributed tracing and asynchronous processing logs. Optimization strategies include response caching, input compression, and strategic model reselection.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Technical Terminology Reference */}
-                                    <div className="relative">
-                                        <div className="absolute -left-5 top-0 bottom-0 w-1 bg-accent/20 rounded-full"></div>
-                                        <div className="max-w-4xl mx-auto">
-                                            <h3 className="text-2xl font-semibold mb-8 text-accent">Technical Terminology Reference</h3>
-
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                                <div className="space-y-8">
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Large Language Model (LLM)</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            Advanced neural networks trained on extensive text datasets, capable of understanding and generating human-like language.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Retrieval-Augmented Generation (RAG)</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            An architectural pattern that enhances language model outputs by dynamically retrieving relevant information from external knowledge sources or vector stores to improve factual reliability.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Vector Database</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            Specialized storage systems designed for embedding vectors — mathematical representations of semantic meaning — enabling similarity-based search and contextual retrieval.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Embedding</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            A numerical vector representation that encodes the semantic properties of text or other data types.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Prompt Engineering</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            The systematic design of input instructions to guide language models toward desired output characteristics and behaviors.
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div className="space-y-8">
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Groundedness</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            A quality metric assessing how closely AI-generated content adheres to authoritative source materials or provided context.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Token Limit</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            The computational boundary defining the maximum amount of text (measured in tokens) that a model can process in a single request-response sequence.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Agent</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            An autonomous or semi-autonomous AI system designed to execute defined tasks such as information gathering, data classification, or conversational interaction.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">Human-in-the-Loop (HITL)</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            A system design pattern where human operators validate, refine, or override AI-generated decisions and outputs.
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="p-6 rounded-lg bg-muted/30">
-                                                        <h4 className="text-xl font-medium mb-4 text-primary">CI/CD</h4>
-                                                        <p className="text-lg text-muted-foreground leading-relaxed">
-                                                            Automated software delivery pipelines that systematically test, validate, and deploy code changes to staging and production environments.
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </Card>
+                            </div>
                         </ScrollReveal>
                     </section>
                 );

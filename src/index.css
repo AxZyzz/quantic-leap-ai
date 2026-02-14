@@ -93,6 +93,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -103,6 +104,7 @@ All colors MUST be HSL.
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -113,6 +115,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -124,10 +127,13 @@ All colors MUST be HSL.
   }
 
   @keyframes neon-breathing {
-    0%, 100% {
+
+    0%,
+    100% {
       border-color: hsl(217 91% 60% / 0.4);
       box-shadow: 0 0 10px hsl(217 91% 60% / 0.3);
     }
+
     50% {
       border-color: hsl(217 91% 60% / 1);
       box-shadow: 0 0 20px hsl(217 91% 60% / 0.6), 0 0 30px hsl(217 91% 60% / 0.4);
@@ -143,6 +149,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: scale(0) translateY(10px);
     }
+
     to {
       opacity: 1;
       transform: scale(1) translateY(0);
@@ -157,8 +164,186 @@ All colors MUST be HSL.
     0% {
       box-shadow: 0 0 0 0 hsl(217 91% 60% / 0.7);
     }
+
     100% {
       box-shadow: 0 0 20px 0 hsl(217 91% 60% / 0);
     }
+  }
+
+  /* ===== Case Study Premium Styles ===== */
+
+  .cs-hero-gradient {
+    background: linear-gradient(135deg, hsl(217 91% 60% / 0.15) 0%, hsl(260 80% 55% / 0.1) 50%, hsl(217 91% 60% / 0.05) 100%);
+    border-bottom: 1px solid hsl(217 91% 60% / 0.15);
+  }
+
+  .cs-gradient-text {
+    background: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(260 80% 65%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cs-glass-card {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cs-glass-card:hover {
+    border-color: hsl(217 91% 60% / 0.3);
+    box-shadow: 0 8px 32px hsl(217 91% 60% / 0.08);
+    transform: translateY(-2px);
+  }
+
+  .cs-metric-card {
+    background: linear-gradient(145deg, hsl(var(--muted) / 0.5) 0%, hsl(var(--muted) / 0.3) 100%);
+    border: 1px solid hsl(var(--border) / 0.4);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cs-metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(217 91% 60%), hsl(260 80% 65%));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .cs-metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px hsl(217 91% 60% / 0.1);
+    border-color: hsl(217 91% 60% / 0.25);
+  }
+
+  .cs-metric-card:hover::before {
+    opacity: 1;
+  }
+
+  .cs-phase-block {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid hsl(217 91% 60% / 0.2);
+    transition: border-color 0.3s ease;
+  }
+
+  .cs-phase-block:hover {
+    border-left-color: hsl(217 91% 60% / 0.6);
+  }
+
+  .cs-phase-number {
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(217 91% 60%), hsl(260 80% 65%));
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px hsl(217 91% 60% / 0.3);
+  }
+
+  .cs-capability-card {
+    background: hsl(var(--muted) / 0.3);
+    border: 1px solid hsl(var(--border) / 0.3);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+  }
+
+  .cs-capability-card:hover {
+    background: hsl(var(--muted) / 0.5);
+    border-color: hsl(217 91% 60% / 0.2);
+  }
+
+  .cs-testimonial {
+    position: relative;
+    background: linear-gradient(135deg, hsl(217 91% 60% / 0.06) 0%, hsl(260 80% 55% / 0.04) 100%);
+    border: 1px solid hsl(217 91% 60% / 0.12);
+    border-left: 4px solid hsl(217 91% 60%);
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .cs-testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -0.25rem;
+    left: 1rem;
+    font-size: 4rem;
+    line-height: 1;
+    font-family: Georgia, serif;
+    color: hsl(217 91% 60% / 0.15);
+    pointer-events: none;
+  }
+
+  .cs-image-container {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border) / 0.4);
+    transition: all 0.4s ease;
+  }
+
+  .cs-image-container:hover {
+    border-color: hsl(217 91% 60% / 0.3);
+    box-shadow: 0 8px 24px hsl(0 0% 0% / 0.15);
+  }
+
+  .cs-image-container img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cs-image-container:hover img {
+    transform: scale(1.03);
+  }
+
+  .cs-section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(217 91% 60% / 0.3), transparent);
+    margin: 2.5rem 0;
+  }
+
+  .cs-badge-tech {
+    background: hsl(217 91% 60% / 0.1);
+    border: 1px solid hsl(217 91% 60% / 0.2);
+    color: hsl(217 91% 60%);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+  }
+
+  .cs-badge-tech:hover {
+    background: hsl(217 91% 60% / 0.2);
+    border-color: hsl(217 91% 60% / 0.4);
+  }
+
+  @keyframes cs-float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  .cs-float-anim {
+    animation: cs-float 4s ease-in-out infinite;
   }
 }
