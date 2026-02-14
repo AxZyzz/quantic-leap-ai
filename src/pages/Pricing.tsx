@@ -65,7 +65,7 @@ const Pricing = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-2">Starter Pack</h3>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold">$999</span>
+                      <span className="text-4xl font-bold">$499</span>
                       <span className="text-muted-foreground"> (one-time)</span>
                     </div>
                     <p className="text-muted-foreground mb-6">Best for: Businesses starting their AI automation journey who want one solid automation built perfectly.</p>
