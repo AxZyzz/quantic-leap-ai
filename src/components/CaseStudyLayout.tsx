@@ -273,7 +273,7 @@ const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
         <div className="mt-8 px-2">
           <div className="h-px bg-gradient-to-r from-accent/20 to-transparent mb-4" />
           <p className="text-xs text-muted-foreground/50 leading-relaxed">
-            A2B Automation Agency — Docs & Case Studies
+            A2B AI Technologies LLP — Docs & Case Studies
           </p>
         </div>
       </aside>

@@ -160,7 +160,7 @@ const About = () => {
                   more with less—turning overlooked inputs into profit-driving outputs.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  Founded in 2020, A2B was born from the frustration of seeing businesses struggle
+                  Founded in 2020, A2B AI Technologies was born from the frustration of seeing businesses struggle
                   with generic AI solutions that didn't fit their unique needs. We believe every
                   company deserves AI implementations that are tailored, secure, and built for
                   long-term success.
@@ -203,8 +203,8 @@ const About = () => {
                 <Card className="text-center hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                   <CardContent className="pt-6 flex-1 flex flex-col">
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                      <img 
-                        src={member.image} 
+                      <img
+                        src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />

@@ -150,7 +150,7 @@ The golden aesthetic was specifically chosen to evoke reverence and align with c
 - **Cultural Preservation:** Makes sacred texts accessible to younger, social-media-native audiences
 - **Unlimited Scalability:** Can process infinite texts with the same infrastructure
 
-The modular architecture means the client now owns a complete video production system that works for any religious text, any language (including complex scripts like Gurmukhi, Arabic, Sanskrit, or Hebrew), and any visual style. By providing the custom workflow template, a2b.ai empowered the client with a sustainable, expandable content generation capability that grows with their mission.`,
+The modular architecture means the client now owns a complete video production system that works for any religious text, any language (including complex scripts like Gurmukhi, Arabic, Sanskrit, or Hebrew), and any visual style. By providing the custom workflow template, A2B AI Technologies empowered the client with a sustainable, expandable content generation capability that grows with their mission.`,
             testimonial: "The organization's feedback was unequivocal: they were 'amazed' by the system's capability and the astronomical time savings. What once seemed like an insurmountable challenge—bringing sacred 1,500-page texts to social media—is now as simple as uploading a PDF and pressing a button. The automation enables them to focus on their core mission: sharing spiritual wisdom with future generations, while the AI handles the creative production at scale.",
             conclusion: "This system represents the future of religious and educational content creation: intelligent, automated, culturally sensitive, and infinitely scalable.",
             author: "Organization Director",
@@ -721,7 +721,7 @@ Furthermore, once an image is generated, verifying it against strict brand guide
                                     Welcome to A2B
                                 </h1>
                                 <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                                    A2B Automation Agency was founded with the vision of empowering startups and businesses
+                                    A2B AI Technologies was founded with the vision of empowering startups and businesses
                                     to move seamlessly. Our mission is to simplify complexity through automation, AI-driven
                                     systems, and intelligent workflows.
                                 </p>

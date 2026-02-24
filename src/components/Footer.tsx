@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="text-2xl font-bold mb-4 block">
-              A2B
+              A2B AI Technologies
             </Link>
             <p className="text-primary-foreground/80 mb-6 max-w-sm">
               Your strategic AI partner for long-term growth. We build custom AI solutions that
@@ -108,7 +108,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} A2B. All rights reserved.
+            © {new Date().getFullYear()} A2B AI Technologies LLP. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link

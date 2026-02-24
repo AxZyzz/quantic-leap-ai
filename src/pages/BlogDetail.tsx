@@ -225,7 +225,7 @@ const BlogDetail = () => {
                                             "Automate. Accelerate. Achieve."
                                         </p>
                                         <footer className="text-sm font-semibold text-primary">
-                                            - A2B Agency
+                                            - A2B AI Technologies
                                         </footer>
                                     </blockquote>
                                 </div>
