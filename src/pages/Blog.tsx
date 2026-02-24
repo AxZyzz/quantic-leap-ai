@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navigation";
 import { format } from "date-fns";
@@ -17,32 +17,21 @@ interface BlogPost {
     created_by: string;
 }
 
+const fetchBlogs = async (): Promise<BlogPost[]> => {
+    const { data, error } = await supabase
+        .from('blogs')
+        .select('id, created_at, title, slug, description, image_url, created_by')
+        .order('created_at', { ascending: false });
+
+    if (error) throw error;
+    return data || [];
+};
+
 const Blog = () => {
-    const [blogs, setBlogs] = useState<BlogPost[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        fetchBlogs();
-    }, []);
-
-    const fetchBlogs = async () => {
-        try {
-            const { data, error } = await supabase
-                .from('blogs')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                throw error;
-            }
-
-            setBlogs(data || []);
-        } catch (error) {
-            console.error('Error fetching blogs:', error);
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    const { data: blogs = [], isLoading } = useQuery({
+        queryKey: ['blogs'],
+        queryFn: fetchBlogs,
+    });
 
     const isImage = (url: string) => {
         if (!url) return false;

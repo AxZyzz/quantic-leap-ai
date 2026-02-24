@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navigation";
@@ -20,40 +20,25 @@ interface BlogPost {
     created_by: string;
 }
 
+const fetchBlogBySlug = async (slug: string): Promise<BlogPost> => {
+    const { data, error } = await supabase
+        .from('blogs')
+        .select('id, created_at, title, slug, description, content, image_url, created_by')
+        .eq('slug', slug)
+        .single();
+
+    if (error) throw error;
+    return data;
+};
+
 const BlogDetail = () => {
     const { slug } = useParams<{ slug: string }>();
-    const [blog, setBlog] = useState<BlogPost | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(false);
 
-    useEffect(() => {
-        if (slug) {
-            fetchBlog(slug);
-        }
-    }, [slug]);
-
-    const fetchBlog = async (slugParam: string) => {
-        setIsLoading(true);
-        setError(false);
-        try {
-            const { data, error: fetchError } = await supabase
-                .from('blogs')
-                .select('*')
-                .eq('slug', slugParam)
-                .single();
-
-            if (fetchError) {
-                throw fetchError;
-            }
-
-            setBlog(data);
-        } catch (err) {
-            console.error('Error fetching blog:', err);
-            setError(true);
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    const { data: blog, isLoading, isError: error } = useQuery({
+        queryKey: ['blog', slug],
+        queryFn: () => fetchBlogBySlug(slug!),
+        enabled: !!slug,
+    });
 
     // Determine file type from URL extension
     const getFileType = (url: string) => {
@@ -109,9 +94,9 @@ const BlogDetail = () => {
                             </span>
                             Use arrows inside viewer to navigate pages
                         </span>
-                        <Button 
-                            variant="secondary" 
-                            size="sm" 
+                        <Button
+                            variant="secondary"
+                            size="sm"
                             className="h-7 text-foreground border border-border/50 shadow-sm cursor-pointer"
                             onClick={() => window.open(url, '_blank')}
                         >
@@ -136,8 +121,8 @@ const BlogDetail = () => {
                         This post contains a file attachment ({url.split('.').pop()?.toUpperCase()}).
                     </p>
                 </div>
-                <Button 
-                    variant="outline" 
+                <Button
+                    variant="outline"
                     className="mt-2 cursor-pointer"
                     onClick={() => window.open(url, '_blank')}
                 >

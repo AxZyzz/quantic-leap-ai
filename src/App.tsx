@@ -25,7 +25,17 @@ import Update from "./pages/Update";
 import Privacy from "./pages/Privacy";
 import { homePageSchema } from "./lib/schemas";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,        // 5 minutes — data stays fresh, no refetch on remount
+      gcTime: 30 * 60 * 1000,           // 30 minutes — keep unused data in cache
+      refetchOnWindowFocus: false,       // don't refetch when user switches tabs
+      refetchOnReconnect: false,         // don't refetch when internet reconnects
+      retry: 1,                          // only retry once on failure
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
