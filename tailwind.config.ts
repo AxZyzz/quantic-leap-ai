@@ -15,7 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ['Raleway', 'system-ui', 'sans-serif'],
+        serif: ['EB Garamond', 'Georgia', 'serif'],
+        display: ['Urbanist', 'system-ui', 'sans-serif'],
       },
       textShadow: {
         sm: "0 1px 2px rgba(0, 0, 0, 0.25)",

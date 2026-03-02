@@ -68,6 +68,8 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Raleway', system-ui, sans-serif;
+    font-optical-sizing: auto;
   }
 
   html {

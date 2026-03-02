@@ -135,7 +135,7 @@ const Home = () => {
         <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mix-blend-difference cursor-hover relative">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mix-blend-difference relative">
                 Scale Without Increasing
                 <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mix-blend-normal">
                   {" "}
