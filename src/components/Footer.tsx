@@ -35,7 +35,9 @@ const Footer = () => {
               Your strategic AI partner for long-term growth. We build custom AI solutions that
               automate operations and maximize ROI.
             </p>
+
             <div className="flex space-x-4">
+
               <a
                 href="https://www.linkedin.com/company/a2bagency"
                 target="_blank"

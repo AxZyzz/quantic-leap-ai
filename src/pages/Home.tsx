@@ -16,12 +16,23 @@ import {
   ArrowRight,
   Star,
 } from "lucide-react";
+import { useEffect, useRef } from "react";
 import heroImage from "@/assets/hero-bg.jpg";
 // import PartnersScroll from "@/components/PartnersScroll"; // Temporarily commented out
 import FeaturesSection from "@/components/FeaturesSection";
 import ToolsSection from "@/components/ToolsSection";
 
 const Home = () => {
+  const trustpilotRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // @ts-ignore
+    if (window.Trustpilot) {
+      // @ts-ignore
+      window.Trustpilot.loadFromElement(trustpilotRef.current);
+    }
+  }, []);
+
   const solutions = [
     {
       icon: Workflow,
@@ -346,6 +357,29 @@ const Home = () => {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={300}>
+            <div className="mt-24 mb-12 flex flex-col items-center gap-4 px-4 overflow-visible">
+              <div
+                ref={trustpilotRef}
+                className="trustpilot-widget scale-125 md:scale-180 transform-gpu"
+                data-locale="en-US"
+                data-template-id="56278e9abfbbba0bdcd568bc"
+                data-businessunit-id="69ddd1c2017696545c635eb5"
+                data-style-height="200px"
+                data-style-width="100%"
+                data-token="d6d64518-9d5c-4cc5-85e0-cfc7dd0e621d"
+              >
+                <a
+                  href="https://www.trustpilot.com/review/a2b.services"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Trustpilot
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

@@ -35,6 +35,15 @@ const CustomCursor = () => {
 
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
+            
+            // Check for Trustpilot to hide custom cursor (prevent lag/freezing)
+            if (target.closest('.trustpilot-widget')) {
+                cursor.style.opacity = "0";
+                return;
+            } else {
+                cursor.style.opacity = ""; // Restore default
+            }
+
             // Check for links, buttons
             const isLink = target.closest('a') || target.closest('button') || target.closest('.cursor-hover');
 
@@ -45,6 +54,11 @@ const CustomCursor = () => {
 
         const handleMouseOut = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
+
+            if (target.closest('.trustpilot-widget')) {
+                cursor.style.opacity = "";
+            }
+
             const isLink = target.closest('a') || target.closest('button') || target.closest('.cursor-hover');
 
             if (isLink) {

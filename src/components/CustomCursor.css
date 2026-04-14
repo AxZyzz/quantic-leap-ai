@@ -70,4 +70,10 @@ body {
     [role="button"] {
         cursor: none !important;
     }
+
+    /* Trustpilot Widget Exemption */
+    .trustpilot-widget, 
+    .trustpilot-widget * {
+        cursor: auto !important;
+    }
 }
