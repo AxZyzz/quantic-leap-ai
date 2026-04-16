@@ -21,6 +21,7 @@ import heroImage from "@/assets/hero-bg.jpg";
 // import PartnersScroll from "@/components/PartnersScroll"; // Temporarily commented out
 import FeaturesSection from "@/components/FeaturesSection";
 import ToolsSection from "@/components/ToolsSection";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 const Home = () => {
   const trustpilotRef = useRef<HTMLDivElement>(null);
@@ -330,12 +331,15 @@ const Home = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <ScrollReveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Video Testimonials */}
+          <VideoTestimonials />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-16">
             {testimonials.map((testimonial, index) => (
               <ScrollReveal key={testimonial.author} delay={index * 100}>
                 <Card>
