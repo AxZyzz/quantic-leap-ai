@@ -135,6 +135,32 @@ const BlogDetail = () => {
         );
     };
 
+    // Render external links as a clean button
+    const renderExternalLink = (url: string) => {
+        if (!url) return null;
+
+        return (
+            <div className="mb-10 p-6 bg-primary/5 border border-primary/20 rounded-xl flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <FileText className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                        <h3 className="font-semibold text-lg">Full Document Available</h3>
+                        <p className="text-sm text-muted-foreground">View or download the complete PDF/Document.</p>
+                    </div>
+                </div>
+                <Button asChild className="gap-2 group">
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                        <Download className="h-4 w-4" /> 
+                        View Full Document
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                </Button>
+            </div>
+        );
+    };
+
     // Error state - blog not found
     if (error) {
         return (
@@ -205,27 +231,8 @@ const BlogDetail = () => {
                                     {/* Media - Image, PDF, PPT, or other file */}
                                     {blog.image_url && renderMedia(blog.image_url, blog.title)}
 
-                                    {/* External PDF Link */}
-                                    {blog.external_link && (
-                                        <div className="mb-10 p-6 bg-primary/5 border border-primary/20 rounded-xl flex items-center justify-between flex-wrap gap-4">
-                                            <div className="flex items-center gap-4">
-                                                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                                                    <FileText className="h-6 w-6 text-primary" />
-                                                </div>
-                                                <div>
-                                                    <h3 className="font-semibold text-lg">Full Document Available</h3>
-                                                    <p className="text-sm text-muted-foreground">View or download the complete PDF/Document.</p>
-                                                </div>
-                                            </div>
-                                            <Button asChild className="gap-2 group">
-                                                <a href={blog.external_link} target="_blank" rel="noopener noreferrer">
-                                                    <Download className="h-4 w-4" /> 
-                                                    View Full Document
-                                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                                </a>
-                                            </Button>
-                                        </div>
-                                    )}
+                                    {/* External PDF Link / Embedded Viewer */}
+                                    {blog.external_link && renderExternalLink(blog.external_link)}
 
                                     {/* Content */}
                                     <div className="prose prose-lg dark:prose-invert max-w-none">
