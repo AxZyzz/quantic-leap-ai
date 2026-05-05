@@ -120,7 +120,7 @@ const Blog = () => {
 
                                 <div className="flex-grow p-6 flex flex-col">
                                     <div className="text-xs text-muted-foreground mb-2">
-                                        {format(new Date(blog.created_at), 'MMMM d, yyyy')} • {blog.created_by}
+                                        {format(new Date(blog.created_at), 'MMMM d, yyyy')}
                                     </div>
 
                                     <Link to={`/blog/${blog.slug}`} className="hover:underline">

@@ -221,10 +221,8 @@ const BlogDetail = () => {
                                     {/* Title */}
                                     <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{blog.title}</h1>
 
-                                    {/* Author and Date */}
+                                    {/* Date */}
                                     <div className="flex items-center gap-4 mb-8 text-sm text-muted-foreground border-b pb-8">
-                                        <span className="font-semibold text-foreground capitalize">{blog.created_by}</span>
-                                        <span>•</span>
                                         <time dateTime={blog.created_at}>{format(new Date(blog.created_at), 'MMMM d, yyyy')}</time>
                                     </div>
 
