@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -45,25 +46,12 @@ const Careers = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER;
-      const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert({ source: 'internship', data: formData });
 
-      const headers: Record<string, string> = {
-        "Content-Type": "application/json",
-        Website: websiteHeaderValue ?? "",
-      };
-      if (authValue) headers["Authorization"] = authValue;
-
-      // Send the form data to the configured webhook and include source metadata
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ ...formData, source: "internship" }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit application');
+      if (error) {
+        throw error;
       }
 
       // Show success message
@@ -98,14 +86,12 @@ const Careers = () => {
         otherSource: "",
       });
     } catch (err) {
-      console.error("Failed to submit careers form to webhook", err);
+      console.error("Failed to submit careers form", err);
       toast({
         title: "Submission Failed",
         description: "There was an error submitting your application. Please try again.",
         variant: "destructive",
       });
-    } finally {
-      console.log(formData);
     }
   };
 

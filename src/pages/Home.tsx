@@ -16,7 +16,7 @@ import {
   ArrowRight,
   Star,
 } from "lucide-react";
-import { useEffect, useRef } from "react";
+
 import heroImage from "@/assets/hero-bg.jpg";
 // import PartnersScroll from "@/components/PartnersScroll"; // Temporarily commented out
 import FeaturesSection from "@/components/FeaturesSection";
@@ -24,16 +24,6 @@ import ToolsSection from "@/components/ToolsSection";
 import VideoTestimonials from "@/components/VideoTestimonials";
 
 const Home = () => {
-  const trustpilotRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // @ts-ignore
-    if (window.Trustpilot) {
-      // @ts-ignore
-      window.Trustpilot.loadFromElement(trustpilotRef.current);
-    }
-  }, []);
-
   const solutions = [
     {
       icon: Workflow,
@@ -328,7 +318,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="pt-20 pb-8">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -363,32 +353,26 @@ const Home = () => {
           </div>
 
           <ScrollReveal delay={300}>
-            <div className="mt-24 mb-12 flex flex-col items-center gap-4 px-4 overflow-visible">
-              <div
-                ref={trustpilotRef}
-                className="trustpilot-widget scale-125 md:scale-180 transform-gpu"
-                data-locale="en-US"
-                data-template-id="56278e9abfbbba0bdcd568bc"
-                data-businessunit-id="69ddd1c2017696545c635eb5"
-                data-style-height="200px"
-                data-style-width="100%"
-                data-token="d6d64518-9d5c-4cc5-85e0-cfc7dd0e621d"
+            <div className="mt-16 flex justify-center px-4">
+              <a
+                href="https://www.trustpilot.com/review/a2b.services?utm_medium=trustbox&utm_source=TrustBoxReviewCollector"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 group"
               >
-                <a
-                  href="https://www.trustpilot.com/review/a2b.services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Trustpilot
-                </a>
-              </div>
+                <span>Review us on</span>
+                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-[#00b67a] group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                </svg>
+                <span className="font-semibold text-foreground">Trustpilot</span>
+              </a>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20">
+      <section className="pt-8 pb-20">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground">

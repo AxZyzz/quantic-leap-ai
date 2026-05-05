@@ -1,4 +1,5 @@
 import * as React from "react";
+import { supabase } from "@/lib/supabase";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,24 +31,12 @@ export default function Testimonial() {
     e.preventDefault();
 
     try {
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER;
-      const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert({ source: 'testimonial', data: formData });
 
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-        Website: websiteHeaderValue,
-      };
-      if (authValue) headers['Authorization'] = authValue;
-
-      const res = await fetch(webhookUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ ...formData, source: 'testimonial' }),
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to submit testimonial');
+      if (error) {
+        throw error;
       }
 
       // reset form locally

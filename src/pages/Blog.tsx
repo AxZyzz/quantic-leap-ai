@@ -14,13 +14,14 @@ interface BlogPost {
     slug: string;
     description: string;
     image_url: string | null;
+    external_link: string | null;
     created_by: string;
 }
 
 const fetchBlogs = async (): Promise<BlogPost[]> => {
     const { data, error } = await supabase
         .from('blogs')
-        .select('id, created_at, title, slug, description, image_url, created_by')
+        .select('id, created_at, title, slug, description, image_url, external_link, created_by')
         .order('created_at', { ascending: false });
 
     if (error) throw error;

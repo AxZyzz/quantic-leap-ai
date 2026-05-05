@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -39,29 +40,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-      const websiteHeaderValue = import.meta.env.VITE_WEBHOOK_WEBSITE_HEADER;
-      const authValue = import.meta.env.VITE_WEBHOOK_AUTH ?? null;
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert({ source: 'contact-page', data: formData });
 
-      // Build headers and include optional Authorization header if provided
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-        Website: websiteHeaderValue,
-      };
-      if (authValue) {
-        // If the caller provided an auth secret via env, send it as Authorization header
-        headers['Authorization'] = authValue;
-      }
-
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers,
-        // include a small metadata flag so the webhook knows this came from the contact page
-        body: JSON.stringify({ ...formData, source: 'contact-page' }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
+      if (error) {
+        throw error;
       }
 
       toast({

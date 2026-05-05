@@ -17,13 +17,14 @@ interface BlogPost {
     description: string;
     content: string;
     image_url: string | null;
+    external_link: string | null;
     created_by: string;
 }
 
 const fetchBlogBySlug = async (slug: string): Promise<BlogPost> => {
     const { data, error } = await supabase
         .from('blogs')
-        .select('id, created_at, title, slug, description, content, image_url, created_by')
+        .select('id, created_at, title, slug, description, content, image_url, external_link, created_by')
         .eq('slug', slug)
         .single();
 
@@ -203,6 +204,28 @@ const BlogDetail = () => {
 
                                     {/* Media - Image, PDF, PPT, or other file */}
                                     {blog.image_url && renderMedia(blog.image_url, blog.title)}
+
+                                    {/* External PDF Link */}
+                                    {blog.external_link && (
+                                        <div className="mb-10 p-6 bg-primary/5 border border-primary/20 rounded-xl flex items-center justify-between flex-wrap gap-4">
+                                            <div className="flex items-center gap-4">
+                                                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                                                    <FileText className="h-6 w-6 text-primary" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-semibold text-lg">Full Document Available</h3>
+                                                    <p className="text-sm text-muted-foreground">View or download the complete PDF/Document.</p>
+                                                </div>
+                                            </div>
+                                            <Button asChild className="gap-2 group">
+                                                <a href={blog.external_link} target="_blank" rel="noopener noreferrer">
+                                                    <Download className="h-4 w-4" /> 
+                                                    View Full Document
+                                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                                </a>
+                                            </Button>
+                                        </div>
+                                    )}
 
                                     {/* Content */}
                                     <div className="prose prose-lg dark:prose-invert max-w-none">
