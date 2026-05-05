@@ -378,7 +378,7 @@ const Contact = () => {
                         <div>
                           <p className="font-medium">Instagram</p>
                           <a
-                            href="https://www.instagram.com/a2b.agency_/"
+                            href="https://www.instagram.com/a2bai.tech"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-muted-foreground hover:text-accent"

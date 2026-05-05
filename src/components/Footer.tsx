@@ -66,7 +66,7 @@ const Footer = () => {
                 <Youtube className="h-5 w-5" />
               </a>
               <a
-                href="https://www.instagram.com/a2bagency.official/"
+                href="https://www.instagram.com/a2bai.tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent transition-colors"
