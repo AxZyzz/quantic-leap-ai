@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { Link, useSearchParams } from "react-router-dom";
+import { Search } from "lucide-react";
+import SEO from "@/components/SEO";
+import { servicesSchema } from "@/lib/schemas";
 
 // Solution media assets
 import ecommerceImg from "../assets/solution/Ecommerce.jpg";
@@ -671,8 +673,8 @@ const Services = () => {
             },
           ];
 
+          const [searchParams] = useSearchParams();
           const [selected, setSelected] = useState(industries[0].id);
-          const [carouselIndex, setCarouselIndex] = useState(0);
           const [searchQuery, setSearchQuery] = useState("");
           const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -683,6 +685,14 @@ const Services = () => {
           ];
           
           const current = allItemsList.find((i) => i.id === selected) || industries[0];
+
+          // Read category from URL params — reactive to React Router navigation
+          useEffect(() => {
+            const category = searchParams.get("category");
+            if (category && allItemsList.some((i) => i.id === category)) {
+              setSelected(category);
+            }
+          }, [searchParams]);
 
           // Calculate similarity score between search query and industry title using Levenshtein distance
           const calculateSimilarity = (query: string, title: string): number => {
@@ -768,19 +778,6 @@ const Services = () => {
             
             if (allMatches.length > 0) {
               setSelected(allMatches[0].id);
-              
-              // Create combined items list for carousel
-              const allItemsForSearch = [
-                ...industries,
-                ...commonAutomations
-              ];
-              
-              // Scroll carousel to show the selected item
-              const itemsPerView = 3;
-              const maxIndexVal = Math.max(0, allItemsForSearch.length - itemsPerView);
-              const bestMatch = allItemsForSearch.findIndex((i) => i.id === allMatches[0].id);
-              const newIndex = Math.max(0, Math.min(bestMatch - 1, maxIndexVal));
-              setCarouselIndex(newIndex);
             }
             
             setSearchQuery("");
@@ -791,25 +788,6 @@ const Services = () => {
               handleSearch();
             }
           };
-          
-          const itemsPerView = 3;
-          
-          const handlePrev = () => {
-            setCarouselIndex(Math.max(0, carouselIndex - 1));
-          };
-          
-          const handleNext = () => {
-            setCarouselIndex(Math.min(maxIndex, carouselIndex + 1));
-          };
-          
-          // Combine industries and universal automations for carousel display
-          const allItems = [
-            ...industries.map(ind => ({ ...ind, type: 'industry' })),
-            ...commonAutomations.map(auto => ({ ...auto, type: 'automation' }))
-          ];
-          
-          const maxIndex = Math.max(0, allItems.length - itemsPerView);
-          const visibleIndustries = allItems.slice(carouselIndex, carouselIndex + itemsPerView);
 
           // Helper to map automation titles to media (image or YouTube)
           const getMediaForTitle = (title: string) => {
@@ -817,13 +795,13 @@ const Services = () => {
             if (t.includes("product photos") || t.includes("gemini") || t.includes("e-commerce")) {
               return { type: "img", src: ecommerceImg, alt: title };
             }
-            if (t.includes("product demo") || t === "ai-generated product demo" || t.includes("product demo" ) || t.includes("product demo")) {
+            if (t.includes("product demo") || t === "ai-generated product demo") {
               return { type: "youtube", src: YT_PRODUCT_DEMO, alt: title };
             }
             if (t.includes("google sheets") || t.includes("order logging") || t.includes("monthly tab")) {
               return { type: "img", src: ecommerceTabImg, alt: title };
             }
-            if (t.includes("batchdata") || t.includes("skip tracing") || t.includes("batchdata")) {
+            if (t.includes("batchdata") || t.includes("skip tracing")) {
               return { type: "img", src: realestateLeadgenImg, alt: title };
             }
             if (t.includes("ai real estate") || t.includes("end-to-end ops")) {
@@ -872,172 +850,127 @@ const Services = () => {
 
           return (
             <div className="min-h-screen pt-20">
-              <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
+              <SEO
+                title="AI Automation Services by Industry | Custom Solutions | A2B AI Technologies"
+                description="Explore A2B's AI automation services across 21+ industries: real estate, healthcare, e-commerce, legal, HR, and more. Custom-built workflow automation, chatbots, and AI agents."
+                canonical="https://a2b.services/services"
+                schema={servicesSchema}
+              />
+
+              {/* Compact Hero + Search */}
+              <section className="pt-12 pb-6 bg-gradient-to-b from-muted/30 to-background">
                 <div className="container mx-auto px-4">
-                  <ScrollReveal>
-                    <div className="max-w-3xl mx-auto text-center">
-                      <h1 className="text-5xl md:text-6xl font-bold mb-6">Industry Automations</h1>
-                      <p className="text-xl text-muted-foreground">
-                        Select your industry to explore automation solutions we build and the impact they deliver.
-                      </p>
+                  <div className="max-w-3xl mx-auto text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-3">Industry Automations</h1>
+                    <p className="text-base text-muted-foreground mb-6">
+                      Explore automation solutions we build and the impact they deliver.
+                    </p>
+
+                    {/* Search Bar — compact, inline */}
+                    <div className="flex gap-0 max-w-lg mx-auto rounded-full border border-border/60 bg-background/80 backdrop-blur-sm overflow-hidden shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300">
+                      <input
+                        ref={searchInputRef}
+                        type="text"
+                        placeholder="Search industry or automation..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        className="flex-1 px-5 py-3 text-sm bg-transparent border-none text-foreground placeholder-foreground/40 focus:outline-none"
+                      />
+                      <button
+                        onClick={handleSearch}
+                        className="px-5 py-3 bg-accent hover:bg-accent/90 text-white transition-all duration-200 flex items-center"
+                      >
+                        <Search className="w-4 h-4" />
+                      </button>
                     </div>
-                  </ScrollReveal>
+                  </div>
                 </div>
               </section>
 
-              <section className="py-16">
+              <section className="py-12">
                 <div className="container mx-auto px-4 max-w-6xl">
-                  <ScrollReveal>
-                    {/* Search Bar Section */}
-                    <div className="mb-12 -mt-12">
-                      <div className="flex gap-0 max-w-2xl mx-auto mb-8 rounded-full bg-white/5 border border-accent/40 neon-glow-border overflow-hidden">
-                        <input
-                          ref={searchInputRef}
-                          type="text"
-                          placeholder="Search industry/automation..."
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                          onKeyPress={handleKeyPress}
-                          className="flex-1 px-6 py-4 text-lg bg-transparent border-none text-foreground placeholder-foreground/40 focus:outline-none transition-all duration-300"
-                        />
-                        <button
-                          onClick={handleSearch}
-                          className="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold transition-all duration-300 flex items-center gap-2 border-none"
-                        >
-                          <Search className="w-6 h-6" />
-                        </button>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-
-                  <ScrollReveal>
-                    <div className="mb-16">
-                      {/* Carousel Slider */}
-                      <div className="flex items-center gap-6">
-                        {/* Left Arrow */}
-                        <button
-                          onClick={handlePrev}
-                          disabled={carouselIndex === 0}
-                          className="p-3 rounded-full border border-white/20 hover:bg-white/10 hover:border-accent/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
-                        >
-                          <ChevronLeft className="w-6 h-6" />
-                        </button>
-
-                        {/* Carousel Items */}
-                        <div className="flex-1 overflow-hidden">
-                          <div className="flex flex-wrap gap-3 justify-center">
-                            {visibleIndustries.map((ind, idx) => (
-                              <button
-                                key={ind.id}
-                                onClick={() => setSelected(ind.id)}
-                                className={`pill-tag px-6 py-2 rounded-full border-2 text-center transition-all duration-300 transform whitespace-nowrap ${
-                                  selected === ind.id
-                                    ? "bg-accent text-white border-accent shadow-lg pill-selected neon-glow-border"
-                                    : "bg-white/5 border-white/30 hover:bg-white/10 hover:border-accent/50 hover:shadow-md text-foreground"
-                                }`}
-                                style={{
-                                  animationDelay: `${idx * 0.05}s`
-                                }}
-                              >
-                                <span className="text-xs font-semibold">{ind.title}</span>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Right Arrow */}
-                        <button
-                          onClick={handleNext}
-                          disabled={carouselIndex === maxIndex}
-                          className="p-3 rounded-full border border-white/20 hover:bg-white/10 hover:border-accent/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
-                        >
-                          <ChevronRight className="w-6 h-6" />
-                        </button>
-                      </div>
-
-                      {/* Progress Indicator */}
-                      <div className="flex justify-center gap-2 mt-8">
-                        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setCarouselIndex(i)}
-                            className={`h-2 rounded-full transition-all duration-300 ${
-                              i === carouselIndex ? "w-8 bg-accent" : "w-2 bg-white/30 hover:bg-white/50"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </ScrollReveal>
 
                   <div>
                     <ScrollReveal>
-                      <div className="mb-16 p-8 bg-gradient-to-r from-accent/5 to-transparent rounded-xl border border-accent/20">
-                        <h2 className="text-4xl font-bold mb-4">{current.title}</h2>
-                        <p className="text-lg text-foreground/70 font-medium">Goal: {current.goal}</p>
+                      <div className="mb-12 flex items-start gap-6 p-6 md:p-8 rounded-2xl border border-border/40 bg-muted/20">
+                        <div className="hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex-shrink-0 mt-1">
+                          <span className="text-2xl font-bold text-accent">{allItemsList.findIndex(i => i.id === current.id) + 1}</span>
+                        </div>
+                        <div>
+                          <h2 className="text-3xl md:text-4xl font-bold mb-2">{current.title}</h2>
+                          <p className="text-base text-muted-foreground">{current.goal}</p>
+                        </div>
                       </div>
                     </ScrollReveal>
 
-                    <div className="space-y-12">
-                      {current.automations.map((a, index) => (
-                        <ScrollReveal key={a.title} delay={index * 50}>
-                          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                            {/* Left: Details (or Right on alternating) */}
-                            <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                              <Card className="h-full hover:shadow-2xl transition-all duration-300 border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-accent/40">
-                                <CardContent className="pt-8 pb-8">
-                                  <h4 className="font-bold mb-4 text-2xl text-foreground">{a.title}</h4>
-                                  <p className="text-base text-foreground/70 mb-8 leading-relaxed">{a.description}</p>
-                                  <div className="pt-6 border-t border-white/10">
-                                    <p className="text-accent font-semibold text-base">Impact: <span className="text-foreground/90">{a.impact}</span></p>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            </div>
+                    <div className="space-y-8">
+                      {current.automations.map((a, index) => {
+                        const media = getMediaForTitle(a.title);
+                        const isReversed = index % 2 === 1;
 
-                            {/* Right: Accent Visual (or Left on alternating) */}
-                            <div className={`flex items-center justify-center p-12 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                              <div className="w-full h-48 rounded-xl border border-accent/20 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center">
-                                {(() => {
-                                  const media = getMediaForTitle(a.title);
-                                  if (!media) {
-                                    return (
-                                      <div className="text-center">
-                                        <div className="text-6xl font-bold text-accent/30 mb-2">✓</div>
-                                        <p className="text-foreground/50 font-medium">{a.title}</p>
+                        return (
+                          <ScrollReveal key={a.title} delay={index * 50}>
+                            <div className={`grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch`}>
+                              {/* Card — spans 3 columns */}
+                              <div className={`lg:col-span-3 ${isReversed ? "lg:order-2" : ""}`}>
+                                <div className="h-full rounded-xl border border-border/40 bg-card hover:border-accent/30 transition-all duration-300 hover:shadow-lg overflow-hidden">
+                                  <div className="flex h-full">
+                                    {/* Accent side strip */}
+                                    <div className="w-1 bg-gradient-to-b from-accent to-accent/20 flex-shrink-0" />
+                                    <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+                                      <div>
+                                        <div className="flex items-center gap-3 mb-4">
+                                          <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent/10 text-accent text-xs font-bold flex-shrink-0">
+                                            {String(index + 1).padStart(2, "0")}
+                                          </span>
+                                          <h3 className="font-semibold text-lg text-foreground leading-snug">{a.title}</h3>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground leading-relaxed mb-6">{a.description}</p>
                                       </div>
-                                    );
-                                  }
+                                      <div className="pt-4 border-t border-border/30 flex items-start gap-2">
+                                        <span className="text-accent text-xs font-bold uppercase tracking-wider mt-0.5 flex-shrink-0">Impact</span>
+                                        <p className="text-sm text-foreground/80">{a.impact}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
 
-                                  if (media.type === "img") {
-                                    return (
-                                      <img
-                                        src={media.src}
-                                        alt={media.alt}
-                                        className="w-full h-full object-cover"
-                                      />
-                                    );
-                                  }
-
-                                  if (media.type === "youtube") {
-                                    return (
+                              {/* Media — spans 2 columns */}
+                              <div className={`lg:col-span-2 ${isReversed ? "lg:order-1" : ""}`}>
+                                <div className="h-full min-h-[220px] rounded-xl border border-border/30 overflow-hidden bg-muted/30 flex items-center justify-center">
+                                  {media ? (
+                                    media.type === "youtube" ? (
                                       <iframe
                                         title={a.title}
                                         src={`https://www.youtube-nocookie.com/embed/${media.src}`}
-                                        className="w-full h-full"
+                                        className="w-full h-full min-h-[220px]"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
                                       />
-                                    );
-                                  }
-
-                                  return null;
-                                })()}
+                                    ) : (
+                                      <img
+                                        src={media.src}
+                                        alt={media.alt}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover"
+                                      />
+                                    )
+                                  ) : (
+                                    <div className="text-center p-8">
+                                      <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center mx-auto mb-4">
+                                        <span className="text-2xl font-bold text-accent">{String(index + 1).padStart(2, "0")}</span>
+                                      </div>
+                                      <p className="text-xs text-muted-foreground max-w-[200px] mx-auto leading-relaxed">{a.title}</p>
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </ScrollReveal>
-                      ))}
+                          </ScrollReveal>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

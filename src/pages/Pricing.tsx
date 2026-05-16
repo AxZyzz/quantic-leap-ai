@@ -3,16 +3,43 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
+
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "A2B AI Technologies",
+  "description": "Custom AI automation solutions from starter packages to enterprise partnerships.",
+  "brand": { "@type": "Organization", "name": "A2B AI Technologies" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "0",
+    "highPrice": "4999",
+    "priceCurrency": "USD",
+    "offerCount": "3",
+    "offers": [
+      { "@type": "Offer", "name": "Basic Pack", "price": "0", "priceCurrency": "USD", "description": "Free discovery consultation with PRD, system audit, and automation roadmap" },
+      { "@type": "Offer", "name": "Starter Pack", "price": "4999", "priceCurrency": "USD", "description": "1 complete AI automation solution with 2-week development cycle" },
+      { "@type": "Offer", "name": "Business Partner", "price": "0", "priceCurrency": "USD", "description": "Custom monthly partnership with dedicated AI engineer" }
+    ]
+  }
+};
 
 const Pricing = () => {
   return (
     <div className="min-h-screen pt-20">
+      <SEO
+        title="AI Automation Pricing | Free Consultation to Enterprise | A2B AI Technologies"
+        description="Explore A2B's AI automation pricing: Free discovery consultation, $4,999 starter pack, and custom enterprise partnerships. Get a complete PRD and automation roadmap at no cost."
+        canonical="https://a2b.services/pricing"
+        schema={pricingSchema}
+      />
       {/* Hero Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready To Scale?</h2>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">Ready To Scale?</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Choose the partnership level that fits your needs
               </p>

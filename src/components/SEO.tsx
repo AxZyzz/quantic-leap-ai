@@ -12,13 +12,15 @@ interface SEOProps {
 const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "A2B - Enterprise AI Automation Solutions",
+  "name": "A2B AI Technologies",
   "url": "https://a2b.services",
   "logo": "https://a2b.services/logo.png",
   "description": "Enterprise-grade AI automation and integration services for secure, scalable workflow orchestration across cloud platforms.",
   "sameAs": [
-    "https://www.linkedin.com/company/a2b-services",
-    "https://twitter.com/a2b_services"
+    "https://www.linkedin.com/company/a2bagency",
+    "https://x.com/ABusiness41270",
+    "https://www.instagram.com/a2bai.tech",
+    "https://www.youtube.com/channel/UCOr8E2dKBEP6wZI3j19tlaw"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -41,7 +43,7 @@ const defaultSchema = {
 }
 
 export default function SEO({ 
-  title = "A2B - Enterprise AI Automation & Integration Solutions",
+  title = "A2B AI Technologies | Enterprise AI Automation & Integration Solutions",
   description = "Transform your enterprise with secure, scalable AI automation. Custom workflow orchestration, cloud integration, and ROI-driven implementation for industry leaders.",
   canonical = "https://a2b.services",
   ogImage = "/assets/logo/a2blogoblack.png",
@@ -60,7 +62,7 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content="A2B Services" />
+      <meta property="og:site_name" content="A2B AI Technologies" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

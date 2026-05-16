@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Target, Lightbulb, TrendingUp, Users, CheckCircle2, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 import rahulPhoto from '@/assets/team/rahul.jpg';
 import amanphoto from '@/assets/team/aman.jpg';
@@ -127,8 +128,44 @@ const About = () => {
     },
   ];
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About A2B AI Technologies",
+    "description": "Meet the team behind A2B AI Technologies. Expert engineers and strategists building custom AI automation solutions for enterprise growth.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "A2B AI Technologies LLP",
+      "url": "https://a2b.services",
+      "foundingDate": "2020",
+      "founders": team.map(m => ({
+        "@type": "Person",
+        "name": m.name,
+        "jobTitle": m.role,
+        "sameAs": m.linkedin || undefined
+      }))
+    },
+    "hasPart": {
+      "@type": "HowTo",
+      "name": "How A2B Implements AI Automation",
+      "description": "A proven 5-step methodology from discovery to optimization.",
+      "step": process.map((s, i) => ({
+        "@type": "HowToStep",
+        "position": i + 1,
+        "name": s.title,
+        "text": s.description
+      }))
+    }
+  };
+
   return (
     <div className="min-h-screen pt-20">
+      <SEO
+        title="About A2B AI Technologies | Your Strategic AI Automation Partner"
+        description="Meet the expert engineers and strategists at A2B AI Technologies. We build custom AI automation solutions that compound value over time. Founded 2020, serving businesses worldwide."
+        canonical="https://a2b.services/about"
+        schema={aboutSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
         <div className="container mx-auto px-4">
@@ -206,6 +243,7 @@ const About = () => {
                       <img
                         src={member.image}
                         alt={member.name}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                     </div>

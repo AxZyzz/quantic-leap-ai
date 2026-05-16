@@ -6,6 +6,20 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
+
+const blogListSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "A2B AI Technologies Blog",
+  "description": "Latest updates, insights, and case studies on AI automation, workflow optimization, and business scaling from A2B AI Technologies.",
+  "url": "https://a2b.services/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "A2B AI Technologies",
+    "url": "https://a2b.services"
+  }
+};
 
 interface BlogPost {
     id: string;
@@ -43,6 +57,12 @@ const Blog = () => {
     return (
         <div className="min-h-screen flex flex-col bg-background">
             <Navbar />
+            <SEO
+                title="AI Automation Blog | Insights & Case Studies | A2B AI Technologies"
+                description="Expert insights on AI automation, workflow optimization, and business scaling. Read case studies, tutorials, and industry analysis from A2B AI Technologies."
+                canonical="https://a2b.services/blog"
+                schema={blogListSchema}
+            />
 
             <main className="flex-grow pt-24 pb-12 container mx-auto px-4">
                 <div className="text-center mb-12">
@@ -74,6 +94,7 @@ const Blog = () => {
                                         <img
                                             src={blog.image_url}
                                             alt={blog.title}
+                                            loading="lazy"
                                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;

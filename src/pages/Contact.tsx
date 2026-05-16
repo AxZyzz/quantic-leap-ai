@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
+import SEO from "@/components/SEO";
+import { contactSchema } from "@/lib/schemas";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -87,6 +89,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEO
+        title="Contact A2B AI Technologies | Schedule a Free AI Consultation"
+        description="Get in touch with A2B AI Technologies. Schedule a free consultation to discuss your AI automation needs. Email, phone, or book a discovery call via Calendly."
+        canonical="https://a2b.services/contact"
+        schema={contactSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
         <div className="container mx-auto px-4">

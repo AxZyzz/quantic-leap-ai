@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import { homePageSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -129,6 +131,12 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="A2B AI Technologies | AI Automation Solutions That Scale Your Business"
+        description="Transform your business with custom AI automation solutions. Automate operations, maximize ROI, and scale without increasing headcount. Enterprise-grade AI implementation partner."
+        canonical="https://a2b.services"
+        schema={homePageSchema}
+      />
       {/* Hero Section */}
       <section className="relative min-h-screen h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-background/80">

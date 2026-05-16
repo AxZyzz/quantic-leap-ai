@@ -14,6 +14,21 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import SEO from "@/components/SEO";
+
+const careersSchema = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "AI Automation Intern / Team Member",
+  "description": "Join A2B AI Technologies as an AI automation intern or team member. Work on real-world AI automation projects.",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "A2B AI Technologies",
+    "sameAs": "https://a2b.services"
+  },
+  "employmentType": ["INTERN", "FULL_TIME"],
+  "jobLocationType": "TELECOMMUTE"
+};
 
 const Careers = () => {
   const { toast } = useToast();
@@ -112,6 +127,12 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEO
+        title="Careers at A2B AI Technologies | Join Our AI Automation Team"
+        description="Apply to join A2B AI Technologies. We're looking for engineers, designers, and strategists passionate about building AI automation solutions that transform businesses."
+        canonical="https://a2b.services/careers"
+        schema={careersSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
         <div className="container mx-auto px-4">

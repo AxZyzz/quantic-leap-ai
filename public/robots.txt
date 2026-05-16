@@ -1,22 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-
-# Disallow admin and private routes
 Disallow: /admin/
-Disallow: /private/
+Disallow: /admin
 Disallow: /testimonial
+Disallow: /update
 
-# Sitemap location
+# Sitemap
 Sitemap: https://a2b.services/sitemap.xml
-
-# Crawl-delay for specific bots
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-Allow: /
-
-User-agent: *
-Allow: /

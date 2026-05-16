@@ -82,6 +82,7 @@ const FeaturesSection = () => {
                       <img
                         src={feature.image}
                         alt={feature.title}
+                        loading="lazy"
                         className="w-full h-48 object-contain"
                       />
                     </div>

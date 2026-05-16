@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, FileText, Download, Quote, ArrowRight, Mail } from "lucide-react";
-import { Helmet } from "react-helmet";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
 interface BlogPost {
@@ -62,6 +62,7 @@ const BlogDetail = () => {
                     <img
                         src={url}
                         alt={title}
+                        loading="lazy"
                         className="w-full h-auto object-cover"
                         onError={(e) => {
                             const target = e.target as HTMLImageElement;
@@ -182,13 +183,34 @@ const BlogDetail = () => {
         <div className="min-h-screen flex flex-col bg-background">
             {/* SEO Meta Tags */}
             {blog && (
-                <Helmet>
-                    <title>{blog.title} | Quantile Leap AI</title>
-                    <meta name="description" content={blog.description} />
-                    <meta property="og:title" content={blog.title} />
-                    <meta property="og:description" content={blog.description} />
-                    {blog.image_url && <meta property="og:image" content={blog.image_url} />}
-                </Helmet>
+                <SEO
+                    title={`${blog.title} | A2B AI Technologies`}
+                    description={blog.description}
+                    canonical={`https://a2b.services/blog/${blog.slug}`}
+                    ogImage={blog.image_url || undefined}
+                    schema={{
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        "headline": blog.title,
+                        "description": blog.description,
+                        "datePublished": blog.created_at,
+                        "dateModified": blog.created_at,
+                        "author": {
+                            "@type": "Person",
+                            "name": blog.created_by || "A2B AI Technologies"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "A2B AI Technologies",
+                            "url": "https://a2b.services"
+                        },
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": `https://a2b.services/blog/${blog.slug}`
+                        },
+                        ...(blog.image_url ? { "image": blog.image_url } : {})
+                    }}
+                />
             )}
 
             <Navbar />

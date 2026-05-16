@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const Privacy = () => {
     // Scroll to top on mount
@@ -39,6 +40,11 @@ const Privacy = () => {
 
     return (
         <div className="min-h-screen pt-20 bg-background">
+            <SEO
+                title="Privacy Policy | A2B AI Technologies"
+                description="Learn how A2B AI Technologies collects, uses, and protects your personal information. Read our complete privacy policy covering data security, cookies, and your rights."
+                canonical="https://a2b.services/privacy"
+            />
             {/* Header Section */}
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 via-primary/5 to-transparent z-0 pointer-events-none" />
@@ -102,7 +108,7 @@ const Privacy = () => {
                                             </h2>
                                             <div className="prose prose-lg dark:prose-invert text-muted-foreground leading-relaxed">
                                                 <p>
-                                                    At A2B ("we," "our," or "us"), protecting your privacy is at the core of our business values. This Privacy Policy is designed to clearly explain how we collect, use, disclose, and safeguard your collected information when you visit our website or engage with our services.
+                                                    At A2B AI Technologies LLP ("we," "our," or "us"), protecting your privacy is at the core of our business values. This Privacy Policy is designed to clearly explain how we collect, use, disclose, and safeguard your collected information when you visit our website or engage with our services.
                                                 </p>
                                                 <p className="mt-4">
                                                     By using our services, you agree to the collection and use of information in accordance with this policy. If you do not agree with the terms of this privacy policy, please do not access the site.

@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import SEO from "./components/SEO";
+
 import CustomCursor from "./components/CustomCursor";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -23,7 +23,7 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Update from "./pages/Update";
 import Privacy from "./pages/Privacy";
-import { homePageSchema } from "./lib/schemas";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +48,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/:section" element={<CaseStudies />} />

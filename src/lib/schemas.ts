@@ -1,7 +1,7 @@
 export const homePageSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "A2B - Enterprise AI Automation Solutions",
+  "name": "A2B AI Technologies",
   "description": "Transform your enterprise with secure, scalable AI automation. Custom workflow orchestration, cloud integration, and ROI-driven implementation for industry leaders.",
   "url": "https://a2b.services",
   "potentialAction": {
@@ -17,7 +17,7 @@ export const servicesSchema = {
   "name": "Enterprise AI Automation Services",
   "provider": {
     "@type": "Organization",
-    "name": "A2B Services"
+    "name": "A2B AI Technologies"
   },
   "serviceType": ["AI Automation", "System Integration", "Workflow Orchestration"],
   "areaServed": "Worldwide",
@@ -56,11 +56,11 @@ export const servicesSchema = {
 export const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "name": "Contact A2B Services",
-  "description": "Get in touch with A2B Services for enterprise AI automation solutions",
+  "name": "Contact A2B AI Technologies",
+  "description": "Get in touch with A2B AI Technologies for enterprise AI automation solutions",
   "mainEntity": {
     "@type": "Organization",
-    "name": "A2B Services",
+    "name": "A2B AI Technologies",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+91-9446447169",
@@ -77,11 +77,11 @@ export const caseStudySchema = {
   "headline": "Enterprise AI Automation Case Study",
   "author": {
     "@type": "Organization",
-    "name": "A2B Services"
+    "name": "A2B AI Technologies"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "A2B Services",
+    "name": "A2B AI Technologies",
     "logo": {
       "@type": "ImageObject",
       "url": "https://a2b.services/logo.png"

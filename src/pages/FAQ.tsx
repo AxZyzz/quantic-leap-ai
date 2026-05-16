@@ -20,7 +20,7 @@ const faqData: FAQItem[] = [
     id: "what-is-a2b",
     category: "Getting Started",
     question: "What does A2B do?",
-    answer: "A2B is an AI solutions agency that designs, builds, and deploys custom AI systems for businesses. We create intelligent automation, conversational AI agents, knowledge management systems, voice assistants, and workflow integrations that help organizations scale efficiently and deliver better customer experiences."
+    answer: "A2B AI Technologies is an AI automation agency that designs, builds, and deploys custom AI systems for businesses. We create intelligent automation, conversational AI agents, knowledge management systems, voice assistants, and workflow integrations that help organizations scale efficiently and deliver better customer experiences."
   },
   {
     id: "typical-clients",
@@ -120,7 +120,7 @@ const FAQ = () => {
   return (
     <>
       <SEO 
-        title="FAQ - A2B AI Solutions & Enterprise Automation"
+        title="FAQ | A2B AI Technologies"
         description="Frequently asked questions about A2B's AI solutions, pricing, technical capabilities, implementation process, and support services for enterprise automation."
         canonical="https://a2b.services/faq"
         schema={faqSchema}

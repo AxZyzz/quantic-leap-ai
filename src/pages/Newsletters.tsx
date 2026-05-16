@@ -1,8 +1,14 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
 
 const Newsletters = () => {
   return (
     <div className="min-h-screen pt-20">
+      <SEO
+        title="AI Automation Newsletter | Weekly Insights | A2B AI Technologies"
+        description="Subscribe to A2B's AI automation newsletter. Get weekly insights, case studies, workflow templates, and industry analysis delivered to your inbox."
+        canonical="https://a2b.services/newsletters"
+      />
       <section className="py-32 bg-gradient-to-br from-muted/40 to-background">
         <div className="container mx-auto px-4">
           <ScrollReveal>

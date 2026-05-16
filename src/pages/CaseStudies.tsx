@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { TrendingUp, Clock, DollarSign, Users, ArrowRight, FileText, Workflow, Laptop, Library } from "lucide-react";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { useEffect, useRef, useState } from "react";
+import SEO from "@/components/SEO";
+import { caseStudySchema } from "@/lib/schemas";
 import lifosysImg from "../assets/solution/Lifosys_er.png";
 import sacredTextImg1 from "../assets/casestudy/SacredTextPublishing/image1.webp";
 import sacredTextImg2 from "../assets/casestudy/SacredTextPublishing/img2.webp";
@@ -610,7 +612,7 @@ Furthermore, once an image is generated, verifying it against strict brand guide
             roi: `A complete visual autopilot. By moving from "guessing" to "engineering" images, brands save hundreds of hours in creative direction and revision cycles. It ensures that every single pixel published—whether for a social post or an enterprise report—feels intentionally crafted and perfectly on-brand.`,
             testimonial: "It transforms brand image generation from a bottleneck into an infinite-capacity automation engine, preserving creative vision while enabling unlimited production at zero additional cost.",
             conclusion: "Visual Brand Intelligence represents the pinnacle of brand-consistent AI image generation, combining artistic soul with technical precision.",
-            author: "A2B AI Team"
+            author: "A2B AI Technologies"
         }
     ];
 
@@ -718,7 +720,7 @@ Furthermore, once an image is generated, verifying it against strict brand guide
                                     Documentation Portal
                                 </Badge>
                                 <h1 className="text-4xl md:text-5xl font-bold mb-4 cs-gradient-text">
-                                    Welcome to A2B
+                                    Welcome to A2B AI Technologies
                                 </h1>
                                 <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
                                     A2B AI Technologies was founded with the vision of empowering startups and businesses
@@ -2271,9 +2273,17 @@ Furthermore, once an image is generated, verifying it against strict brand guide
     };
 
     return (
-        <CaseStudyLayout>
-            {(currentSection) => renderSection(currentSection)}
-        </CaseStudyLayout>
+        <>
+            <SEO
+                title="AI Automation Case Studies | Real-World Success Stories | A2B AI Technologies"
+                description="Explore detailed case studies of A2B's AI automation implementations: sacred text video generation, medical WhatsApp chatbots, brand image AI, and more. See real ROI results."
+                canonical="https://a2b.services/case-studies"
+                schema={caseStudySchema}
+            />
+            <CaseStudyLayout>
+                {(currentSection) => renderSection(currentSection)}
+            </CaseStudyLayout>
+        </>
     );
 };
 
