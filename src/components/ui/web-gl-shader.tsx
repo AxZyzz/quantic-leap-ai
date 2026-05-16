@@ -78,7 +78,8 @@ export function WebGLShader() {
         mutations.forEach((mutation) => {
           if (mutation.target === document.documentElement && mutation.attributeName === 'class') {
             if (refs.uniforms) {
-              refs.uniforms.isDark.value = document.documentElement.classList.contains('dark') ? 1.0 : 0.0;
+              const isDarkTheme = document.documentElement.classList.contains('dark') || document.documentElement.classList.contains('blue');
+              refs.uniforms.isDark.value = isDarkTheme ? 1.0 : 0.0;
             }
           }
         });
@@ -90,7 +91,7 @@ export function WebGLShader() {
         xScale: { value: 1.0 },
         yScale: { value: 0.5 },
         distortion: { value: 0.05 },
-        isDark: { value: document.documentElement.classList.contains('dark') ? 1.0 : 0.0 },
+        isDark: { value: (document.documentElement.classList.contains('dark') || document.documentElement.classList.contains('blue')) ? 1.0 : 0.0 },
       }
 
       // Watch for theme changes
