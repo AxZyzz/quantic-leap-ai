@@ -874,7 +874,7 @@ const Services = () => {
                         placeholder="Search industry or automation..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        onKeyPress={handleKeyPress}
+                        onKeyDown={handleKeyPress}
                         className="flex-1 px-5 py-3 text-sm bg-transparent border-none text-foreground placeholder-foreground/40 focus:outline-none"
                       />
                       <button

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Star, StarOff } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function Testimonial() {
   const [formData, setFormData] = React.useState({
@@ -54,6 +55,7 @@ export default function Testimonial() {
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+      <SEO title="Submit Testimonial | A2B AI Technologies" noindex={true} />
       <div className="max-w-2xl mx-auto">
         <Card className="border shadow-lg">
           <CardHeader className="space-y-1">

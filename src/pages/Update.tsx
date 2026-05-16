@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import Navbar from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import { Badge } from "@/components/ui/badge";
 import {
     Table,
@@ -222,20 +223,19 @@ const Update = () => {
     const [selectedSubmission, setSelectedSubmission] = useState<FormSubmission | null>(null);
     const [detailOpen, setDetailOpen] = useState(false);
 
-    // ─── Restore session on mount ───────────────────────────
+    // ─── Force login every visit ──────────────────────────────
 
     useEffect(() => {
-        const restoreSession = async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session?.user) {
-                setIsAuthenticated(true);
-                setCurrentUser(session.user.email || 'Admin');
-            }
+        const forceLogout = async () => {
+            // Always sign out first so admin must re-enter password
+            await supabase.auth.signOut();
+            setIsAuthenticated(false);
+            setCurrentUser('');
             setIsCheckingSession(false);
         };
-        restoreSession();
+        forceLogout();
 
-        // Listen for auth state changes (e.g. token refresh)
+        // Listen for auth state changes (e.g. after login)
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
             if (session?.user) {
                 setIsAuthenticated(true);
@@ -246,7 +246,11 @@ const Update = () => {
             }
         });
 
-        return () => subscription.unsubscribe();
+        // Sign out when leaving the admin page
+        return () => {
+            subscription.unsubscribe();
+            supabase.auth.signOut();
+        };
     }, []);
 
     // ─── Login ──────────────────────────────────────────────
@@ -481,6 +485,7 @@ const Update = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEO title="Admin Panel | A2B AI Technologies" noindex={true} />
             <Navbar />
 
             <main className="flex-grow container mx-auto px-4 py-24">
@@ -628,7 +633,7 @@ const Update = () => {
                                                             <TableCell className="font-medium">
                                                                 <div className="flex items-center gap-3">
                                                                     {blog.image_url ? (
-                                                                        <img src={blog.image_url} alt="" className="w-10 h-10 rounded object-cover bg-muted" />
+                                                                        <img src={blog.image_url} alt={`${blog.title} thumbnail`} className="w-10 h-10 rounded object-cover bg-muted" />
                                                                     ) : (
                                                                         <div className="w-10 h-10 rounded bg-muted flex items-center justify-center">
                                                                             <FileText className="h-4 w-4 text-muted-foreground" />

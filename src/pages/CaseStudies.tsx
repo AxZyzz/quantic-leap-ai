@@ -1798,10 +1798,10 @@ Furthermore, once an image is generated, verifying it against strict brand guide
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="cs-image-container">
-                                        <img src={jarvisImg1} alt="JARVIS screenshot 1" className="w-full h-auto" />
+                                        <img src={jarvisImg1} alt="JARVIS screenshot 1" loading="lazy" className="w-full h-auto" />
                                     </div>
                                     <div className="cs-image-container">
-                                        <img src={jarvisImg2} alt="JARVIS screenshot 2" className="w-full h-auto" />
+                                        <img src={jarvisImg2} alt="JARVIS screenshot 2" loading="lazy" className="w-full h-auto" />
                                     </div>
                                 </div>
                             </div>
@@ -2003,7 +2003,7 @@ Furthermore, once an image is generated, verifying it against strict brand guide
                                 </div>
 
                                 <div className="cs-image-container max-w-2xl mx-auto">
-                                    <img src={lexiconImg} alt="Lexicon" className="w-full h-auto" />
+                                    <img src={lexiconImg} alt="Lexicon" loading="lazy" className="w-full h-auto" />
                                 </div>
                             </div>
                         </ScrollReveal>
@@ -2034,7 +2034,7 @@ Furthermore, once an image is generated, verifying it against strict brand guide
                                 </div>
 
                                 <div className="cs-image-container max-w-2xl mx-auto">
-                                    <img src={aetherImg} alt="Aether" className="w-full h-auto" />
+                                    <img src={aetherImg} alt="Aether" loading="lazy" className="w-full h-auto" />
                                 </div>
                             </div>
                         </ScrollReveal>
@@ -2065,7 +2065,7 @@ Furthermore, once an image is generated, verifying it against strict brand guide
                                 </div>
 
                                 <div className="cs-image-container max-w-2xl mx-auto">
-                                    <img src={curioImg} alt="Curio" className="w-full h-auto" />
+                                    <img src={curioImg} alt="Curio" loading="lazy" className="w-full h-auto" />
                                 </div>
                             </div>
                         </ScrollReveal>
