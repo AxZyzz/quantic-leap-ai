@@ -42,13 +42,47 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('form_submissions')
-        .insert({ source: 'contact-page', data: formData });
+      // 1. Prepare data for Web3Forms email
+      const web3FormsData = new FormData();
+      web3FormsData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "");
+      web3FormsData.append("subject", `New Lead from ${formData.firstName} ${formData.lastName}`);
+      web3FormsData.append("from_name", "A2B Website Leads");
+      
+      // Append all form data fields
+      Object.entries(formData).forEach(([key, value]) => {
+        web3FormsData.append(key, value as string);
+      });
 
-      if (error) {
-        throw error;
+      // 2. Wrap Supabase call to throw on error so Promise.allSettled catches it properly
+      const dbPromise = async () => {
+        const { error } = await supabase
+          .from('form_submissions')
+          .insert({ source: 'contact-page', data: formData });
+        if (error) throw error;
+      };
+
+      // 3. Wrap Web3Forms call to verify success
+      const emailPromise = fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: web3FormsData
+      }).then(res => res.json()).then(data => {
+        if (!data.success) throw new Error(data.message || "Email failed to send");
+      });
+
+      // 4. Run BOTH tasks simultaneously using Promise.allSettled
+      // This ensures that even if Supabase fails, the email still sends!
+      const results = await Promise.allSettled([dbPromise(), emailPromise]);
+
+      const dbFailed = results[0].status === 'rejected';
+      const emailFailed = results[1].status === 'rejected';
+
+      if (dbFailed && emailFailed) {
+        throw new Error("Both database and email failed. Please try again.");
       }
+
+      // Log partial failures for debugging if needed
+      if (dbFailed) console.error("Database save failed:", (results[0] as PromiseRejectedResult).reason);
+      if (emailFailed) console.error("Email send failed:", (results[1] as PromiseRejectedResult).reason);
 
       toast({
         title: "Message sent successfully!",
