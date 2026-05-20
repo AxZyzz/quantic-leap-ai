@@ -87,7 +87,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    // { name: "Services", path: "/services" },
     { name: "Pricing", path: "/pricing" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "Blog", path: "/blog" },
