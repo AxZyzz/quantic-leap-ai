@@ -559,16 +559,6 @@ All colors MUST be HSL.
   .tools-marquee-row {
     position: relative;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%);
-    mask-image: linear-gradient(to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%);
   }
 
   .tools-marquee-row+.tools-marquee-row {
@@ -613,12 +603,6 @@ All colors MUST be HSL.
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s ease;
-    opacity: 0.6;
-  }
-
-  .tools-marquee-item:hover {
-    opacity: 1;
   }
 
   .tools-marquee-item img {
