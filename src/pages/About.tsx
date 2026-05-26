@@ -5,10 +5,10 @@ import { Target, Lightbulb, TrendingUp, Users, CheckCircle2, Linkedin } from "lu
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 
-import rahulPhoto from '@/assets/team/rahul.jpg';
-import amanphoto from '@/assets/team/aman.jpg';
-import danyPhoto from '@/assets/team/dany.jpg';
-import akhilPhoto from '@/assets/team/akhil.jpg';
+import rahulPhoto from '@/assets/team/rahul.webp';
+import amanphoto from '@/assets/team/aman.webp';
+import danyPhoto from '@/assets/team/dany.webp';
+import akhilPhoto from '@/assets/team/akhil.webp';
 
 const About = () => {
   const team = [
@@ -197,7 +197,7 @@ const About = () => {
                   more with less—turning overlooked inputs into profit-driving outputs.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  Founded in 2020, A2B AI Technologies was born from the frustration of seeing businesses struggle
+                  Headquartered in Trivandrum, Kerala, India, A2B AI Technologies was founded in 2026 from the frustration of seeing businesses struggle
                   with generic AI solutions that didn't fit their unique needs. We believe every
                   company deserves AI implementations that are tailored, secure, and built for
                   long-term success.

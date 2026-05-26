@@ -28,6 +28,12 @@ const faqData: FAQItem[] = [
     question: "Who are your typical clients?",
     answer: "We work with growth-stage startups, enterprise technology teams, e-commerce businesses, professional services firms, and digital agencies. Our clients range from companies looking to automate their first workflow to large organizations implementing enterprise-wide AI transformation."
   },
+  {
+    id: "location",
+    category: "Getting Started",
+    question: "Where is A2B AI Technologies located?",
+    answer: "We are an AI automation and SaaS product company headquartered in Trivandrum, Kerala, India. While our core engineering operates from India, we serve enterprise clients globally."
+  },
   
   // Pricing & Timeline
   {

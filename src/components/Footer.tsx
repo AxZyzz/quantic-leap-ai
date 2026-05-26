@@ -110,11 +110,16 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} A2B AI Technologies LLP. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+        <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-center md:text-left">
+            <p className="text-primary-foreground/60 text-sm mb-1">
+              © {new Date().getFullYear()} A2B AI Technologies LLP. All rights reserved.
+            </p>
+            <p className="text-primary-foreground/40 text-xs">
+              AI Automation & SaaS Development • Headquarters: Trivandrum, Kerala, India
+            </p>
+          </div>
+          <div className="flex space-x-6">
             <Link
               to="/privacy"
               className="text-primary-foreground/60 hover:text-accent text-sm transition-colors"

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { homePageSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
@@ -92,22 +92,25 @@ const Home = () => {
 
   const caseStudies = [
     {
-      industry: "financial services",
-      challenge: "This firm was lossing 17-20% of their potential clients while onboarding",
-      result: "Onboarding time dropped by 60%, cutting the process from an hour to 20 minutes. The firm now saves 1–2% per client in admin costs, improves client retention by 10–15%.",
-      roi: "achieves roughly 200% ROI over 3–4 years from efficiency gains alone.",
+      industry: "Digital Marketing & SEO",
+      link: "/case-studies/seo-report-automation",
+      challenge: "A freelance SEO consultant spent 2-3 full working days per client each month manually pulling data from Google Search Console, building charts, writing insights, and formatting PDFs -- consuming 50% of his productive month.",
+      result: "A fully automated weekly reporting system: data from GSC + GA4 merged, AI-generated insights written, and a polished PDF delivered to his inbox every Monday at 8 AM. Zero manual steps.",
+      roi: "2-3 days per report reduced to under 30 seconds. 10 working days reclaimed every month, enabling new client acquisition without adding hours.",
     },
     {
       industry: "Religious & Educational Content",
-      challenge: "I need 1,500-page PDFs converted to animated videos, and the standard approach costs a fortune.",
-      result: " A fully automated system built in 2 days that cut costs from $5,000+ to $700, eliminated $650/month fees, and processed each PDF in just 2 hours instead of 3 weeks.",
-      roi: "700% cost savings and zero recurring expenses long-term automation at no ongoing cost.",
+      link: "/case-studies/sacred-text-publishing",
+      challenge: "A religious organization needed to convert a 1,500-page sacred Gurmukhi text into thousands of animated social media videos. Manual production would take months; external video APIs would cost thousands of dollars.",
+      result: "A fully automated pipeline using n8n, Gemini AI, and FFmpeg generates verse + explanation videos locally: each video in 1.5 minutes, at zero per-video cost, with AI-accurate Gurmukhi OCR and culturally appropriate styling.",
+      roi: "100x efficiency: months of work reduced to hours. Zero ongoing costs. Unlimited scalability to any language, script, or religious text.",
     },
     {
-      industry: "Healthcare",
-      challenge: "The startup needed an automated WhatsApp system to collect patient details and reports.",
-      result: "Built a seamless WhatsApp workflow that handled data, reports, and visit requests automatically.",
-      roi: "Cut manual work by 70% and boosted efficiency with zero recurring cost.",
+      industry: "Healthcare & Medical Services",
+      link: "/case-studies/medical-consultation",
+      challenge: "A multi-hospital network was handling 100-200+ daily patient WhatsApp inquiries manually. Scaling to 2,000+ patients/day would require hiring a large operations team -- unsustainable and error-prone.",
+      result: "A multilingual, multimodal WhatsApp system handling all consultation intake automatically: text, voice notes, and medical documents processed 24/7 with structured patient data delivered directly to doctors.",
+      roi: "Zero staff for 100-200+ daily inquiries. Scales from 200 to 2,000+ patients/day with no additional headcount. Doctors receive clean, organized records instead of scattered chats.",
     },
   ];
 
@@ -134,7 +137,7 @@ const Home = () => {
     <div className="min-h-screen">
       <SEO
         title="A2B AI Technologies | AI Automation Solutions That Scale Your Business"
-        description="Transform your business with custom AI automation solutions. Automate operations, maximize ROI, and scale without increasing headcount. Enterprise-grade AI implementation partner."
+        description="Transform your business with custom AI automation solutions. We are an enterprise-grade AI agency and SaaS product company helping you automate operations and scale without increasing headcount."
         canonical="https://a2b.services"
         schema={homePageSchema}
       />
@@ -261,18 +264,12 @@ const Home = () => {
                       <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
                         {study.industry}
                       </div>
-                      {(study.industry === "financial services" || study.industry === "Religious & Educational Content") && (
-                        <a
-                          href="https://www.linkedin.com/posts/rahul-v-k_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%A2%F0%9D%90%AC-%F0%9D%90%9C%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD-%F0%9D%90%A3%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%AD-%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%A2%F0%9D%90%9D-%F0%9D%90%A6%F0%9D%90%9E-activity-7375086404386807808-gVcy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE0RNokBO_aQUDwWXD6sGmbeS1CMusGKIEI"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-accent hover:text-accent/80"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-                          </svg>
-                        </a>
-                      )}
+                      <Link
+                        to={study.link}
+                        className="text-accent hover:text-accent/80 text-xs font-medium flex items-center gap-1 mt-1"
+                      >
+                        Full case <ArrowRight className="h-3 w-3" />
+                      </Link>
                     </div>
                     <h3 className="font-semibold mb-3 text-lg">Challenge</h3>
                     <p className="text-muted-foreground mb-4">{study.challenge}</p>

@@ -20,6 +20,14 @@ export const faqSchema = {
     },
     {
       "@type": "Question",
+      "name": "Where is A2B AI Technologies located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are an AI automation and SaaS product company headquartered in Trivandrum, Kerala, India. While our core engineering operates from India, we serve enterprise clients globally."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "How much does it cost to build an AI solution with A2B?",
       "acceptedAnswer": {
         "@type": "Answer",
