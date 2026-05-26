@@ -34,7 +34,7 @@ const faqData: FAQItem[] = [
     id: "cost",
     category: "Pricing & Timeline",
     question: "How much does it cost to build an AI solution with A2B?",
-    answer: "Project costs vary based on complexity, scope, and requirements. Simple automation workflows might start around $500-$10,000, while comprehensive AI systems with custom training and enterprise integrations typically range from $10,000-$100,000+. We provide detailed quotes after understanding your specific needs during a discovery consultation."
+    answer: "Project costs vary based on complexity, scope, and requirements. Simple automation workflows might start around $5,000-$15,000, while comprehensive AI systems with custom training and enterprise integrations typically range from $30,000-$100,000+. We provide detailed quotes after understanding your specific needs during a discovery consultation."
   },
   {
     id: "timeline",
@@ -61,6 +61,12 @@ const faqData: FAQItem[] = [
     category: "Technical Solutions",
     question: "What's your approach to data security?",
     answer: "Security is foundational to our architecture. We implement end-to-end encryption, use secure credential management systems, follow least-privilege access controls, and can deploy solutions in your private cloud or on-premises environment."
+  },
+  {
+    id: "rag",
+    category: "Technical Solutions",
+    question: "What is RAG (Retrieval-Augmented Generation) and do we need it?",
+    answer: "Retrieval-Augmented Generation (RAG) is a technique that grounds AI responses in your specific knowledge base—documents, databases, or proprietary information. You need RAG if you want AI to answer questions accurately using your company's information rather than general knowledge. It's essential for customer support, internal knowledge management, and domain-specific applications."
   },
   
   // Support & Maintenance

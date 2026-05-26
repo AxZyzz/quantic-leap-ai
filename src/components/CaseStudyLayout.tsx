@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "./ui/button";
+import { caseStudies, automationTemplates } from "@/data/casestudies";
 
 interface NavItem {
   title: string;
@@ -29,26 +30,14 @@ const navigation: NavItem[] = [
     children: [
       {
         title: "Our Works",
-        children: [
-          { title: "Sacred Text Publishing", slug: "sacred-text-publishing" },
-          { title: "Medical Consultation", slug: "medical-consultation" },
-          { title: "Image Generation", slug: "imagegeneration" },
-          { title: "Visual Brand Intelligence", slug: "visual-brand-intelligence" },
-          { title: "Reddit→YouTube", slug: "reddit-to-youtube" },
-          { title: "Multimodal AI Intake", slug: "multimodal-ai" },
-        ],
+        children: caseStudies.map(s => ({ title: s.sidebarTitle, slug: s.id })),
       },
     ],
   },
   {
     title: "Automation Templates",
     icon: Workflow,
-    children: [
-      { title: "JARVIS (Ultimate Assistant)", slug: "jarvis" },
-      { title: "Lexicon (PDF Report)", slug: "lexicon" },
-      { title: "Aether (Newsletter Creation)", slug: "aether" },
-      { title: "Curio (RAG Pipeline)", slug: "curio" },
-    ],
+    children: automationTemplates.map(t => ({ title: t.sidebarTitle, slug: t.id })),
   },
   { title: "Technology Stack", icon: Laptop, slug: "tech-stack" },
   { title: "Resources", icon: Library, slug: "resources" },
@@ -246,7 +235,7 @@ const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
           "border-r border-border/50",
           "transform transition-transform duration-300 ease-in-out",
           "md:translate-x-0",
-          "overflow-y-auto",
+          "overflow-y-auto scrollbar-none",
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >

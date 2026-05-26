@@ -24,7 +24,15 @@ const defaultSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Trivandrum",
+    "addressRegion": "Kerala",
+    "postalCode": "695001",
     "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "8.5241",
+    "longitude": "76.9366"
   },
   "contactPoint": {
     "@type": "ContactPoint",
@@ -55,6 +63,12 @@ export default function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
+      
+      {/* Geographic / Local SEO Meta Tags */}
+      <meta name="geo.region" content="IN-KL" />
+      <meta name="geo.placename" content="Kochi, Trivandrum, Kerala, India" />
+      <meta name="geo.position" content="8.524139;76.936638" />
+      <meta name="ICBM" content="8.524139, 76.936638" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

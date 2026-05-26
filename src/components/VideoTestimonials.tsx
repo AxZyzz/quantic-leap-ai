@@ -119,6 +119,9 @@ const VideoTestimonials = () => {
                             src={video.src}
                             className="w-full h-full object-cover testimonial-video"
                             controls
+                            autoPlay
+                            muted
+                            loop
                             playsInline
                             preload="metadata"
                             poster={video.src + "#t=0.1"}

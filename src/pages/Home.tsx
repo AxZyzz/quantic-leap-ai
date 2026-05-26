@@ -4,7 +4,7 @@ import { homePageSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ScrollReveal from "@/components/ScrollReveal";
-import { WebGLShader } from "@/components/ui/web-gl-shader";
+import { HeroCardCarousel } from "@/components/ui/HeroCardCarousel";
 import {
   Workflow,
   Brain,
@@ -19,10 +19,11 @@ import {
   Star,
 } from "lucide-react";
 
-import heroImage from "@/assets/hero-bg.jpg";
+
 // import PartnersScroll from "@/components/PartnersScroll"; // Temporarily commented out
 import FeaturesSection from "@/components/FeaturesSection";
 import ToolsSection from "@/components/ToolsSection";
+import ToolsMarquee from "@/components/ToolsMarquee";
 import VideoTestimonials from "@/components/VideoTestimonials";
 
 const Home = () => {
@@ -138,50 +139,55 @@ const Home = () => {
         schema={homePageSchema}
       />
       {/* Hero Section */}
-      <section className="relative min-h-screen h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-background/80">
-          <WebGLShader />
-        </div>
-        <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <ScrollReveal>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight mix-blend-difference relative">
-                Scale Without Increasing
-                <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mix-blend-normal">
-                  {" "}
-                  Headcount
-                </span>
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal delay={100}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto mix-blend-difference">
-                Automate operations, maximize ROI, and grow your business with custom AI solutions
-                built by expert engineers.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="acrylic" size="lg" asChild>
-                  <Link to="/contact">Let's Automate</Link>
-                </Button>
-                <Button variant="acrylicOutline" size="lg" asChild>
-                  <Link to="/case-studies">View Case Studies</Link>
-                </Button>
-              </div>
-            </ScrollReveal>
-            {/* Commented out temporarily - Trusted by Brands section
-            <ScrollReveal delay={300}>
-              <p className="text-sm text-muted-foreground mt-8 mix-blend-difference">
-                Trusted by category leaders across industries
-              </p>
-            </ScrollReveal>
-            */}
+      <section className="relative lg:min-h-[90vh] pt-32 pb-16 flex items-center overflow-hidden bg-background">
+        {/* Removed absolute background shader to place it in the grid instead */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            {/* Left Column: Text & CTAs */}
+            <div className="flex flex-col text-left">
+              <ScrollReveal>
+                <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold mb-6 leading-[1.1] tracking-tight">
+                  Scale Without Increasing
+                  <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent block mt-2">
+                    Headcount
+                  </span>
+                </h1>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={100}>
+                <p className="text-xl text-muted-foreground mb-8 max-w-lg">
+                  Automate operations, maximize ROI, and grow your business with custom AI solutions
+                  built by expert engineers.
+                </p>
+              </ScrollReveal>
+              
+              <ScrollReveal delay={200}>
+                <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                  <Button variant="acrylic" size="lg" className="w-full sm:w-auto h-12 px-8 text-base" asChild>
+                    <Link to="/contact">Let's Automate</Link>
+                  </Button>
+                  <Button variant="acrylicOutline" size="lg" className="w-full sm:w-auto h-12 px-8 text-base" asChild>
+                    <Link to="/case-studies">View Case Studies</Link>
+                  </Button>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Right Column: Scrolling Card Carousel */}
+            <div className="hidden lg:block relative w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+              <HeroCardCarousel />
+            </div>
+
           </div>
         </div>
       </section>
 
+      {/* Tools Marquee - scrolling logos */}
+      <ToolsMarquee />
+
       {/* Solutions Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -292,7 +298,7 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
