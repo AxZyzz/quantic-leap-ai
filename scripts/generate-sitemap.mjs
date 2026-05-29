@@ -11,12 +11,12 @@ config({ path: resolve(__dirname, '../.env') });
 const supabaseUrl = process.env.VITE_SUPABASE_URL;
 const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY;
 
+let supabase = null;
 if (!supabaseUrl || !supabaseKey) {
-  console.error('❌ Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY in .env');
-  process.exit(1);
+  console.warn('⚠️ Warning: Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY in environment/dotenv. Sitemap will only contain static pages.');
+} else {
+  supabase = createClient(supabaseUrl, supabaseKey);
 }
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 // ─── Static pages ───────────────────────────────────────────
 const staticPages = [
@@ -43,17 +43,6 @@ async function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const baseUrl = 'https://a2b.services';
 
-  // Fetch all blog slugs from Supabase
-  const { data: blogs, error } = await supabase
-    .from('blogs')
-    .select('slug, created_at')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('❌ Failed to fetch blogs:', error.message);
-    process.exit(1);
-  }
-
   // Build XML entries for static pages
   const staticEntries = staticPages.map(page => `  <url>
     <loc>${baseUrl}${page.path}</loc>
@@ -62,16 +51,36 @@ async function generateSitemap() {
     <priority>${page.priority}</priority>
   </url>`);
 
-  // Build XML entries for dynamic blog posts
-  const blogEntries = (blogs || []).map(blog => {
-    const lastmod = blog.created_at ? blog.created_at.slice(0, 10) : today;
-    return `  <url>
+  let blogEntries = [];
+
+  if (supabase) {
+    try {
+      // Fetch all blog slugs from Supabase
+      const { data: blogs, error } = await supabase
+        .from('blogs')
+        .select('slug, created_at')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.warn('⚠️ Warning: Failed to fetch blogs from Supabase:', error.message);
+        console.warn('⚠️ Sitemap will only contain static pages.');
+      } else if (blogs) {
+        // Build XML entries for dynamic blog posts
+        blogEntries = blogs.map(blog => {
+          const lastmod = blog.created_at ? blog.created_at.slice(0, 10) : today;
+          return `  <url>
     <loc>${baseUrl}/blog/${blog.slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`;
-  });
+        });
+      }
+    } catch (e) {
+      console.warn('⚠️ Warning: Error querying Supabase for sitemap:', e);
+      console.warn('⚠️ Sitemap will only contain static pages.');
+    }
+  }
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
