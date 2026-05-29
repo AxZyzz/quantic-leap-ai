@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
   ChevronDown,
@@ -23,7 +23,6 @@ interface NavItem {
 }
 
 const navigation: NavItem[] = [
-  { title: "Introduction", icon: Info, slug: "introduction" },
   {
     title: "Case Studies",
     icon: FileText,
@@ -40,7 +39,6 @@ const navigation: NavItem[] = [
     children: automationTemplates.map(t => ({ title: t.sidebarTitle, slug: t.id })),
   },
   { title: "Technology Stack", icon: Laptop, slug: "tech-stack" },
-  { title: "Resources", icon: Library, slug: "resources" },
 ];
 
 function collectSlugs(items: NavItem[]): string[] {
@@ -75,93 +73,103 @@ const NavItemComponent = ({ item, currentSection, setCurrentSection }: NavItemPr
     }
   }, [currentSection]);
 
-  return (
-    <div>
-      <button
-        className={cn(
-          "w-full flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
-          isActive
-            ? "bg-accent/15 text-accent shadow-sm"
-            : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
-          hasChildren && "font-semibold"
-        )}
-        onClick={() => {
-          if (hasChildren) {
-            setIsExpanded(!isExpanded);
-          } else if (item.slug) {
-            setCurrentSection(item.slug);
-          }
-        }}
-      >
-        <span className="flex items-center gap-2.5">
-          {item.icon && (
-            <item.icon className={cn(
-              "h-4 w-4 flex-shrink-0",
-              isActive ? "text-accent" : "text-muted-foreground"
-            )} />
+  if (hasChildren) {
+    return (
+      <div>
+        <button
+          className={cn(
+            "w-full flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-200"
           )}
-          <span className="text-left">{item.title}</span>
-        </span>
-        {hasChildren && (
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          <span className="flex items-center gap-2.5">
+            {item.icon && (
+              <item.icon className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
+            )}
+            <span className="text-left">{item.title}</span>
+          </span>
           <ChevronDown
             className={cn(
               "h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200",
               isExpanded && "rotate-180"
             )}
           />
-        )}
-        {isActive && (
-          <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r bg-accent" />
-        )}
-      </button>
-      {hasChildren && isExpanded && (
-        <div className="ml-3 mt-1 space-y-0.5 border-l border-border/40 pl-3">
-          {item.children!.map((child) => (
-            <div key={child.title || child.slug}>
-              {child.children ? (
-                <div className="space-y-0.5">
-                  <div className="flex items-center gap-2 py-1.5 px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
-                    {child.title}
-                  </div>
+        </button>
+        {isExpanded && (
+          <div className="ml-3 mt-1 space-y-0.5 border-l border-border/40 pl-3">
+            {item.children!.map((child) => (
+              <div key={child.title || child.slug}>
+                {child.children ? (
                   <div className="space-y-0.5">
-                    {child.children.map((subChild) => (
-                      <button
-                        key={subChild.slug}
-                        className={cn(
-                          "w-full text-left px-3 py-2 rounded-md text-sm transition-all duration-200",
-                          currentSection === subChild.slug
-                            ? "bg-accent/10 text-accent font-medium"
-                            : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
-                        )}
-                        onClick={() =>
-                          subChild.slug && setCurrentSection(subChild.slug)
-                        }
-                      >
-                        {subChild.title}
-                      </button>
-                    ))}
+                    <div className="flex items-center gap-2 py-1.5 px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
+                      {child.title}
+                    </div>
+                    <div className="space-y-0.5">
+                      {child.children.map((subChild) => (
+                        <Link
+                          key={subChild.slug}
+                          to={`/case-studies/${subChild.slug}`}
+                          className={cn(
+                            "block w-full text-left px-3 py-2 rounded-md text-sm transition-all duration-200",
+                            currentSection === subChild.slug
+                              ? "bg-accent/10 text-accent font-medium"
+                              : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+                          )}
+                          onClick={() =>
+                            subChild.slug && setCurrentSection(subChild.slug)
+                          }
+                        >
+                          {subChild.title}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <button
-                  className={cn(
-                    "w-full text-left px-3 py-2 rounded-md text-sm transition-all duration-200",
-                    currentSection === child.slug
-                      ? "bg-accent/10 text-accent font-medium"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
-                  )}
-                  onClick={() =>
-                    child.slug && setCurrentSection(child.slug)
-                  }
-                >
-                  {child.title}
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
+                ) : (
+                  <Link
+                    to={`/case-studies/${child.slug}`}
+                    className={cn(
+                      "block w-full text-left px-3 py-2 rounded-md text-sm transition-all duration-200",
+                      currentSection === child.slug
+                        ? "bg-accent/10 text-accent font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+                    )}
+                    onClick={() =>
+                      child.slug && setCurrentSection(child.slug)
+                    }
+                  >
+                    {child.title}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      to={`/case-studies/${item.slug}`}
+      className={cn(
+        "relative w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
+        isActive
+          ? "bg-accent/15 text-accent shadow-sm"
+          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
       )}
-    </div>
+      onClick={() => item.slug && setCurrentSection(item.slug)}
+    >
+      {item.icon && (
+        <item.icon className={cn(
+          "h-4 w-4 flex-shrink-0",
+          isActive ? "text-accent" : "text-muted-foreground"
+        )} />
+      )}
+      <span className="text-left">{item.title}</span>
+      {isActive && (
+        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r bg-accent" />
+      )}
+    </Link>
   );
 };
 
@@ -173,17 +181,20 @@ const CaseStudyLayout = ({ children }: CaseStudyLayoutProps) => {
   const { section } = useParams<{ section?: string }>();
   const navigate = useNavigate();
 
+  const defaultSection = caseStudies[0]?.id || "sacred-text-publishing";
   const currentSection =
-    section && ALL_SLUGS.includes(section) ? section : "introduction";
+    section && ALL_SLUGS.includes(section) ? section : defaultSection;
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const handleSetSection = (slug: string) => {
-    if (slug === "introduction") {
-      navigate("/case-studies", { replace: false });
-    } else {
-      navigate(`/case-studies/${slug}`, { replace: false });
+  useEffect(() => {
+    if (!section) {
+      navigate(`/case-studies/${defaultSection}`, { replace: true });
     }
+  }, [section, navigate, defaultSection]);
+
+  const handleSetSection = (slug: string) => {
+    navigate(`/case-studies/${slug}`, { replace: false });
     setIsSidebarOpen(false);
   };
 

@@ -1,11 +1,12 @@
 import { Clock, TrendingUp, DollarSign, Users } from "lucide-react";
 import type { CaseStudy } from "./types";
+import medicalConsultationArchitecture from "../../assets/solution/medical_consultation_architecture.png";
 
 const medicalConsultation: CaseStudy = {
   id: "medical-consultation",
   sidebarTitle: "Medical Consultation",
   industry: "Healthcare & Medical Services",
-  client: " AI-Powered WhatsApp Medical Consultation Automation System",
+  client: "AI-Powered WhatsApp Medical Consultation Automation System",
   size: "Multi-Hospital Network",
   challenge: `A leading healthcare provider operating multiple hospitals across a major Indian region faced a critical challenge: patients needed a frictionless system to access medical consultation services. Their existing process required users to install apps or navigate complex websites—barriers that significantly reduced engagement, especially among the general population who prefer simple WhatsApp-based communication.
 
@@ -58,7 +59,14 @@ Managing 100–200+ daily inquiries manually was time-consuming and unsustainabl
       ]
     }
   },
-  images: [],
+  images: [
+    {
+      src: medicalConsultationArchitecture,
+      alt: "System Architecture Flowchart",
+      caption: "System Architecture & Data Flow: Multimodal WhatsApp Consultation Pipeline",
+      interactive: true
+    }
+  ],
   technology: [
     "n8n Automation",
     "Gemini AI",

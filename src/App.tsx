@@ -39,6 +39,42 @@ const queryClient = new QueryClient({
   },
 });
 
+/**
+ * Shared route definitions used by both the client-side App and the
+ * server-side prerender entry point. Extracted so the route tree is
+ * defined in a single place.
+ */
+export const AppRoutes = () => (
+  <>
+    <Navigation />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/case-studies" element={<CaseStudies />} />
+      <Route path="/case-studies/:section" element={<CaseStudies />} />
+      <Route path="/newsletters" element={<Newsletters />} />
+      {/* Hidden/unlinked testimonial page (not in navigation) */}
+      <Route path="/testimonial" element={<Testimonial />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/faq" element={<FAQ />} />
+      <Route path="/resources" element={<Resources />} />
+      <Route path="/resources/:section" element={<Resources />} />
+      <Route path="/careers" element={<Careers />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<BlogDetail />} />
+      <Route path="/admin" element={<Update />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/products/:slug" element={<ProductDetail />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    <Footer />
+  </>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -46,32 +82,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/case-studies/:section" element={<CaseStudies />} />
-          <Route path="/newsletters" element={<Newsletters />} />
-          {/* Hidden/unlinked testimonial page (not in navigation) */}
-          <Route path="/testimonial" element={<Testimonial />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/resources/:section" element={<Resources />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
-          <Route path="/admin" element={<Update />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:slug" element={<ProductDetail />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

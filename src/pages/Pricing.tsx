@@ -9,18 +9,17 @@ const pricingSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "A2B AI Technologies",
-  "description": "Custom AI automation solutions from starter packages to enterprise partnerships.",
+  "description": "Custom AI automation solutions from free audits to long-term operational support partnerships.",
   "brand": { "@type": "Organization", "name": "A2B AI Technologies" },
   "offers": {
     "@type": "AggregateOffer",
     "lowPrice": "0",
-    "highPrice": "4999",
     "priceCurrency": "USD",
     "offerCount": "3",
     "offers": [
-      { "@type": "Offer", "name": "Basic Pack", "price": "0", "priceCurrency": "USD", "description": "Free discovery consultation with PRD, system audit, and automation roadmap" },
-      { "@type": "Offer", "name": "Starter Pack", "price": "4999", "priceCurrency": "USD", "description": "1 complete AI automation solution with 2-week development cycle" },
-      { "@type": "Offer", "name": "Business Partner", "price": "0", "priceCurrency": "USD", "description": "Custom monthly partnership with dedicated AI engineer" }
+      { "@type": "Offer", "name": "FREE AUDIT", "price": "0", "priceCurrency": "USD", "description": "Free workflow audit and opportunity analysis session" },
+      { "@type": "Offer", "name": "BOOK A CALL", "price": "0", "priceCurrency": "USD", "description": "Project-based custom AI automation solution discussion" },
+      { "@type": "Offer", "name": "CUSTOM PARTNERSHIP", "price": "0", "priceCurrency": "USD", "description": "Custom monthly partnership with dedicated AI engineer" }
     ]
   }
 };
@@ -29,8 +28,8 @@ const Pricing = () => {
   return (
     <div className="min-h-screen pt-20">
       <SEO
-        title="AI Automation Pricing | Free Consultation to Enterprise | A2B AI Technologies"
-        description="Explore A2B's AI automation pricing: Free discovery consultation, $4,999 starter pack, and custom enterprise partnerships. Get a complete PRD and automation roadmap at no cost."
+        title="AI Automation Pricing | Free Audit & Consulting | A2B AI Technologies"
+        description="Explore A2B's AI automation pricing: Free AI audits, project-based estimates, and custom monthly partnerships. Start scaling your business today."
         canonical="https://a2b.services/pricing"
         schema={pricingSchema}
       />
@@ -47,26 +46,29 @@ const Pricing = () => {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+            {/* FREE AUDIT */}
             <ScrollReveal delay={100}>
               <Card className="h-full transform transition-transform duration-300 hover:scale-[1.02]">
                 <CardContent className="h-full flex flex-col p-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">Basic pack</h3>
-                    <div className="mb-6">
-                      <span className="text-4xl font-bold text-green-500">free</span>
+                    <h3 className="text-2xl font-bold mb-2 tracking-wide text-foreground">FREE AUDIT</h3>
+                    <div className="mb-6 h-[40px] flex items-baseline">
+                      <span className="text-4xl font-bold text-green-500">Free</span>
                     </div>
-                    <p className="text-muted-foreground mb-6">Best for: Anyone exploring AI automation but unsure where to start.</p>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      Best for: Businesses exploring AI automation and looking for the right starting point.
+                    </p>
 
-                    <h4 className="font-semibold mb-2">What’s included:</h4>
+                    <h4 className="font-semibold mb-2 text-sm text-foreground">What’s included:</h4>
                     <ul className="space-y-2 mb-6">
                       {[
-                        "Complete PRD (Product Requirement Document)",
-                        "System audit & workflow analysis",
-                        "Automation roadmap",
-                        "Cost & efficiency projection",
-                        "Tech stack & architecture recommendation",
+                        "Workflow & operations discussion",
+                        "AI opportunity analysis",
+                        "High-level automation strategy",
+                        "Feasibility guidance",
+                        "Recommended solution direction",
                       ].map((f) => (
-                        <li key={f} className="flex items-start">
+                        <li key={f} className="flex items-start text-sm">
                           <CheckCircle2 className="h-5 w-5 text-accent mr-2 flex-shrink-0 mt-0.5" />
                           <span>{f}</span>
                         </li>
@@ -83,6 +85,7 @@ const Pricing = () => {
               </Card>
             </ScrollReveal>
 
+            {/* BOOK A CALL */}
             <ScrollReveal delay={200}>
               <Card className="h-full transform transition-transform duration-300 hover:scale-[1.02] relative">
                 <div className="absolute top-4 right-4">
@@ -90,25 +93,24 @@ const Pricing = () => {
                 </div>
                 <CardContent className="h-full flex flex-col p-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">Starter Pack</h3>
-                    <div className="mb-6">
-                      <span className="text-4xl font-bold">$4999</span>
-                      <span className="text-muted-foreground"> (one-time)</span>
+                    <h3 className="text-2xl font-bold mb-2 tracking-wide text-foreground">BOOK A CALL</h3>
+                    <div className="mb-6 h-[40px] flex items-baseline">
+                      <span className="text-4xl font-bold text-blue-500">Custom</span>
                     </div>
-                    <p className="text-muted-foreground mb-6">Best for: Businesses starting their AI automation journey who want one solid automation built perfectly.</p>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      Best for: Companies ready to discuss a custom AI automation solution tailored to their workflow.
+                    </p>
 
-                    <h4 className="font-semibold mb-2">What’s included:</h4>
+                    <h4 className="font-semibold mb-2 text-sm text-foreground">What’s included:</h4>
                     <ul className="space-y-2 mb-6">
                       {[
-                        "1 complete AI automation solution",
-                        "2-week development cycle",
-                        "Full documentation & user guides",
-                        "14-day post-launch support",
-                        "3 revision rounds",
-                        "Performance metrics dashboard",
-                        "Hosting, deployment & testing included",
+                        "Requirement & workflow discussion",
+                        "Product and process evaluation",
+                        "Solution planning session",
+                        "Scope estimation",
+                        "Custom proposal & pricing",
                       ].map((f) => (
-                        <li key={f} className="flex items-start">
+                        <li key={f} className="flex items-start text-sm">
                           <CheckCircle2 className="h-5 w-5 text-accent mr-2 flex-shrink-0 mt-0.5" />
                           <span>{f}</span>
                         </li>
@@ -118,37 +120,37 @@ const Pricing = () => {
 
                   <div className="mt-auto">
                     <Button variant="hero" size="lg" className="w-full" asChild>
-                      <Link to="/contact">Get Started</Link>
+                      <Link to="/contact">Schedule Consultation</Link>
                     </Button>
                   </div>
                 </CardContent>
               </Card>
             </ScrollReveal>
 
+            {/* CUSTOM PARTNERSHIP */}
             <ScrollReveal delay={300}>
               <Card className="h-full transform transition-transform duration-300 hover:scale-[1.02]">
                 <CardContent className="h-full flex flex-col p-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">Business Partner</h3>
-                    <div className="mb-6">
-                      <span className="text-4xl font-bold">Custom</span>
-                      <span className="text-muted-foreground">/month</span>
+                    <h3 className="text-2xl font-bold mb-2 tracking-wide text-foreground">CUSTOM PARTNERSHIP</h3>
+                    <div className="mb-6 h-[40px] flex items-baseline">
+                      <span className="text-4xl font-bold text-blue-500">Custom</span>
                     </div>
-                    <p className="text-muted-foreground mb-6">Best for: Companies that need ongoing development, continuous improvements, and long-term strategy.</p>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      Best for: Businesses needing long-term AI development, optimization, and operational support.
+                    </p>
 
-                    <h4 className="font-semibold mb-2">What’s included:</h4>
+                    <h4 className="font-semibold mb-2 text-sm text-foreground">What’s included:</h4>
                     <ul className="space-y-2 mb-6">
                       {[
-                        "Dedicated AI Engineer",
-                        "VIP support queue",
-                        "Live debugging & solution management",
-                        "Documentation & user guides",
-                        "Access to client portal",
-                        "Monthly strategy + optimization sessions",
-                        "Unlimited improvements/iterations",
-                        "Chatbots, workflow automation, agents, integration work",
+                        "Dedicated AI engineer",
+                        "Continuous workflow improvements",
+                        "AI system scaling & expansion",
+                        "Priority support & debugging",
+                        "Monthly strategy sessions",
+                        "Ongoing optimization & maintenance",
                       ].map((f) => (
-                        <li key={f} className="flex items-start">
+                        <li key={f} className="flex items-start text-sm">
                           <CheckCircle2 className="h-5 w-5 text-accent mr-2 flex-shrink-0 mt-0.5" />
                           <span>{f}</span>
                         </li>
@@ -158,7 +160,7 @@ const Pricing = () => {
 
                   <div className="mt-auto">
                     <Button variant="secondary" size="lg" className="w-full" asChild>
-                      <Link to="/contact">Let's Automate</Link>
+                      <Link to="/contact">Contact Us</Link>
                     </Button>
                   </div>
                 </CardContent>

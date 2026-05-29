@@ -4,6 +4,7 @@ export interface CaseStudyImage {
   src: string;
   alt: string;
   caption: string;
+  interactive?: boolean;
 }
 
 export interface CaseStudyCapability {

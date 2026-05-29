@@ -1,5 +1,6 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import type { CaseStudy } from "@/data/casestudies";
+import InteractiveImageViewer from "@/components/InteractiveImageViewer";
 
 interface CaseStudyRendererProps {
   study: CaseStudy;
@@ -66,16 +67,24 @@ const CaseStudyRenderer = ({ study }: CaseStudyRendererProps) => {
 
           {/* Primary Image */}
           {study.images && study.images[0] && (
-            <div className="cs-image-container">
-              <img
+            study.images[0].interactive ? (
+              <InteractiveImageViewer
                 src={study.images[0].src}
                 alt={study.images[0].alt}
-                className="w-full h-auto"
+                caption={study.images[0].caption}
               />
-              <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
-                {study.images[0].caption}
-              </p>
-            </div>
+            ) : (
+              <div className="cs-image-container">
+                <img
+                  src={study.images[0].src}
+                  alt={study.images[0].alt}
+                  className="w-full h-auto"
+                />
+                <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                  {study.images[0].caption}
+                </p>
+              </div>
+            )
           )}
 
           {/* Implementation Details (Phases) */}
@@ -108,28 +117,46 @@ const CaseStudyRenderer = ({ study }: CaseStudyRendererProps) => {
 
           {/* Secondary Image */}
           {study.images && study.images[1] && (
-            <div className="cs-image-container">
-              <img
+            study.images[1].interactive ? (
+              <InteractiveImageViewer
                 src={study.images[1].src}
                 alt={study.images[1].alt}
-                className="w-full h-auto"
+                caption={study.images[1].caption}
               />
-              <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
-                {study.images[1].caption}
-              </p>
-            </div>
+            ) : (
+              <div className="cs-image-container">
+                <img
+                  src={study.images[1].src}
+                  alt={study.images[1].alt}
+                  className="w-full h-auto"
+                />
+                <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                  {study.images[1].caption}
+                </p>
+              </div>
+            )
           )}
 
           {/* Extra Images (3+) */}
           {study.images && study.images.length > 2 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {study.images.slice(2).map((img, i) => (
-                <div key={i} className="cs-image-container">
-                  <img src={img.src} alt={img.alt} className="w-full h-auto" />
-                  <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
-                    {img.caption}
-                  </p>
-                </div>
+                img.interactive ? (
+                  <div key={i} className="md:col-span-2">
+                    <InteractiveImageViewer
+                      src={img.src}
+                      alt={img.alt}
+                      caption={img.caption}
+                    />
+                  </div>
+                ) : (
+                  <div key={i} className="cs-image-container">
+                    <img src={img.src} alt={img.alt} className="w-full h-auto" />
+                    <p className="text-xs text-center text-muted-foreground py-3 bg-muted/20">
+                      {img.caption}
+                    </p>
+                  </div>
+                )
               ))}
             </div>
           )}

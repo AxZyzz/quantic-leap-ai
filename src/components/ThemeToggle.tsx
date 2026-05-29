@@ -8,7 +8,7 @@ export function ThemeToggle() {
 
   // Determine which icon to show based on active theme
   const resolvedTheme = theme === "system"
-    ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+    ? (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
     : theme
 
   return (
