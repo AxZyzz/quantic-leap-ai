@@ -49,7 +49,7 @@ const About = () => {
       description:
         "Deep dive into your business processes, data landscape assessment, and stakeholder journey mapping to understand your unique challenges.",
       points: [
-        "Process audit and analysis",
+        "Process audit and analysis.",
         "Data infrastructure review",
         "Stakeholder interviews",
         "Opportunity identification",
