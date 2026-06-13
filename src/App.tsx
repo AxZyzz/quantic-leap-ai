@@ -39,11 +39,6 @@ const queryClient = new QueryClient({
   },
 });
 
-/**
- * Shared route definitions used by both the client-side App and the
- * server-side prerender entry point. Extracted so the route tree is
- * defined in a single place.
- */
 export const AppRoutes = () => (
   <>
     <Navigation />
